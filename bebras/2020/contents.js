@@ -22,11 +22,11 @@ standaloneAddContents({
      { code: "2020-FR-07-tool-deadlock",
        title: "فیلسوف های گرسنه" },
      { code: "2020-IE-07-pollution",
-       title: "آلودگی" },
+       title: "لوله آلوده" },
      { code: "2020-PT-03-creating-numbers",
-       title: "پین بال" },
+       title: "پرتاب توپ" },
      { code: "2020-FR-10-reorder",
-       title: "چرخش ها" },
+       title: "برعکس‌ کردن" },
      { code: "2020-FR-09-loops",
        title: "حلقه ها" }
     ]
