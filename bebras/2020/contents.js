@@ -1,6 +1,6 @@
 standaloneAddContents({
   code: "castor_2020",
-  title: "Concours Castor 2020",
+  title: "مسابقات ببراس ۲۰۲۰",
   folder: "2020/",
   language: "fa",
   difficulties: ["easy", "medium", "hard"],
