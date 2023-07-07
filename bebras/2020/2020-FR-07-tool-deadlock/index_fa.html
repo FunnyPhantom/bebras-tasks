@@ -5,7 +5,7 @@
    <meta charset="utf-8"></meta>
    <title>2020-FR-07-tool-deadlock</title>
    <script>
-      window.stringsLanguage = 'fa';
+      window.stringsLanguage = 'en';
    </script>
    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
    <script class="remove" type="text/javascript">
@@ -36,7 +36,7 @@
    </script>
    <script type="text/javascript">
       var taskStrings = {
-         success: "آفرین، شما موفق شدید!",
+         success: "آفرین! تو بردی!",
          sameTool: function(line,tool) {
             var textLine, toolName;
             switch(line){
@@ -64,16 +64,16 @@
                   toolName = "ارّه";
                   break;
             }
-            return "سگ آبی ردیف "+textLine+" نمی‌تواند "+toolName+" را بردارد چون یک سگ آبی دیگر آن را برداشته."
+            return "ببراس ردیف "+textLine+" نمی‌تواند "+toolName+" را بردارد چون یک ببراس دیگر آن را برداشته."
          },
-         undo: "برگرداندن"
+         undo: "برگشت"
       };
       var enableRtl = true;
    </script>
    <script type="text/javascript" src="task.js"></script>
    <style>
       #paper {
-         margin-top: 1em;   
+         margin-top: 1em;
          touch-action: none;
       }
       #displayHelper_graderMessage {
@@ -85,16 +85,16 @@
 
 <body>
    <div id="task">
-      <h1>ابزارهای مشترک</h1>
+      <h1>ساخت هواپیما</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1">
             <div class="consigne">
 
-               <p><span class="easy">دو</span><span class="medium">سه</span><span class="hard">چهار</span> سگ های آبی در حال کار کردن روی یک پروژه عمرانی هستند. آنها باید از تعدادی ابزار به ترتیب داده شده استفاده کنند، هرکدام برای مدتی مشخص که در  <span class="easy">دو</span><span class="medium">سه</span><span class="hard">چهار</span> ردیف مقابل آنها نشان داده شده.</p>
+               <p><span class="easy">دو</span><span class="medium">سه</span><span class="hard">چهار</span> ببراس در حال کار کردن روی یک هواپیمای چوبی هستند. هر ببراس نیاز به استفاده از تعدادی ابزار به ترتیب خودش و برای مدتی مشخص که در ردیف مقابلش نشان داده شده دارد.</p>
 
-               <p>هر ابزار می‌تواند در هر لحظه در دست حداکثر یک سگ آبی باشد.</p>
-               <p>جوری ابزارها را بکشید که هیچ‌گاه <b>دو ابزار یکسان روی یکدیگر نباشند. </b></p>
+               <p>اگر یک ابزار در یک لحظه دست چند ببراس باشد بینشان دعوا می‌شود.</p>
+               <p>جوری ابزارها را مرتب کنید که هیچ‌گاه <b>دو ببراس همزمان از یک ابزار استفاده ننکند تا دعوا نشود! </b></p>
             </div>
          </div>
          <div id="zone_2">
