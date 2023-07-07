@@ -1,6 +1,6 @@
 [submodule "modules"]
 	path = _common/modules
-	url = https://github.com/France-ioi/bebras-modules.git
+	url = https://github.com/FunnyPhantom/bebras-modules.git
 [submodule "bebras-server-modules-libs"]
 	path = bebras-server-modules-libs
 	url = https://github.com/France-ioi/bebras-server-modules-libs.git
