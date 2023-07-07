@@ -1,45 +1,33 @@
-
 standaloneAddContents({
   code: "castor_2020",
   title: "Concours Castor 2020",
   folder: "2020/",
+  language: "fa",
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2020-CH-07-trade",
-       title: "Échanges" },
+       title: "معاملات" },
      { code: "2020-FR-01-play-music",
-       title: "Musique" },
+       title: "موسیقی" },
      { code: "2020-FR-02-split-flowers",
-       title: "Champignons" },
+       title: "قارچ" },
      { code: "2020-FR-03-waiting-room",
-       title: "Salle d'attente" },
+       title: "اتاق انتظار" },
      { code: "2020-FR-04-joke-propagation",
-       title: "Idée géniale" },
+       title: "فکر بکر" },
      { code: "2020-FR-05-css",
-       title: "Mise en forme" },
+       title: "قالب بندی" },
      { code: "2020-FR-06-overlap-rectangles",
-       title: "Rectangles" },
+       title: "مستطیل ها" },
      { code: "2020-FR-07-tool-deadlock",
-       title: "Outils partagés" },
+       title: "فیلسوف های گرسنه" },
      { code: "2020-IE-07-pollution",
-       title: "Pollution" },
+       title: "آلودگی" },
      { code: "2020-PT-03-creating-numbers",
-       title: "Flipper" },
+       title: "پین بال" },
      { code: "2020-FR-10-reorder",
-       title: "Retournements" },
+       title: "چرخش ها" },
      { code: "2020-FR-09-loops",
-       title: "Boucles" }
+       title: "حلقه ها" }
     ]
   });
-
-
-
-
-
-
-
-
-
-
-
-
