@@ -10,7 +10,7 @@ standaloneAddContents({
      { code: "2020-FR-01-play-music",
        title: "موسیقی" },
      { code: "2020-FR-02-split-flowers",
-       title: "قارچ" },
+       title: "قارچ‌ها" },
      { code: "2020-FR-03-waiting-room",
        title: "اتاق انتظار" },
      { code: "2020-FR-04-joke-propagation",
