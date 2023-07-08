@@ -18,16 +18,16 @@ standaloneAddContents({
      { code: "2020-FR-05-css",
        title: "قالب بندی" },
      { code: "2020-FR-06-overlap-rectangles",
-       title: "مستطیل ها" },
+       title: "رنگ کردن جدول" },
      { code: "2020-FR-07-tool-deadlock",
-       title: "فیلسوف های گرسنه" },
+       title: "ساخت هواپیما" },
      { code: "2020-IE-07-pollution",
        title: "لوله آلوده" },
      { code: "2020-PT-03-creating-numbers",
        title: "پرتاب توپ" },
      { code: "2020-FR-10-reorder",
-       title: "برعکس‌ کردن" },
+       title: "برعکس‌کردن" },
      { code: "2020-FR-09-loops",
-       title: "حلقه ها" }
+       title: "برنامه‌ریزی ربات" }
     ]
   });
