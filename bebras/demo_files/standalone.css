@@ -1,5 +1,13 @@
+
+
+@font-face {
+   font-family: "vazir";
+   src: url("fonts/Vazirmatn/Vazirmatn-VariableFont_wght.ttf");
+}
+
 body {
    overflow-y: scroll;
+   font-family: vazir;
 }
 #header, .layout_table_wrapper {
    max-width: 880px;
