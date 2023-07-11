@@ -1,12 +1,13 @@
 
 standaloneAddContents({
   code: "castor_2019",
-  title: "Concours Castor 2019",
+  title: "مسابقات ببراس 2019",
   folder: "2019/",
+  language: "fa",
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "FR-2019-01-poles",
-       title: "Bambous" },
+       title: "بامبوها" },
      { code: "FR-2019-02-registers",
        title: "Cailloux" },
      { code: "FR-2019-03-prediction",
