@@ -21,7 +21,7 @@ standaloneAddContents({
      { code: "FR-2019-09-hidden-words",
        title: "Mots de passe" },
      { code: "FR-2019-10-lighting",
-       title: "Ambiance lumineuse" },
+       title: "نورپردازی" },
      { code: "FR-2019-12-roller",
        title: "غلتک‌ها" },
      { code: "FR-2019-13-align-strips",
