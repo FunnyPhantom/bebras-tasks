@@ -27,7 +27,7 @@ standaloneAddContents({
      { code: "FR-2019-13-align-strips",
        title: "شبکه آب" },
      { code: "FR-2019-15-shape-compression",
-       title: "Formes compactées" },
+       title: "اَشکال فشرده" },
      { code: "FR-2019-17-base-4-encoding",
        title: "Curseurs" }
     ]
