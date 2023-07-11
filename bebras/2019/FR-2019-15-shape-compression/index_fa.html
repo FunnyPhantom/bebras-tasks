@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>FR-2019-15-shape-compression</title>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'drag_lib-2.0', 'graph-1.0', 'shape-paths'
+      ]);
+   </script>
+   <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/visual-graph-1.1.js"></script>
+
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-15-shape-compression/",
+         "language": "fa",
+         "version": "fa.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
+         "translators": [],
+         "license": "CC BY-SA 3.0",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "تبریک، شما موفق شدید!",
+         partialSuccess: "شما هدف را به درستی بازتولید کرده‌اید، اما از اشکال بسیار زیادی استفاده کرده‌اید. دوباره امتحان کنید تا زمانی که دنباله شما فقط از 6 شکل تشکیل شده باشد.",
+         transformationRules: "قوانین تغییر شکل:",
+         yourSequence: "دنباله شما:",
+         result: "نتیجه:",
+         target: "هدف:",
+         clickHere: "اینجا کلیک کنید",
+         missingShape: "تعدادی از اشکال مورد نظر در دنباله خروجی وجود ندارد.",
+         wrongShape: "اشکالی که با رنگ قرمز برجسته شده است، تفاوت دارند.",
+         wrongLength: "نتیجه، طولانی‌تر از حالت هدف است."
+      };
+      var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+      }
+      #error {
+         text-align: center;
+      }
+
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>اَشکال فشرده</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <p id="difficultyWarning" class="hard"></p>
+         <div id="zone_1">
+            <div class="consigne">
+               <p>ببراس ماشینی دارد که دنباله‌ای از اشکال را مطابق با چند قاعده تغییر خواهد داد.</p>
+               <p>Find <strong><span class="medium hard">قواعد حاکم و </span> دنباله‌ای از اشکال </strong> که نتیجه‌ای مطابق با هدف را خروجی می‌دهند، پیدا کنید.</p>
+               <p class="medium hard">بر روی <img src="buttons.png" style="width:58px;vertical-align:-10px;"> دکمه‌ها به منظور اضافه یا حذف کردن اشکال کلیک کنید.</p>
+               <p>روی اشکالی که داخل دکمه‌های خاکستری قرار دارند، به منظور تغییر آن‌ها کلیک کنید. برای مثال، روی. For example, click on <img src="button_shape.png" style="width:35px;vertical-align:-14px;">کلیک کنید.</p>
+               <p class="hard" style="font-weight:bold">برای دستیابی به امتیاز کامل، دنباله شما باید تنها شامل 6 شکل باشد.</p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+         </div>
+         <div id="error"></div>
+      </div>
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      <h2>راه حل</h2>
+      <h2>It's informatics!</h2>
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>
