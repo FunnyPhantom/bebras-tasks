@@ -25,7 +25,7 @@ standaloneAddContents({
      { code: "FR-2019-12-roller",
        title: "غلتک‌ها" },
      { code: "FR-2019-13-align-strips",
-       title: "Réseau hydraulique" },
+       title: "شبکه آب" },
      { code: "FR-2019-15-shape-compression",
        title: "Formes compactées" },
      { code: "FR-2019-17-base-4-encoding",
