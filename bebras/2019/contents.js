@@ -23,7 +23,7 @@ standaloneAddContents({
      { code: "FR-2019-10-lighting",
        title: "Ambiance lumineuse" },
      { code: "FR-2019-12-roller",
-       title: "Tampons" },
+       title: "غلتک‌ها" },
      { code: "FR-2019-13-align-strips",
        title: "Réseau hydraulique" },
      { code: "FR-2019-15-shape-compression",
