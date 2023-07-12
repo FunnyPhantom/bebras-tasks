@@ -1,8 +1,9 @@
 
 standaloneAddContents({
   code: "castor_2018",
-  title: "Concours Castor 2018",
+  title: "مسابقات ببراس 2019",
   folder: "2018/",
+  language: "fa",
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2018-FR-05-treasure",
