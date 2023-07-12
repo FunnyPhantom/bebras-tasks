@@ -15,7 +15,7 @@
          'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
          'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
          'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
-         'taskStyles-0.1', 'randomGenerator-1.0', 'drag_lib-2.0', 'graph-1.0'
+         'taskStyles-0.1', 'randomGenerator-1.0', 'drag_lib-2.0', 'graph-1.0', 'shape-paths'
       ]);
    </script>
    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/visual-graph-1.1.js"></script>
@@ -38,6 +38,9 @@
    <script type="text/javascript">
       var taskStrings = {
          success: "آفرین! موفق شدی.",
+         startItem: "کالای شروع کننده",
+         noticeForHard: "زمانی که دکمه‌ی \"با این گروه امتحان کن\" را فشار می‌دهید، یک کالا برای شروع نمایان می‌شود. سپس می‌توانید با توجه به ببراس‌ها در گروهتان به معامله بپردازید",
+         instrForHard: "معامله‌ی مورد نظر خود را با توجه به ببراس‌های گروهتان و انتقال آن‌ها به پایین صفحه انجام دهید. اگر نمی‌توانید این کار را کنید، گروهتان را عوض کنید.",
          failure: "دنباله‌ی اشتباه.",
          dragTheBeavers: function(item1,item2) {
             return "ببراس ها را اینجا قرار دهید تا یک دنباله از ببراس ها تشکیل شود که وقتی آن‌ها را به ترتیب از "+addArticle(item1)+
@@ -47,7 +50,8 @@
             return " تا حد امکان تعداد کمی ببراس را به پایین بکشید تا فارغ از کالای که اول به شما داده شده، بتولنید آن را با این ببراس ها برای "+
             addArticle(target)+".معامله کنید"
          },
-
+         instrChangeTeam: "می‌توانید گروه را تغییر دهید.",
+         tryStr: "اعتبارسنجی",
          currentItem: "کالای فعلی",
          itemToFind: "کالایی که باید پیدا کنید",
          try: 'تلاش کنید',
@@ -81,9 +85,9 @@
          margin-top: 1em;
          touch-action: none;
       }
-      #error {
-         text-align: center;
-         height: 1em;
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
       }
    </style>
 </head>
@@ -95,12 +99,24 @@
       <div id="taskContent">
          <div id="zone_1">
             <div class="consigne">
-               <p>هر یک از ببراس های زیر تمایل دارند یک معامله انجام دهند. آن‌ها کالای که در تابولیشان کشیده شده‌است را قبول میکنند، و در عوض کالای که در دست دیگر آن‌ها وجود دارد را معاوضه می‌کنند.
-               </p>
+         <center><p class="hard" id="enemyWarning"></p></center>
+               <p>هر ببراس یک معامله با شما می‌کند: کالایی که روی تابلوی آن می‌باشد را به آن ببراس بدهید تا کالایی که در دست دیگرش قرار دارد را به شما بدهد.</p>
+
+               <p class="easy medium">یک دنباله‌ی معامله پیدا کنید که از کالای ابتدایی شروع شود و با کالای انتهایی تمام شود.</p>
+               <p class="easy medium">ببراس‌ها را به ترتیب در ناحیه‌ی خاکستری قرار دهید که معاملات انجام شود.</p>
+
+               <p class="hard">در ناحیه‌ی خاکستری، <b>کمترین تعداد ببراس را قرار دهید.</b></p>
+   
             </div>
          </div>
          <div id="zone_2">
             <div id="paper"></div>
+            <div id="overlay_1"></div>
+            <div id="overlay_2"></div>
+            <div id="overlay_3"></div>
+            <div id="overlay_4"></div>
+            <div id="overlay_5"></div>
+            <div id="overlay_6"></div>
             <div id="error"></div>
          </div>
       </div>
