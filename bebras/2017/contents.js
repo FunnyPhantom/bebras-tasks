@@ -12,7 +12,7 @@ standaloneAddContents({
      { code: "2017-FR-03-three-towers",
        title: "Tour infernale" },
      { code: "2017-FR-04-faulty-wire",
-       title: "Graines cachées" },
+       title: "تخم‌های پنهان" },
      { code: "2017-FR-05-draw-shapes",
        title: "Langage de formes" },
      { code: "2017-FR-06-pacman",
