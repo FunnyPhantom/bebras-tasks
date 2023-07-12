@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lan="en" dir="rtl">
+   <head>
+      <meta charset="utf-8">
+      <title>2018-AR-14-sort-columns</title>
+      <script>
+           window.stringsLanguage = 'en';
+      </script>
+      <script class="remove" type="text/javascript" src="../../modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+      <script class="remove" type="text/javascript">
+           var modulesPath = '../../modules';
+           importModules([
+               'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+               'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+               'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+               'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'randomGenerator-1.0',
+               'miniPlatform', 'taskStyles-0.1','graph-1.0', 'visual-graph-1.0', 'grid-1.0']);
+       </script>
+       <script class="remove" type="text/javascript">
+            var json = {
+            "id": "",
+            "language": "fa",
+            "version": "en.01",
+            "authors": "France-ioi",
+            "translators": [],
+            "license": "CC BY-SA 3.0",
+            "taskPathPrefix": "",
+            "modulesPathPrefix": "",
+            "browserSupport": [],
+            "fullFeedback": true,
+            "acceptedAnswers": [],
+            "usesRandomSeed": false
+            };
+      </script>
+      <script type="text/javascript">
+         var taskStrings = {
+            objective : "هدف",
+            sort : "مرتب سازی",
+            nSortText : function(nSort) {
+               return "تعداد مرتب سازی ها " + nSort;
+            },
+            trick : "توصیه«این راحت تر است اگر فقط\nبر روی کره های روی هدف تمرکز کنید",
+            success: "!تبریک.شما موفق شدید",
+            wrongAnswer: "هر ستونی که در قرمز هایلایت شده جای خودش نیست",
+            tooManySort : "شما ستون ها را به درستی مرتب کردید.حال دوباره شروع کنید و سعی کنید این کار را با سه دکمه انجام بدید"
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #displayHelper_graderMessage {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            text-align: center;
+            font-weight: bold;
+            color: red;
+         }
+         #paper {
+            margin-top: 20px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+         <h1>Sort Columns</h1>
+         <div id="tabsContainer"></div>   <!-- will contain the versions tabs -->
+         <div id="taskContent">        <!-- will contain the content of the task -->
+            <p id="difficultyWarning" class="hard"></p>
+            <div id=zone_1>    
+               <div class=consigne>
+                  <p>بر روی دکمه"مرتب سازی" کلیک کنید که  <b>ترتیب ستون ها طوری تغییر کند </b> که
+                  <span class="easy">در ردیف دکمه ی کلیک شده کره های کوچک سمت چپ کره های کوچک باشد.</span>
+                  <span class="medium">در ردیف دکمه های کلیک شده از کوچک به بزرگ و از چپ به راست مرتب شده باشند.</span>
+                  <span class="hard">در ردیف دکمه ی کلیک شده کره ها صعودی مرتب شده باشند.</span>
+                  </p>
+                  <p>در هنگام این عملیات هر ستون حداقل جابجایی ممکن را داشته باشد</p>
+                  <p>بر روی ستون ها کلیک کنید تا آن ها در جای درست طبق چیزی که در هدف نشان داده شده قرار گیرند</p>
+                  <p class="medium hard">.برای گرفتن امتیاز کامل این را در سه مرحله انجام دهید</p>
+               </div>
+            </div>
+            <div id="zone_2">
+               <div id="paper"></div>
+            </div>
+         </div>
+         <img src="icon.png" style="display:none">
+      </div>
+      <div id="solution">
+         <h2>راه حل</h2>
+      <!-- description of the solution -->
+         <h2>!این ترکیبیات است</h2>
+      <!-- explanations on why this task is about informatics -->
+      </div>
+   </body>
+</html>
+
