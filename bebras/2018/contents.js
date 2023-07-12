@@ -6,7 +6,7 @@ standaloneAddContents({
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2018-FR-05-treasure",
-       title: "Effort minimal" },
+       title: "حداقل تلاش" },
      { code: "2018-FR-03-search-replace",
        title: "Remplacements" },
      { code: "2018-FR-06-encoded-path",

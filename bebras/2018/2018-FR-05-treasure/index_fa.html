@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fa">
+
+<head>
+   <meta charset="utf-8">
+   <title>2018-EN-05-treasure</title>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js"
+      id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'drag_lib-2.0',
+         'graph-1.0', 'visual-graph-1.0', 'graph-mouse-1.0', 'randomGenerator-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1']);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2016/2016-FR-07-shapes/",
+         "language": "fa",
+         "version": "fr.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
+         "translators": ["Mohammad YousefiPour"],
+         "license": "CC BY-SA 3.0",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+      };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         error: function (level) {
+            var walls = "دیوار های شکسته کمتر ";
+            if (level == "hard") {
+               walls = "با یک مجموع کمتر از ضخامت دیوار های شکسته شده ";
+            }
+            return "شما گنج را پیدا کردید، اما می توان آن را با " + walls + "پیدا کرد. دوباره تلاش کنید. مراقب باشید، گنج ممکن است در اتاق دیگری باشد."
+         },
+         success: "آفرین! موفق شدی.",
+         notFinished: "شما هنوز گنج را پیدا نکرده اید.",
+         feedbackHard: "مجموع ضخامت</br> دیوار های شکسته شده: ",
+         feedbackEasyMedium: "تعداد دیوار های شکسته شده: "
+      };
+      var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style type="text/css">
+      #anim {
+         width: 500px;
+         display: inline-block;
+         vertical-align: middle;
+         margin-left: 20px;
+      }
+
+      #result {
+         display: inline-block;
+         text-align: center;
+         vertical-align: middle;
+         margin-left: 20px;
+      }
+
+      #nb_walls {
+         font-size: 2.5em;
+         font-weight: bold;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>کمترین تلاش</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>
+                  اتاق‌های گرد با راهروهایی به هم متصل می‌شوند که گاهی با دیوار مسدود می‌شوند.
+               </p>
+               <div class="easy medium">
+                  <p>
+                     برای مثال، در اینجا یک راهرو وجود دارد که توسط سه دیوار مسدود شده است:</p>
+                  <p style="text-align: center;"><img class="exampleImage" src="example.png"></p>
+               </div>
+               <div class="hard">
+                  <p>در اینجا نمونه ای از راهرو مسدود شده توسط دیواری به ضخامت 12 واحد آورده شده است:</p>
+                  <p style="text-align: center;"><img class="exampleImage" src="example_hard.png"></p>
+               </div>
+               <p>کمترین تعداد ممکن را بشکنید. <span class="easy medium">تعداد دیوار ها </span><span class="hard">مجموع
+                     ضخامت دیوار ها </span>تا اتاق ها را تشخیص دهید و گنج را پیدا کنید .</p>
+               <p>برای شکستن <span class="easy medium">دیوار های راهرو</span><span class="hard">یک دیوار</span>،
+                  بر روی راهرو کلیک کنید.</p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="anim"></div>
+            <p id="result"></p>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img id="treasure" src="treasure.png" style="display:none">
+      </div>
+   </div>
+   <div id="solution">
+      <h2>راه حل</h2>
+
+      <div class="easy">
+         <p>در هر مرحله، دیوارهای راهرویی را که کمترین تعداد دیوار را دارد، از بین دیوارهایی که به اتاق‌هایی منتهی
+            می‌شوند که هنوز نمی‌توانید از آنها بازدید کنید، تخریب کنید.</p>
+         <p>بنابراین در مثال زیر باید با راهرو در پایین سمت راست شروع کنید.</p>
+         <img src="sol_easy.png">
+      </div>
+
+      <div class="medium">
+         <p>در هر مرحله، از بین دیوارهایی که امکان دسترسی به اتاق جدید را فراهم می کند، دیواری را که کمترین مقدار آجر را
+            دارد، بشکنیم.</p>
+         <p>به عنوان مثال، در قسمت زیر، دیوار بعدی که باید شکسته شود، دیواری است که از یک آجر تشکیل شده است.</p>
+         <img src="sol_medium.png">
+      </div>
+
+      <div class="hard">
+         <p>در هر مرحله، از بین دیوارهایی که امکان دسترسی به اتاق جدید را فراهم می‌کنند، دیوارهایی را که کمترین ضخامت را
+            دارند، بشکنیم.</p>
+         <p>برای مثال در قسمت زیر دیوار بعدی که می شکند یکی از دیوارهای ضخیم 13 است.</p>
+         <img src="sol_hard.png">
+      </div>
+
+   </div>
+</body>
+
+</html>
