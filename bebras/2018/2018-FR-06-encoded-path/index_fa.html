@@ -1,0 +1,164 @@
+<!doctype html>
+<html dir="rtl" lang="fa-IR">
+   <head>
+   <meta charset="utf-8">
+   <title>2018-EN-06-encoded-path</title>
+   <script>
+      window.stringsLanguage = 'fa-IR';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+        var modulesPath = '../../../_common/modules';
+        importModules([
+            'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+            'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+            'delayFactory-1.0', 'simulationFactory-1.0', 'grid-1.0',
+            'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+            'taskStyles-0.1'
+            ]);
+    </script>
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/tasks/2017/2017-FR-12-distinct-paths/",
+          "language": "en",
+          "version": "en.01",
+          "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
+          "translators": ["Mohamed El-Sherif", "Eslam Wageed"], 
+          "license": "CC BY-SA 3.0",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "fullFeedback": true,
+          "acceptedAnswers": [],
+          "usesRandomSeed": false
+      };
+      </script>
+      <script type="text/javascript">
+      var taskStrings = {
+            unknown: "?",
+            success: "آفرین! موفق شدی.",
+            partialSuccess: "شما اولین قسمت از هدف مسئله را تولید کرده‌اید.",
+            willGetPoints: " و امتیاز خواهید گرفت. ادامه دهید.",
+            secondPartIncorrect: " اما قسمت دوم اشتباه می‌باشد",
+            failure: "کد مسیر شما برای رسیدن به مقصد متفاوت می‌باشد.",
+            notAdjacentToHead: "روی مربع سفید کنار نقطه‌ی سفید کلیک کنید یا آن را بکشید",
+            continuePath: "برای مشاهده‌ی پایان دنباله، مسیر خود را کامل کنید.",
+            yourTarget: "کد مقصد",
+            yourSequence: "کد شما",
+            masked: "مخفی"
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+        #animContainer {
+          text-align: center;
+        }
+        #anim {
+          display: inline-block;
+        }
+        #displayHelper_graderMessage {
+          min-height: 1em;
+          font-size: 18px;
+          margin-top: 0.2em;
+          margin-bottom: 0.2em;
+          text-align: center;
+          font-weight: bold;
+          color: red; 
+        }
+        #discoveredPaths {
+          margin-top: 5px;
+          text-align: center;
+        }
+        #discoveredPaths div {
+          margin: 5px;
+          display: inline-block;
+          zoom: 1; /*IE6/7*/
+          display: inline; /*IE6/7*/
+        }
+        .tablePath td {
+          padding-right: 10px;
+          padding-bottom: 10px;
+          height: 22px;
+        }
+        #comment {
+          font-weight: bold;
+          font-size: 18px;
+          color: orange;
+        }
+      </style>
+   </head>
+   <body>
+
+      <div id="task">
+         <h1>مسیر رمزگذاری شده</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <div id="zone_1">
+               <div class="consigne">
+                  <p>هر حرکت در صفحه از یک مربع به مربع دیگر می‌تواند با یک رقم توصیف شود. بنابراین یک مسیر به دایره‌ی سفید، می‌تواند توسط دنباله‌ای از ارقام رمزگذاری شود.</p>
+
+                  <p>مسیر درست را برای تبدیل کردن "کد شما" به "کد هدف" را حدس بزنید.</p>
+
+                  <p>دایره‌ی سفید را بکشید یا روی مربع بعدی کلیک کنید تا مسیر شما رسم شود.</p>
+               </div>
+            </div>
+            <div id="zone_2">
+               <div id="animContainer">
+                  <div id="anim"></div>
+                  <br/><br/>
+                  <div id="codes"></div>
+               </div>
+               <div style="height:30px">
+                  <span id="comment"></span>
+               </div>
+               <div id="displayHelper_graderMessage"></div>
+            </div>
+            <img src="icon.png" style="display:none">
+         </div>
+      </div><!-- task -->
+      <div id="solution">
+
+         <h2>جواب</h2>
+   
+  <div class="easy">
+           <p>مسیر به صورت زیر به شکل یک دنباله رمزگذاری شده‌است:</p>
+           <ul>
+           <li>رقم <b> ۰ </b> نشان‌دهنده‌ی این است که مسیر یک قدم به راست می‌رود.</li>
+           <li>رقم <b>1</b> نشان‌دهنده‌ی این است که مسیر رو به بالا یا پایین می‌رود. اگر مسیر روی ردیف بالایی باشد، به سمت پایین می‌رود و اگر پایین باشد به سمت بالا می‌رود.</li>
+           </ul>
+           <p>به طور مثال، دنباله‌ی <b>۰ ۱ ۰ ۰ ۱ ۰ ۱</b> به معنی <b>راست، پایین، راست، راست، بالا، راست، پایین </b> می‌باشد.</p>
+           <p>مسیر کلی که نشان‌دهنده‌ی دنباله‌ی موردنظر می‌باشد به صورت زیر است:</p>
+           <img src="sol_easy.png">
+         </div>
+
+         <div class="medium">
+           <p>مسیر به صورت زیر رمزگذاری شده‌است:</p>
+           <ul>
+           <li>یک <b>۰</b> نشان‌دهنده‌ی این است که مسیر یک قدم به بالا می‌رود.</li>
+           <li>یک <b>۱</b>نشان‌دهنده‌ی این است که مسیر یک قدم به راست می‌رود.</li>
+           <li>یک <b>۲</b> نشان‌دهنده‌ی این است که مسیر یک قدم به پایین می‌رود.</li>
+           <li>یک <b>۳</b> نشان‌دهنده‌ی این است که مسیر یک قدم به چپ می‌رود.</li>
+           </ul>
+           <p>به طور مثال، دنباله‌ی <b>۱ ۲ ۳ ۲ ۱ ۱ ۰</b> به معنی <b> راست، پایین، چپ، پایین، راست، راست، بالا</b> می‌باشد</p>
+           <p>مسیر کلی که نشان‌دهنده‌ی دنباله‌ی موردنظر می‌باشد به صورت زیر است: </p>
+           <img src="sol_medium.png">
+         </div>
+
+         <div class="hard">
+           <p>مسیر به صورت زیر رمزگذاری شده‌است:</p>
+           <ul>
+           <li>یک <b>۰</b> نشان‌دهنده‌ی این است که مسیر به سمت مستقیم می‌رود.</li>
+           <li>یک <b>۱</b> نشان‌دهنده‌ی این است که مسیر به سمت راست می‌پیچد (با زاویه‌های راست).</li>
+           <li>یک <b>۲</b> نشان‌دهنده‌ی این است که مسیر به سمت چپ می‌پیچد (با زاویه‌های راست).</li>
+           </ul>
+           <p>به طور مثال، دنباله‌ی <b>۰ ۰ ۱ ۰ ۲ ۲ ۰</b> به معنی <b>جلو، جلو، راست، جلو، چپ، چپ، جلو</b> می‌باشد</p>
+           <p>مسیر کلی که نشان‌دهنده‌ی دنباله‌ی موردنظر می‌باشد به صورت زیر است:</p>
+           <img src="sol_hard.png">
+         </div>
+   
+         <h2>کاربرد این بازی در علوم کامپیوتر:</h2>
+   
+
+     </div> <!-- task-solution -->
+   </body>
+</html>
