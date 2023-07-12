@@ -19,7 +19,7 @@ standaloneAddContents({
      { code: "2018-FR-09-graph-of-shapes",
        title: "راه آراسته" },
      { code: "2018-FR-17-weights",
-       title: "Balance asymétrique" },
+       title: "ترازو" },
      { code: "2018-FR-15-marbles-sequence",
        title: "Perles colorées" },
      { code: "2018-FR-14-sort-columns",
