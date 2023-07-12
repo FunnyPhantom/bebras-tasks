@@ -28,7 +28,7 @@ standaloneAddContents({
      { code: "2018-FR-10-parallel-processing",
        title: "Travail concurrent" },
      { code: "2018-FR-01-recursive-split",
-       title: "Coloriages répétés" }
+       title: "قواعد رنگ‌آمیزی" }
     ]
   });
 
