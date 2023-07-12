@@ -10,7 +10,7 @@ standaloneAddContents({
      { code: "2018-FR-03-search-replace",
        title: "Remplacements" },
      { code: "2018-FR-06-encoded-path",
-       title: "Chemin encodé" },
+       title: "مسیر رمزگذاری شده" },
      { code: "2018-FR-04-whos-there",
        title: "Triades" },
      { code: "2018-FR-07-checkers-graph",

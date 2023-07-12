@@ -18,7 +18,7 @@ standaloneAddContents({
      { code: "2017-FR-06-pacman",
        title: "Fantôme" },
      { code: "2017-FR-07-graph-representation",
-       title: "Photos du jeu" },
+       title: "بازی عکاسی" },
      { code: "2017-FR-08-combine-shapes",
        title: "Dessin combiné" },
      { code: "2017-FR-10-building-lights",
