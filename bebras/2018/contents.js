@@ -16,7 +16,7 @@ standaloneAddContents({
      { code: "2018-FR-07-checkers-graph",
        title: "Attaques croisées" },
      { code: "2018-FR-09-graph-of-shapes",
-       title: "Chemin décoré" },
+       title: "راه آراسته" },
      { code: "2018-FR-17-weights",
        title: "Balance asymétrique" },
      { code: "2018-FR-15-marbles-sequence",

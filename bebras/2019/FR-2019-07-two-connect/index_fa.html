@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>FR-2019-07-two-connect</title>
+      <script>
+         window.stringsLanguage = 'fa';
+      </script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+      <script class="remove" type="text/javascript">
+         var modulesPath = '../../../_common/modules';
+         importModules([
+            'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+            'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+            'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0', 'drag_lib-2.0',
+            'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'randomGenerator-1.0',
+            'miniPlatform', 'taskStyles-0.1','graph-1.0', 'visual-graph-1.1', 'graph-mouse-1.2']);
+      </script>
+
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/tasks/2019/FR-2019-07-two-connect/",
+          "language": "fa",
+          "version": "en.01",
+          "authors": "Arthur Charguéraud",
+          "translators": [],
+          "license": "CC BY-SA 3.0",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "acceptedAnswers": [""]
+      };
+      </script>
+      <script>
+         var taskStrings = {
+            success: "آفرین! شما برنده شدید!",
+            alreadyExist: "این لوله از قبل وجود داشته!",
+            isolatedHouse: "یک لوله مسدود شد و به گلی که دورش قرمز شده آب نرسید.",
+            max: function(max) {
+              return "بیشتر از "+max+" لوله نمی‌توانید اضافه کنید.";
+            }
+         };
+         var enableRtl = true;
+      </script>
+      <style class="">
+         #paper { /* IE8 */
+            text-align: center;
+            margin: 1em auto 0 auto;
+            text-align: center;
+            touch-action: none;
+         }
+         #message {
+            margin-bottom: 1em;
+         }
+         #error {
+            height: 2em;
+         }
+         .paper-instr td {
+            vertical-align: top;
+         };
+      </style>
+      <script src="task.js"></script>
+   </head>
+   <body>
+      <div id="task">
+         <h1>لوله‌‌کشی</h1>
+         <div id="tabsContainer"></div>   <!-- will contain the versions tabs -->
+         <div id="taskContent">        <!-- will contain the content of the task --> 
+            <div id="zone_1">
+               <div class="consigne">
+                  <p>ببراس در حیاطش تعدادی گل دارد. گل‌های حیاط ببراس با تعدادی لوله به شیر آب حیاطش وصل شده اند.</p>
+                  <p>بعضی وقت‌ها یکی از لوله‌های حیاط مسدود می‌شود و باعث می‌شود که به تعدادی گل آب نرسد. ببراس از شما می‌خواهد تعدادی لوله به حیاطش اضافه کنید که اگر فقط یک لوله مسدود شود باز هم به همه گل‌هایش آب برسد.</p>
+                  <p>برای این کار شما می‌توانید حداکثر <strong><span id="minEdges"></span> لوله </strong>اضافه کنید.</p>
+                  <p>
+                  برای کشیدن لوله بین دو گل کافیست روی آن دو گل بزنید.
+                  برای حذف کردن لوله‌ای که قبلا خودتان کشیده‌اید کافیست روی آن لوله بزنید.
+                  </p>
+
+               </div>
+            </div>
+            <div id="zone_2">
+               <center>
+                  <table class="paper-instr">
+                     <tr>
+                     <td style="width:1000px">
+                        <div id="paper"></div>
+                     </td>
+                     <td style="width:400px">
+                        <br/>
+                        <p class="hard" style="margin-top:1em; height:3em" id="instructions">
+                        <strong>می‌توان گل‌ها را با کشیدن جابجا کرد.</strong>
+                        </p>
+                        <div id="error"></div>
+                     </td>
+                     </tr>
+                  </table>
+               </center>
+            </div>
+         </div>
+         <img src="flower.png" style="display:none" id="flower">
+         <img src="faucet.png" style="display:none" id="faucet">
+         <img src="icon.png" style="display:none">
+
+      </div><!-- task -->
+      <div id="solution">
+         <h2>Solution</h2>
+         
+   </body>
+</html>
