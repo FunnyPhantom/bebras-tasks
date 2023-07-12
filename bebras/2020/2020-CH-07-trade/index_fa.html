@@ -40,22 +40,23 @@
          success: "آفرین! موفق شدی.",
          failure: "دنباله‌ی اشتباه.",
          dragTheBeavers: function(item1,item2) {
-            return "ببراس ها را اینجا قرار دهید تا یک دنباله از ببراس ها تشکیل شود که وقتی آن‌ها را به ترتیب از "+addArticle(item1)+" مشاهده می‌کنیم، با  "+addArticle(item2)+ " به پایان برسد."
+            return "ببراس ها را اینجا قرار دهید تا یک دنباله از ببراس ها تشکیل شود که وقتی آن‌ها را به ترتیب از "+addArticle(item1)+
+            " مشاهده می‌کنیم، با  "+addArticle(item2)+ " به پایان برسد."
          },
          dragAsFewBeavers: function(target) {
-            return " تا حد امکان تعداد کمی ببراس را به پایین بکشید تا فارغ از آیتمی که اول به شما داده شده، بتولنید آن را با این ببراس ها برای "+
+            return " تا حد امکان تعداد کمی ببراس را به پایین بکشید تا فارغ از کالای که اول به شما داده شده، بتولنید آن را با این ببراس ها برای "+
             addArticle(target)+".معامله کنید"
          },
 
-         currentItem: "Current item",
-         itemToFind: "Item to find",
-         try: 'Try',
-         myTeam: "My team is ready",
-         changeTeam: "Change my team",
-         emptyDrop: "You must drag beavers in the grey area.",
-         emptyTeam: "Your team is empty.",
+         currentItem: "کالای فعلی",
+         itemToFind: "کالایی که باید پیدا کنید",
+         try: 'تلاش کنید',
+         myTeam: "تیم من آماده می‌باشد",
+         changeTeam: "تیم من را تغییر دهید",
+         emptyDrop: "باید ببراس‌ها را در منطقه‌ی خاکستری بکشید.",
+         emptyTeam: "تیم شما خالی می‌باشد",
          errorExchange: function(item1,item2) {
-            return "ببراس بعدی آماده است "+addArticle(item1)+" اما شما الان آیتم"+addArticle(item2)+".را دارید"
+            return "ببراس بعدی منتظر "+addArticle(item1)+" است، اما شما الان کالا"+addArticle(item2)+".را دارید"
          },
          errorWrongItem: function(target) {
             return "دنباله به پایان رسیده و شما "+addArticle(target)+".را ندارید"
@@ -94,7 +95,7 @@
       <div id="taskContent">
          <div id="zone_1">
             <div class="consigne">
-               <p>هر یک از ببراس های زیر تمایل دارند یک معامله انجام دهند. آن‌ها آیتمی که در تابولشان کشیده شده‌است را قبول میکنند، و در عوض آیتمی که در سمت چپشان وجود دارد را معاوضه می‌کنند.
+               <p>هر یک از ببراس های زیر تمایل دارند یک معامله انجام دهند. آن‌ها کالای که در تابولیشان کشیده شده‌است را قبول میکنند، و در عوض کالای که در دست دیگر آن‌ها وجود دارد را معاوضه می‌کنند.
                </p>
             </div>
          </div>
