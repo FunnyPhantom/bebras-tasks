@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2019-FR-02-registers</title>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'drag_lib-2.0',
+         'graph-1.0','visual-graph-1.0','graph-mouse-1.2', 'shape-paths'
+      ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-02-registers/",
+         "language": "en",
+         "version": "en.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
+         "translators": [],
+         "license": "CC BY-SA 3.0",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "باریکلا! موفق شدی",
+         tooManyMarkers: function(max) {
+            return "شش‌ضلعی برای قرار دادن در دایره خالی ندارید. می‌توانید با زدن بر روی شش‌ضلعی که در یک دایره است، آن را بازیابی کنید.";
+         },
+         sumGreaterThan: function(max) { 
+            return "شش‌ضلعی برای انتخاب باقی نمانده است. با زدن بر روی شش‌ضلعی هایی که در دایره قرار دادید، می‌توانید آن‌ها را بازیابی کنید.";
+         },
+         noMarkerBelow: "برای اینکه بتوانید یک شش‌ضلعی را از پایین ترین سطحِ دایره‌ها به بالا انتقال دهید، باید دایره‌های زیرین آن، پر شده‌باشند",
+         placed: "شش‌ضلعی قرار داده‌شد",
+         failure: "شش‌ضلعی در خانه بالا قرار نگرفته‌است",
+         reserve: "تعداد شش‌ضلعی‌های رزرو:",
+         empty: "صفر. می‌توانید با زدن بر روی دایره‌ها، شش‌ضلعی خود را بازیابی کنید.",
+         validateNow: "موفق شدید. حالا بر روی دکمه اعتبار سنجی بزنید.",
+         undo: "بازگرداندن آخرین تغییر",
+         pebbleClick: "با زدن روی شش‌ضلعی‌های قرار گرفته در این ناحیه، اتفاقی نمی‌افتد!"
+
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin: 1em auto;
+      }
+      #error {
+         text-align: center;
+         height: 2em;
+      }
+      .task-rules li {
+         margin-top: 1em;
+      }
+      #undo {
+         display: block;
+         margin: auto;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Rising pebbles</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>
+                  هدف قرار گرفتن یکی از این شش‌ضلعی‌ها در دایره خالی اولین سطح است. تک دایره بالایی منظور است.
+               </p>
+               <p>برای قرار دادنِ<span class="easy medium">یک</span> شش‌ضلعی<span class="hard">s</span> در دایره بالاتر، باید دایره‌های زیر آن دارای شش‌ضلعی باشند. با زدن روی دایره‌های پر، می‌توانید شش‌ضلعی‌های خود را بازیابی نمایید.
+               </p>
+               <p>بر روی یک دایره بزنید تا <span class="easy medium">یک</span><span class="hard">به تعداد نوشته شده درون دایره</span> شش‌ضلعی<span class="hard">قرار گیرد </span>یا حذف شود .</p>
+
+         </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <button type="button" class="btn btn-default" id="undo">Cancel</button>
+         </div>
+         <div id="error"></div>
+      </div>
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>
