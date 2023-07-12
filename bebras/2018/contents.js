@@ -9,7 +9,7 @@ standaloneAddContents({
      { code: "2018-FR-05-treasure",
        title: "حداقل تلاش" },
      { code: "2018-FR-03-search-replace",
-       title: "Remplacements" },
+       title: "دنباله طلایی" },
      { code: "2018-FR-06-encoded-path",
        title: "مسیر رمزگذاری شده" },
      { code: "2018-FR-04-whos-there",
