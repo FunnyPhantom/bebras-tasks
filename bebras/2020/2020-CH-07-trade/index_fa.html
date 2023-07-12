@@ -40,23 +40,20 @@
          success: "آفرین! موفق شدی.",
          failure: "دنباله‌ی اشتباه.",
          dragTheBeavers: function(item1,item2) {
-            return "ببراس ها را اینجا قرار دهید تا یک دنباله از ببراس ها تشکیل شود که وقتی آن‌ها را به ترتیب از   "+addArticle(item1)+" مشاهده می‌کنیم، با  "+addArticle(item2)+ " به پایان برسد."
+            return "ببراس ها را اینجا قرار دهید تا یک دنباله از ببراس ها تشکیل شود که وقتی آن‌ها را به ترتیب از "+addArticle(item1)+" مشاهده می‌کنیم، با  "+addArticle(item2)+ " به پایان برسد."
          },
          dragAsFewBeavers: function(target) {
             return " تا حد امکان تعداد کمی ببراس را به پایین بکشید تا فارغ از آیتمی که اول به شما داده شده، بتولنید آن را با این ببراس ها برای "+
             addArticle(target)+".معامله کنید"
          },
-         Drag as few Beavers below, so that no matter what \nitem you are initially given, you will be able to trade it \nfor "+
-            addArticle(target)+",trading only with these Beavers."
 
-      
-         currentItem: "آیتم جدید",
-         itemToFind: ".آیتمی که باید پیدا شود",
-         try: 'تلاش کنید',
-         myTeam: "تیم من آماده است",
-         changeTeam: "تیم من را تغییر دهید",
-         emptyDrop: "شما باید ببراس را به ناحیه‌ی خاکستری ببرید",
-         emptyTeam: "کسی در تیم شما نیست",
+         currentItem: "Current item",
+         itemToFind: "Item to find",
+         try: 'Try',
+         myTeam: "My team is ready",
+         changeTeam: "Change my team",
+         emptyDrop: "You must drag beavers in the grey area.",
+         emptyTeam: "Your team is empty.",
          errorExchange: function(item1,item2) {
             return "ببراس بعدی آماده است "+addArticle(item1)+" اما شما الان آیتم"+addArticle(item2)+".را دارید"
          },
