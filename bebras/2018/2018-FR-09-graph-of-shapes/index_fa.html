@@ -4,10 +4,10 @@
     <meta charset="utf-8">
          <!-- j'ajoute un style ici de la part de aymen -->
          <style> p{text-align: right}</style>
-    <title>2018-AR-09-graph-of-shapes</title>
+    <title>2018-FR-09-graph-of-shapes</title>
     <link class="module" rel="stylesheet" href="../../modules/pemFioi/taskStyles-0.1_M.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
     <script>
-      window.stringsLanguage = 'ar';
+      window.stringsLanguage = 'fa';
     </script>
     <script class="remove" type="text/javascript" src="../../modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
     <script class="remove" type="text/javascript">
@@ -22,10 +22,10 @@
     <script class="remove" type="text/javascript">
       var json = {
         "id": "",
-        "language": "ar",
-        "version": "ar.01",
+        "language": "fa",
+        "version": "fa.01",
         "authors": "France-ioi",
-        "translators": "Eslam Wageed",
+        "translators": "Ramtin Moslemi",
         "license": "CC BY-SA 3.0",
         "taskPathPrefix": "",
         "modulesPathPrefix": "",
@@ -36,18 +36,20 @@
       };
     </script>
     <script type="text/javascript">
-      var instructions = "<br/> .انقر على كل المربعات الرمادية لوضع الأشكال";
+	var enableRtl = true;
+      var instructions = "<br/> بر روی مربعات کلیک کنید تا اشکال را تغییر دهید.";
          var taskStrings = {
-            success: ".أحسنت، الإجابة صحيحة",
-            errorArrivedEarly: ".وصل أحمد الى المنزل في وقت قريب جدا ، لا تزال هناك أشكال في قائمة التعليمات" + instructions,
-            errorOneNotGood: ".لا يتطابق الشكل المرسوم على السهم الموجود أمام أحمد مع شكل التعليمة التالية" + instructions,
-            errorSeveralNotGood: ".لا يتطابق أي من الأشكال الموجودة على الأسهم أمام أحمد مع شكل التعليمات" + instructions,
-            errorMultiplePath: "أحمد أمام العديد من الأسهم التي تتوافق مع شكل التعليمة التالية. أحمد لا يعرف إلى أين يذهبون" + instructions,
-            instructions: ":التعليمات",
-            tryButton: "ابدأ",
+            success: ".آفرین، شما موفق شدید",
+            errorArrivedEarly: "ببراس زود به مقصد رسید! برخی از اشکال در دنباله‌ی دستوارت باقی می‌مانند." + instructions,
+            errorOneNotGood: "شکل پیکان پیشروی ببراس با شکل بعدی در دنباله‌ی دستورات فرق می‌کند." + instructions,
+            errorSeveralNotGood: "هیچ یک از اشکال پیکان‌های پیشروی ببراس با شکل بعدی در دنباله‌ی دستورات مطابقت ندارد." + instructions,
+            errorMultiplePath: "چندین پیکان پیشروی ببراس اشکال یکسان دارند و ببراس نمی‌داند که کجا برود. " + instructions,
+            instructions: ":دستورات",
+            tryButton: "تلاش",
             stopButton: "توقف",
-            validateAnswer: "جرب",
-            mustFillAll: ".تبقى مربعات رمادية. اضغط عليها لوضع الأشكال"
+            validateAnswer: "اعتبار سنجی",
+            mustFillAll: "هنوز تعدادی مربع خاکستری باقی مانده. بر روی آن‌ها کلیک کنید تا درونشان شکلی قرار دهید."
+
          };
     </script>
     <script type="text/javascript" src="shape-paths.js"></script>
@@ -72,15 +74,15 @@
   </head>
   <body>
     <div id="task">
-      <h1>مسار مزخرف</h1>
+      <h1>راه آراسته</h1>
       <div id="tabsContainer"></div>   <!-- will contain the versions tabs -->
       <div id="taskContent"> 
         <div id="zone_1">       <!-- will contain the content of the task -->
           <div class="consigne">
-            <p> .انقر على كل المربعات الرمادية لوضع الأشكال</p>
-            <p>احمد يتبع السّهام الموجودة داخل المسار حسب التعليمات المبينة بواسطة سلسلة الأشكال المعروضة أسفله</p>
-            <p>.حذاري! لا يمكن لأحمد أن يجد أمامه سهمين لنفس الشكل </p>
-            <p style="margin-bottom:0.3em">.الهدف هو وصول أحمد إلى المنزل بعد أن يتبع سلسلة التعليمات و ليس قبل ذلك</p>
+            <p> .بر روی همه‌ی مربعات خاکستری کلیک کنید تا در آن‌ها اشکال را قرار دهید</p>
+            <p>.ببراس پیکان‌های بر روی نقشه را مطابق دستوراتی که به صورت دنباله‌ای از اشکال در این زیر آورده شده‌اند دنبال می‌کند </p>
+            <p>.ببراس هیچگاه نباید با دو پیکان با شکل یکسان مواجه شود </p>
+            <p style="margin-bottom:0.3em">.هدف ما این است که ببراس پس از پیمایش تمام دنباله‌ی دستورات به خانه برسد</p>
           </div>
         </div>
         <div id="zone_2">
@@ -94,7 +96,7 @@
     </div><!-- #task-->
 
     <div id="solution">
-      <h2>Solution</h2>
+      <h2>راه حل</h2>
       <!-- description of the solution -->
       <h2>C'est de l'informatique !</h2>
       <!-- explanations on why this task is about informatics -->
