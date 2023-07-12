@@ -19,7 +19,7 @@ standaloneAddContents({
      { code: "FR-2019-08-patterns",
        title: "الگوهای تکراری" },
      { code: "FR-2019-09-hidden-words",
-       title: "Mots de passe" },
+       title: "اسم رمز" },
      { code: "FR-2019-10-lighting",
        title: "نورپردازی" },
      { code: "FR-2019-12-roller",
