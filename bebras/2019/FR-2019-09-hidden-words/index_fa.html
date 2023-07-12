@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>FR-2019-09-hidden-words</title>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'drag_lib-2.0', 'graph-1.0'
+      ]);
+   </script>
+   <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/visual-graph-1.1.js"></script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-09-hidden-words/",
+         "language": "fa",
+         "version": "en.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard, France-ioi",
+         "translators": [],
+         "license": "CC BY-SA 3.0",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "آفرین! شما برنده شدید.",
+         end: "پایان",
+         toRemove: "برای حذف یک کارت، آن را به \\nخارج محوطه جواب بکشید.",
+         wrongSpot: "در حال حاضر یک کارت در خانه مورد نظر شما وجود دارد. می‌توانید با کشیدن آن به سمت جدول آن را حذف کنید.",
+         wrongNeighbourLeft: "خانه کارتی که سعی می‌کنید در جواب قرار بدهید با کارت چپی‌اش همخوانی ندارد.",
+         wrongNeighbourRight: "خانه کارتی که سعی می‌کنید در جواب قرار بدهید با کارت راستی‌اش همخوانی ندارد.",
+         wrongOrder: "کارت‌ها را از چپ به راست بچینید.",
+         wrongFirstLetter: "اولین کارت اشتباه است. صورت سوال را دوباره بخوانید.",
+         failure: function(level) {
+            if(level == "easy" || level == "medium"){
+               var word = "یک رمز پنج حرفی";
+            }else if(level == "hard"){
+               var word = "سه رمز پنج حرفی"
+            }
+            return "شما نتوانستید"+word+"را پیدا کنید.";
+         },
+         wrongGoto: function(letter,goto,nextLetter,nextCoord) {
+            if (goto == null) {
+               return "کارت "+letter+" باید در آخر رمز باشد و کارت دیگری نمی‌تواند بعد از آن بیاید.";
+            } else {
+               return "کارت "+letter+" به ما می‌گوید کارت بعدی اش باید از خانه "+goto.col+goto.row+" باشد ولی کارت "+nextLetter+" که بعد آن است از خانه "+nextCoord.col+nextCoord.row+" است.";
+            }
+         },
+         wrongLastLetter: function(lastLetterCoord) {
+            return "رمز کامل نیست زیرا آخرین کارت از خانه "+lastLetterCoord.col+lastLetterCoord.row+"نیست.";
+         },
+         sameWordTwice: "یک رمز دو بار نوشته شده.",
+         tooManyWords: function(n) {
+            var plural = (n > 1) ? "" : "";   
+            return "کافیست شما فقط "+n+" رمز"+plural+" روی محوطه جواب نشان دهید. ";
+         },
+         missingWord: function(nbWords, nbSolutions) {
+            var plural = (nbWords > 1) ? "" : "";   
+            return "شما " + nbWords + " رمز پیدا کرده‌اید" + plural + ". تلاش کنید " + nbSolutions + " رمز پیدا کنید.";
+         },
+         wrongLength: function(solutionLength) { 
+            return "این رمز " + solutionLength + " حرف ندارد."; 
+         },
+         dropLabel: "کارت‌ها را در این مستطیل قرار بدهید تا سه رمز بسازید."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin: 1em auto 0 auto;
+         touch-action: none;
+      }
+      #error {
+         text-align: center;
+      }
+      .instr-bullets li {
+         margin-left: -0.8em;
+         padding-bottom: 0.5em;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>اسم رمز</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>کارت‌ها را از جدول به داخل خانه‌های خالی بکشید تا <span class="easy medium">یک رمز</span><span class="hard" style="font-weight:bold">سه رمز</span> پنج حرفی درست کنید<span class="hard"></span>.</p>
+               <p class="hard">به ازای هر رمز:</p>
+               <ul class="instr-bullets">
+               <li class="easy">کارت اول، کارتی‌ است که در خانه <strong>A1</strong> قرار گرفته. </li>
+               <li class="medium hard">کارت اول می‌تواند هر یک از کارت‌ها باشد.</li>
+               <li>هر کارت با مشخص می‌کند که کارت راستی‌اش در کدام خانه باشد.</li>
+               <li class="medium hard">کارت آخر، کارتی است که در خانه <strong><span class="medium">F3</span><span class="hard">C6</span></strong> قرار گرفته است.</li>
+               </ul>
+
+               <table><tr>
+               <td><img src="example.png" style="width:100px; padding-bottom:0px"></td>
+               <td>برای مثال، کارت بعدی این کارت باید<br/>کارتی باشد که در ستون C و در سطر 2 قرار دارد.
+               </td></tr></table>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+         </div>
+         <div id="error"></div>
+      </div>
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>
