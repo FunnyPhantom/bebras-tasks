@@ -15,7 +15,7 @@ standaloneAddContents({
      { code: "2018-FR-04-whos-there",
        title: "Triades" },
      { code: "2018-FR-07-checkers-graph",
-       title: "Attaques croisées" },
+       title: "نقشه مرموز" },
      { code: "2018-FR-09-graph-of-shapes",
        title: "راه آراسته" },
      { code: "2018-FR-17-weights",
