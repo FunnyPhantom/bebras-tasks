@@ -39,21 +39,21 @@
     <script type="text/javascript">
     var taskStrings = {
           error: "ترتیب فعلی دقیقا مشابه هدف نیست",
-          success: "!شما موفق شدید",
-          before: "تغییر",
-          after: "با",
+          success: "آفرین! شما برنده شدید!",
+          before: "تبدیل",
+          after: "به",
           replacedShape : function(nbReplaced, sameShape) {
             if (sameShape) {
-               return ".جابجا کردن یک شکل با خودش باعث تغییر ترتیب فعلی نمی شود"
+               return "تبدیل یک شکل به خودش ممکن نیست."
             } else if (nbReplaced == 0) {
-               return "ترتیب عوض نمی شود زیرا شکل اولی که انتخاب کردید در ترتیب نمی باشد";
+               return "تبدیل بی‌اثر بود زیرا شکل انتخاب شده در دنباله ببراس وجود ندارد.";
             } else if (nbReplaced == 1) {
-               return ".یک جابجایی انجام شد"
+               return "تبدیل با موفقیت انجام شد."
             } else {
-               return nbReplaced + " .جابجایی ها انجام شد"
+               return nbReplaced + "تبدیل‌ها با موفقیت انجام شدند."
             }
           },
-          undo: "یک مرحله به عقب برگرد"
+          undo: "برگشت به حالت قبل"
        };
     </script>
     <script type="text/javascript" src="shape-paths.js"></script>
@@ -140,24 +140,30 @@
   </head>
   <body>
     <div id="task">
-        <h1>Replacements</h1>
+        <h1>دنباله طلایی</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
         <div id="zone_1">
           <div class="consigne">
             <p>
-            با انجام تغییراتی سری فعلی را به سری هدف تبدیل کنید
+                ببراس یک دنباله از شکل‌ها دارد که آن را خیلی دوست دارد. روزی دوست ببراس به او یک دنباله طلایی از شکل‌ها نشان می‌دهد.
             </p>
             <p>
-            برای تغییر دادن دو شکل هر دو را انتخاب کنید
+                ببراس که خیلی از دنباله طلایی خوشش می‌آید تصمیم می‌گیرد که با استفاده از دستگاه تبدیل اشکال، دنباله‌اش را دقیقا مانند دنباله طلایی کند.
             </p>
             <p>
-            اگر به بن بست خوردید می توانید بعضی از مراحل را به عقب برگردانید
+                دستکاه تبدیل اشکال به این شکل کار می‌کند که دو شکل را به عنوان ورودی می‌گیرد و هر نمونه از شکل اول در دنباله ببراس را به شکل دوم تبدیل می‌کند.
+            </p>
+            <p>
+                به ببراس کمک کنید با استفاده از این دستگاه دنباله‌اش را مانند دنباله طلایی کند. 
+            </p>
+            <p>
+                اگر بعد چندبار استفاده از دستگاه حس کردید که تبدیل دنباله ببراس به دنباله طلایی ممکن نیست، می‌توانید از دکمه برگشت به حالت قبل استفاده کنید.
             </p>
           </div>
         </div>
         <div id="zone_2">
-          <p class="instructions">دو شکل را از شکل های زیر انتخاب کنید</p>
+          <p class="instructions">دو شکل انتخاب کنید:</p>
           <div id="topBar">
             <div class="shapes" id="allShapes"></div>
             <input type="button" id="undo">
@@ -165,11 +171,11 @@
           <div class="shapes" id="beforeAfter"></div>
           <div id="comment"></div>
           <div id="originFrame">
-            <div class="areaTitle">:ترتیب فعلی</div>
+            <div class="areaTitle">دنباله ببراس:</div>
              <div class="shapes" id="originShapes"></div>
           </div>
           <div id="targetFrame">
-             <div class="areaTitle">:هدف</div>
+             <div class="areaTitle">دنباله طلایی:</div>
              <div class="shapes" id="targetShapes"></div>
           </div>
         </div>
