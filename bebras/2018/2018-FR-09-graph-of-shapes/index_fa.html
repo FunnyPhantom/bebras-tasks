@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+         <!-- j'ajoute un style ici de la part de aymen -->
+         <style> p{text-align: right}</style>
+    <title>2018-AR-09-graph-of-shapes</title>
+    <link class="module" rel="stylesheet" href="../../modules/pemFioi/taskStyles-0.1_M.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+    <script>
+      window.stringsLanguage = 'fa';
+    </script>
+    <script class="remove" type="text/javascript" src="../../modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+    <script class="remove" type="text/javascript">
+      var modulesPath = '../../modules';
+      importModules([
+        'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+        'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+        'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+        'platform-pr', 'buttonsAndMessages', 'installationAPI.01',
+        'miniPlatform', 'taskStyles-0.1','graph-1.0', 'visual-graph-1.0', 'graph-mouse-1.0']);
+    </script>
+    <script class="remove" type="text/javascript">
+      var json = {
+        "id": "",
+        "language": "en",
+        "version": "en.01",
+        "authors": "France-ioi",
+        "translators": "Ramtin Moslemi",
+        "license": "CC BY-SA 3.0",
+        "taskPathPrefix": "",
+        "modulesPathPrefix": "",
+        "browserSupport": [],
+        "fullFeedback": true,
+        "acceptedAnswers": [],
+        "usesRandomSeed": false
+      };
+    </script>
+    <script type="text/javascript">
+	var enableRtl = true;
+      var instructions = "<br/> بر روی مربعات کلیک کنید تا اشکال را تغییر دهید.";
+         var taskStrings = {
+            success: ".آفرین، شما موفق شدید",
+            errorArrivedEarly: "ببراس زود به مقصد رسید! برخی از اشکال در دنباله‌ی دستوارت باقی می‌مانند." + instructions,
+            errorOneNotGood: "شکل پیکان پیشروی ببراس با شکل بعدی در دنباله‌ی دستورات فرق می‌کند." + instructions,
+            errorSeveralNotGood: "هیچ یک از اشکال پیکان‌های پیشروی ببراس با شکل بعدی در دنباله‌ی دستورات مطابقت ندارد." + instructions,
+            errorMultiplePath: "چندین پیکان پیشروی ببراس اشکال یکسان دارند و ببراس نمی‌داند که کجا برود. " + instructions,
+            instructions: ":دستورات",
+            tryButton: "تلاش",
+            stopButton: "توقف",
+            validateAnswer: "اعتبار سنجی",
+            mustFillAll: "هنوز تعدادی مربع خاکستری باقی مانده. بر روی آن‌ها کلیک کنید تا درونشان شکلی قرار دهید."
+
+         };
+    </script>
+    <script type="text/javascript" src="shape-paths.js"></script>
+    <script type="text/javascript" src="task.js"></script>
+    <style>
+         #graph path, #graph rect
+         {
+            cursor: pointer;
+         }
+         #graph {
+            margin-top: 1em;
+            text-align: center;
+         }
+         #displayHelper_graderMessage {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            text-align: center;
+            font-weight: bold;
+            color: red;
+         }
+    </style>
+  </head>
+  <body>
+    <div id="task">
+      <h1>راه آراسته</h1>
+      <div id="tabsContainer"></div>   <!-- will contain the versions tabs -->
+      <div id="taskContent"> 
+        <div id="zone_1">       <!-- will contain the content of the task -->
+          <div class="consigne">
+            <p> .بر روی همه‌ی مربعات خاکستری کلیک کنید تا در آن‌ها اشکال را قرار دهید</p>
+            <p>.ببراس پیکان‌های بر روی نقشه را مطابق دستوراتی که به صورت دنباله‌ای از اشکال در این زیر آورده شده‌اند دنبال می‌کند </p>
+            <p>.ببراس هیچگاه نباید با دو پیکان با شکل یکسان مواجه شود </p>
+            <p style="margin-bottom:0.3em">.هدف ما این است که ببراس پس از پیمایش تمام دنباله‌ی دستورات به خانه برسد</p>
+          </div>
+        </div>
+        <div id="zone_2">
+          <div id="graph"></div>
+          <div id="topBar"></div>
+        </div>
+      </div>
+      <img src="icon.png" style="display:none">
+      <img id="castor" src="castor.png" style="display:none">
+      <img id="house" src="house.png" style="display:none">
+    </div><!-- #task-->
+
+    <div id="solution">
+      <h2>راه حل</h2>
+      <!-- description of the solution -->
+      <h2>C'est de l'informatique !</h2>
+      <!-- explanations on why this task is about informatics -->
+      <img src="icon.png" style="display:none">
+    </div>
+  </body>
+</html>
