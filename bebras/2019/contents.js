@@ -15,7 +15,7 @@ standaloneAddContents({
      { code: "FR-2019-06-inclusions",
        title: "مستطیل‌های تو در تو" },
      { code: "FR-2019-07-two-connect",
-       title: "Arroser les fleurs" },
+       title: "لوله‌کشی" },
      { code: "FR-2019-08-patterns",
        title: "الگوهای تکراری" },
      { code: "FR-2019-09-hidden-words",
