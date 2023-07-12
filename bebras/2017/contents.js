@@ -22,7 +22,7 @@ standaloneAddContents({
      { code: "2017-FR-08-combine-shapes",
        title: "Dessin combiné" },
      { code: "2017-FR-10-building-lights",
-       title: "Lumières d'immeuble" },
+       title: "چراغ‌های ساختمان" },
      { code: "2017-FR-11-graph-isomorphism",
        title: "Constellation" },
      { code: "2017-FR-12-distinct-paths",
