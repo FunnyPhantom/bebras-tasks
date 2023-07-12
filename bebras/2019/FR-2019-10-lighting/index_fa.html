@@ -51,7 +51,7 @@
          lightIntensity: "شدت رنگ",
          error: "نورپردازی شما با خواسته ببراس متفاوت است.",
          tooManySpots: "ترتیب رنگ شما با ببراس یکی است ولی می‌توان از لامپ‌های کمتری برای این نورپردازی استفاده کرد.",
-         drag: "لامپ‌ها را\nبه سمت نقاط خاکستری بکشید.",
+         drag: "لامپ‌ها را\nبه سمت نقاط خاکستری بکشید",
          spotOccupied: "یک لامپ از قبل اینجاست",
          trash: "سطل‌زباله"
 
@@ -68,6 +68,11 @@
       #error {
          text-align: center;
          height: 1em;
+      }
+   </style>
+   <style>
+      #zone_2 {
+         direction: ltr;
       }
    </style>
 </head>
@@ -91,7 +96,7 @@
             </div>
          </div>
          <div id="zone_2">
-            <div id="paper"></div>
+            <div id="paper" style="padding-left:10px"></div>
             <div id="error"></div>
             <div id="overlay_1"></div>
             <div id="overlay_2"></div>

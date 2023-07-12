@@ -45,7 +45,7 @@
          wrongNeighbourLeft: "خانه کارتی که سعی می‌کنید در جواب قرار بدهید با کارت چپی‌اش همخوانی ندارد.",
          wrongNeighbourRight: "خانه کارتی که سعی می‌کنید در جواب قرار بدهید با کارت راستی‌اش همخوانی ندارد.",
          wrongOrder: "کارت‌ها را از چپ به راست بچینید.",
-         wrongFirstLetter: "اولین کارت اشتباه است. صورت سوال را دوباره بخوانید.",
+         wrongFirstLetter: "چپ‌ترین کارت اشتباه است. صورت سوال را دوباره بخوانید.",
          failure: function(level) {
             if(level == "easy" || level == "medium"){
                var word = "یک رمز پنج حرفی";
@@ -56,13 +56,13 @@
          },
          wrongGoto: function(letter,goto,nextLetter,nextCoord) {
             if (goto == null) {
-               return "کارت "+letter+" باید در آخر رمز باشد و کارت دیگری نمی‌تواند بعد از آن بیاید.";
+               return "کارت "+letter+" باید در راست‌ترین قسمت رمز باشد و کارت دیگری نمی‌تواند سمت راست آن بیاید.";
             } else {
-               return "کارت "+letter+" به ما می‌گوید کارت بعدی اش باید از خانه "+goto.col+goto.row+" باشد ولی کارت "+nextLetter+" که بعد آن است از خانه "+nextCoord.col+nextCoord.row+" است.";
+               return "کارت "+letter+" به ما می‌گوید کارت راستی‌اش باید از خانه "+goto.col+goto.row+" باشد ولی کارت "+nextLetter+" که سمت راست آن است از خانه "+nextCoord.col+nextCoord.row+" است.";
             }
          },
          wrongLastLetter: function(lastLetterCoord) {
-            return "رمز کامل نیست زیرا آخرین کارت از خانه "+lastLetterCoord.col+lastLetterCoord.row+"نیست.";
+            return "رمز کامل نیست زیرا راست‌ترین کارت از خانه "+lastLetterCoord.col+lastLetterCoord.row+"نیست.";
          },
          sameWordTwice: "یک رمز دو بار نوشته شده.",
          tooManyWords: function(n) {
@@ -105,15 +105,15 @@
                <p>کارت‌ها را از جدول به داخل خانه‌های خالی بکشید تا <span class="easy medium">یک رمز</span><span class="hard" style="font-weight:bold">سه رمز</span> پنج حرفی درست کنید<span class="hard"></span>.</p>
                <p class="hard">به ازای هر رمز:</p>
                <ul class="instr-bullets">
-               <li class="easy">کارت اول، کارتی‌ است که در خانه <strong>A1</strong> قرار گرفته. </li>
-               <li class="medium hard">کارت اول می‌تواند هر یک از کارت‌ها باشد.</li>
-               <li>هر کارت با مشخص می‌کند که کارت راستی‌اش در کدام خانه باشد.</li>
-               <li class="medium hard">کارت آخر، کارتی است که در خانه <strong><span class="medium">F3</span><span class="hard">C6</span></strong> قرار گرفته است.</li>
+               <li class="easy">چپ‌ترین کارت، کارتی‌ است که در خانه <strong>A1</strong> قرار گرفته. </li>
+               <li class="medium hard">چپ‌ترین کارت می‌تواند هر یک از کارت‌ها باشد.</li>
+               <li>هر کارت مشخص می‌کند که کارت راستی‌اش در کدام خانه باشد.</li>
+               <li class="medium hard">راست‌ترین کارت، کارتی است که در خانه <strong><span class="medium">F3</span><span class="hard">C6</span></strong> قرار گرفته است.</li>
                </ul>
 
                <table><tr>
                <td><img src="example.png" style="width:100px; padding-bottom:0px"></td>
-               <td>برای مثال، کارت بعدی این کارت باید<br/>کارتی باشد که در ستون C و در سطر 2 قرار دارد.
+               <td>برای مثال، کارت سمت راست این کارت باید<br/>کارتی باشد که در ستون C و در سطر 2 قرار دارد.
                </td></tr></table>
             </div>
          </div>

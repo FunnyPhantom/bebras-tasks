@@ -1,8 +1,9 @@
 
 standaloneAddContents({
   code: "castor_2018",
-  title: "Concours Castor 2018",
+  title: "مسابقات ببراس 2018",
   folder: "2018/",
+  language: "fa",
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2018-FR-05-treasure",
@@ -18,17 +19,17 @@ standaloneAddContents({
      { code: "2018-FR-09-graph-of-shapes",
        title: "راه آراسته" },
      { code: "2018-FR-17-weights",
-       title: "Balance asymétrique" },
+       title: "ترازو" },
      { code: "2018-FR-15-marbles-sequence",
        title: "Perles colorées" },
      { code: "2018-FR-14-sort-columns",
        title: "Ranger les tiges" },
      { code: "2018-HU-07-arrows",
-       title: "Flèches indicatrices" },
+       title: "دوئل پیکان‌ها" },
      { code: "2018-FR-10-parallel-processing",
        title: "Travail concurrent" },
      { code: "2018-FR-01-recursive-split",
-       title: "Coloriages répétés" }
+       title: "قواعد رنگ‌آمیزی" }
     ]
   });
 
