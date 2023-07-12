@@ -39,11 +39,11 @@
             found: "", // empty when using automatic validation
             notFound: "لوله‌ای را پیدا کنید که تخم‌های ببراس در آن باشد و او را به آن لوله هدایت کنید.",
             noSeeds: "ببراس در این مسیر تخمی پیدا نکرد. لطفا در جای دیگری جست و جو کنید.",
-            noPath: "روی دو سوراخ یک لوله کلیک کنید.",
+            noPath: "روی دو درپوش از یک لوله کلیک کنید.",
             /*
             testLimit: function (limit) { return "Vous avez déjà fait " + limit + " tests, mais vous n'avez pas encore trouvé les graines. Essayez autrement, en cliquant sur &quot;Recommencer&quot;."; },
             */
-            seedsInPath: function(pathLength) { return "<p>Beaver saw seeds in one of " + pathLength + " pieces of pipes.</p><p>Continue to find where exactly.</p>"; },
+            seedsInPath: function(pathLength) { return "<p>ببراس تخم‌هایش را در یکی از " + pathLength + " قسمت لوله‌ها پیدا کرد.</p><p>برای پیدا کردن موقعیت دقیق آن‌ها به جست و جو ادامه دهید.</p>"; },
             partial: function(userSteps, optimalSteps, hasPoints) {
                var pointsMessage;
                if (!hasPoints) {
@@ -114,7 +114,7 @@
             <p id="enemyWarning"></p>
             <div style="float:right; padding: 5px; margin-left: 25px; margin-bottom: 10px; border: 1px solid black"><img src="seeds.png" style="height:55px"></div>
             <p>یک ببراس تخم‌های را در یک تکه از قسمت‌های لوله گم کرده‌است.</p>
-            <p style="font-weight: bold">Find where the seeds are by doing as few searches as possible.</p>
+            <p style="font-weight: bold">تخم‌ها را با انجام کمترین جست و جوی ممکن پیدا کنید.</p>
             <p >با کلیک کردن روی دوتا از درپوش‌های مشکی می‌توانید قسمت‌های بینشان را جست و جو کنید. ببراس تمام لوله را بین این دو قسمت جست و جو کرده و اعلام می‌کند که تخم‌ها در این قسمت‌ها می‌باشند یا خیر.</p>
             <div id="anim_container">
                <div id="anim"></div>
