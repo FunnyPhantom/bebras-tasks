@@ -25,7 +25,7 @@ standaloneAddContents({
      { code: "2018-FR-14-sort-columns",
        title: "Ranger les tiges" },
      { code: "2018-HU-07-arrows",
-       title: "Flèches indicatrices" },
+       title: "دوئل پیکان‌ها" },
      { code: "2018-FR-10-parallel-processing",
        title: "Travail concurrent" },
      { code: "2018-FR-01-recursive-split",
