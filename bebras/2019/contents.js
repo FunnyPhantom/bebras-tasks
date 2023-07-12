@@ -17,7 +17,7 @@ standaloneAddContents({
      { code: "FR-2019-07-two-connect",
        title: "Arroser les fleurs" },
      { code: "FR-2019-08-patterns",
-       title: "Motifs répétés" },
+       title: "الگوهای تکراری" },
      { code: "FR-2019-09-hidden-words",
        title: "Mots de passe" },
      { code: "FR-2019-10-lighting",
