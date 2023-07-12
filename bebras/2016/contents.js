@@ -20,7 +20,7 @@ standaloneAddContents({
      { code: "2016-FR-08-repeating-pattern",
        title: "Par quatre chemins" },
      { code: "2016-FR-05-red-and-blue",
-       title: "Points de départ" },
+       title: "نقاط مبدا" },
      { code: "2016-JP-01-potions",
        title: "Potions magiques" },
      { code: "2016-FR-13-checksum",
