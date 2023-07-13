@@ -23,7 +23,7 @@ standaloneAddContents({
      { code: "2018-FR-15-marbles-sequence",
        title: "Perles colorées" },
      { code: "2018-FR-14-sort-columns",
-       title: "Ranger les tiges" },
+       title: "توپ‌های ببراس" },
      { code: "2018-HU-07-arrows",
        title: "دوئل پیکان‌ها" },
      { code: "2018-FR-10-parallel-processing",
