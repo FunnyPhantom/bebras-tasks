@@ -7,7 +7,7 @@ standaloneAddContents({
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2016-FR-03-balanced-trees",
-       title: "حلقه‌ها و فلش‌ها" },
+       title: "دایره‌ها و فلش‌ها" },
      { code: "2016-FR-09-constraints",
        title: "Bons voisins" },
      { code: "2016-FR-10-height-differences",
