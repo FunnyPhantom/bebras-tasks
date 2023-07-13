@@ -17,7 +17,7 @@ standaloneAddContents({
      { code: "2017-FR-05-draw-shapes",
        title: "زبان شکل‌ها" },
      { code: "2017-FR-06-pacman",
-       title: "Fantôme" },
+       title: "روح" },
      { code: "2017-FR-07-graph-representation",
        title: "بازی عکاسی" },
      { code: "2017-FR-08-combine-shapes",
