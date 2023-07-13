@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+
+   <head>
+      <meta charset="utf-8"></meta>
+      <title>2018-EN-04-whos-there</title>
+      <script>
+         window.stringsLanguage = 'fa';
+      </script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+      <script class="remove" type="text/javascript">
+         var modulesPath = '../../../_common/modules';
+         importModules([
+            'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.0',
+            'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+            'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+            'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+            'taskStyles-0.1', 'randomGenerator-1.0'
+            ]);
+            var enableRtl = true;
+      </script>
+      <script class="remove" type="text/javascript">
+         var json = {
+            "id": "http://castor-informatique.fr/tasks/2017/2017-FR-05-draw-shapes/",
+            "language": "fa",
+            "version": "fr.01",
+            "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
+            "translators": ["Mohamed El-Sherif", "Eslam Wageed"],
+            "license": "CC BY-SA 3.0",
+            "taskPathPrefix": "",
+            "modulesPathPrefix": "",
+            "browserSupport": [],
+            "fullFeedback": true,
+            "acceptedAnswers": [],
+            "usesRandomSeed": false
+         };
+      </script>
+      <script type="text/javascript">
+       var shapeGroup = function (isPair, isFirst) {
+         var s = "3 ";
+         s += (isFirst) ? "" : "new similar ";
+         s += (isPair) ? "pairs of " : "";
+         s += "shapes";
+         return s;
+      }
+      var taskStrings = {
+            start: "شروع",
+            restart: "شروع دوباره",
+            inHouse: "ورودی",
+            outHouse: "خروجی",
+            clickGroup: function (isPair, isFirst) {
+               return "Click here as soon as the house\n contains " + shapeGroup(isPair, isFirst) + " similar"; 
+               },
+            resume: function (isPair, isFirst) {
+               return "Good Job. Click here to continue\n finding " + shapeGroup(isPair, isFirst) + " similar"; 
+               },
+            errorWrong: function (isPair, isFirst) {
+               return "The house doesn't contain " + shapeGroup(isPair, isFirst) + " similar"; 
+               },
+            errorMiss: function (isPair, isFirst) { 
+               return "You missed a group of " + shapeGroup(isPair, isFirst) + " similar"; 
+               },
+            shapeInHouse: "شکل‌هایی که داخل خانه هستند:",
+            shapeList: "شکل‌هایی که ممکن است وارد خانه شوند:",
+            shapeListInPairs: "شکل‌هایی که ممکن است وارد خانه شوند:",
+            suboptimal: "You didn't find three groups.",
+            drawInCanvas: "می‌توانید از این مکان به عنوان چرک‌نویس استفاده کنید.", // one line only, otherwise it causes a bug
+            success: "موفق شدید!",
+            partial: "شما بخشی از امتیاز را دریافت کردید.",
+            failure: "شما هیچ امتیازی نگرفتید."
+         };
+      </script>
+      <script type="text/javascript" src="raphael.sketchpad.js"></script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         .bold {
+           font-weight: bold;
+         }
+         #canvas {
+           width: 600px;
+           margin: auto;
+           border: 1px solid black;
+         }
+         #canvasButtons {
+           text-align: center;
+           margin: 20px 0;
+         }
+         #canvasButtons button {
+           padding: 5px 20px;
+         } 
+         #valider {
+           display: block;
+           margin: auto;
+           width: 9em;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div id="editor"></div>
+
+      <div id="task">
+         <h1>خانه اشکال</h1>
+         <div id="tabsContainer"></div>
+
+         <div id="taskContent">
+            <div id="zone_1">
+               <div class="consigne">
+                  <p>یک روز تعدادی شکل تصمیم می‌گیرند وارد خانه ببراس شوند.</p>
+                  <p>روی دکمه "شروع" بزنید تا در را برای شکل‌ها باز کنید که وارد <span class="medium bold"> یا خارج</span> شوند. <span class="easy medium">شکل‌ها یکی‌یکی وارد می‌شوند.</span><span class="hard">شکل‌ها جفت‌جفت وارد می‌شوند.</span>.</p>
+                  <p>می‌توانید از بخش زیر سوال به عنوان چرک‌نویس استفاده کنید تا حواستان به اوضاع باشد.</p> 
+                  <p>در ابتدا شکلی در خانه نیست و خانه خالی است.</p>
+                  <p>به محض این‌که سه <span class="hard bold"> جفت شکل</span><span class="easy medium">شکل </span> مشابه در خانه وجود داشتند روی دکمه خاکستری بزنید تا بخشی از امتیاز را دریافت کنید. این کار را سه بار انجام دهید تا امتیاز کامل دریافت کنید.
+               </div>
+            </div>
+            <div id="zone_2">
+               <div id="housePaper"></div>
+               <div id="shapeListPaper"></div>
+               <div id="canvas"></div>
+               <div id="canvasButtons">
+                  <button type="button" class="btn btn-default" id="undoTagButton">برو قبلی</button>
+                  <button type="button" class="btn btn-default" id="redoTagButton">برو بعدی</button>
+               </div>
+            </div>
+         </div>
+         <img id="shape1" src="1.png" style="display:none">
+         <img id="shape2" src="2.png" style="display:none">
+         <img id="shape3" src="3.png" style="display:none">
+         <img id="shape4" src="4.png" style="display:none">
+         <img id="shape5" src="5.png" style="display:none">
+         <img id="house" src="house.png" style="display:none">
+         <img id="arrow" src="arrow.png" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+      </div>
+      <!-- task-solution -->
+   </body>
+
+</html>
