@@ -5,59 +5,60 @@
          <style> p{text-align: right}</style>
     <meta charset="utf-8">
     <title>2018-FR-03-search-replace</title>
-    <script class="remove" type="text/javascript" src="../../modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
     <script>
-        window.stringsLanguage = 'en';
+        window.stringsLanguage = 'fa';
     </script>
     <script class="remove" type="text/javascript">
-        var modulesPath = '../../modules';
+        var modulesPath = '../../../_common/modules';
         importModules([
             'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
             'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
             'delayFactory-1.0', 'simulationFactory-1.0', 'drag_lib-2.0', 'raphaelButton-1.0',
             'graph-1.0', 'visual-graph-1.0', 'graph-mouse-1.0', 'randomGenerator-1.0',
-            'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+            'jschannel', 'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
             'taskStyles-0.1']);
     </script>
-      <script class="remove" type="text/javascript">
-       var json = {
-          "id": "http://castor-informatique.fr/tasks/2016/2016-FR-07-shapes/",
-          "language": "fr",
-          "version": "fr.01",
-          "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
-          "translators": ["Arthur Charguéraud"],
-          "license": "CC BY-SA 3.0",
-          "taskPathPrefix": "",
-          "modulesPathPrefix": "",
-          "browserSupport": [],
-          "fullFeedback": true,
-          "acceptedAnswers": [],
-          "usesRandomSeed": false
-      };
-      </script>
-      <script type="text/javascript">
+    <script class="remove" type="text/javascript">
+      var json = {
+        "id": "http://castor-informatique.fr/tasks/2016/2016-FR-07-shapes/",
+        "language": "fr",
+        "version": "fr.01",
+        "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
+        "translators": [],
+        "license": "CC BY-SA 3.0",
+        "taskPathPrefix": "",
+        "modulesPathPrefix": "",
+        "browserSupport": [],
+        "fullFeedback": true,
+        "acceptedAnswers": [],
+        "usesRandomSeed": false
+    };
+    var enableRtl = true;
+    </script>
+    <script type="text/javascript">
     var taskStrings = {
           error: "ترتیب فعلی دقیقا مشابه هدف نیست",
-          success: "!شما موفق شدید",
-          before: "تغییر",
-          after: "با",
+          success: "آفرین! شما برنده شدید!",
+          before: "تبدیل",
+          after: "به",
           replacedShape : function(nbReplaced, sameShape) {
             if (sameShape) {
-               return ".جابجا کردن یک شکل با خودش باعث تغییر ترتیب فعلی نمی شود"
+               return "تبدیل یک شکل به خودش ممکن نیست."
             } else if (nbReplaced == 0) {
-               return "ترتیب عوض نمی شود زیرا شکل اولی که انتخاب کردید در ترتیب نمی باشد";
+               return "تبدیل بی‌اثر بود زیرا شکل انتخاب شده در دنباله ببراس وجود ندارد.";
             } else if (nbReplaced == 1) {
-               return ".یک جابجایی انجام شد"
+               return "تبدیل با موفقیت انجام شد."
             } else {
-               return nbReplaced + " .جابجایی ها انجام شد"
+               return nbReplaced + "تبدیل‌ها با موفقیت انجام شدند."
             }
           },
-          undo: "یک مرحله به عقب برگرد"
+          undo: "برگشت به حالت قبل"
        };
-      </script>
-      <script type="text/javascript" src="shape-paths.js"></script>
-      <script type="text/javascript" src="task.js"></script>
-      <style>
+    </script>
+    <script type="text/javascript" src="shape-paths.js"></script>
+    <script type="text/javascript" src="task.js"></script>
+    <style>
          body * {
             box-sizing: content-box;
          }
@@ -73,7 +74,7 @@
            height: 30px;
          }
          #taskContent {
-         }z
+         }
          .shape {
            margin: 5px;
          }
@@ -135,47 +136,50 @@
          .instructions {
             margin-left: 20px;
          }
-      </style>
-   </head>
-   <body>
-      <div id="task">
-         <h1>Replacements</h1>
-         <div id="tabsContainer"></div>
-         <div id="taskContent">
-          <div id="zone_1">
-            <div class="consigne">
+    </style>
+  </head>
+  <body>
+    <div id="task">
+        <h1>دنباله طلایی</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+        <div id="zone_1">
+          <div class="consigne">
             <p>
-            با انجام تغییراتی سری فعلی را به سری هدف تبدیل کنید
+                ببراس یک دنباله از شکل‌ها دارد. روزی دوست ببراس به او یک دنباله طلایی از شکل‌ها نشان می‌دهد.
             </p>
             <p>
-            برای تغییر دادن دو شکل هر دو را انتخاب کنید
+                ببراس که خیلی از دنباله طلایی خوشش می‌آید تصمیم می‌گیرد که با استفاده از دستگاه تبدیل شکل، دنباله‌اش را دقیقا مانند دنباله طلایی کند.
             </p>
             <p>
-            اگر به بن بست خوردید می توانید بعضی از مراحل را به عقب برگردانید
+                دستکاه تبدیل شکل به این صورت کار می‌کند که دو شکل را به عنوان ورودی می‌گیرد و هر نمونه از شکل اول در دنباله ببراس را به شکل دوم تبدیل می‌کند.
             </p>
-            </div>
+            <p>
+                به ببراس کمک کنید با استفاده از این دستگاه دنباله‌اش را مانند دنباله طلایی کند. 
+            </p>
+            <p>
+                اگر بعد چندبار استفاده از دستگاه حس کردید که تبدیل دنباله ببراس به دنباله طلایی ممکن نیست، می‌توانید از دکمه برگشت به حالت قبل استفاده کنید.
+            </p>
           </div>
-          <div id="zone_2">
-          <p class="instructions">دو شکل را از شکل های زیر انتخاب کنید</p>
-            <div id="topBar">
-              <div class="shapes" id="allShapes"></div>
-              <input type="button" id="undo">
-            </div>
-            <div class="shapes" id="beforeAfter"></div>
-            <div id="comment"></div>
-            <div id="originFrame">
-               <div class="areaTitle">:ترتیب فعلی</div>
-               <div class="shapes" id="originShapes"></div>
-            </div>
-            <div id="targetFrame">
-               <div class="areaTitle">:هدف</div>
-               <div class="shapes" id="targetShapes"></div>
-            </div>
         </div>
-         <img src="icon.png" style="display:none">
-      </div>
-      <div id="solution">
-        <h2>راه حل</h2>
+        <div id="zone_2">
+          <p class="instructions">دو شکل انتخاب کنید:</p>
+          <div id="topBar">
+            <div class="shapes" id="allShapes"></div>
+            <input type="button" id="undo">
+          </div>
+          <div class="shapes" id="beforeAfter"></div>
+          <div id="comment"></div>
+          <div id="originFrame">
+            <div class="areaTitle">دنباله ببراس:</div>
+             <div class="shapes" id="originShapes"></div>
+          </div>
+          <div id="targetFrame">
+             <div class="areaTitle">دنباله طلایی:</div>
+             <div class="shapes" id="targetShapes"></div>
+          </div>
+        </div>
+        <img src="icon.png" style="display:none">
       </div>
     </body>
 </html>

@@ -16,7 +16,7 @@ standaloneAddContents({
      { code: "2015-FR-04-next-distance",
        title: "Éloignement" },
      { code: "2015-CA-02-fireworks",
-       title: "Signaux colorés" },
+       title: "سیگنال‌های رنگی" },
      { code: "2015-FR-03-mark-and-shuffle",
        title: "Marquage d'oiseaux" },
      { code: "2015-FR-13-open-lock",
@@ -26,7 +26,7 @@ standaloneAddContents({
      { code: "2015-FR-01-copy-pattern",
        title: "Reproduire un dessin" },
      { code: "2015-SI-05-horse-races",
-       title: "Course de chevaux" },
+       title: "مسابقه‌ی اسب سواری" },
      { code: "2015-FR-15-guess-who",
        title: "Qui est-ce ?" }
     ]

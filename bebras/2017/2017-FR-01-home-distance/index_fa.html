@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+   <head>
+    <meta dir="rtl" charset="utf-8">
+    <title>2017-FR-01</title>
+    <script>
+        window.stringsLanguage = 'fa';
+    </script>
+    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1.js" id="import-modules"></script>
+    <script class="remove" type="text/javascript">
+        var modulesPath = '../../../_common/modules';
+        importModules([
+            'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+            'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+            'delayFactory-1.0', 'simulationFactory-1.0',
+            'graph-1.0', 'visual-graph-1.0', 'graph-mouse-1.0',
+            'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+            'taskStyles-0.1']);
+    </script>
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/tasks/2017/2017-FR-01-home-distance/",
+          "language": "fa",
+          "version": "fa.01",
+          "authors": "Arthur Charguéraud, Mathias Hiron, Nir Lavee, France-ioi",
+          "translators": "Ramtin Moslemi",
+          "license": "CC BY-SA 3.0",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "fullFeedback": true,
+          "acceptedAnswers": [],
+          "usesRandomSeed": false
+      };
+      </script>
+      <script type="text/javascript">
+      var taskStrings = {
+            success: "آفرین! موفق شدی.",
+            existsError: "میان درختان انتخاب شده از پیش جاده‌ای وجود دارد. برای حذف این جاده بر روی آن کلیک کنید.",
+            distanceError: "عدد  نوشته شده بر روی درخت نشان داده شده با رنگ سرخ، با تعداد جاده‌های میان این درخت و پرچم تفاوت دارد. ",
+            unconnectedError: " از درخت نشان داده شده با رنگ سرخ به پرچم راهی وجود ندارد. جاده بسازید."
+         };
+var enableRtl = true;
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #anim_container {
+            text-align: center;
+         }
+#anim_container table {
+            margin: auto;
+         }
+         #anim {
+            display: inline-block;
+         }
+         #feedback {
+            height: 2em;
+            margin-top: 0.5em;
+            margin-bottom: 0.1em;
+            text-align: center;
+            font-weight: bold;
+            color: red; 
+         }
+         #validation {
+            margin-top: 1em;
+            text-align: center;
+         }
+         #validation input {
+            padding: 2px 10px 2px 10px;
+         }
+         .constraints li {
+            padding-bottom: 0.5em; 
+         }
+         #taskContent {
+            text-align: right;
+         }
+      </style>
+   </head>
+   <body>
+
+      <div id="task">
+         <div style="direction: rtl">
+            <h1>جاده‌های درختی</h1>
+            <div id="tabsContainer"></div>
+            <div id="taskContent">
+
+               <div align="right">
+          <p>ببراس می‌خواهد بین درختان جاده بسازد.</p>
+   <p>قانون بازی: عدد نوشته شده بر روی هر درخت نشان دهنده‌ی تعداد جاده‌هایی است که بین درخت و پرچم وجود دارد. به مثال آورده شده توجه کنید.</p>
+               <p>برای ایجاد یک جاده، بر روی دو درخت کلیک کنید. برای حذف یک جاده بر روی خودش کلیک کنید.</p>
+               </div>
+
+
+
+               <div style="float:center; padding: 5px; margin-left: 0px; margin-bottom: 10px; border: 1px solid black; text-align:center; width: 270px ">
+                  <div style="font-weight: bold; margin: 10px;">مثال</div>
+                  <div style="margin: 0; padding: 0" id="exampleAnim">
+                  </div>
+               </div>
+
+
+               <div id="anim_container">
+                  <div id="anim"></div>
+                  <div id="feedback"></div>
+               </div>
+               <div id="validation"><input type="button" value="بررسی پاسخ" id="execute" /></div>
+               <img src="icon.png" style="display:none">
+               <img src="start.png" style="display:none">
+            </div>
+         </div>
+      </div>
+      <!-- task -->
+      <div id="solution">
+
+         <h2>جواب</h2>
+
+            <div class="easy">
+
+               <p>یک پاسخ قابل قبول به صورت زیر است:</p>
+               <p><img style="width:250px" src="Sol_easy_11.png"></p>
+               <p>
+در تصویر نشان داده شده، اگر بر روی اولین درخت بودن شماره یک، و بر روی دومین درخت بدون شماره چهار را بنویسیم، در این صورت مشاهده خواهیم کرد که عدد نوشته شده بر روی هر درخت، نشان دهنده‌ی تعداد جاده‌های میان این درخت و پرچم است.</p>
+               <p>توجه کنید که یک پاسخ قابل قبول دیگر برای این مسئله وجود دارد که به صورت زیر می‌باشد:</p>
+               <p><img style="width:250px" src="Sol_easy_12.png"></p>
+
+            </div>
+
+            <div class="medium">
+
+                <p>یک پاسخ قابل قبول به صورت زیر است:</p>
+               <p><img  style="width:280px" src="Sol_medium_01.png"></p>
+               <p>توجه کنید که یک پاسخ‌های قابل قبول دیگری نیز برای این مسئله وجود داشتند. یکی دیگر از آن‌ها به صورت زیر می‌باشد:</p>
+               <p><img  style="width:280px" src="Sol_medium_02.png"></p>
+
+            </div>
+
+            <div class="hard">
+
+                <p>یک پاسخ قابل قبول به صورت زیر است:</p>
+               <p><img  style="width:400px" src="Sol_hard_01.png"></p>
+               <p>توجه کنید که یک پاسخ‌های قابل قبول دیگری نیز برای این مسئله وجود داشتند. یکی دیگر از آن‌ها به صورت زیر می‌باشد:</p>
+               <p><img  style="width:400px" src="Sol_hard_02.png"></p>
+
+            </div>
+
+
+         <h2>کاربرد این بازی در علوم کامپیوتر</h2>
+         <p>
+این مسئله به یک مفهوم مهم در علوم کامپیوتر تحت عنوان  <b>فاصله در یک گراف</b> اشاره می‌کند. با شروع از یک نقطه‌ی آغازین، می‌خواهیم با گذر از خطوط سیاه به همه‌ی دایره‌های سبز رنگ برسیم. هدف ما از این کار، یافتن<b>کوتاه‌ترین فاصله</b> از نقطه آغازین به هر دایره است.
+         
+         </p>
+
+	  </div> <!-- task-solution -->
+   </body>
+</html>
