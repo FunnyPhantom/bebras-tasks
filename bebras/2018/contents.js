@@ -13,7 +13,7 @@ standaloneAddContents({
      { code: "2018-FR-06-encoded-path",
        title: "مسیر رمزگذاری شده" },
      { code: "2018-FR-04-whos-there",
-       title: "Triades" },
+       title: "مهمانی شکل‌ها" },
      { code: "2018-FR-07-checkers-graph",
        title: "نقشه مرموز" },
      { code: "2018-FR-09-graph-of-shapes",
