@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2019-FR-03-prediction</title>
+         <style> p{text-align: right}</style>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'drag_lib-2.0'
+      ]);
+   </script>
+   <!-- <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/grid-1.1.js"></script> -->
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-03-prediction/",
+         "language": "fa",
+         "version": "fa.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
+         "translators": ["Amin Hajbarat"],
+         "license": "CC BY-SA 3.0",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "آفرین، شما موفق شدید!",
+         "try": "امتحان کردن",
+         next: "بعدی",
+         errorMissingAndExtraGift: " گلدان‌هایی بدون گل و  گل‌هایی بدون گلدان باقی مانده است.",
+         errorExtraGift: "گلدان‌هایی بدون گل باقی مانده است.",
+         errorMissingGift: "گل‌هایی بدون گلدان باقی مانده است.",
+         noBeaver: "روی کانگوروهایی که گل دریافت  می‌کنند، بزنید.",
+         tryToUnderstand: "دلیل این که چرا بعضی از کانگوروها گل دریافت می‌کنند اما بعضی‌ها نه را پیدا کنید، سپس روی دکمۀ \"بعدی\" بزنید.",
+         clickNext: "برای ادامه دادن روی دکمۀ \"بعدی\" بزنید.",
+         clickNow: "بلافاصله برای امتحان کردن روی دکمه بزنید، و یا روی چند کانگورو بزنید تا به آن‌ها گل بدهید."
+      };
+      var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+
+      #error {
+         margin-top: 1em;
+         min-height: 2em;
+         text-align: center;
+      }
+
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>پیش‌بینی‌</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>هدف شما این است که دلیل این که چرا بعضی از کانگوروها گل دریافت می‌کنند اما بعضی‌ها نه را پیدا کنید.</p>
+               <p>روی دکمۀ امتحان کردن بزنید تا گل‌ها ظاهر شوند.</p>
+               <p>با دقت به محتویات داخل
+               <strong>
+               <span class="easy">خانه بالای هر کانگورو توجه کنید.</span>
+               <span class="medium hard">خانه‌های بالا و پایین هر کانگورو نوجه کنید.</span>
+               </strong></p>
+
+               <p>سپس، روی دکمۀ "بعدی" بزنید، سپس به منظور اهدای گلدان، روی کانگوروهایی بزنید که گل دریافت می‌کنند.</p>
+         </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            
+            <div id="error"></div>
+         </div>
+      </div>
+      <img src="crocodile.png" style="display:none" id="crocodile">
+      <img src="kangourou.png" style="display:none" id="kangourou">
+      <img src="ours.png" style="display:none" id="ours">
+      <img src="flower_transparent.png" style="display:none" id="flower">
+      <img src="pot.png" style="display:none" id="pot">
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      <h2>جواب</h2>
+      <h2>کاربرد این بازی در علوم کامپیوتر:</h2>
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>
