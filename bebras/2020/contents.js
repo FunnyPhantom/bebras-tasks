@@ -8,7 +8,7 @@ standaloneAddContents({
      { code: "2020-CH-07-trade",
        title: "معاملات" },
      { code: "2020-FR-01-play-music",
-       title: "موسیقی" },
+       title: "کنسرت ببراس" },
      { code: "2020-FR-02-split-flowers",
        title: "قارچ‌ها" },
      { code: "2020-FR-03-waiting-room",
