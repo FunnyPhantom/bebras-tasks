@@ -21,7 +21,7 @@ standaloneAddContents({
      { code: "2018-FR-17-weights",
        title: "ترازو" },
      { code: "2018-FR-15-marbles-sequence",
-       title: "Perles colorées" },
+       title: "تیله‌های ببراس" },
      { code: "2018-FR-14-sort-columns",
        title: "توپ‌های ببراس" },
      { code: "2018-HU-07-arrows",
