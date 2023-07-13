@@ -31,7 +31,6 @@
           "acceptedAnswers": [],
           "usesRandomSeed": false
       };
-	var enableRtl = true;
       </script>
       <script type="text/javascript">
       var taskStrings = {
@@ -97,38 +96,40 @@
    </head>
    <body>
       <div id="task">
-         <h1>سه برج</h1>
-         <div id="tabsContainer"></div>
-         <div id="taskContent">
-            <p>بلوک‌ها را طوری بچینید که در شکل هدف نشان داده شده است. روی دکمه های خاکستری کلیک کنید تا جرثقیل مغناطیسی یک بلوک را بلند یا رها کند.</p>
+          <div style="direction: rtl">
+             <h1>سه برج</h1>
+             <div id="tabsContainer"></div>
+             <div id="taskContent">
+                <p>بلوک‌ها را طوری بچینید که در شکل هدف نشان داده شده است. روی دکمه های خاکستری کلیک کنید تا جرثقیل مغناطیسی یک بلوک را بلند یا رها کند.</p>
 
-            <p>بلوک‌ها را در <span id="nbStepsPartial" class="targetNumber"></span> مرحله<span class="medium hard"> مرحله بچینید تا امتیاز بگیرید. هم‌چنین برای دستیابی به امتیاز کامل، بلوک‌ها را در <span id="nbStepsOptimal" class="targetNumber"></span> مرحله بچینید.<span class="hard"></span></span>.
-             </p>
-            <table id="animTable">
-               <tr>
-                  <td>
-                     <div id="anim_container">
-                        <div id="anim"></div>
-                        <div id="feedback">
-                           بازخورد
-                        </div>
-                     </div>
-                     <div id="buttons">
-                        <span>تعداد مراحل: <span id="stepCounter"></span>.</span>
-                        <input type="button" id="undo" value="یک مرحله به عقب بازگرد" />
-                     </div>
-                  </td>
-                  <td id="target_cell">
-                     <div id="target_anim_container">
-                        شکل هدف
-                        <br><br>
-                        <div id="target_anim"></div>
-                     </div>
-                  </td>
-               </tr>
-            </table>
-            <img src="icon.png" style="display:none">
-            <img src="magnet.png" style="display:none">
+                <p>بلوک‌ها را در <span id="nbStepsPartial" class="targetNumber"></span> مرحله<span class="medium hard"> بچینید تا امتیاز بگیرید. هم‌چنین برای دستیابی به امتیاز کامل، بلوک‌ها را در <span id="nbStepsOptimal" class="targetNumber"></span> مرحله بچینید<span class="hard"></span></span>.
+                 </p>
+                <table id="animTable">
+                   <tr>
+                      <td>
+                         <div id="anim_container">
+                            <div id="anim"></div>
+                            <div id="feedback">
+                               بازخورد
+                            </div>
+                         </div>
+                         <div id="buttons">
+                            <span>تعداد مراحل: <span id="stepCounter"></span>.</span>
+                            <input type="button" id="undo" value="یک مرحله به عقب بازگرد" />
+                         </div>
+                      </td>
+                      <td id="target_cell">
+                         <div id="target_anim_container">
+                            شکل هدف
+                            <br><br>
+                            <div id="target_anim"></div>
+                         </div>
+                      </td>
+                   </tr>
+                </table>
+                <img src="icon.png" style="display:none">
+                <img src="magnet.png" style="display:none">
+             </div>
          </div>
       </div><!-- task -->
       <div id="solution">
