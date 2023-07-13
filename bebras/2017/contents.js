@@ -20,7 +20,7 @@ standaloneAddContents({
      { code: "2017-FR-07-graph-representation",
        title: "بازی عکاسی" },
      { code: "2017-FR-08-combine-shapes",
-       title: "Dessin combiné" },
+       title: "نقاشی با ریاضی" },
      { code: "2017-FR-10-building-lights",
        title: "Lumières d'immeuble" },
      { code: "2017-FR-11-graph-isomorphism",
