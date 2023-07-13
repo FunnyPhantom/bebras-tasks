@@ -11,7 +11,7 @@ standaloneAddContents({
      { code: "FR-2019-02-registers",
        title: "صعود به قله" },
      { code: "FR-2019-03-prediction",
-       title: "Prédictions" },
+       title: "پیش‌بینی‌" },
      { code: "FR-2019-06-inclusions",
        title: "مستطیل‌های تو در تو" },
      { code: "FR-2019-07-two-connect",
