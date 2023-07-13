@@ -3,6 +3,7 @@ standaloneAddContents({
   code: "castor_2017",
   title: "مسابقات ببراس 2017",
   folder: "2017/",
+  language: "fa",
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2017-FR-01-home-distance",
