@@ -9,7 +9,7 @@ standaloneAddContents({
      { code: "2017-FR-01-home-distance",
        title: "جاده‌های درختی" },
      { code: "2017-FR-02-grid-copy",
-       title: "Copie rapide" },
+       title: "کپی برابر اصل" },
      { code: "2017-FR-03-three-towers",
        title: "سه برج" },
      { code: "2017-FR-04-faulty-wire",
