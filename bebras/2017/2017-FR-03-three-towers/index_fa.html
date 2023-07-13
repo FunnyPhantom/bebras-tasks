@@ -19,8 +19,8 @@
     <script class="remove" type="text/javascript">
        var json = {
           "id": "http://castor-informatique.fr/tasks/2017/2017-FR-03-three-towers/",
-          "language": "fa",
-          "version": "fa.01",
+          "language": "en",
+          "version": "en.01",
           "authors": "Arthur Charguéraud, Mathias Hiron, Nir Lavee, France-ioi",
           "translators": "Amin Hajbarat",
           "license": "CC BY-SA 3.0",
@@ -39,7 +39,7 @@
             partial: function(steps, stepsOptimal, level) { 
                var s = "شما در " + steps + " مرحله موفق شدید. شما می‌توانید مجدداً شروع کنید و تلاش کنید تا بلوک‌ها  را تنها در " + stepsOptimal + " مرحله ذخیره کنید.";
                if (level == 'hard') {
-                  s += "<br> توحه، این سطح دشوارتر است!";
+                  s += "<br> توجه، این سطح دشوارتر است!";
                }
                return s;
             },
@@ -100,9 +100,9 @@
              <h1>سه برج</h1>
              <div id="tabsContainer"></div>
              <div id="taskContent">
-                <p>بلوک‌ها را طوری بچینید که در شکل هدف نشان داده شده است. روی دکمه های خاکستری کلیک کنید تا جرثقیل مغناطیسی یک بلوک را بلند یا رها کند.</p>
+                <p>بلوک‌ها را طوری بچینید که در شکل هدف نشان داده شده است. روی دکمه‌های خاکستری کلیک کنید تا جرثقیل مغناطیسی یک بلوک را بلند یا رها کند.</p>
 
-                <p>بلوک‌ها را در <span id="nbStepsPartial" class="targetNumber"></span>مرحله بچینید<span class="medium hard"> بچینید تا امتیاز بگیرید. هم‌چنین برای دستیابی به امتیاز کامل، بلوک‌ها را در <span id="nbStepsOptimal" class="targetNumber"></span> مرحله بچینید<span class="hard"></span></span>.
+                <p>بلوک‌ها را در <span id="nbStepsPartial" class="targetNumber"></span>مرحله بچینید<span class="medium hard"> تا امتیاز بگیرید. هم‌چنین برای دستیابی به امتیاز کامل، بلوک‌ها را در <span id="nbStepsOptimal" class="targetNumber"></span> مرحله بچینید<span class="hard"></span></span>.
                  </p>
                 <table id="animTable">
                    <tr>
