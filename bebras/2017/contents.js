@@ -10,7 +10,7 @@ standaloneAddContents({
      { code: "2017-FR-02-grid-copy",
        title: "Copie rapide" },
      { code: "2017-FR-03-three-towers",
-       title: "Tour infernale" },
+       title: "سه برج" },
      { code: "2017-FR-04-faulty-wire",
        title: "تخم‌های پنهان" },
      { code: "2017-FR-05-draw-shapes",
