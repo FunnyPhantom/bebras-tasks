@@ -27,7 +27,7 @@ standaloneAddContents({
      { code: "2018-HU-07-arrows",
        title: "دوئل پیکان‌ها" },
      { code: "2018-FR-10-parallel-processing",
-       title: "Travail concurrent" },
+       title: "رباتْ کریم" },
      { code: "2018-FR-01-recursive-split",
        title: "قواعد رنگ‌آمیزی" }
     ]
