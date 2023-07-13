@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"></meta>
 
-    <title>2018-FR-10-parallel-processing</title>
+    <title>2018-EN-10-parallel-processing</title>
     <script>
         window.stringsLanguage = 'fa';
     </script>
@@ -16,7 +16,7 @@
             'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.0',
             'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
             'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
-            'jschannel', 'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+            'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
             'taskStyles-0.1', 'randomGenerator-1.0'
         ]);
     </script>
@@ -24,10 +24,10 @@
     <script class="remove" type="text/javascript">
         var json = {
             "id": "http://castor-informatique.fr/tasks/2017/2017-FR-05-draw-shapes/",
-            "language": "fa",
-            "version": "fa.01",
+            "language": "fr",
+            "version": "fr.01",
             "authors": "Arthur Charguéraud, Mathias Hiron, France-ioi",
-            "translators": [],
+            "translators": ["Mohamed El-Sherif", "Eslam Wageed"],
             "license": "CC BY-SA 3.0",
             "taskPathPrefix": "",
             "modulesPathPrefix": "",
@@ -37,125 +37,87 @@
             "usesRandomSeed": false
         };
     </script>
-
-<script type="text/javascript">
-    var taskStrings = {
-        moveForward: "برو به جلو حرکت کن",
-        moveForwardIf: "اگر هیچ رباتی در خانه های بعد نیست، به جلو حرکت کن",
-        turnLeft: "به جپ حرکت کن",
-        turnRight: "به راست حرکت کن",
-        ifRobAhead: "اگر ربات دیگری در خانه ی بعد هست، به مرحله ۳ مراجعه کن",
-        ifRob2Ahead: "اگر رباتی در دو تا خانه ی بعد هست، به مرحله ۳ مراجعه کن",
-        ifWhiteCell: "اگر ربات روی یک خانه ی سفید است، به مرحله ۱ مراجعه کن",
-        end: "پایان برنامه",
-        execute: "برای ربات\n این مرحله رو اجرا کن ",
-        failureNoCrash: ".ربات ۱ با ربات ۲ تصادف نکرد. دوباره تلاش کن",
-        failureSwapped: ".ربات ۲ با ربات ۱ تصادف کرد ولی ما برعکسش را میخواستیم. یعنی ربات ۱ باید با ربات ۲ تصادف کند. دوباره تلاش کن",
-        failureEndNoCrash: " .تمام ربات ها به مقصد رسیدند ولی ربات ۱ با ربات ۲ تصادف نکرده است. دوباره تلاش کن",
-        failureEndNoStuck: ".تمام ربات ها به مقصد رسیدند ولی ما میخواهیم که گیر کنند. دوباره تلاش کن",
-        success: "آفرین، موفق شدی",
-        cellForward: "بعد از حرکت کردن \n به خانه ی بعد\n از دسنور مرحله ۲ به ۳ رفتیم.",
-        cellReachEnd: "بعد از حرکت کردن\n به خانه ی بعد\n از دستور مرحله ۳ به ۴ رفتیم",
-        cell2AheadNotFree: "برای اینکه هیچ رباتی در \n دوتا خانه ی بعد وجود ندارد\n .از دستور مرحله ۱ به ۳ رفتیم",
-        cellAheadNotFreeMedium: "برای اینکه خانه ی بعدی خالی نیست\n .از دستور مرحله ۱ به ۳ رفتیم",
-        cellAheadNotFreeHard: "برای اینکه ربات در خانه ی سبز \n قرار نگرفته است\n .از دستور مرحله ۳ به ۴ رفتیم",
-        cellAheadFree: " برای اینگه خانه ی بعدی\n خالی است\nt .از مرحله ۱ به ۲ رفتیم.",
-        cellAheadFreeForward: "برای اینکه خانه ای که به آن حرکت کردیم\n خالی است\n .از دستور مرحله ۲ به ۳ رفتیم",
-        cell2AheadFree: " برای اینکه دو تا خانه ی بعد\n خالی هستند\n از دستور مرحله ۱ به ۲ رفتیم.",
-        onWhiteCell: "برای اینکه ربات روی خانه ی سفید است\n از دستور مرحله ۳ به ۱ رفتیم",
-
-        robotNotStuck: function(rob){
-            return "ربات "+rob+" .هنوز می تواند حرکت کند";
-        },
-        undo: "Undo"            
-    };
+    
+    <script type="text/javascript">
+        var taskStrings = {
+            moveForward: "برو جلو",
+            moveForwardIf: "اگر رباتی در خانه‌ جلویی نیست برو جلو",
+            turnLeft: "بپیچ به چپ",
+            turnRight: "بپیچ به راست",
+            ifRobAhead: "اگر در خانه جلویی ربات است به خط ۳ برو",
+            ifRob2Ahead: "اگر رباتی در یکی از دو خانه جلویی است به خط ۳ برو",
+            ifWhiteCell: "اگر ربات روی یک خانه سفید است به خط ۱ برو",
+            end: "پایان برنامه",
+            execute: "دکمه ربات ",
+            failureNoCrash: "ربات ۱ به ربات ۲ برخورد نکرد. دوباره تلاش کنید.",
+            failureSwapped: "ربات ۲ به ربات ۱ برخورد کرد ولی شما باید کاری کنید که ربات ۱ به ربات ۲ برخورد کند. دوباره تلاش کنید.",
+            failureEndNoCrash: "ربات‌ها دیگر نمی‌توانند تکان بخورند ولی ربات ۱ به ربات ۲ برخورد نکرد. دوباره امتحان کنید.",
+            failureEndNoStuck: "شرط سوال برآورده نشد. دوباره امتحان کنید.",
+            success: "آفرین! شما بردید!",
+            cellForward: "ربات با یک خانه جلو رفتن\n از خط ۲ به خط ۳ رفت.",
+            cellReachEnd: "ربات با یک خانه جلو رفتن\n از خط ۳ به خط ۴ رفت.",
+            cell2AheadNotFree: "ربات از خط ۱ به ۳ رفت چون\nحداقل یکی از دو خانه جلویش\nپر بود.",
+            cellAheadNotFreeMedium: "ربات از خط ۱ به ۳ رفت چون\nخانه جلویش \n پر بود.",
+            cellAheadNotFreeHard: "ربات از خط ۳ به ۴ رفت\nچون روی یک خانه\nسبز بود.",
+            cellAheadFree: "ربات از خط ۱ به ۲ رفت\nچون خانه جلویش\nخالی بود.",
+            cellAheadFreeForward: "ربات با یک خانه جلو رفتن\n از خط ۲ به خط ۳ رفت.",
+            cell2AheadFree: "ربات از خط ۱ به ۲\n رفت چون هردو خانهٔ\n جلویش خالی بودند.",
+            onWhiteCell: "از خط ۳ به ۱ رفتیم\n زیرا ربات روی \n خانه‌ای سفید است.",
+            robotNotStuck: function(rob){
+                return "ربات "+rob+" هنوز می‌تواند تکان بخورد.";
+            },
+            undo: "برگشت"            
+        };
     </script>
     <script type="text/javascript" src="task.js"></script>
     <style>
-     #annuler {
-        display: block;
-        margin: auto;
-        width: 9em;
-     }
-
-</style>
+        #annuler {
+            display: block;
+            margin: auto;
+            width: 9em;
+        }
+    </style>
 </head>
 
 <body>
-<div id="editor"></div>
+    <div id="editor"></div>
 
     <div id="task">
-        <h1>پردازش موازی</h1>
+        <h1>Crashing Robots</h1>
         <div id="tabsContainer"></div>
         <div id="taskContent">
             <div id="zone_1">
                 <div class="consigne">
                     <p>
-                        این جدول <span class="easy medium">۲</span><span class="hard">۴</span> ربات با بردار مشخص شده اند.
+                       ببراس <span class="easy medium">۲</span><span class="hard">۴</span> ربات روی جدول دارد که با پیکان‌های مربوط به خودشان روی جدول مشخص شده اند.
                     </p>
                     <p>
-                        <span class="easy">هر ربات با یک برنامه کنترل می شود</span>
-                        <span class="medium hard">همه ی ربات ها با یک برنامه ی یکسان کنترل می شوند</span>
+                       <span class="easy">هر ربات برنامه مجزای خودش را دارد.</span>
+                       <span class="medium hard">هر دو ربات یک برنامه مشترک دارند.</span>
                     </p>
-
+                    <p>
+                        هر ربات یک دکمه دارد که با فشردن آن، دستوری که نشانگر ربات (با یک پیکان نشان داده شده) روی آن است را اجرا می‌کند.
+                    </p>
                     <p class="easy medium">
-                        به یک صورتی دستورعمل هارو اجرا کن که ربات ۱ با ربات ۲ تصادف کند
+                        جوری دکمه ربات‌ها را بزنید که ربات ۱ به ربات ۲ برخورد کند (یعنی آخرین حرکت را ربات ۱ کرده باشد).
                     </p>
                     <p class="hard">
-                        دستورات را جوری اجرا کن که <b> تمامی ربات ها</b> قبل از اینکه به خانه های سبز برسند گیر بی افتند.
-
+                        جوری دکمه‌های ربات‌ها را بزنید که قبل از اینکه رباتی به یکی از خانه‌های سبز برسد، هیچ رباتی نتواند تکان بخورد.
                     </p>
 
-                    <p>
-                        برای اینکار، به ترتیبی که مد نظرت هست روی دکمه های خاکستری کلیک کن
-                    </p>
+                    
                 </div>
             </div>
             <div id="zone_2">
                 <div id="paper"></div>
-            </div>
-            <!-- <input type="button" value="Annuler" id="annuler" /> -->
+            </div> 
         </div>
         <img src="icon.png" style="display:none">
     </div>
 
     <!-- task -->
 
-    <div id="solution">
-        <h2>جواب</h2>
-
-         <div class="easy">
-            <p>  تنها در صورتی ربات <b>۱</b> و ربات <b>۲</b> با هم برخورد میکنند که مسیر های آنها با هم تلاقی داشته باشتند</p>
-            <img src="sol_easy_1.png">
-            <p>بنابراین، ابتدا ربات <b>۲</b>   و را به سمت نقطه برخورد حرکت می‌دهیم . بعد ربات <b>۱</b> را به سوی همان نقطه حرکت میدهیم تا با ربات <b>۲</b> برخورد کند.</p>           <img src="sol_easy_2.png">
-            <p>بنابراین، برای حل مسئله باید به ترتیب بر روی دکمه‌های زیر کلیک کنی: <b>۲, ۲, ۱, ۱, ۱, ۱, ۱</b>.</p>
-        </div>
-
-         <div class="medium">
-           <p>اگر اول ربات<b>۲</b> را به نقطه‌ ای ببریم که با ربات <b>۱</b>برخورد کند،دیگر نمیتوانیم ربات ۱ را حرکت بدهیم چون با توجه به دستور مرجله ۱ اگر خانه ی بعد رباتمان خالی نباشد باید به مرحله ۳ مراجعه کنیم و بعد از آن باز هم به مرحله ۱ برمیگردیم. برای همین ربات ۱ را دیگر نمیتوانیم تکان دهیم </p>
-           <img src="sol_medium_0.png" style="width:650px">
-
-           <p>بنابراین باید رویکرد رو تغییر بدیم. ابتدا ربات <b>۱</b> را به نقظه تلاقی می بریم و دستور مرحله ۱ را اجرا میکنیم. ربات <b>۱</b>   جلویش خالی است و میتواند بدون هیچ مشکلی دستور مرجله ۲ را اجرا کند و به جلو حرکت  </p>
-           <img src="sol_medium_1.png" style="width:650px">
-            
-           <p>پس ربات  <b>۲</b> را به نقطه تلاقی میبریم تا با ربات <b>۱</b> برخورد کند.</p>
-           <img src="sol_medium_2.png" style="width:650px"> 
-           
-
-           <p>بنابراین، برای حل مسئله باید به ترتیب بر روی این دکمه‌ها کلیک کنید<b>۱, ۱, ۱, ۱, ۱, ۱, ۱, ۲, ۲, ۲, ۲, ۲, ۱</b>.</p>         </div>
-
-         <div class="hard">
-           <p>  برای گیر اناختن تمام ربات ها، باید همه آنها را در جایی قرار دهیم که تنها یک خانه با نقظه ی برخورد فاصله داشته باشند. برای همین برای همه ی ربات ها دستور مرحله ۲ را اجرا میکنیم</p>
-           <p> اگر به تعداد درست مرحله های مورد نظر را اجرا کنیم، به این نتیجه میرسیم: </p>
-           <img src="sol_hard_1.png" style="width:650px">
-           <p>بعد از این،  فقط با اجرای یک دستور ، تمام ربات ها گیر میافتند.   </p>
-           <img src="sol_hard_2.png" style="width:215px">
-           <p>بنابراین، برای حل مسئله باید به ترتیب بر روی این دکمه‌ها کلیک کنی: <b>۱, ۱, ۱, ۱, ۲, ۳, ۳, ۳, ۳, ۴, ۴, ۴, ۴, ۴, ۴, ۴, ۱, ۲, ۳, ۴</b>.</p>
-        </div>
-
-
-        <h2>>!کاربرد این بازی در علوم کامپیوتر </h2>
-    </div>
+    
     <!-- task-solution -->
 </body>
 
