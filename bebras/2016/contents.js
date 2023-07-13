@@ -1,12 +1,13 @@
 
 standaloneAddContents({
   code: "castor_2016",
-  title: "Concours Castor 2016",
+  title: "مسابقات ببراس 2016",
   folder: "2016/",
+  language: "fa",
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2016-FR-03-balanced-trees",
-       title: "Chemins de Castor" },
+       title: "حلقه‌ها و فلش‌ها" },
      { code: "2016-FR-09-constraints",
        title: "Bons voisins" },
      { code: "2016-FR-10-height-differences",
