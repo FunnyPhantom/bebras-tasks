@@ -49,12 +49,12 @@
       <script type="text/javascript">
       var taskStrings = {
             edgesCount: "فلش‌ها اضافه شد",
-            verticesLeftCount: "حلقه‌های قطع شده",
-            reachError: "حلقۀ مشخص شده به حلقۀ ببراس متصل نشده است.",
+            verticesLeftCount: "دایره‌های قطع شده",
+            reachError: "دایرۀ مشخص شده به دایرۀ ببراس متصل نشده است.",
             numError: "تعداد فلش‌ها بیش از حد است.",
-            degreeError: "حلقۀ مشخص شده تعداد فلش‌های بیش از حد دارد.",
+            degreeError: "دایرۀ مشخص شده تعداد فلش‌های بیش از حد دارد.",
             depthError: "توجه: مسیر قرمز خیلی طولانی است.",
-            existsError: "در حال حاضر یک فلش بین این حلقه‌ها وجود دارد.",
+            existsError: "در حال حاضر یک فلش بین این دایره‌ها وجود دارد.",
             removeError: "نمی‌توان این فلش را حذف کرد.",
             congratulations: "آفرین، شما موفق شدید!"
          };
@@ -90,40 +90,42 @@
    </head>
    <body>
       <div id="task">
-         <h1>حلقه‌ها و فلش‌ها</h1>
-         <div id="tabsContainer"></div>
-         <div id="taskContent">
-            <p>
-               تعداد <span class="easy medium">6</span><span class="hard">14</span> فلش به شکل زیر اضافه کنید، تا:
-               <ul>
-                  <li>ببراس بتواند با استفاده از <span class="easy">دو فلش</span><span class="medium"> دو فلش یا کمتر </span><span class="hard">سه فلش یا کمتر </span> به هر حلقه که بخواهد برسد.</li>
-                  <li class="medium hard">نباید بیش از دو فلش از یک حلقه شروع شود.</li>
-               </ul>
-            </p>
-            <p>
-               به منظور اضافه کردن فلش، روی هر دو حلقۀ دلخواه بزنید.
-            </p>
-            <p>
-               به منظور حذف یک فلش، روی آن بزنید.
-            </p>
-            <div id="anim_container">
-               <div id="anim"></div>
-               <div id="feedback"></div>
-            </div>
-            <div id="control">
-               <table>
-                  <tr>
-                     <td>
-                        <span id="edges"></span>
-                     </td>
-                     <td>
-                        <span id="verticesLeft"></span>
-                     </td>
-                     <td>
-                        <input type="button" value="شروع کردن" id="execute" />
-                     </td>
-                  </tr>
-               </table>
+          <div style="direction: rtl">
+             <h1>دایره‌ها و فلش‌ها</h1>
+             <div id="tabsContainer"></div>
+             <div id="taskContent">
+                <p>
+                   تعداد <span class="easy medium">6</span><span class="hard">14</span> فلش به شکل زیر اضافه کنید، تا:
+                   <ul>
+                      <li>ببراس بتواند با استفاده از <span class="easy">دو فلش</span><span class="medium"> دو فلش یا کمتر </span><span class="hard">سه فلش یا کمتر </span> به هر دایره که بخواهد برسد.</li>
+                      <li class="medium hard">نباید بیش از دو فلش از یک دایره شروع شود.</li>
+                   </ul>
+                </p>
+                <p>
+                   به منظور اضافه کردن فلش، روی هر دو دایرۀ دلخواه بزنید.
+                </p>
+                <p>
+                   به منظور حذف یک فلش، روی آن بزنید.
+                </p>
+                <div id="anim_container">
+                   <div id="anim"></div>
+                   <div id="feedback"></div>
+                </div>
+                <div id="control">
+                   <table>
+                      <tr>
+                         <td>
+                            <span id="edges"></span>
+                         </td>
+                         <td>
+                            <span id="verticesLeft"></span>
+                         </td>
+                         <td>
+                            <input type="button" value="شروع کردن" id="execute" />
+                         </td>
+                      </tr>
+                   </table>
+                </div>
             </div>
             <img src="icon.png" style="display:none">
             <img src="castor.png" style="display:none">
