@@ -1,15 +1,14 @@
-  
 <!DOCTYPE html>
-<html lan="ar" dir="rtl">
+<html>
    <head>
       <meta charset="utf-8">
       <title>2018-FR-15-marbles-sequence</title>
       <script>
-           window.stringsLanguage = 'en';
+           window.stringsLanguage = 'fa';
       </script>
-      <script class="remove" type="text/javascript" src="../../modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
       <script class="remove" type="text/javascript">
-           var modulesPath = '../../modules';
+           var modulesPath = '../../../_common/modules';
            importModules([
                'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
                'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
@@ -20,7 +19,7 @@
        <script class="remove" type="text/javascript">
             var json = {
             "id": "",
-            "language": "fa",
+            "language": "en",
             "version": "en.01",
             "authors": "France-ioi",
             "translators": [],
@@ -32,14 +31,15 @@
             "acceptedAnswers": [],
             "usesRandomSeed": false
             };
+            var enableRtl=true;
       </script>
       <script type="text/javascript">
          var taskStrings = {
             objective : "هدف",
-            undo : "به عقب برگرد",
-            success: "آفرین",
-            errorWrongMarble: "تیله ای که دور آن با قرمز خط کشیده شده با ترتیب هدف متفاوت است",
-            errorMissingMarble : "هنوز تموم نشده.تیله ها سرجای شان نیستند.<br/>اگر گیر کرده اید راه متفاوتی را امتحان کنید"
+            undo : "بازگردانی",
+            success: "آفرین! شما بردید!",
+            errorWrongMarble: "تیله‌ای که دورش قرمز شده در چینش هدف نیست.",
+            errorMissingMarble : "چینش شما کامل نیست."
          };
       </script>
       <script type="text/javascript" src="task.js"></script>
@@ -58,12 +58,14 @@
    </head>
    <body>
       <div id="task">
-         <h1>Marbles Sequence</h1>
+         <h1>تیله‌های ببراس</h1>
          <div id="tabsContainer"></div>   <!-- will contain the versions tabs -->
          <div id="taskContent">        <!-- will contain the content of the task -->
             <div id="zone_1">
                <div class="consigne">
-                  <p>روی دکمه ها کلیک کنید طوری که تیله ها یکی یکی بیفتند و ترتیب مورد نظر را شکل دهند</p>
+                  <p>ببراس یک قفسه تیله دارد که از تعدادی ردیف تشکیل شده.</p>
+                  <p>هر ردیف یک دکمه دارد که با زدن آن، تیله ابتدایی ردیف سقوط می‌کند و روی زمین می‌افتد.</p>
+                  <p>به ببراس کمک کنید جوری دکمه ردیف‌ها را بزند که چینش تیله‌های افتاده با چینش هدف ببراس یکی شود.</p>
                </div>
             </div>
             <div id="zone_2">
@@ -74,9 +76,6 @@
          <img src="icon.png" style="display:none">
          </div>
          <div id="solution">
-            <h2>Solution</h2>
-         <!-- description of the solution -->
-            <h2>C'est de l'informatique !</h2>
          <!-- explanations on why this task is about informatics -->
          <img src="icon.png" style="display:none">
       </div>
