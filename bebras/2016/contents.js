@@ -24,7 +24,7 @@ standaloneAddContents({
      { code: "2016-JP-01-potions",
        title: "Potions magiques" },
      { code: "2016-FR-13-checksum",
-       title: "Totaux cassés" },
+       title: "مجموع کل اعداد" },
      { code: "2016-FR-14-transformation",
        title: "Danse des formes" },
      { code: "2016-FR-11-encoded-image",
