@@ -37,22 +37,22 @@
    </script>
    <script type="text/javascript">
       var taskStrings = {
-         success: "آفرین، تو موفق شدی!",
+         success: "آفرین! شما بردید!",
          fail: function(pollutedTube,answerTube) {
-            return "لوله‌ای که آلوده بود، لوله "+pollutedTube+", نه لوله‌ی "+answerTube+".<br/>  روی دکمه‌ی ری‌استارت کلیک کن تا لوله جدید را امتحان کنی."
+            return "لولهٔ "+pollutedTube+" آلوده و لولهٔ "+answerTube+" پاکیزه بود. فعالیت را دوباره شروع کنید."
          },
          drag: "لوله آلوده را قبل از ولیدیشن انتخاب کن.",
          noSend: "نمی‌توانی حدس بزنی کدام لوله آلوده است.<br/>باریختن آب درون همه‌ی لوله‌های شماره‌گذاری شده شروع کن و سپس آن‌ها تجزیه و تحلیل کن",
-         dragSamples: "لوله‌های بالا را زیر لوله‌های پایین بکش\n تا آب به درون لوله‌های پایین بریزد.",
-         youCanMix: "می‌توانی آب‌های مختلف را با هم مخلوط کنی.",
+         dragSamples: "لوله‌های بالا را به لوله‌های پایین ببر\n تا آب به درون لوله‌های پایین بریزد.",
+         youCanMix: "می‌توانید محتوای لوله‌های مختلف را باهم مخلوط کنید.",
          analyseThem: "لوله‌ها را تجزیه و تحلیل کن، می‌فهمی\n که کدام‌یک شامل لوله‌های آلوده است.",
          whenYouKnow: "پس از تجزیه و تحلیل، استنباط کن که\nکدام‌یک از لوله‌های بالا حاوی آب آلوده است.",
-         send: "این لوله‌ها را تجزیه و تحلیل کن",
+         send: "این لوله‌ها را آزمایش کن.",
          validate: "تمام!",
          retry: "شروع دوباره",
          polluted: "آلوده",
-         clean: "غیر آلوده",
-         errorNoMoreTest: " تو نمی‌توانی بازی دیگری را شروع کنی، اگر می‌توانی استباط کنی کدام لوله آلوده است انتخابش کن در غیراینصورت روی راه‌اندازی مجدد کلیک کن تا با لوله‌های جدید بازی را شروع کنی.",
+         clean: "پاکیزه",
+         errorNoMoreTest: "دیگر فرصت سنجش آلودگی ندارید. اگر می‌توانید تصمیم بگیرید که کدام لوله آلوده است، جواب خود را ثبت کنید وگرنه دوباره شروع کنید.",
          tube: "لوله"
       };
       var enableRtl = true;
@@ -116,17 +116,17 @@
          <center><p id="enemyWarning" style="width:700px"></p></center>
          <div id="zone_1">
             <div class="consigne">
-               <p>یکی از <span class="nbTubes"></span> لوله‌ها در بخش بالا دارای آب آلوده هستند، هدف پیدا کردن آن است.</p>
+               <p>آب درون یکی از <span class="nbTubes"></span> لوله بخش بالا آلوده است. ببراس از شما می‌خواهد آن لوله را پیدا کنید.</p>
                
-               <p>برای این‌کار، سه مرحله را با آماده‌سازی <span class="easy medium">۲</span><span class="hard">۳</span> لوله برای تجزیه‌وتحلیل، دنبال کن.</p>
-               <p><strong>توجه</strong>: در هر مرتبه بازنشانی ممکن است، یک لوله جدید آلوده شود.</p>
+               <p>برای این‌کار شما <span class="easy medium">۲</span><span class="hard">۳</span> لوله آزمایش خالی در اختیار دارید. می‌توانید این لوله‌ها را که در بخش پایین قرار دارند با آب لوله‌های بخش بالا پر کنید و سپس با زدن دکمه آزمایش، آلوده بودن محتوای‌شان را بررسی کنید.</p>
+               <p><strong>نکته:</strong>هر بار که فعالیت را انجام می‌دهید ممکن است لوله آلوده عوض شود.</p>
             </div>
          </div>
          <div id="zone_2">
             <div id="paper"></div>
             <div id="buttons">
-               <div id="send"><i class="fas fa-upload"></i><span>ANALYSE THESE TUBES</span></div>
-               <div id="validate"><i class="fas fa-check"></i><span>VALIDATE</span></div>
+               <div id="send"><i class="fas fa-upload"></i><span>سنجش آلودگی</span></div>
+               <div id="validate"><i class="fas fa-check"></i><span>بررسی پاسخ</span></div>
             </div>
          </div>
       </div>
@@ -139,10 +139,7 @@
 
    <!-- task -->
 
-   <div id="solution">
-      <h2>Solution</h2>
-      <h2>It's informatics!</h2>
-   </div>
+   
    <!-- task-solution -->
 </body>
 
