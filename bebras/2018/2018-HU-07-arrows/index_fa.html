@@ -38,31 +38,17 @@
             errorWhiteArrow: "در خانه‌ی سرخ پیکان رنگ نشده است.",
             errorWrongArrow: function(arrowColor, nbPointedArrows, nbRequiredArrows) {
                 debugger;
-                var ret="في الخليه الحمراء يوجد سهم "+arrowColor+" من المفترض أن يشير إلى "+nbRequiredArrows;
-                if(nbRequiredArrows > 1) {
-                    ret +=" أسهم ";
-                    if(nbRequiredArrows=="أصفر") ret+="صفراء.";
-                    else ret+=".زرقاء";
-                }
-                else {
-                    ret+=" سهم ";
-                    ret+=arrowColor+".";
-                }
-                ret+="<br>";
-                ret+="ولكنه حاليا يشير إلى "+nbPointedArrows;
-                if(nbPointedArrows > 1) {
-                    ret +=" أسهم ";
-                    if(arrowColor=="أصفر") ret+="صفراء";
-                    else ret+="زرقاء";
-                }
-                else {
-                    ret+=" سهم ";
-                    ret+=arrowColor;
-                }
+                var ret="در خانه‌ی سرخ پیکانی وجود دارد که "+arrowColor+" رنگ است و باید به "+nbRequiredArrows;
+            	ret+=" پیکان ";
+                    	ret+=arrowColor+"رنگ اشاره کند، ";
+                ret+="ولی در حال حاضر تنها به  "+nbPointedArrows;
+                ret+=" پیکان ";
+                    	  ret+=arrowColor;
+             ret += " رنگ اشاره می‌کند.";
                 return ret;
             },
-            blue: "أزرق",
-            yellow: "أصفر",
+            blue: "آبی",
+            yellow: "زرد",
             fixedArrow: "پیکان مرکزی را نمی‌توانید تغییر دهید.",
             blueSymbol: "B",
             yellowSymbol: "J",
