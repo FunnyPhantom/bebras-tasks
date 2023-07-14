@@ -15,7 +15,7 @@ standaloneAddContents({
      { code: "2017-FR-04-faulty-wire",
        title: "تخم‌های پنهان" },
      { code: "2017-FR-05-draw-shapes",
-       title: "زبان شکل‌ها" },
+       title: "هیروگلیف" },
      { code: "2017-FR-06-pacman",
        title: "روح" },
      { code: "2017-FR-07-graph-representation",
