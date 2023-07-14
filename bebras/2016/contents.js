@@ -1,7 +1,7 @@
 
 standaloneAddContents({
   code: "castor_2016",
-  title: "مسابقات ببراس 2016",
+  title: "مسابقات ببراس ۲۰۱۶",
   folder: "2016/",
   language: "fa",
   difficulties: ["easy", "medium", "hard"],

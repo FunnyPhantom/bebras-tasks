@@ -1,7 +1,7 @@
 
 standaloneAddContents({
   code: "castor_2015",
-  title: "Concours Castor 2015",
+  title: "مسابقات ببراس ۲۰۱۵",
   folder: "2015/",
   difficulties: ["easy", "medium", "hard"],
   tasks: [

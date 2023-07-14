@@ -1,7 +1,7 @@
 
 standaloneAddContents({
   code: "castor_2019",
-  title: "مسابقات ببراس 2019",
+  title: "مسابقات ببراس ۲۰۱۹",
   folder: "2019/",
   language: "fa",
   difficulties: ["easy", "medium", "hard"],
