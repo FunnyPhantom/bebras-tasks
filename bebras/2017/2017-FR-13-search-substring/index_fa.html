@@ -38,18 +38,18 @@
   <script type="text/javascript">
     var taskStrings = {
       success: "عالی! موفق شدید!",
-      empty: "یک قطعه را انتخاب کنید تا ببینید آیا در کتابخانه موجود است یا خیر.",
-      partial: "شما می توانید با انجام تلاش های کمتر قطعه بلندتر را پیدا کنید",
-      wrong: "<p>شما طولانی ترین قطعه موجود در کتابخانه را پیدا نکردید، ادامه دهید.</p><p>همچنین می توانید از ابتدا شروع کنید. محتوای کتابخانه تغییر خواهد کرد، بنابراین طولانی ترین قطعه نیز تغییر می کند.</p>",
-      selectFirstLine: "<p>روی خط اول<br/>قطعه مورد جستجو کلیک کنید.</p>",
-      selectSecondLine: "<p>اکنون روی<br/><b>آخرین خط</b><br/>قطعه مورد جستجو کلیک کنید.</p>",
+      empty: "یک بازه را انتخاب کنید تا ببینید آیا در کتابخانه موجود است یا خیر.",
+      partial: "شما می توانید با انجام تلاش های کمتر بازه بلندتری پیدا کنید",
+      wrong: "<p>شما طولانی‌ترین بازه موجود در کتابخانه را پیدا نکردید، ادامه دهید.</p><p>همچنین می توانید از ابتدا شروع کنید. محتوای کتابخانه تغییر خواهد کرد، بنابراین طولانی‌ترین بازه نیز تغییر می کند.</p>",
+      selectFirstLine: "<p>روی خط اول<br/>بازه مورد نظر بزنید.</p>",
+      selectSecondLine: "<p>اکنون روی<br/><b>آخرین خط</b><br/>بازه مورد نظرتان بزنید.</p>",
       searchResult: function (found, isLongest, level) {
         var result = "نتیجه: ";
         if (found) {
           if (isLongest) {
             result += "<span class=\"answer answerYesLongest\">پیدا کردید!</span>";
             if (level != "easy") {
-              result += "و این طولانی ترین عبارت است. "
+              result += "و این طولانی‌ترین بازه است. "
             }
             result += "</p>";
             return result;
@@ -60,16 +60,16 @@
             } else {
               result = "";
             }
-            result += "<p>این قطعه در یک کتاب وجود دارد ";
+            result += "<p>این بازه در یک کتاب وجود دارد ";
             if (level == "easy") {
-              result += "اما 3 خط نیست.</p>";
+              result += "اما ۳ خط نیست.</p>";
             } else {
-              result += "اما<br/>طولانی ترین نیست.</p>";
+              result += "اما<br/>طولانی‌ترین نیست.</p>";
             }
           }
         }
         else {
-          result += "<span class=\"answer answerNo\">خیر</span><p>این قطعه در هیچ کتابی از کتابخانه وجود ندارد.</p>";
+          result += "<span class=\"answer answerNo\">خیر</span><p>این بازه در هیچ کتابی از کتابخانه وجود ندارد.</p>";
         }
         result += "<p>جستجوی دیگری انجام دهید.</p>";
         return result;
@@ -180,17 +180,17 @@
     <div id="taskContent">
       <p class="hard" id="enemyWarning"></p>
       <p>
-        10 سال پیش، آگنس ریویر یک شعر نوشت. از آن زمان، استخراج‌هایی از آن در کتاب‌ها نقل شده‌اند.
+        ۱۰ سال پیش، آگنس ریویر یک شعر نوشت. از آن زمان، تکه‌هایی از آن در کتاب‌ها نقل شده‌اند.
       </p>
-      <p class="easy">با ابزار جستجو، پیدا کنید کدام قطعه <b>سه خطی</b> در یک کتاب از کتابخانه وجود دارد.</p>
-      <p class="medium hard">طولانی‌ترین قطعه را <b>از نظر تعداد خطوط متوالی</b> پیدا کنید که در یک کتاب از کتابخانه وجود دارد.</p>
+      <p class="easy">با ابزار جستجو، پیدا کنید کدام بازه <b>از سه خط متوالی</b> در یک کتاب از کتابخانه وجود دارد.</p>
+      <p class="medium hard">طولانی‌ترین بازه‌ را <b>از خطوط متوالی</b> پیدا کنید که در یک کتاب از کتابخانه وجود دارد.</p>
       <div class="hard">
-        <p>شما می‌توانید حداکثر <b><span id="maxAttempts"></span> جستجو</b> انجام دهید.</p>
+        <p>شما می‌توانید حداکثر ۱۲ جستجو</b> انجام دهید.</p>
         <!--<p>Remarque : chaque ligne individuelle est au moins dans un livre.</p>-->
       </div>
       <table class="mainTable">
         <tr>
-          <p>این شعر است:</p>
+          <p>مصرع‌های شعر به ترتیب:</p>
           <td class="wordsDivCell">
             <div class="wordsDiv">
               <!-- To be filled with elements in the format:
@@ -267,7 +267,7 @@
                     <div id="currentSearch" style="height:150px;margin-top:20px;"></div>
                     <div class="hard" id="history" style="height:30px;"></div>
                     <div class="hard" style="background:#FFA0A0;bottom:0px;width:100%;">
-                      <div style="padding:5px">اگر از ابتدا شروع کنید، کتابخانه تغییر می کند.</div>
+                      <div style="padding:5px">اگر دوباره شروع کنید، کتابخانه تغییر می کند.</div>
                     </div>
                   </div>
                 </td>
