@@ -29,7 +29,7 @@ standaloneAddContents({
      { code: "2017-FR-12-distinct-paths",
        title: "جهان‌های موازی" },
      { code: "2017-FR-13-search-substring",
-       title: "Poésie" }
+       title: "شعر گمشده" }
     ]
   });
 
