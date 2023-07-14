@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+   <head>
+    <meta charset="utf-8">
+    <title>2017-EN-11</title>
+    <script>
+        window.stringsLanguage = 'fa';
+    </script>
+    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1.js" id="import-modules"></script>
+    <script class="remove" type="text/javascript">
+        var modulesPath = '../../../_common/modules';
+        importModules([
+            'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+            'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+            'delayFactory-1.0', 'simulationFactory-1.0', 'graph-1.0', 'visual-graph-1.0',
+            'graph-mouse-1.0',
+            'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+            'taskStyles-0.1']);
+        var enableRtl = true;
+    </script>
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/tasks/2017/2017-FR-11-graph-isomorphism/",
+          "language": "en",
+          "version": "fr.01",
+          "authors": "Arthur Charguéraud, Mathias Hiron, Nir Lavee, France-ioi",
+          "translators": "Mohamed El-Sherif",
+          "license": "CC BY-SA 3.0",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "fullFeedback": true,
+          "acceptedAnswers": [],
+          "usesRandomSeed": false
+      };
+      </script>
+      <script type="text/javascript">
+      var taskStrings = {
+            success: "آفرین!‌ شما بردید!",
+            vertexError: "دایره‌های آبی باید داخل خط‌چین باشند.",
+            edgeError: "دو شکل هنوز یکی نیستند! خطی که قرمز شده در جای درست قرار ندارد."
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #animContainer {
+            text-align: center;
+            margin: auto;
+            padding-top: 0.5em;
+         }
+         .anim {
+            display: inline-block;
+            *zoom: 1; /*IE6/7*/
+            *display: inline; /*IE6/7*/
+         }
+         #feedback {
+            height: 1em;
+            margin-top: 0.5em;
+            margin-bottom: 0.1em;
+            text-align: center;
+            font-weight: bold;
+            color: red; 
+         }
+         .paperTitle {
+            font-size: 18px;
+            font-weight: bold;
+         }
+         #validation {
+            margin-top: 1em;
+            text-align: center;
+         }
+         #validation input {
+            padding: 2px 10px 2px 10px;
+         }
+      </style>
+   </head>
+   <body>
+
+      <div id="task">
+         <h1>صورت فلکی</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <p>دایره‌های آبی را جوری جا‌به‌جا کنید که شکل چپ دقیقا مانند شکل راست شود.</p>
+
+             <table id="animContainer">
+                <tr>
+                   <td></td>
+                   <td class="paperTitle">هدف</td>
+                </tr>
+                <tr>
+                   <td>
+                     <div class="anim" id="animUser"></div>
+                  </td>
+                  <td>
+                     <div class="anim" id="animTarget"></div>
+                  </td>
+                </tr>
+            </table>
+            <div id="validation"><input type="button" value="بررسی پاسخ" id="execute" /></div>
+            <img src="icon.png" style="display:none">
+         </div>
+      </div><!-- task -->
+   </body>
+</html>
