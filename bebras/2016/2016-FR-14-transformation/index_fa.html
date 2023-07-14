@@ -45,7 +45,7 @@
       </script>
       <script type="text/javascript">
          var taskStrings = {
-               success: "تبریک. شما موفق شدید.",
+               success: "آفرین! شما بردید!",
                wrong: "شکلی که با قرمز مشخص شده در جای صحیحش قرار ندارد."
             };
       </script>
@@ -73,16 +73,22 @@
          <div id="tabsContainer"></div>
          <div id="taskContent">
             <p id="difficultyWarning" class="hard"></p>
-            <p>فلش‌هایی اضافه کنید تا هر شکل در ناحیهٔ سفید را به شکل متناظر خود در ناحیهٔ خاکستری منتقل کنید. اشکال پس از <strong>فلش <span class="easy">بعدی</span><span class="medium">۲ فلش بعدی پشت‌سرهم</span><span class="hard">۳ فلش بعدی پشت‌سرهم</span></strong> حرکت خواهند کرد.</p>
+            <p>فلش‌هایی رسم کنید تا هر شکل در ناحیهٔ سفید را به زیر شکل متناظر خود در ناحیهٔ خاکستری منتقل کنید.</p>
             <p>برای اضافه کردن فلش، روی دو شکل کلیک کنید. برای حذف فلش، روی آن کلیک کنید.</p>
+            <p>
+                دقت کنید که از هر شکل فقط یک فلش می‌تواند خارج شود ولی محدودیتی روی تعداد فلش‌هایی که به یک شکل می‌روند نداریم.
+            </p>
+            <p>
+                 اشکال <strong><span class="easy">فقط فلش بعدی</span><span class="medium">دو فلش بعدی</span><span class="hard">سه فلش بعدی</span></strong>‌شان را طی خواهند کرد.
+            </p>
             <div id="anim_container">
                <div id="anim"></div>
             </div>
             <div id="stepCounter" class="medium hard"></div>
             <div id="control">
-               <input type="button" value="امتحان" id="execute" />
+               <input type="button" value="بررسی پاسخ" id="execute" />
                <br><br>
-               <input type="button" value="واگرد" id="resetSim" />
+               <input type="button" value="برگشت" id="resetSim" />
             </div>
             <img src="icon.png" style="display:none">
          </div>
