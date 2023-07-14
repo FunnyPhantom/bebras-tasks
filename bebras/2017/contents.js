@@ -27,7 +27,7 @@ standaloneAddContents({
      { code: "2017-FR-11-graph-isomorphism",
        title: "Constellation" },
      { code: "2017-FR-12-distinct-paths",
-       title: "Chemins distincts" },
+       title: "جهان‌های موازی" },
      { code: "2017-FR-13-search-substring",
        title: "Poésie" }
     ]
