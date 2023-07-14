@@ -17,7 +17,7 @@ standaloneAddContents({
      { code: "2016-FR-07-shapes",
        title: "Remplacements" },
      { code: "2016-FR-01-not-rectangles",
-       title: "Rectangles inversés" },
+       title: "رنگ برعکس" },
      { code: "2016-FR-08-repeating-pattern",
        title: "Par quatre chemins" },
      { code: "2016-FR-05-red-and-blue",
