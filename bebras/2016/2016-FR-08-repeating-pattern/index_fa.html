@@ -43,19 +43,19 @@
       <script type="text/javascript">
          var taskStrings = {
                collision: "ربات در دیوار گیر کرده است.",
-               outside: "ربات خارج از شبکه است.",
+               outside: "ربات خارج از جدول است.",
                noGoal: "ربات به ناحیه سبز نرسیده است.", 
                success: "تبریک، شما موفق شدید.",
                noInstructions: "پیکان‌ها را به داخل جعبه‌های سفید زیر بکشید.",
-               zoneTooEarly: "ربات قبل از آخرین دستورالعمل در دنباله، از یک خط آبی عبور کرد.",
-               zoneNoExit: "آخرین دستورالعمل دنباله، از یک خط آبی عبور نکرد تا ربات خارج شود.",
+               zoneTooEarly: "ربات قبل از آخرین دستور در نوار، از یک خط آبی عبور کرد.",
+               zoneNoExit: "آخرین دستور نوار، از یک خط آبی عبور نکرد.",
          
-               executeButtonPlay: "امتحان کن",
+               executeButtonPlay: "اجرا",
                executeButtonPause: "مکث",
                executeButtonContinue: "ادامه",
          
                loopText: function(loopTimes) {
-                  return loopTimes + "بار تکرار";
+                  return loopTimes + " بار تکرار";
                }
             };
       </script>
@@ -90,24 +90,27 @@
    <body>
       <div id="task">
         <div style="direction: rtl">
-         <h1>به ربات کمک کنید</h1>
+         <h1>ربات حلقوی</h1>
          <div id="tabsContainer"></div>
          <div id="taskContent">
             <p id="difficultyWarning" class="hard">هشدار سختی</p>
             <p>
-               ربات را برنامه‌ریزی کنید تا به ناحیه سبز در سمت راست شبکه برسد. 
+               ربات را برنامه‌ریزی کنید تا به ناحیه سبز در سمت راست جدول برسد. 
+            </p>
+            <p>
+                دستور‌های داخل جعبه پایین تکرار می‌شوند.
             </p>
             <div id="anim_container">
                <div id="anim1"></div>
                <div class="instructionsUsage">
                   <p>
-                     پیکان‌های زیر را به داخل جعبه‌های توالی سفید بکشید. ربات توالی را <span id="loopTimes">loopTimes</span> بار تکرار خواهد کرد.
+                     پیکان‌های زیر را به داخل نوار جعبه‌های سفید بکشید. ربات دستور‌ها را <span id="loopTimes">loopTimes</span> بار تکرار خواهد کرد.
                   </p>
                   <p>
-                     آخرین پیکان در هر توالی باید از خط آبی عبور کند.
+                     آخرین دستور در هربار اجرای نوار باید از خط آبی عبور کند.
                   </p>
                   <p id="markersUsage">
-                     نکته: می‌توانید روی شبکه‌های مارپیچ کلیک کنید تا آن‌ها را برای دید بهتر سیاه کنید. 
+                     نکته: می‌توانید روی خانه‌های جدول کلیک کنید تا آن‌ها را برای دید بهتر سیاه کنید. 
                   </p>
                </div>
                <div id="anim2"></div>
