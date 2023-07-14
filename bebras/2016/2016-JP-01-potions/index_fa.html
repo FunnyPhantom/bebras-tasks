@@ -65,10 +65,10 @@
             wrongHard: function(correct, total) {
                return "شما " + correct + " از " + total + " جام جادویی را درست تشخیص داده‌اید. حالا سعی کنید تعداد بیشتری را تشخیص دهید. روی دکمه کلیک کنید تا جام‌ها را مخلوط کنید و از اول شروع نمایید";
             },
-            wrongLogic: "شما سم‌آور قرمز را در جای اشتباهی قرار داده‌اید.",
+            wrongLogic: "شما ببراس قرمز را در جای اشتباهی قرار داده‌اید.",
 
             drinkButton: function(beavers) {
-               return "اجازه دهید\nسم‌آورها بنوشند";
+               return "اجازه دهید\nببراس‌ها بنوشند";
             },
             reshuffleButton: "مخلوط کردن جام‌ها\nو شروع مجدد",
 
@@ -123,15 +123,15 @@
    <body>
       <div id="task">
         <div style="direction: rtl">
-         <h1>جام‌های جادویی</h1>
+         <h1>معجون‌های جادویی</h1>
          <div id="tabsContainer"></div>
          <div id="taskContent">
             <p id="difficultyWarning" class="hard"></p>
             <p>
-               سم‌آورها <span class="totalCups">X</span> جام جادویی پیدا کردند.  
-               هر جام یک چیز را در چهره سم‌آور تغییر می‌دهد.
+               ببراس‌ها <span class="totalCups">X</span> معجون جادویی پیدا کردند.  
+               هر معجون یک چیز را در چهره ببراسی که آن را می‌خورد تغییر می‌دهد.
             </p>
-            <p id="drinkingInstruction" class="easy medium">۳ سم‌آور بعدی هرکدام <span class="experimentCups">X</span> جام نوشیدند. چهره‌شان به شکل زیر تغییر کرد:
+            <p id="drinkingInstruction" class="easy medium">سه ببراس هرکدام <span class="experimentCups">X</span> تا از معجون‌ها را نوشیدند. چهره‌شان به شکل زیر تغییر کرد:
             </p>
             <p class="hard">
                سه سم‌آور جام‌ها را دارند، اثر هر جام را پیدا کنید.
@@ -147,16 +147,16 @@
                <div id="feedback"></div>
                <div class="usageInstructions">
                   <p>
-                  سم‌آورهای زیر هر کدام یک جام نوشیده‌اند.  
-                  هر سم‌آور را زیر جامی که نوشیده است بکشید.
+                  ببراس‌های زیر هر کدام یک معجون نوشیده‌اند.  
+                  هر ببراس را در کادر معجونی که نوشیده است بکشید.
                   </p>
                   <p class="hard">
-                  <strong>توجه:</strong> اگر مطمئن نیستید، به صورت تصادفی پر نکنید، بهتر است خالی بگذارید.
+                  <strong>توجه:</strong> اگر از جواب مطمئن نیستید، به صورت تصادفی پر نکنید، بهتر است کادر را خالی بگذارید.
                   </p>
                </div>
                <div id="anim2"></div>
             </div>
-            <div id="validation"><input type="button" value="بررسی پاسخ من" id="execute" /></div>
+            <div id="validation"><input type="button" value="بررسی پاسخ" id="execute" /></div>
 
             <img id="bigEars_image" src="bigEars.png" style="display:none">
             <img id="bigTeeth_image" src="bigTeeth.png" style="display:none">
