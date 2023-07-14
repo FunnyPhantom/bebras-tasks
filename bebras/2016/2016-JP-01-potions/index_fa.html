@@ -1,0 +1,174 @@
+
+
+<html dir="rtl">
+   <head>
+    <meta charset="utf-8">
+    <title>2016-JP-01</title>
+    <link class="module" rel="stylesheet" href="../../../_common/modules/pemFioi/taskStyles-0.1.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+    <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery/1.7/jquery.min.js" id="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery-ui/jquery.ui.touch-punch.min.js" id="jquery.ui.touch-punch.min.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/ext/raphael/2.2.1/raphael.min.js" id="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.min.js"></script>
+
+    <script class="module" type="text/javascript" src="../../../_common/modules/ext/json/json2.min.js" id="https://github.com/douglascrockford/JSON-js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beav-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/beav-1.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/drag_lib-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/drag_lib.js"></script>
+
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beaver-task-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/beaver-task-2.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulation-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulation-2.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/raphaelFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/raphaelFactory-1.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/delayFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/delayFactory-1.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulationFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulationFactory-1.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/grid-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/grid-1.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/randomGenerator-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/randomGenerator-1.0.js"></script>
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/raphaelButton-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/raphaelButton-1.0.js"></script>
+
+    <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/graph-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/graph-1.0.js"></script>
+
+    <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js" id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js"></script>
+    <script class="proxy module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/platform-pr.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/platform-pr.js"></script>
+    <script class="stdButtonsAndMessages module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"  id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"></script>
+    <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/miniPlatform.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/miniPlatform.js"></script>
+      <script>
+         var stringsLanguage = 'fa';
+      </script>
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/tasks/2016/2016-JP-01-potions/",
+          "language": "fa",
+          "version": "fa.01",
+          "authors": "Arthur Charguéraud, Mathias Hiron, Nir Lavee, and authors from Japanese Bebras team, France-ioi",
+          "translators": "",
+          "license": "CC BY-SA 3.0",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "fullFeedback": true,
+          "acceptedAnswers": [],
+          "usesRandomSeed": false
+      };
+      </script>
+      <script type="text/javascript">
+      var taskStrings = {
+            names: {
+               curlyWhiskers: "سبیل‌های فرفری",
+               whiteEyes: "چشم‌های سفید",
+               bigTeeth: "دندان‌های بزرگ",
+               bigEars: "گوش‌های بزرگ",
+               blackTeeth: "دندان‌های سیاه", 
+               whiteNose: "بینی سفید",
+               blackEars: "گوش‌های سیاه",
+               whiteSkin: "پوست سفید"
+            },
+
+            success: "تبریک می‌گوییم. شما موفق شدید.",
+            wrong: "پاسخ اشتباه. دوباره تلاش کنید.",
+            wrongHard: function(correct, total) {
+               return "شما " + correct + " از " + total + " جام جادویی را درست تشخیص داده‌اید. حالا سعی کنید تعداد بیشتری را تشخیص دهید. روی دکمه کلیک کنید تا جام‌ها را مخلوط کنید و از اول شروع نمایید";
+            },
+            wrongLogic: "شما سم‌آور قرمز را در جای اشتباهی قرار داده‌اید.",
+
+            drinkButton: function(beavers) {
+               return "اجازه دهید\nسم‌آورها بنوشند";
+            },
+            reshuffleButton: "مخلوط کردن جام‌ها\nو شروع مجدد",
+
+            noDrink: "سم‌آور\n قبل از نوشیدن\n جام‌ها.",
+            emptyExperiment: "حداقل یک جام به هر سم‌آور بدهید.",
+            answerTooEarly: "ابتدا اجازه دهید سم‌آورها بنوشند.",
+            cupsTooLate: "قبل از تغییر جام‌ها، روی دکمه کلیک کنید تا آن‌ها را مخلوط کنید و از اول شروع نمایید."  
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #anim_container {
+         }
+         #anim {
+            display: inline-block;
+         }
+         #drinkingInstruction {
+            margin-left: 170px;
+         }
+         #experimentCups {
+         }
+         .usageInstructions {
+         }
+         #feedback {
+            height: 1em;
+            margin-top: 0.3em;
+            margin-bottom: 0.3em;
+            text-align: center;
+            font-weight: bold;
+            color: #CC8844;
+         }
+         #validation {
+            margin-top: 1em;
+            text-align: center;
+         }
+         #validation input {
+            padding: 2px 10px 2px 10px;
+         }
+         #solution li {
+            padding-bottom: 0.5em;
+         }
+         #solInfo {
+            border-collapse: collapse;
+         }
+         #solInfo td {
+            border: 1px solid black;
+            padding: 4px;
+            text-align: center;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+        <div style="direction: rtl">
+         <h1>جام‌های جادویی</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <p id="difficultyWarning" class="hard"></p>
+            <p>
+               سم‌آورها <span class="totalCups">X</span> جام جادویی پیدا کردند.  
+               هر جام یک چیز را در چهره سم‌آور تغییر می‌دهد.
+            </p>
+            <p id="drinkingInstruction" class="easy medium">۳ سم‌آور بعدی هرکدام <span class="experimentCups">X</span> جام نوشیدند. چهره‌شان به شکل زیر تغییر کرد:
+            </p>
+            <p class="hard">
+               سه سم‌آور جام‌ها را دارند، اثر هر جام را پیدا کنید.
+            </p>
+            <p class="hard">
+               جام‌ها را به سم‌آورها بکشید سپس "اجازه دهید سم‌آورها بنوشند" را فشار دهید.
+            </p>
+            <p class="hard">
+                  <strong>توجه:</strong> اگر پس از نوشیدن سم‌آورها دوباره تلاش کنید، جام‌ها مخلوط می‌شوند.
+            </p>
+            <div id="anim_container">
+               <div id="anim1"></div>
+               <div id="feedback"></div>
+               <div class="usageInstructions">
+                  <p>
+                  سم‌آورهای زیر هر کدام یک جام نوشیده‌اند.  
+                  هر سم‌آور را زیر جامی که نوشیده است بکشید.
+                  </p>
+                  <p class="hard">
+                  <strong>توجه:</strong> اگر مطمئن نیستید، به صورت تصادفی پر نکنید، بهتر است خالی بگذارید.
+                  </p>
+               </div>
+               <div id="anim2"></div>
+            </div>
+            <div id="validation"><input type="button" value="بررسی پاسخ من" id="execute" /></div>
+
+            <img id="bigEars_image" src="bigEars.png" style="display:none">
+            <img id="bigTeeth_image" src="bigTeeth.png" style="display:none">
+            <img id="blackEars_image" src="blackEars.png" style="display:none">
+            <img id="blackTeeth_image" src="blackTeeth.png" style="display:none"> 
+            <img id="curlyWhiskers_image" src="curlyWhiskers.png" style="display:none">
+            <img id="whiteEyes_image" src="whiteEyes.png" style="display:none">
+            <img id="whiteNose_image" src="whiteNose.png" style="display:none">
+            <img id="whiteSkin_image" src="whiteSkin.png" style="display:none">
+            <img src="icon.png" style="display:none">
+         </div>
+      </div><!-- task -->
+    </div>
+   </body>
+</html>
