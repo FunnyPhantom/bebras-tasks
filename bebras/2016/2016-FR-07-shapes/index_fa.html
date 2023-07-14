@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>2016-FR-07</title>
+      <link class="module" rel="stylesheet" href="../../../_common/modules/pemFioi/taskStyles-0.1.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery/1.7/jquery.min.js" id="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery-ui/jquery.ui.touch-punch.min.js" id="jquery.ui.touch-punch.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/raphael/2.2.1/raphael.min.js" id="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/json/json2.min.js" id="https://github.com/douglascrockford/JSON-js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beav-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/beav-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/drag_lib-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/drag_lib.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beaver-task-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/beaver-task-2.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulation-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulation-2.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/raphaelFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/raphaelFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/delayFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/delayFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulationFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulationFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/grid-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/grid-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/randomGenerator-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/randomGenerator-1.0.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js" id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js"></script>
+      <script class="proxy module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/platform-pr.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/platform-pr.js"></script>
+      <script class="stdButtonsAndMessages module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js" id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/miniPlatform.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/miniPlatform.js"></script>
+      <script class="remove" type="text/javascript">
+         var json = {
+           "id": "http://castor-informatique.fr/tasks/2016/2016-FR-07-shapes/",
+           "language": "fr",
+           "version": "fr.01",
+           "authors": "Arthur Charguéraud, Mathias Hiron, Nir Lavee, France-ioi",
+           "translators": ["Arthur Charguéraud"],
+           "license": "CC BY-SA 3.0",
+           "taskPathPrefix": "",
+           "modulesPathPrefix": "",
+           "browserSupport": [],
+           "fullFeedback": true,
+           "acceptedAnswers": [],
+           "usesRandomSeed": false
+         };
+      </script>
+      <script type="text/javascript">
+         var stringsLanguage = 'en';
+         var taskStrings = {
+           wrong: "Your final result does not match the target pattern.",
+           success: "Success!",
+         
+           titleProgram: "Your program:",
+           titleResult: "Result after each step:",
+         
+           start: "1. Begin with ",
+           rulePrefix: function(index) {
+             return "" + (index + 2) + ". Replace each";
+           },
+           ruleInfix: "with",
+           ruleSuffix: "Result:",
+           target: "Target pattern:"
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #anim_container {
+         text-align: center;
+         }
+         #anim {
+         display: inline-block;
+         }
+         #solution img {
+         border-top: solid black 1px;
+         border-bottom: solid black 1px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+         <h1>جایگزینی اشکال</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <p>
+               اشکال زیر را به داخل خانه‌های خاکستری بکشید تا برنامه‌ای بسازید که الگوی هدف را تولید کند.<br/>
+            </p>
+            <p>
+            <div id="anim_container">
+               <div id="anim"></div>
+            </div>
+            <img src="icon.png" style="display:none">
+            </p>
+         </div>
+         <!-- task -->
+      </div>
+      <div id="solution">
+         <h2>راه حل</h2>
+         <div class="easy">
+            <p>متوجه می شویم که نتیجه مورد نظر از سه بار تکرار همان جفت اشکال تشکیل شده است: یک الماس و سپس یک ستاره.</p>
+            <p>بنابراین می توانیم یک شکل را انتخاب کنیم، هر کدام که می خواهیم، مثلاً دایره قرمز، و 3 کپی از آن را پشت سر هم قرار دهیم. سپس، هر کپی از این شکل را با یک الماس و سپس یک ستاره جایگزین کنیم.</p>
+            <p><img src="sol_easy.png"></p>
+         </div>
+         <div class="medium">
+            <p>یک رویکرد مؤثر این است که از انتها شروع کنیم: متوجه می شویم که نتیجه مورد نظر از دو جفت یکسان (ششضلعی، مثلث) و سپس یک ششضلعی تشکیل شده است. از آنجایی که آخرین جایگزینی یک شکل را با یک جفت جایگزین می کند، می توانیم نتیجه بگیریم که در مرحله قبل، همان شکل، مثلاً یک دایره، باید جای دو جفت (ششضلعی، مثلث) را گرفته باشد. آخرین مرحله شبیه به این است:</p>
+            <p><img src="sol_medium_1.png"></p>
+            <p>برای عملیات اولیه، می توانیم از یک شکل دلخواه شروع کنیم (مثلا الماس)، سپس آن را با الگوی مورد نیاز برای انتهای مرحله دوم جایگزین کنیم (دایره، دایره، ششضلعی):</p>
+            <p><img src="sol_medium.png"></p>
+         </div>
+         <div class="hard">
+            <p>الگوی نتیجه مورد نظر را مشاهده می کنیم: از یک بلوک سه تایی از اشکال (ستاره، دایره، مثلث)، دنبال شده توسط دو شش‌ضلعی، و سپس دنبال شده توسط همان بلوک سه تایی از اشکال (ستاره، دایره، مثلث) در ابتدا تشکیل شده است.</p>
+            <p>ممکن است تلاش کنیم در مرحله 3 یک شکل را با دو شش‌ضلعی جایگزین کنیم. با این حال، اگر از این مسیر پیش برویم، مراحل کافی برای ساخت توالی باقی‌مانده باقی نمی‌ماند:</p>
+            <p><img src="sol_hard_0.png"></p>
+            <p>بنابراین مجبوریم عملیاتی انجام دهیم که چندین شکل را در یک مرحله جایگزین کنند. در واقع، چیزی که می خواهیم انجام دهیم این است که بتوانیم یک شکل را مستقیماً با یک توالی از سه شکل (ستاره، دایره، مثلث) جایگزین کنیم. اگر توانایی جایگزین کردن یک شکل با سه شکل را داشتیم، می توانستیم این کار را انجام دهیم:</p>
+            <p><img src="sol_hard_2.png"></p>
+            <p>امکان جایگزین کردن یکباره یک الماس با سه شکل (ستاره، دایره، مثلث) وجود ندارد. با این حال، می‌توانیم با انجام کار در دو مرحله به اثری مشابه دست یابیم: ابتدا الماس‌ها را با یک ستاره دنبال‌شده با یک الماس جایگزین می‌کنیم، سپس الماس‌های جدید را با یک دایره دنبال‌شده با یک مثلث جایگزین می‌کنیم. این به ما راه حل زیر را می‌دهد:</p>
+            <p><img src="sol_hard.png"></p>
+         </div>
+         <h2>این یک مفهوم از علوم کامپیوتر است!</h2>
+         <p>این موضوع از مکانیزم <strong>جستجو و جایگزین</strong> استفاده می‌کند و به بررسی آنچه اتفاق می‌افتد هنگام انجام چندین عملیات جستجو و جایگزین پشت سر هم کمک می‌کند.</p>
+         <p>جستجو و جایگزین بسیار مفید در علوم کامپیوتر است، به ویژه در ابزارهای پردازش متن.</p>
+      </div>
+      <!-- task-solution -->
+   </body>
+</html>
