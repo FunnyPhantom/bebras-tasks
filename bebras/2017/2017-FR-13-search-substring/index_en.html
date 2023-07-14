@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+   <head>
+    <meta charset="utf-8">
+    <title>2017-EN-13</title>
+    <script>
+        window.stringsLanguage = 'en'; 
+    </script>
+    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1.js" id="import-modules"></script>
+    <script class="remove" type="text/javascript">
+        var modulesPath = '../../../_common/modules';
+        importModules([
+            'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+            'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0', 
+            'delayFactory-1.0', 'simulationFactory-1.0', 'randomGenerator-1.0',
+            'jschannel', 'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+            'taskStyles-0.1']);
+    </script>
+      <script class="remove" type="text/javascript">
+       var json = {
+          "id": "http://castor-informatique.fr/tasks/2017/2017-EN-13-search-substring/",
+          "language": "en",
+          "version": "en.01", 
+          "authors": "Arthur Charguéraud, Mathias Hiron, Nir Lavee, France-ioi",
+          "translators": [],
+          "license": "CC BY-SA 3.0",
+          "taskPathPrefix": "",
+          "modulesPathPrefix": "",
+          "browserSupport": [],
+          "fullFeedback": true,
+          "acceptedAnswers": [],  
+          "usesRandomSeed": false
+      };
+      </script>
+      <script type="text/javascript">
+      var taskStrings = {
+            success: "Well done, you succeeded!",
+            empty: "Select a piece to search if it exists in the library.",
+            partial: "You can find the longest piece by making fewer attempts",
+            wrong: "<p>You did not find the longest piece that exists in the library, keep trying.</p><p>You can also restart. The library content will change, so the longest piece will change too.</p>",
+            selectFirstLine: "<p>Click on the first line<br/>of the piece to search.</p>", 
+            selectSecondLine: "<p>Now click<br/>on the <b>last line</b><br/>of the piece to search.</p>",
+            searchResult: function(found, isLongest, level) {
+               var result = "Result: ";
+               if(found) {
+                  if(isLongest) {
+                     result += "<span class=\"answer answerYesLongest\">You found it!</span>";
+                     if (level != "easy") {
+                        result += "and it is the longest. "
+                     }
+                     result += "</p>";
+                     return result;
+                  }
+                  else {
+                     if (level != "easy") {
+                        result += "<span class=\"answer answerYes\">YES</span>";
+                     } else {
+                        result = "";
+                     }
+                     result += "<p>This piece exists in a book ";
+                     if (level == "easy") {
+                        result += "but does not contain 3 lines.</p>";
+                     } else {
+                        result += "but is not<br/>the longest.</p>"; 
+                     }
+                  }
+               }
+               else {
+                  result += "<span class=\"answer answerNo\">NO</span><p>This piece is not in any book in the library.</p>";
+               }
+               result += "<p>Do another search.</p>";
+               return result;
+            },
+            history: function(numSearches, longestSub, level) {
+               var string = "";
+               if (level == "hard") {
+                  string = "Number of attempts: " + numSearches;
+               }
+               return string;
+            }
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         .longestSub {
+            border: 1px solid gray;
+            color: gray;
+         }
+         .answer {
+            font-weight: bold;
+         }
+         .answerYesLongest {
+            color: green
+         }
+         .answerYes {
+            color: orange;
+         }
+         .answerNo {
+            color: red;
+         }
+         .mainTable {
+            width: 770px;
+            margin: auto;
+         }
+         .resultDiv, .wordsDiv, .word {
+            display: inline-block;
+            *zoom: 1; /*IE6/7*/
+            *display: inline; /*IE6/7*/
+         }
+         .resultDiv {
+            width: 240px;
+         }
+         #currentSearch {
+            width: 240px;
+         }
+         .resultDivCell {
+            vertical-align: top;
+            text-align: center;
+         }
+         .wordsDivCell {
+            vertical-align: top;
+            width: 200px;
+         }
+         .word {
+            border: 1px solid black;
+            padding: 4px 8px 4px 8px;
+            cursor: default;
+         }
+         .selectedWord {
+            background: cyan;
+         }
+         .wordFoundLongest {
+            background: #00FF00;
+         }
+         .wordFound {
+            background: orange;
+         }
+         .wordNotFound {
+            background: #FF1010;
+         }
+         .search {
+            vertical-align: top;
+         }
+         .search div {
+            width:6px;
+            vertical-align: middle;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+         <h1>Poetry</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <p class="hard" id="enemyWarning"></p>
+            <p>
+            10 years ago, Agnes Riviere wrote a poem. Since then, excerpts have been cited in books.</p>
+            <p class="easy">With the search tool, find which <b>three-line</b> piece exists in a book from the library.</p>
+            <p class="medium hard">Find the piece with the <b>longest number of consecutive lines</b> that exists in a book from the library.</p>
+            <div class="hard">
+               <p>You can make a <b>maximum of <span id="maxAttempts"></span> searches</b>.</p>
+               <!--<p>Note: each individual line is in at least one book.</p>-->
+            </div>
+            <table class="mainTable">
+               <tr>
+                  <p>Here is the poem:</p>
+                  <td class="wordsDivCell">
+                     <div class="wordsDiv">
+                        <!-- To be filled with elements in the format:
+                           <div class="word" id="word_0">Word</div>
+                        -->
+                     </div>
+                  </td>
+                  <td class="search"><div id="test0"></div></td>
+                  <td class="search"><div id="test1"></div></td>
+                  <td class="search"><div id="test2"></div></td>
+                  <td class="search"><div id="test3"></div></td>
+                  <td class="search"><div id="test4"></div></td>
+                  <td class="search"><div id="test5"></div></td>
+                  <td class="search"><div id="test6"></div></td>
+                  <td class="search"><div id="test7"></div></td>
+                  <td class="search"><div id="test8"></div></td>
+                  <td class="search"><div id="test9"></div></td>
+                  <td class="search"><div id="test10"></div></td>
+                  <td class="search"><div id="test11"></div></td>
+                  <td class="search"><div id="test12"></div></td>
+                  <td class="search"><div id="test13"></div></td>
+                  <td class="search"><div id="test14"></div></td>
+                  <td class="search"><div id="test15"></div></td>
+                  <td class="search"><div id="test16"></div></td>
+                  <td class="search"><div id="test17"></div></td>
+                  <td class="resultDivCell">
+                     <table cellspacing=0>
+                     <tr><td style="border: solid black 1px;vertical-align:middle;background:lightgray;width:230px">
+                     <div style="height:40px;padding-top:5px">
+                     <b>Search tool<br/>in the library</b>
+                     </div>
+                     </td></tr>
+                     <tr><td style="border: solid black 1px;">
+                        <div class="resultDiv" style="position:relative;">
+                           <div id="currentSearch" style="height:150px;margin-top:20px;"></div>
+                           <div class="hard" id="history" style="height:30px;"></div>
+                           <div class="hard" style="background:#FFA0A0;bottom:0px;width:100%;"><div style="padding:5px">If you restart completely, the library will change.</div></div>
+                        </div>
+                     </td></tr>
+                     <tr><td>
+                        <input type="button" id="hideSearches" class="easy medium" style="margin-top:5px" value="Hide searches" />
+                     </td></tr>
+                     </table>
+                  </td>
+               </tr>
+            </table>
+            <img src="icon.png" style="display:none">
+         </div>
+      </div><!-- task -->
+      <div id="solution">
+      
+         <h2>Solution</h2>
+      
+           <div class="easy">
+              <p>We are looking for a 3-line piece. There are 4 possible pieces. We can test them in order, considering lines 1 to 3, then 2 to 4, then 3 to 5, then 4 to 6.</p>
+              <img src="Sol_easy_1.png">
+              <p>Since we tested all possible pieces, we inevitably end up finding the right one. Note that the computer ensures that it is always the last fragment tested that is correct.</p>
+           </div>
+       
+           <div class="medium">
+              <p>We are looking for the longest piece of the poem that was copied. A simple method is to test all possible pieces, without thinking. So we can test all pieces of length 1. There are 8 different ones.</p>
+              <img src="Sol_medium_1.png">
+              <p>Then we test all pieces of length 2. There are 7 different ones.</p>
+              <img src="Sol_medium_2.png">
+              <p>Then we continue, testing the 6 pieces of length 3, the 5 pieces of length 4, and the 4 pieces of length 5. We get the following situation.</p>
+              <img src="Sol_medium_3.png">
+              <p>Then there are 3 pieces of length 6 left, and 2 pieces of length 7, and one piece of length 8. We continue, and a little before finishing everything, the computer tells us that we found the right piece.</p>
+              <p>Note: a more efficient solution is described in the 4-star version of this challenge.</p>
+           </div>
+       
+           <div class="hard">
+              <p>In order to develop a methodical and efficient strategy to find the longest excerpt that was quoted, let's start with a few observations.</p>
+              <ul>
+              <li>If we found a piece of a certain size that was quoted (orange line), then we will only look for strictly longer pieces after that. Indeed, the goal is to find the longest quoted piece.</li>
+              <li>If we found a piece that was not quoted (red line), then it is useless to look for pieces that start at the same position afterwards. Indeed, if a piece contains an unquoted piece, the enclosing piece is necessarily also unquoted.</li>
+              </ul>
+              <p>We will exploit these two observations by proceeding as follows.
+              <ul>
+              <li>We start with the first line of the poem alone, i.e. a piece of length 1 at the very beginning of the poem.</li>  
+              <li>We try to expand this piece starting from the first line, as long as the computer tells us that the piece was quoted. As soon as this is no longer the case, it is no longer useful to look for pieces starting on the first line, so we move on to pieces starting on the second line.</li>
+              <li>When we move on to studying pieces starting on the second line, we can start directly with a length equal to one more than the length of the largest orange line (piece that has already been quoted). In other words, when we shift the start position of a box, we also shift the end position of the box, so as to maintain the size of the pieces we were testing.</li>
+              </ul>
+              <p>We repeat the principle, expanding the length of the segment starting on the second line, until we get a negative answer (red line). We then move on to the third line, shifting the start and also the end of the segment. We continue like this until we find the longest segment.</p>
+              <img src="Sol_hard_1.png">
+              <p>We can analyze this algorithm to demonstrate that it always allows us to find the answer in at most 12 tests. At each step, either we advance the end position, or we advance both the start and end positions. Since the end position advances by one line each time, and there are only 12 lines in total, we can be sure to be able to solve the problem in 12 tests, regardless of the computer's strategy.</p>
+           </div>
+       
+         <h2>This is computer science!</h2>
+       
+           <p>This challenge illustrates a principle common to many algorithms, called the <b>sliding window</b> principle. This principle can apply when you have a sequence of elements, and you are looking for a consecutive sub-set of elements (i.e. one after the other).</p>
+  
+           <p>The <b>window</b> describes the "current" subset. The window can be shifted one step, by advancing both the start and end positions of the window, as in the 2-star version of this challenge, where the window always contains 3 elements. It is also possible to independently advance the start and end of the window, as in the 4-star version of this subject.</p>
+  
+           <p>What makes algorithms based on sliding windows efficient is that the start and end positions of the window can only move forward, never backward.</p>
+     
+      </div> <!-- task-solution -->
+   </body>
+</html>
