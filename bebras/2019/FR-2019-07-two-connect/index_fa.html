@@ -40,7 +40,6 @@
               return "بیشتر از "+max+" لوله نمی‌توانید اضافه کنید.";
             }
          };
-         var enableRtl = true;
       </script>
       <style class="">
          #paper { /* IE8 */
@@ -63,6 +62,7 @@
    </head>
    <body>
       <div id="task">
+        <div style="direction: rtl">
          <h1>لوله‌‌کشی</h1>
          <div id="tabsContainer"></div>   <!-- will contain the versions tabs -->
          <div id="taskContent">        <!-- will contain the content of the task --> 
@@ -102,8 +102,6 @@
          <img src="icon.png" style="display:none">
 
       </div><!-- task -->
-      <div id="solution">
-         <h2>Solution</h2>
-         
+      </div>
    </body>
 </html>
