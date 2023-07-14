@@ -1,0 +1,149 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>۲۰۱۶-FR-۰۱</title>
+      <link class="module" rel="stylesheet" href="../../../_common/modules/pemFioi/taskStyles-0.1.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery/1.7/jquery.min.js" id="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery-ui/jquery.ui.touch-punch.min.js" id="jquery.ui.touch-punch.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/raphael/2.2.1/raphael.min.js" id="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/json/json2.min.js" id="https://github.com/douglascrockford/JSON-js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beav-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/beav-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beaver-task-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/beaver-task-2.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulation-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulation-2.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/raphaelFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/raphaelFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/delayFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/delayFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulationFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulationFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/grid-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/grid-1.0.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js" id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js"></script>
+      <script class="proxy module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/platform-pr.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/platform-pr.js"></script>
+      <script class="stdButtonsAndMessages module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"  id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/miniPlatform.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/miniPlatform.js"></script>
+      <script>
+         var stringsLanguage = 'fa';
+      </script>
+      <script class="remove" type="text/javascript">
+         var json = {
+            "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+            "language": "fa",
+            "version": "fr.01",
+            "authors": "آرتور چارگوئرود، متیاس هیرون، نیر لاوی، فرانس-ایوی",
+            "translators": ["مترجم"],
+            "license": "CC BY-SA 3.0",
+            "taskPathPrefix": "",
+            "modulesPathPrefix": "",
+            "browserSupport": [],
+            "fullFeedback": true,
+            "acceptedAnswers": [],
+            "usesRandomSeed": false
+         };
+      </script>
+      <script type="text/javascript">
+         var taskStrings = {
+               patternError: "سلول قرمز به شکل اشتباهی رنگ شده است.",
+               suboptimal: "خوب کار کردید. دوباره امتحان کنید تا با گام‌های کمتری حلش کنید.",
+               steps: function(count, limit) {
+                  return "تعداد گام‌ها: " + count;  
+               },
+               success: "تبریک، شما موفق شدید.",
+               drag: "برای رنگ کردن سلول، ماوس را از یک گوشه به گوشه مقابل بکشید.", 
+               moveLimit: "به حداکثر تعداد گام‌ها رسیدید. دوباره امتحان کنید. می‌توانید گام‌ها را لغو کنید یا از ابتدا شروع کنید."
+            };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #anim_container {
+         text-align: center;
+         }
+         #anim {
+         display: inline-block;
+         }
+         #anim_container table {
+         margin: 0px auto;
+         }
+         .gridTitle {
+         width: 90px;
+         text-align: left;
+         font-size: 20px;
+         }
+         #feedback {
+         width: 170px;
+         height: 7em;
+         margin-top: 0em;
+         margin-bottom: 0.3em;
+         text-align: center;
+         font-weight: bold;
+         color: #CC8844;
+         }
+         #control, #control table {
+         text-align: center;
+         margin: 20px auto;
+         }
+         #control table td {
+         }
+         #control input {
+         margin: 0 10px;
+         width: 9em;
+         padding: 2px 0px 2px 0px;
+         }
+         #solutionImages img {
+         height: 200px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+         <h1>رنگ آمیزی مستطیل ها</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <p id="difficultyWarning" class="hard"></p>
+            <p>
+               شکل موجود در شبکه "هدف" را به شبکه "نقاشی شما" منتقل کنید.
+            </p>
+            <p>می‌توانید سلول‌های سیاه و سفید را در شبکه‌ها رنگ کنید، با کشیدن موس از یک گوشه به گوشه مقابل.</p>
+            </p>
+            <p class="easy">
+               این نسخه از تکلیف را می‌توان در <strong>فقط ۲ گام</strong> حل کرد.
+            </p>
+            <p class="medium">
+               این نسخه از تکلیف را می‌توان در <strong>حداکثر ۵ گام</strong> حل کرد.
+            </p>
+            <p class="hard">
+               این نسخه از تکلیف را می‌توان در <strong>فقط ۴ گام</strong> حل کرد. 
+            </p>
+            <div id="anim_container">
+               <table>
+                  <tr>
+                     <td class="gridTitle">
+                        هدف:
+                     </td>
+                     <td>
+                        <div id="anim1"></div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td class="gridTitle">
+                        نقاشی<br/>شما: 
+                     </td>
+                     <td>
+                        <div id="anim2"></div>
+                     </td>
+                     <td>
+                        <div id="control">
+                           <p id="feedback"></p>
+                           <p>
+                              <span id="steps"></span>
+                           </p>
+                           <input type="button" value="لغو یک گام" id="undo" />
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+               <div><input type="button" value="بررسی پاسخ" id="execute" /></div>
+            </div>
+            <img src="icon.png" style="display:none">
+         </div>
+      </div>
+      <!-- task -->
+      <!-- task-solution -->
+   </body>
+</html>
