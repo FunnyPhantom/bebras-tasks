@@ -25,7 +25,7 @@ standaloneAddContents({
      { code: "2017-FR-10-building-lights",
        title: "چراغ‌های ساختمان" },
      { code: "2017-FR-11-graph-isomorphism",
-       title: "Constellation" },
+       title: "صورت فلکی" },
      { code: "2017-FR-12-distinct-paths",
        title: "جهان‌های موازی" },
      { code: "2017-FR-13-search-substring",
