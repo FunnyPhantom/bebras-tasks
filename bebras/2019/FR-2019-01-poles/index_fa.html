@@ -40,7 +40,7 @@
          success: "تبریک، شما موفق شدید!",
          tooManyJumps: function(nbBounces, maxNbBounces) {
              return "ببراس توانست " + nbBounces + " مرتبه به پایین بپرد.<br/> ببراس باید بعد از " + maxNbBounces + " پرش گیر بیفتد."; },
-         "try": "تلاش"
+         "try": "بررسی پاسخ"
 
       };
       var enableRtl = true;
@@ -61,6 +61,7 @@
 
 <body>
    <div id="task">
+    <div style="direction: rtl">
       <h1>بامبوها</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
@@ -85,13 +86,10 @@
       <img src="beaversBall.png" style="display:none" id="beaversBall">
       <img src="icon.png" style="display:none">
    </div>
-
+   </div>
    <!-- task -->
 
-   <div id="solution">
-      <h2>راه حل</h2>
-      <h2>It's informatics!</h2>
-   </div>
+   
    <!-- task-solution -->
 </body>
 
