@@ -19,7 +19,7 @@ standaloneAddContents({
      { code: "2015-CA-02-fireworks",
        title: "سیگنال‌های رنگی" },
      { code: "2015-FR-03-mark-and-shuffle",
-       title: "Marquage d'oiseaux" },
+       title: "کفتر کاکل به پا" },
      { code: "2015-FR-13-open-lock",
        title: "Code du cadenas" },
      { code: "2015-FR-07-placing-arrows",
