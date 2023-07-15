@@ -1,0 +1,202 @@
+
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>2015-JP-04</title>
+      <link class="module" rel="stylesheet" href="../../../_common/modules/pemFioi/taskStyles-0.1.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery/1.7/jquery.min.js" id="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery-ui/jquery.ui.touch-punch.min.js" id="jquery.ui.touch-punch.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/raphael/2.2.1/raphael.min.js" id="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/json/json2.min.js" id="https://github.com/douglascrockford/JSON-js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beaver-task.js" id="http://www.france-ioi.org/modules/pemFioi/beaver-task.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beav-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/beav-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulation-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulation-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/raphaelButton-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/raphaelButton-1.0.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js" id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js"></script>
+      <script class="proxy module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/platform-pr.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/platform-pr.js"></script>
+      <script class="stdButtonsAndMessages module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"  id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/miniPlatform.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/miniPlatform.js"></script>
+      <script class="remove" type="text/javascript">
+         var json = {
+         
+            "id": "http://castor-informatique.fr/tasks/2015/2015-JP-04-crane-operating/",
+         
+            "language": "fa",
+         
+            "version": "fa.01", 
+         
+            "authors": "تیکه‌هارو ایشیزوکا، isizukat@ishizukalab.net، ژاپن؛ آرتور چارگوئرود؛ ماتیاس هیرون، فرانسه-آی‌اُآی",
+         
+            "translators": [],
+         
+            "license": "CC BY-NC-SA 3.0",
+         
+            "taskPathPrefix": "",
+         
+            "modulesPathPrefix": "",
+         
+            "browserSupport": [],
+         
+            "fullFeedback": true,
+         
+            "acceptedAnswers": [], 
+         
+            "usesRandomSeed": false
+         
+         };
+         
+      </script>
+      <script type="text/javascript">
+         var stringsLanguage = 'fa';
+         
+         var taskStrings = {
+         
+           instructions: "روی دکمه‌های خاکستری شماره‌دار بالا کلیک کنید.",
+         
+           cannotDrop: "این جعبه پر است، جرثقیل نمی‌تواند چیزی را رها کند.",
+         
+           cannotGrab: "این جعبه خالی است، جرثقیل نمی‌تواند چیزی بردارد.",
+         
+           success: "تبریک، شما موفق شدید",
+         
+           successPartial: function(steps, minSteps) { return "شما با " + steps + " گام به هدف رسیدید. <br/> سعی کنید در " + minSteps + " گام انجام دهید."; }
+         
+         };
+         
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #inputs {
+         margin: 0px auto  20px auto;
+         border: 1px solid black;
+         }
+         #anim_container {
+         text-align: center;
+         min-height: 240px;
+         }
+         #anim {
+         display: inline-block;
+         }
+         #target_container {
+         width: 100%;
+         text-align: center;
+         }
+         #target_container p {
+         margin: 0.5em;
+         }
+         #target_anim {
+         width: 320px;
+         display: inline-block;
+         }
+         #sequence {
+         margin: 0px auto;
+         width: 600px;
+         height: 40px;
+         }
+         #tokens {
+         text-align: center;
+         font-size: 20px;
+         }
+         #tokens span {
+         padding: 4px;
+         }
+         .highlighted {
+         font-weight: bold;
+         border: solid black 1px;
+         border-radius: 4px;
+         }
+         #target_txt p {
+         padding-left: 20px;
+         }
+         #user_sequence {
+         min-width: 240px;
+         height: 24px;
+         border: solid 1px black;
+         padding: 10px;
+         vertical-align: middle;
+         display: table-cell;
+         letter-spacing: 3px;
+         font-size: 16px;
+         }
+         #buttons {
+         margin-bottom: 20px;
+         margin-top: 35px;
+         text-align: center;
+         }
+         #buttons input {
+         margin-left: 1em;
+         }
+         #message_counter {
+         margin-right: 1em;
+         }
+         #feedback {
+         height: 1em;
+         margin-top: 0em;
+         margin-bottom: 0.5em;
+         text-align: center;
+         font-weight: bold; 
+         color: #CC8844;
+         }
+         /*
+         #instructions {
+         text-align: center;
+         margin-top: 1em;
+         font-weight: bold; 
+         }*/
+      </style>
+   </head>
+   <body>
+      <div id="task">
+      <div style="direction: rtl">
+         <h1>هدایت جرثقیل</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <p>
+               جرثقیل مغناطیسی را با کلیک کردن روی دکمه‌های خاکستری شماره‌دار هدایت کنید تا بلوک‌ها را مانند تصویر هدف بچینید.
+            </p>
+            <p>
+               هر چه با گام‌های کمتری به هدف برسید، امتیاز بیشتری می‌گیرید.
+            </p>
+            <table id="inputs">
+               <tr>
+                  <td id="target_container">
+                     <p>
+                        هدف:
+                     </p>
+                     <div id="target_anim"></div>
+                  </td>
+               </tr>
+            </table>
+            <div id="anim_container">
+               <div id="anim"></div>
+            </div>
+            <!-- FOR TOKENS  <table id="sequence">
+               <tr>
+               
+                  <td id="tokens">
+               
+                     &nbsp;
+               
+                  </td>
+               
+               </tr>
+               
+               </table> -->
+            <p id="feedback">
+            </p>
+            <!--<p id="instructions">
+               روی دکمه‌های خاکستری برای کنترل جرثقیل کلیک کنید.
+               
+               </p>-->
+            <div id="buttons">
+               <span id="message_counter">تعداد گام‌ها: <span id="step_counter"></span></span>
+               <input type="button" id="undo" value="بازگشت" />
+               <!--<input type="button" id="reset" value="شروع مجدد" />-->
+            </div>
+            <img src="magnet.png" style="display:none">         
+            <img src="icon.png" style="display:none">
+         </div>
+      </div>
+      <!-- task -->
+   </body>
+</html>

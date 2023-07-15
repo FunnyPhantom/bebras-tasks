@@ -126,6 +126,7 @@
    </head>
    <body>
       <div id="task">
+        <div style="direction: rtl">
          <h1>Piloting the Crane</h1>
          <div id="tabsContainer"></div>
          <div id="taskContent">
@@ -172,94 +173,5 @@
             <img src="icon.png" style="display:none">
          </div>
       </div><!-- task -->
-      <div id="solution">
-<!--
-         <h2>Solution</h2>
-            <div class="easy">
-               <p>Pour échanger les positions du bloc rouge et du bloc bleu, il faut forcément commencer par en placer un des deux sur la case disponible au milieu. </p>
-               <p>Par exemple, en appuyant dans l'ordre sur les boutons numérotés: <b>1 2, 3 1, 2 3</b>, on obtient le résultat souhaité, comme illustré ci-dessous.</p>
-               <table width="100%">
-               <!--<tr><td>Etape 1</td><td>Etape 2</td><td>Etape 3</td><td>Etape 4</td><td>Etape 5</td><td>Etape 6</td>
-               </tr>-->
-               <tr>
-               <td><img src="easy_stage1.png" height="130"></td>
-               <td><img src="easy_stage2.png" height="130"></td>
-               <td><img src="easy_stage3.png" height="130"></td>
-               <td><img src="easy_stage4.png" height="130"></td>
-               <td><img src="easy_stage5.png" height="130"></td>
-               <td><img src="easy_stage6.png" height="130"></td>
-               </tr>
-               </table>
-               
-            </div>
-            <div class="medium">
-               <p>Une solution consiste à commencer par libérer une place, puis à décaler chacun des autres blocs pour les ranger à leur place, et enfin placer le premier bloc manipulé à sa place. 
-               </p>
-
-               <table width="100%"><tr>
-               <td style="vertical-align:top"><b>Etape 1 :</b> libérer une place temporaire en déplaçant le bloc rouge.</td>
-               <td  style="vertical-align:top"><b>Etape 2 :</b> décaler les autres blocs vers la gauche.</td>
-               <td  style="vertical-align:top"><b>Etape 3 :</b> ranger le premier bloc déplacé à sa place.</td>
-               </tr>
-               <tr>
-               <td><img src="medium_stage1.png" height="130"></td>
-               <td><img src="medium_stage2.png" height="130"></td>
-               <td><img src="medium_stage3.png" height="130"></td>
-               </tr>
-               </table>
-
-               <p>Cette approche correspond à la séquence <b>2 1, 3 2, 4 3, 5 4, 6 5, 7 6, 1 7</b>. D'autres séquences étaient possibles.</p>
-
-            </div>
-            <div class="hard">
-
-               <p>Une solution consiste à commencer par libérer une place, puis on répète le principe suivant : à chaque étape, on déplace un bloc de la bonne couleur vers la place libre. On évite le plus possible de déplacer des blocs qui sont déjà à leur place finale. On évite également de déplacer le premier bloc qui a servi à libérer la première place, sauf tout à la fin.</p>
-               <p>En procédant ainsi, chaque bloc est déplacé exactement une fois, sauf le premier qui est déplacé deux fois. Il n'est pas possible de faire moins de déplacements.</p>
-
-               <table width="100%">
-               <tr>
-               <td style="vertical-align:top">Etape 1</td>
-               <td style="vertical-align:top">Etape 2 (1)</td>
-               <td style="vertical-align:top">Etape 2  (2)</td>
-               </tr>
-               <tr>
-               <td><img src="hard_stage1.png" height="130"></td>
-               <td><img src="hard_stage2.png" height="130"></td>
-               <td><img src="hard_stage3.png" height="130"></td>
-               </tr>
-               <tr>
-               <td style="vertical-align:top">Etape 2  (3)</td>
-               <td style="vertical-align:top">Etape 2  (4)</td>
-               <td style="vertical-align:top">Etape 2  (5)</td>
-               </tr><tr>
-               <td><img src="hard_stage4.png" height="130"></td>
-               <td><img src="hard_stage5.png" height="130"></td>
-               <td><img src="hard_stage6.png" height="130"></td>
-               </tr>
-               <tr>
-               <td style="vertical-align:top">Etape 3</td>
-               <td style="vertical-align:top">Résultat</td>
-               <td style="vertical-align:top"></td>
-               </tr>
-               <tr>
-               <td><img src="hard_stage7.png" height="130"></td>
-               <td><img src="hard_stage8.png" height="130"></td>
-               <td>&nbsp;</td>
-               </tr>
-               </table>
-
-               <p>Cette approche correspond à la séquence <b>2 1, 4 2, 5 4, 3 5, 7 3, 6 7, 1 6</b>. D'autres séquences étaient possibles.</p>
-
-           </div>
-         <h2>C'est de l'informatique !</h2>
-            <p>Lorsqu'on enregistre un fichier sur le disque dur, il n'est pas toujours possible d'écrire l'ensemble de ce fichier à un seul endroit du disque. Il faut alors écrire des morceaux du fichier à plusieurs endroits.
-            </p>
-            </p>Par ailleurs, lorsqu'on ajoute des données à un fichier existant, il se peut qu'il y ait déjà un fichier qui se trouve juste après sur le disque dur. Dans ce, il n'est pas efficace de déplacer les fichiers, qui peuvent être très gros, alors qu'il suffit d'écrire les données à ajouter ailleurs sur le disque dur.
-            </p>
-            <p>Dans les deux cas, on se retrouve avec des morceaux d'un même fichier répartis à plusieurs endroits sur le disque dur. Ce phénomène s'appelle la <b>fragmentation</b>. Lorsque la fragmentation est trop importante, cela nuit aux performances du système, car pour lire un fichier en entier, il faut sauter d'un endroit à l'autre du disque, et cela prend du temps.</p>
-            <p>Il peut être nécessaire de <b>défragmenter</b> le disque dur. Cette opération consiste à remettre les morceaux d'un même fichier à côté les uns des autres.  Pour réaliser cette opération efficacement, il faut déplacer des morceaux de fichiers de manière astucieuse, afin de minimiser le nombre de déplacement, un peu comme on le fait dans ce sujet.</p>
-
--->
-	  </div> <!-- task-solution -->
-   </body>
+   </body></div>
 </html>
