@@ -1,0 +1,180 @@
+
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>2015-AT-07</title>
+      <link class="module" rel="stylesheet" href="../../../_common/modules/pemFioi/taskStyles-0.1.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery/1.7/jquery.min.js" id="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery-ui/jquery.ui.touch-punch.min.js" id="jquery.ui.touch-punch.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/raphael/2.2.1/raphael.min.js" id="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/json/json2.min.js" id="https://github.com/douglascrockford/JSON-js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beaver-task.js" id="http://www.france-ioi.org/modules/pemFioi/beaver-task.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beav-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/beav-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simpleKeyboard-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/simpleKeyboard-1.0.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js" id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js"></script>
+      <script class="proxy module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/platform-pr.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/platform-pr.js"></script>
+      <script class="stdButtonsAndMessages module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"  id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/miniPlatform.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/miniPlatform.js"></script>
+      <script class="remove" type="text/javascript">
+         var json = {
+            "id": "http://castor-informatique.fr/tasks/2015/2015-AT-07-telephone-book/",
+            "language": "en", 
+            "version": "fa.01",
+            "authors": "Elisabeth Oberhauser, elisabeth.aisha.oberhauser@gmail.com, Austria, initial idea; Arthur Chargueraud, France-ioi",
+            "translators": [],
+            "license": "CC BY-SA 3.0",
+            "taskPathPrefix": "",
+            "modulesPathPrefix": "",
+            "browserSupport": [],
+            "fullFeedback": true,
+            "acceptedAnswers": [],
+            "usesRandomSeed": false
+         };
+      </script>
+      <script type="text/javascript">
+         var stringsLanguage = 'fa';
+         var taskStrings = {
+            incorrectNumber: function(nbTarget) { return "شما باید " + nbTarget + " کلمه انتخاب کنید."; },
+            incorrect: "شما کلمات درستی را انتخاب نکرده‌اید. دوباره امتحان کنید.",
+            correct: "تبریک، شما موفق شدید." 
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         .symbol, .pattern, .char {
+         font-family: 'Courier New';
+         font-size: 20px; 
+         }
+         .symbol, .pattern {
+         color: #CC0000;
+         font-weight: bold;
+         }
+         .pattern {
+         margin-right: 0.5em;
+         margin-left: 0.5em;
+         }
+         .words {
+         border-collapse: collapse;
+         margin: auto;
+         }
+         .words td {
+         border: solid #AAAAAA 1px;
+         padding: 10px;
+         background-color: #EEEEEE;
+         }
+         .example td {
+         padding-top: 4px;
+         padding-bottom: 4px;
+         }
+         #main_words td {
+         padding-top: 10px;
+         padding-bottom: 10px;
+         }
+         .example .word {
+         cursor: default;
+         padding: 5px 5px 5px 5px;
+         }
+         #main_words .word {
+         cursor: default;
+         padding: 10px 10px 10px 10px;
+         }
+         .words .selected {
+         background-color: blue;
+         color: white;
+         }
+         .char {
+         padding: 3px;
+         width: 10px;
+         }
+         .example {
+         margin-top: 10px;
+         margin-bottom: 5px;
+         }
+         #results_container {
+         width: 10em;
+         }
+         .example_container {
+         padding: 0.2em;
+         padding-bottom: 0.5em;
+         padding-left: 0.5em;
+         margin-left: 0.5em;
+         width: 180px;
+         text-align: right;
+         border: 1px solid black;
+         margin-right: 1em;
+         }
+         .example_container p {
+         margin-top: 0.5em;
+         margin-right: 0.5em; 
+         margin-bottom: 0.5em;
+         }
+         .example_title {
+         text-align: center;
+         }
+         #main_words {
+         margin: 0px auto;
+         margin-bottom: 20px;
+         }
+         #task_description td {
+         vertical-align: top;
+         }
+         #task_description {
+         margin-top: 0.8em;
+         }
+         #pattern_given {
+         font-weight: bold;
+         padding-bottom: 0.8em;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+         <h1>انتخاب کلمات</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <table id="task_description">
+               <tr>
+                  <td>
+                     <p>
+                        الگویی تشکیل شده از حروف<span class="easy"> و علامت سوال </span><span class="medium hard">، علامت سوال و سه نقطه </span> است.
+                     </p>
+                     <p>
+                        هر نماد <span class="symbol">؟</span> به دقیقاً یک حرف اشاره دارد.
+                     </p>
+                     <p class="medium hard">
+                        هر نماد <span class="symbol">&#8230;</span> به صفر، یک یا چند حرف اشاره دارد. 
+                     </p>
+                  </td>
+                  <td>
+                     <div class="example_container">
+                        <p class="example_title"><strong>مثال</strong></p>
+                        <p> الگو: <strong><span id="pattern_example_0" class="pattern"></span></strong>
+                        </p>
+                        <p> کلمات مرتبط: </p>
+                        <table id="example0" class="words example"></table>
+                     </div>
+                  </td>
+                  <td>
+                     <div class="example_container">
+                        <p class="example_title"><strong>مثال</strong></p>
+                        <p> الگو: <strong><span id="pattern_example_1" class="pattern"></span></strong></p>
+                        <p> کلمات مرتبط: </p>
+                        <table id="example1" class="words example"></table>
+                     </div>
+                  </td>
+               </tr>
+            </table>
+            <br/>
+            <div id="pattern_given">
+               <span class="hard">تمام</span> کلماتی را که با الگوی <span class="easy medium"><b>۳</b></span> زیر مطابقت دارند انتخاب کنید:  
+               <span id="pattern_target" class="pattern"></span>
+               <span class="hard"><br/>تعداد کلمات مطابق به شما گفته نشده است.</span>
+            </div>
+            <table id="main_words" class="words"></table>
+            <img src="icon.png" style="display:none">
+         </div>
+      </div>
+      <!-- task -->
+</body>
+</html>
