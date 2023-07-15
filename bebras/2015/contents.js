@@ -10,7 +10,7 @@ standaloneAddContents({
      { code: "2015-CZ-02-relationships",
        title: "روابط سنی" },
      { code: "2015-FR-02-spreading-secret",
-       title: "Antennes" },
+       title: "نصب آنتن" },
      { code: "2015-AT-07-telephone-book",
        title: "قابلمه" },
      { code: "2015-FR-04-next-distance",
