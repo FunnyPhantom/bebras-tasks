@@ -24,7 +24,7 @@ standaloneAddContents({
      { code: "2015-FR-07-placing-arrows",
        title: "Robot qui tourne" },
      { code: "2015-FR-01-copy-pattern",
-       title: "Reproduire un dessin" },
+       title: "نقاشی الگوریتمی" },
      { code: "2015-SI-05-horse-races",
        title: "مسابقه‌ی اسب سواری" },
      { code: "2015-FR-15-guess-who",
