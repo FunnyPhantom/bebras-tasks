@@ -7,7 +7,7 @@ standaloneAddContents({
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2015-JP-04-crane-operating",
-       title: "Piloter la grue" },
+       title: "جرثقیل" },
      { code: "2015-CZ-02-relationships",
        title: "روابط سنی" },
      { code: "2015-FR-02-spreading-secret",
@@ -21,7 +21,7 @@ standaloneAddContents({
      { code: "2015-FR-03-mark-and-shuffle",
        title: "کفتر کاکل به پا" },
      { code: "2015-FR-13-open-lock",
-       title: "Code du cadenas" },
+       title: "نجات ببراس" },
      { code: "2015-FR-07-placing-arrows",
        title: "Robot qui tourne" },
      { code: "2015-FR-01-copy-pattern",
