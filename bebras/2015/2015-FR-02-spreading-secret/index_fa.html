@@ -1,0 +1,96 @@
+با سلام، متن انگلیسی را برای ترجمه به فارسی دریافت کردم. متن فارسی ترجمه شده به صورت زیر است:
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>2015-FR-02</title>
+      <link class="module" rel="stylesheet" href="../../../_common/modules/pemFioi/taskStyles-0.1.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery/1.7/jquery.min.js" id="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery-ui/jquery.ui.touch-punch.min.js" id="jquery.ui.touch-punch.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/raphael/2.2.1/raphael.min.js" id="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/json/json2.min.js" id="https://github.com/douglascrockford/JSON-js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beaver-task-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/beaver-task-2.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beav-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/beav-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/raphaelFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/raphaelFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/delayFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/delayFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/simulationFactory-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/simulationFactory-1.0.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/grid-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/grid-1.0.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js" id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js"></script>
+      <script class="proxy module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/platform-pr.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/platform-pr.js"></script>
+      <script class="stdButtonsAndMessages module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"  id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/miniPlatform.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/miniPlatform.js"></script>
+      <script class="remove" type="text/javascript">
+         var json = {
+            "id": "http://castor-informatique.fr/tasks/2015/2015-FR-02-spreading-secret/",
+            "زبان": "فارسی", 
+            "نسخه": "fa.01",
+            "نویسندگان": "آرتور چارگوئرود، فرانس-ایوی",
+            "مترجمان": [],
+            "مجوز": "CC BY-SA 3.0",  
+            "پیشوند مسیر وظیفه": "",
+            "پیشوند مسیر ماژول ها": "",
+            "پشتیبانی مرورگر": [],
+            "بازخورد کامل": true,
+            "پاسخ های پذیرفته شده": [],  
+            "از بذر تصادفی استفاده می کند": false
+         };
+      </script>
+      <script type="text/javascript">
+         var stringsLanguage = 'fa';
+         var taskStrings = {
+         همپوشانی: "حداقل دو آنتن موج‌هایشان همپوشانی دارند.",
+         گمشده: "برخی مربع‌های خالی پوشش داده نشده‌اند.",
+         موفقیت: "تبریک، شما موفق شدید",
+         هشدار: "توجه: موج‌ها نباید همپوشانی داشته باشند." };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <style>
+         #error_text {
+         font-weight: bold;
+         text-align: center;
+         margin-bottom: 0.5em;
+         color: red;
+         height: 1em;
+         }
+         .antenna {
+         margin-top: 1em;
+         margin-left: 1em;
+         }
+         #instructions td {
+         vertical-align: top;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+        <div style="direction: rtl">
+         <h1>نصب آنتن‌ها</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <table id="instructions">
+               <tr>
+                  <td>
+                     <p>
+                        روی مربع‌های <span class="hard"><b>(سفید و خاکستری)</b></span> شبکه کلیک کنید تا آنتن‌ها را قرار دهید، به طوری که همه سلول‌های سفید پوشش داده شوند.
+                     </p>
+                     <p>موج‌های آنتن‌ها نباید هم پوشانی داشته باشند.</p>
+                     <div id="error_text"></div>
+                  </td>
+                  <td>
+                     <div style="float:right" class="easy antenna"><img src="antenna_horizontal.png" /></div>
+                     <div style="float:right" class="medium hard antenna"><img src="antenna.png" /></div>
+                  </td>
+               </tr>
+            </table>
+            <div id="grid_container" style="text-align:center">
+               <div id="grid"></div>
+            </div>
+            <div id="demo"></div>
+            <img src="icon.png" style="display:none">
+         </div>
+      </div>
+      <!-- task -->
+    </div>
+      <!-- task-solution -->
+   </body>
+</html>
