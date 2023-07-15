@@ -29,7 +29,7 @@ standaloneAddContents({
      { code: "2015-SI-05-horse-races",
        title: "مسابقه‌ی اسب سواری" },
      { code: "2015-FR-15-guess-who",
-       title: "Qui est-ce ?" }
+       title: "شناسایی چهره" }
     ]
   });
 
