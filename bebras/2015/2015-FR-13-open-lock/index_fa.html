@@ -40,20 +40,20 @@
          var taskStrings = {
             alreadyFound: function(found) {
                if (found.length == 0) {
-                  return "به دنبال یک کد که مطابقت دارد، بگردید.";
+                  return "رمزی پیدا کنید که با صورت سوال هم‌خوانی داشته باشد.";
                } else if (found.length == 1) {
-                  return "شما کد " + found[0] + " را پیدا کردید.";
+                  return "شما رمز " + found[0] + " را پیدا کردید.";
                } else if (found.length == 2) {
-                  return "شما کدهای " + found[0] + " و " + found[1] + " را پیدا کردید.";
+                  return "شما رمزهای " + found[0] + " و " + found[1] + " را پیدا کردید.";
                } else if (found.length == 3) {
-                  return "شما کدهای زیر را پیدا کردید: " + found.join(", ") + "."; 
+                  return "شما رمزهای زیر را پیدا کردید: " + found.join(", ") + "."; 
                }
             },
-            instruction: "در جعبه‌های زیر کلیک کنید تا کد را تغییر دهید.",
-            freshlyTried: "شما یک کد جدید پیدا کردید.",
-            alreadyTried: "شما قبلا این کد را پیدا کرده‌اید.",
-            remaining: function(nbRemaining) { return "" + nbRemaining + " دیگر" + ((nbRemaining>1) ? "اند" : "") + "."; },
-            success: "تبریک می‌گوییم، شما موفق شدید",
+            instruction: "روی ارقام کادر زیر بزنید تا رمز جدیدی را امتحان کنید.",
+            freshlyTried: "شما یک رمز جدید پیدا کردید.",
+            alreadyTried: "شما قبلا این رمز را پیدا کرده‌اید.",
+            remaining: function(nbRemaining) { return "" + nbRemaining + " کد دیگر" + ((nbRemaining>0) ? "باقی مانده است" : "") + "."; },
+            success: "آفرین! شما بردید!",
             successPartial: function(counter, bestCounter) { return "شما تمام امکانات را در " + counter + " گام آزمایش کردید.<br> تکرار کنید تا در " + bestCounter + " گام سعی کنید.";  } };
          
       </script>
@@ -98,32 +98,36 @@
    <body>
       <div id="task">
         <div style="direction: rtl">
-         <h1>کد قفل</h1>
+         <h1>نجات ببراس</h1>
          <div id="tabsContainer"></div>
          <div id="taskContent">
             <p>
-               قفل خرگوش آبی را با پیدا کردن تمام ترکیبات عددی بر اساس قوانین زیر باز کنید:
+               ببراس داخل یک قفس قفل‌دار گیر افتاده!
+               به او کمک کنید با امتحان کردن تمام رمزهای ممکن قفل از قفس آزاد شود.
+            </p>
+            <p>
+                ببراس این سرنخ‌ها را درباره رمز می‌داند:
             </p>
             <div class="features">
                <ul class="easy">
-                  <li>از عدد 8 شروع کنید،</li>
-                  <li>و دو بار عدد 5 را داشته باشد،</li>
-                  <li>و یک بار عدد 3 را داشته باشد.</li>
+                  <li>اولین رقم آن ۸ است.</li>
+                  <li>دو رقم ۵ دارد.</li>
+                  <li>یک رقم ۳ دارد.</li>
                </ul>
                <ul class="medium">
-                  <li>از عدد 8 شروع کنید،</li>
-                  <li>و دو بار عدد 5 را داشته باشد،</li>
-                  <li>و یا 1 یا 2 را داشته باشد.</li>
+                  <li>اولین رقم آن ۸ است.</li>
+                  <li>دو رقم ۵ دارد.</li>
+                  <li>یک رقم ۱ یا ۲ دارد.</li>
                </ul>
                <ul class="hard">
-                  <li>دو بار عدد 3 را داشته باشد،</li>
-                  <li>و دو بار عدد 5 را داشته باشد.</li>
+                  <li>دو رقم ۳ دارد.</li>
+                  <li>دو رقم ۵ دارد.</li>
                   <li style="list-style-type:none">&nbsp;</li>
                </ul>
             </div>
             <p class="hard">
-               سعی کنید قفل را در کمترین مراحل ممکن باز کنید.
-               می‌توانید با کاغذ کمک خودتان کنید!
+               سعی کنید قفل را با کمترین تعداد گام ممکن باز کنید.
+               می‌توانید از یک کاغذ برای چرک‌نویس کردن استفاده کنید.
             </p>
             <p class="hard" id="counter"><b>تعداد مراحل: <span id='step_counter'></span></b>.</p>
             <div id="anim_container">
