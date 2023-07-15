@@ -1,4 +1,4 @@
-Here is the HTML code translated to Persian:
+
 
 <file-attachment-contents filename="index_fa.html">
 <!doctype html>
@@ -39,24 +39,24 @@ Here is the HTML code translated to Persian:
          var stringsLanguage = 'fa';
       var taskStrings = {
          elements: { 
-            "tie": ["کراوات", "کراوات"],
+            "tie": ["پاپیون", "پاپیون"],
             "glasses": ["عینک", "عینک"],
             "hat": ["کلاه", "کلاه"],
             "hair": ["مو", "مو"],
             "mouth": ["دهان", "دهان"],
             "nose": ["بینی", "بینی"] 
          },
-         remainingFaces: "شخصیت هایی برای قرار دادن در مستطیل ها وجود دارد.",
-         remainingQuestions: "هنوز دایره های خالی وجود دارد.",
+         remainingFaces: "هنوز همه چهره‌ها در مستطیل‌ها قرار داده نشده اند.",
+         remainingQuestions: "هنوز بیضی‌ خالی وجود دارد.",
          errorHasNotButShouldHave: function(part) {
-            return "شخصیتی که در قاب قرمز است باید " + this.elements[part][0] + " داشته باشد."; 
+            return "چهره‌ای که در قاب قرمز است باید " + this.elements[part][0] + " داشته باشد."; 
          },
          errorHasButShouldNot: function(part) {
-            return "شخصیتی که در قاب قرمز است نباید " + this.elements[part][1] + " داشته باشد.";
+            return "چهره‌ای که در قاب قرمز است نباید " + this.elements[part][1] + " داشته باشد.";
          },
          success: "تبریک می گوییم، شما موفق شدید!",
-         yes: "بله",
-         no: "خیر"
+         yes: "دارد",
+         no: "ندارد"
       };
       </script>
       <script type="text/javascript" src="task.js"></script>
@@ -95,23 +95,23 @@ Here is the HTML code translated to Persian:
          <div id="tabsContainer"></div>
          <div id="taskContent">
             <p class="easy">
-               شخصیت‌ها را به مستطیل‌های مناسب در ناحیه آبی بکشید.
+               چهره‌‌ها را به مستطیل‌های مناسب در ناحیه آبی بکشید.
             </p>
             <p class="medium hard">
-               عناصر را به دایره‌ها و شخصیت‌ها را به مستطیل‌ها بکشید تا طبق قوانین زیر نمودار را پر کنید.
+               عناصر را به بیضی‌ها و چهره‌‌ها را به مستطیل‌ها بکشید تا طبق قوانین زیر نمودار را پر کنید.
             </p>
 
-            <p id="ellipse_descr" class="easy"> هر دایره حاوی یک عنصر است که شخصیت‌ها را از هم متمایز می‌کند: </p>
-            <p id="ellipse_descr" class="medium hard"> هر دایره باید حاوی یک عنصر باشد که شخصیت‌ها را از هم متمایز می‌کند: </p>
+            <p id="ellipse_descr" class="easy"> هر بیضی حاوی یک عنصر است که چهره‌‌ها را از هم متمایز می‌کند: </p>
+            <p id="ellipse_descr" class="medium hard"> هر بیضی باید حاوی یک عنصر باشد که چهره‌‌ها را از هم متمایز می‌کند: </p>
             <ul id="ellipse_descr_ul">
-               <li>زیر سمت چپ هر دایره، تمام شخصیت‌ها باید این عنصر را داشته باشند.
-               <li>زیر سمت راست هر بیضی، هیچ شخصیتی نباید این عنصر را داشته باشد.
+               <li> سمت چپ هر بیضی، تمام چهره‌‌ها باید این عنصر را داشته باشند.
+               <li> سمت راست هر بیضی، هیچ چهره‌ای نباید این عنصر را داشته باشد.
             </ul>
 
             <div id="anim_container">
                <div id="anim"></div>
                <div id="feedback"></div>
-               <input type="button" value="تایید" id="validate"/>
+               <input type="button" value="بررسی پاسخ" id="validate"/>
             </div>
 
             <img src="icon.png" style="display:none">
