@@ -1,0 +1,212 @@
+با عرض سلام، متن کامل HTML را به فارسی ترجمه کردم. ساختار و قالب بندی HTML را حفظ کردم و فقط متن انگلیسی را به فارسی ترجمه نمودم. جایی که ترجمه مستقیم وجود نداشت، معادل مناسب فارسی را پیدا کردم. لطفاً HTML کد فارسی کامل را ملاحظه فرمایید:
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>2015-FR-01-copy pattern</title>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/jquery/1.7/jquery.min.js" id="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/json/json2.min.js" id="https://github.com/douglascrockford/JSON-js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/ext/raphael/2.2.1/raphael.min.js" id="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.1/raphael.min.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/drag_lib-2.0.js" id="http://www.france-ioi.org/modules/pemFioi/drag_lib.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/tracker.js" id="http://castor-informatique.fr/tasks/modules/tracker.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beaver-task.js" id="http://www.france-ioi.org/modules/pemFioi/beaver-task.js"></script>
+      <script class="proxy module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/platform-pr.js" id="http://www.france-ioi.org/modules/integrationAPI.01/official/platform-proxy.js"></script>
+      <script class="stdButtonsAndMessages module" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"  id="http://www.france-ioi.org/modules/integrationAPI.01/installationAPI.01/pemFioi/buttonsAndMessages.js"></script>
+      <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/beav-1.0.js" id="http://www.france-ioi.org/modules/pemFioi/beav-1.0.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/installationAPI.01/pemFioi/installation.js"></script>
+      <script class="remove" type="text/javascript" src="../../../_common/modules/integrationAPI.01/official/miniPlatform.js"></script>
+      <link class="module" rel="stylesheet" type="text/css" href="../../../_common/modules/pemFioi/taskStyles-0.1.css" id="http://www.france-ioi.org/modules/pemFioi/taskStyles-0.1.css">
+      <script type="text/javascript">
+         var stringsLanguage = 'fa';
+         var taskStrings = {
+           instructions: [
+                  "1 قدم به راست",
+                  "1 قدم به چپ",  
+                  "1 قدم بالا",
+                  "1 قدم پایین",
+                  "N قدم به راست",
+                  "N قدم به چپ",
+                  "N قدم بالا",  
+                  "N قدم پایین",
+                  "افزایش N به 1"
+                  ],
+            resume: "ادامه",
+            pause: "توقف",
+            success: "تبریک! شما موفق شدید.",
+            missingInstr: "دستورالعمل ها را به برنامه خود اضافه کنید.",
+            incorrect: "نقشه‌برداری انجام‌شده درست نیست. <br> لطفاً دستورالعمل‌های دیگری را امتحان کنید.",
+            noInstruction: "هیچ دستورالعملی ارائه نشده است.",
+            completed: "اجرا به پایان رسید.",
+            repetitionNumber: "تکرار شماره",
+            exitGrid: "شما از محدوده شبکه خارج شده‌اید."  
+         };
+      </script>
+      <script type="text/javascript" src="task.js"></script>
+      <script class="remove" type="text/javascript">
+         var json = {
+            "id": "http://castor-informatique.fr/tasks/algorea_2015/2015-FR-01-track/",
+            "language": "fa",
+            "version": "fa.01",
+            "authors": "متیاس هیرون، فرانس - IOI",
+            "translators": [],
+            "license": "",
+            "taskPathPrefix": "",
+            "modulesPathPrefix": "",
+            "browserSupport": [],
+            "acceptedAnswers": [""],
+            "fullFeedback": false  
+         };
+      </script>
+      <style>
+         #drawing {
+         margin-left: 0.5em;
+         }
+         #columns-wrapper {
+         margin-top: 1em;
+         }
+         .columns td {
+         vertical-align: top;
+         padding-right: 1em;
+         }
+         .column_head {
+         font-weight: bold;
+         }
+         #message {
+         text-align: center;
+         font-weight: bold;
+         color: blue;
+         padding: 0.5em;
+         height: 1em;
+         }
+         .buttons input {
+         margin-bottom: 5px;
+         }
+         #textSolution li {
+         margin-top: 0.2em;
+         }
+         .valigntop td {
+         vertical-align: top;
+         }
+         .examples, .objectif  {
+         border-collapse: collapse;
+         text-align: center;
+         border: 1px solid black;
+         margin-left: 0.5em;
+         margin-right: 0.5em;
+         }
+         .objectif {
+         border: 1px solid black;   
+         }
+         .examples td, .objectif td {
+         padding: 0.5em;
+         }
+         .examples td td {
+         border: 1px solid #D0D0D0;
+         padding: 0.5em;
+         }
+         .exampleButton {
+         margin: 2px;
+         }
+         .resetButton {
+         display:none;
+         }
+         #variableInfo {
+         text-align: center;
+         font-weight: bold;
+         color: #FF7700;
+         margin-top: 0.5em;
+         margin-bottom: 0.5em;
+         }
+         #top-spacing {
+         margin-top: 1em;
+         }
+         #simuButtons input {
+         width: 100px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="task">
+        <div style="direction: rtl"></div>
+         <h1>نقاشی الگوریتمی</h1>
+         <div id="tabsContainer"></div>
+         <div id="taskContent">
+            <p>
+               سعی کنید الگوی مورد نظر را با استفاده از دنباله‌ای از دستورالعمل‌های زیر بازسازی کنید. <Strong> این دنباله <span class = "nbLoops"> </ span> بار تکرار می‌شود. </ Strong>
+            </p>
+            <div id="top-spacing"></div>
+            <div style="text-align:center">
+               <table class="valigntop">
+                  <tr>
+                     <td>
+                        <table class='examples valigntop'>
+                           <tr>
+                              <td style="text-align:center"><b>مثال<br> (دنباله <span class="nbLoops"></span> بار تکرار می‌شود)</b></td>
+                           </tr>
+                           <tr>
+                              <td style="text-align:center">
+                                 <table style="margin:auto" id="sample0Text" class="example-text"></table>
+                                 <input type="button" id="sample0" class="exampleButton" onclick="task.executeSample(0)" value="امتحان کنید"></input>
+                              </td>
+                           </tr>
+                        </table>
+                     </td>
+                     <td>
+                        <table class='objectif valigntop'>
+                           <tr>
+                              <td style="text-align:center"><b>الگوی هدف</b></td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <div id="target"></div>
+                              </td>
+                           </tr>
+                        </table>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <div id="columns-wrapper">
+               <table class="columns" style="clear: both">
+                  <tr>
+                     <td style="width:170px">
+                        <div class="column_head" style="text-align:center">دستورالعمل‌ها را<br/> از اینجا بردارید</div>
+                     </td>
+                     <td style="width:250px">
+                        <div class="column_head" style="text-align:center">دستورالعمل‌ها را<br/> به آنجا بکشانید</div>
+                     </td>
+                     <td>
+                        <div class="column_head" style="text-align:center">نتیجه اجرا <br/>(دنباله <span class="nbLoops"></span> بار تکرار می‌شود)</div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td colspan="2">
+                        <div id="program" class="touch"></div>
+                     </td>
+                     <td rowspan="2">
+                        <div id="simuButtons" class="buttons" style="text-align:center;padding:10px">
+                           <input type="button" id="pause" value="توقف" onclick="task.pause()"/>
+                           &nbsp;&nbsp;&nbsp;
+                           <input type="button" id="stop" value="متوقف کردن" onclick="task.stop()" />
+                        </div>
+                        <div id="variableInfo" class="medium hard">مقدار کنونی N عبارت است از: <span id="valueS">1</span>.</div>
+                        <div><span id="message"></span></div>
+                        <div id="result"></div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td>
+                        <div class="buttons" style="text-align: center">
+                           <input id="tryOrReset" type="button" onclick="task.trySequence()" value="امتحان کنید">
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <img src="icon.png" style="display:none">
+         </div>
+      </div>
+      <!-- task -->
+   </body>
+</html>
