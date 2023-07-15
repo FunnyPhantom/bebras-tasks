@@ -128,30 +128,6 @@
             <img src="icon.png" style="display:none">
          </div>
       </div><!-- task -->
-      <div id="solution">
-
-         <h2>Solution</h2>
-   
-           <p class="easy medium">We take a picture for each of <span class="easy">4</span><span class="medium hard">5</span> possible positions of the ball. To find your way easily, you can arrange the photos in the gray frame depending on the position of the ball in each photo, as shown below. We can then add lines between the photos describing positions where the ball has moved only one square.</p>
-
-           <p class="hard">We take a picture for each of the 6 possible configurations of the two marbles. To find your way easily, we can organize the photos. For example, we can make a first column with the photos having a ball in the box at the top left, and a second column with the photos having no ball in this box. You can also sort the photos inside the column, according to the filling of the other boxes. We can then add the features corresponding to the possible displacements of the balls.</p>
-  
-           <p>
-            <img class="easy" src="Sol_easy_1.png">
-            <img class="medium" src="Sol_medium_1.png">
-            <img class="hard" src="Sol_hard_1.png"> 
-           </p>
-           
-           <p>To be sure you have not forgotten any features, you can check the lines that start from each photo. For a given photo, we count <span class="easy medium">the number of white squares around the ball</span><span class="hard">the number of white boxes around the first ball, to which is added the number of white boxes around the second ball</span>. <span class="easy medium">This number</span><span class="hard">Total</span> must correspond to the number of lines that are connected to this photo, since this corresponds to the number of possible displacements.</p>
-
-         <h2>It's computer science !</h2>
-
-           <p>This topic illustrates how to represent situations (photos of a state) and transitions (displacement of a marble) in the form of a <b>graph</b>, that is to say, a set of objects, some of which are connected to each other by lines. It is very interesting to reduce a problem to a graphical view, because there are many very efficient algorithms for dealing with problems expressed by graphs.</p>
-
-           <p>Some problems naturally appear as a graph, such as finding a way to travel from one city to another: the graph is then made up of the cities and roads that connect them. In other problems, on the contrary, the graph is not really visible at first glance. We then speak of <b> implicit graph</b>.
-           <p>The expertise of a programmer is to be able to detect that a problem that does not look like a graph problem can still be expressed as a graph. Such a programmer can then, instead of developing an ad-hoc and inefficient algorithm, rely on a standard and highly efficient graphing algorithm.</p>
-
-
-	  </div> <!-- task-solution -->
+      
    </body>
 </html>
