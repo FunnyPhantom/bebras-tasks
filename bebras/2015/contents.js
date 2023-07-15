@@ -3,6 +3,7 @@ standaloneAddContents({
   code: "castor_2015",
   title: "مسابقات ببراس ۲۰۱۵",
   folder: "2015/",
+  language: "fa",
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2015-JP-04-crane-operating",
