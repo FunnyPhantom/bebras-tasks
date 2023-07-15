@@ -23,7 +23,7 @@ standaloneAddContents({
      { code: "2015-FR-13-open-lock",
        title: "نجات ببراس" },
      { code: "2015-FR-07-placing-arrows",
-       title: "Robot qui tourne" },
+       title: "ربات چرخنده" },
      { code: "2015-FR-01-copy-pattern",
        title: "نقاشی الگوریتمی" },
      { code: "2015-SI-05-horse-races",
