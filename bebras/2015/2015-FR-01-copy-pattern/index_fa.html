@@ -20,25 +20,25 @@
          var stringsLanguage = 'fa';
          var taskStrings = {
            instructions: [
-                  "1 قدم به راست",
-                  "1 قدم به چپ",  
-                  "1 قدم بالا",
-                  "1 قدم پایین",
-                  "N قدم به راست",
-                  "N قدم به چپ",
-                  "N قدم بالا",  
-                  "N قدم پایین",
-                  "افزایش N به 1"
+                  "یک قدم به راست",
+                  "یک قدم به چپ",  
+                  "یک قدم بالا",
+                  "یک قدم پایین",
+                  "* قدم به راست",
+                  "*‌ قدم به چپ",
+                  "*‌ قدم بالا",  
+                  "* قدم پایین",
+                  "یک واحد افزایش *"
                   ],
             resume: "ادامه",
             pause: "توقف",
             success: "تبریک! شما موفق شدید.",
-            missingInstr: "دستورالعمل ها را به برنامه خود اضافه کنید.",
-            incorrect: "نقشه‌برداری انجام‌شده درست نیست. <br> لطفاً دستورالعمل‌های دیگری را امتحان کنید.",
-            noInstruction: "هیچ دستورالعملی ارائه نشده است.",
+            missingInstr: "دستورها را به برنامه خود اضافه کنید.",
+            incorrect: "طرح کشیده‌شده درست نیست. <br> لطفاً دستورهای دیگری را امتحان کنید.",
+            noInstruction: "هیچ دستوری ارائه نشده است.",
             completed: "اجرا به پایان رسید.",
-            repetitionNumber: "تکرار شماره",
-            exitGrid: "شما از محدوده شبکه خارج شده‌اید."  
+            repetitionNumber: "تکرار شماره ",
+            exitGrid: "شما از محدوده جدول خارج شده‌اید."  
          };
       </script>
       <script type="text/javascript" src="task.js"></script>
@@ -131,8 +131,11 @@
          <h1>نقاشی الگوریتمی</h1>
          <div id="tabsContainer"></div>
          <div id="taskContent">
+            <p class="medium hard">
+                ببراس یک متغیر به نام * دارد که در ابتدا مقدارش برابر ۱ است و می‌تواند آن را زیاد کند.
+            </p>
             <p>
-               سعی کنید الگوی مورد نظر را با استفاده از دنباله‌ای از دستورالعمل‌های زیر بازسازی کنید. <Strong> این دنباله <span class = "nbLoops"> </ span> بار تکرار می‌شود. </ Strong>
+               سعی کنید طرح زیر را با کشیدن دستورهای دستورهای جدول به نوار، بازسازی کنید. <Strong> این نوار <span class = "nbLoops"> </span> بار تکرار می‌شود. </Strong>
             </p>
             <div id="top-spacing"></div>
             <div style="text-align:center">
@@ -141,12 +144,12 @@
                      <td>
                         <table class='examples valigntop'>
                            <tr>
-                              <td style="text-align:center"><b>مثال<br> (دنباله <span class="nbLoops"></span> بار تکرار می‌شود)</b></td>
+                              <td style="text-align:center"><b>مثال<br> (نوار <span class="nbLoops"></span> بار تکرار می‌شود)</b></td>
                            </tr>
                            <tr>
                               <td style="text-align:center">
                                  <table style="margin:auto" id="sample0Text" class="example-text"></table>
-                                 <input type="button" id="sample0" class="exampleButton" onclick="task.executeSample(0)" value="امتحان کنید"></input>
+                                 <input type="button" id="sample0" class="exampleButton" onclick="task.executeSample(0)" value="بررسی مثال"></input>
                               </td>
                            </tr>
                         </table>
@@ -154,7 +157,7 @@
                      <td>
                         <table class='objectif valigntop'>
                            <tr>
-                              <td style="text-align:center"><b>الگوی هدف</b></td>
+                              <td style="text-align:center"><b>طرح هدف</b></td>
                            </tr>
                            <tr>
                               <td>
@@ -170,13 +173,13 @@
                <table class="columns" style="clear: both">
                   <tr>
                      <td style="width:170px">
-                        <div class="column_head" style="text-align:center">دستورالعمل‌ها را<br/> از اینجا بردارید</div>
+                        <div class="column_head" style="text-align:center">نوار<br/>دستورها</div>
                      </td>
                      <td style="width:250px">
-                        <div class="column_head" style="text-align:center">دستورالعمل‌ها را<br/> به آنجا بکشانید</div>
+                        <div class="column_head" style="text-align:center">دستورها را<br/> از این جدول بردارید</div>
                      </td>
                      <td>
-                        <div class="column_head" style="text-align:center">نتیجه اجرا <br/>(دنباله <span class="nbLoops"></span> بار تکرار می‌شود)</div>
+                        <div class="column_head" style="text-align:center">نتیجه اجرا <br/>(نوار <span class="nbLoops"></span> بار تکرار می‌شود)</div>
                      </td>
                   </tr>
                   <tr>
@@ -187,9 +190,9 @@
                         <div id="simuButtons" class="buttons" style="text-align:center;padding:10px">
                            <input type="button" id="pause" value="توقف" onclick="task.pause()"/>
                            &nbsp;&nbsp;&nbsp;
-                           <input type="button" id="stop" value="متوقف کردن" onclick="task.stop()" />
+                           <input type="button" id="stop" value="شروع دوباره" onclick="task.stop()" />
                         </div>
-                        <div id="variableInfo" class="medium hard">مقدار کنونی N عبارت است از: <span id="valueS">1</span>.</div>
+                        <div id="variableInfo" class="medium hard">مقدار کنونی *: <span id="valueS">1</span>.</div>
                         <div><span id="message"></span></div>
                         <div id="result"></div>
                      </td>
@@ -198,7 +201,7 @@
                      <td></td>
                      <td>
                         <div class="buttons" style="text-align: center">
-                           <input id="tryOrReset" type="button" onclick="task.trySequence()" value="امتحان کنید">
+                           <input id="tryOrReset" type="button" onclick="task.trySequence()" value="بررسی پاسخ">
                         </div>
                      </td>
                   </tr>
