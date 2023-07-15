@@ -15,7 +15,7 @@ standaloneAddContents({
      { code: "2015-AT-07-telephone-book",
        title: "قابلمه" },
      { code: "2015-FR-04-next-distance",
-       title: "Éloignement" },
+       title: "دوری" },
      { code: "2015-CA-02-fireworks",
        title: "سیگنال‌های رنگی" },
      { code: "2015-FR-03-mark-and-shuffle",
