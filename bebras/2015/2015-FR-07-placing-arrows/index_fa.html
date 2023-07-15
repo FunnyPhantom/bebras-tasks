@@ -36,12 +36,12 @@
       <script type="text/javascript">
          var stringsLanguage = 'fa';
          var taskStrings = {
-         execute: "امتحان",
+         execute: "بررسی پاسخ",
          pause: "توقف",
          resume: "ادامه",
-         alreadyObstacle: "این جعبه از قبل مانعی دارد.",
-         refuseObstacle: "شما نمی‌توانید در این جعبه مانع اضافه کنید.",
-         errorLoop: "ربات در حلقه حرکت می‌کند. هرگز به دایره سبز نخواهد رسید.",
+         alreadyObstacle: "این خانه از قبل مانعی دارد.",
+         refuseObstacle: "شما نمی‌توانید در این خانه مانع اضافه کنید.",
+         errorLoop: "ربات در یک حلقه بی‌نهایت گیر کرد. هرگز به دایره سبز نخواهد رسید.",
          success: "تبریک، شما موفق شدید"          
          };
          
@@ -78,20 +78,20 @@
    <body>
       <div id="task">
          <div style="direction: rtl">
-            <h1>چرخش ربات</h1>
+            <h1>ربات چرخنده</h1>
             <div id="tabsContainer"></div>
             <div id="taskContent">
                <p>
-                  اگر ربات آبی هیچ مانعی جلوی خود نداشته باشد، به جلو حرکت می‌کند. اگر ربات به مانعی برخورد کند، یک چهارم دور به راست می‌چرخد.
+                  اگر ربات آبی هیچ مانعی جلوی خود نداشته باشد، به جلو حرکت می‌کند (دیواره‌های جدول هم مانع محسوب می‌شوند). اگر ربات به مانعی برخورد کند، نود درجه به راست می‌چرخد.
                </p>
                <p>
-                  برای اینکه ربات به دایره سبز برسد، روی خانه‌های سفید کلیک کنید تا موانعی اضافه کنید.
+                  برای اینکه ربات به دایره سبز برسد، روی خانه‌های سفید بزنید کنید تا مانع اضافه کنید.
                </p>
                <div id="anim_container">
                   <div id="anim"></div>
                   <div id="feedback"></div>
                   <div id="instructions">
-                     <input type="button" id="execute" value="امتحان"/>
+                     <input type="button" id="execute" value="بررسی پاسخ"/>
                      <input type="button" id="stop" value="توقف"/>
                   </div>
                </div>
