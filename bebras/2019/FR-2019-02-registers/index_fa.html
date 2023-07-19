@@ -37,16 +37,16 @@
    </script>
    <script type="text/javascript">
       var taskStrings = {
-         success: "باریکلا! موفق شدی",
+         success: "آفرین! موفق شدی",
          tooManyMarkers: function(max) {
             return "شش‌ضلعی برای قرار دادن در دایره خالی ندارید.\n می‌توانید با زدن بر روی شش‌ضلعی که در یک دایره  قرار دارد، آن را به صف شش‌ضلعی‌ها برگردانید.";
          },
          sumGreaterThan: function(max) { 
             return "شش‌ضلعی برای انتخاب باقی نمانده است.\n با زدن بر روی شش‌ضلعی هایی که در دایره قرار داده‌اید، می‌توانید آن‌ها را به صف شش‌ضلعی‌ها برگردانید.";
          },
-         noMarkerBelow: "برای ینکه بتوانید یک شش‌ضلعی را از پایین ترین سطح دایره‌ها\n به بالا انتقال دهید، باید دایره‌های زیر و متصل به آن، پر شده باشند",
-         placed: "شش‌ضلعی قرار داده شد",
-         failure: "شش‌ضلعی در خانه بالا قرار نگرفته‌است",
+         noMarkerBelow: "برای ینکه بتوانید یک شش‌‌‌‌ضلعی را در خانه خاکستری رنگ قرار دهید،\n باید دایره‌های زیر و متصل به آن دایره ابتدا پر شوند.",
+         placed: "شش‌ضلعی قرار داده‌شد.",
+         failure: "شش‌ضلعی‌ای در خانه بالا قرار نگرفته است.",
          reserve: "صف شش‌ضلعی‌ها:",
          empty: "،صفر. می‌توانید با زدن بر روی دایره‌ها\n شش‌ضلعی خود را بازیابی کنید.",
          validateNow: "موفق شدید. حالا بر روی دکمه اعتبار سنجی بزنید.",
@@ -54,7 +54,7 @@
          pebbleClick: "با زدن روی شش‌ضلعی‌های قرار گرفته در این ناحیه، اتفاقی نمی‌افتد!"
 
       };
-	  var enableRtl = true;
+	  
    </script>
    <script type="text/javascript" src="task.js"></script>
    <style>
@@ -93,7 +93,7 @@
          </div>
          <div id="zone_2">
             <div id="paper"></div>
-            <button type="button" class="btn btn-default" id="undo">منصرف شدم</button>
+            <button type="button" class="btn btn-default" id="undo">برگرداندن</button>
          </div>
          <div id="error"></div>
       </div>
@@ -102,10 +102,7 @@
 
    <!-- task -->
 
-   <div id="solution">
-      <h2>Solution</h2>
-      <h2>It's informatics!</h2>
-   </div>
+   
    <!-- task-solution -->
 </body>
 
