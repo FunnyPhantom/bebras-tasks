@@ -773,19 +773,4 @@ function initTask(subTask) {
 initWrapper(initTask, ["easy", "medium", "hard"]);
 displayHelper.useFullWidth();
 
-// Define a function to convert English digits to Persian digits
-function convertToPersianDigits(str) {
-    var persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
-    return str.replace(/[0-9]/g, function(digit) {
-      return persianDigits[digit];
-    });
-}
 
-// Get all the text content of the website
-var body = document.body.innerHTML;
-
-// Convert all English digits to Persian digits
-var persianBody = convertToPersianDigits(body);
-
-// Set the converted text back to the website
-document.body.innerHTML = persianBody;
