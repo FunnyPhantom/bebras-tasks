@@ -7,7 +7,7 @@ standaloneAddContents({
   difficulties: ["easy", "medium", "hard"],
   tasks: [
      { code: "2018-FR-05-treasure",
-       title: "حداقل تلاش" },
+       title: "کم‌ترین تخریب" },
      { code: "2018-FR-03-search-replace",
        title: "دنباله طلایی" },
      { code: "2018-FR-06-encoded-path",
