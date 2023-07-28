@@ -46,7 +46,7 @@
             almost: "نتیجه شما تاحدودی با هدف تفاوت دارد، اما مقداری از امتیاز فعالیت را دریافت می‌کنید.",
             error: "نتیجه با هدف هم‌خوانی ندارد."
         };
-        var enableRtl = true;
+        //var enableRtl = true;
     </script>
 
     <script type="text/javascript" src="task.js"></script>
@@ -333,6 +333,7 @@
 
 <body>
     <div id="task">
+        <div style="direction: rtl">
         <h1>قواعد رنگ‌آمیزی</h1>
 
         <div id="tabsContainer"></div>
@@ -364,6 +365,9 @@
                      <br>
                      قواعد رنگ‌آمیزی را به گونه‌ای تغییر دهید که به شکلی مطابق با هدف برسیم.
                   </p>
+                  <p class="easy">
+                    نکته: در این سطح شما نمی‌توانید قواعد مربع سفید را تغییر دهید.
+                  </p>
                 </div>
             </div>
 
@@ -394,8 +398,8 @@
                             </div>
                             <div class="easy transformation-bracket"></div>
                             <div class="medium transformation-bracket"></div>
-                            <div class="easy transformation-text"><span>برای تغییر رنگ، روی مربع‌ها بزنید</span></div>
-                            <div class="medium transformation-text"><span>برای تغییر رنگ، روی مربع‌ها بزنید</span></div>
+                            <div class="easy transformation-text"><span></span></div>
+                            <div class="medium transformation-text"><span></span></div>
                         </div>
 
                         <div class="hard transformation">
@@ -419,7 +423,7 @@
                                 </div>
                             </div>
                             <div class="hard transformation-bracket"></div>
-                            <div class="hard transformation-text"><span>اینجا بزنید</span></div>
+                            <div class="hard transformation-text"><span></span></div>
                         </div>
                     </div>
 
@@ -451,12 +455,12 @@
                             <div class="situation">
                                 <div class="situation-hidden">
                                     <span class="sub-title">
-                                        پس از رنگ‌آمیزی مخفی ۱
+                                        رنگ‌آمیزی مخفی اول
                                 </div>
 
                                 <div class="situation-hidden">
                                     <span class="sub-title">
-                                        پس از رنگ‌آمیزی مخفی ۲
+                                        رنگ‌آمیزی مخفی دوم
                                     </span>
                                 </div>
                             </div>
@@ -491,7 +495,7 @@
         </div>
         <img src="icon.png" style="display:none">
     </div>
-
+</div>
     <!-- task -->
 
 
