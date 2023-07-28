@@ -49,7 +49,7 @@
          feedbackHard: "مجموع ضخامت</br> دیوارهای شکسته‌شده: ",
          feedbackEasyMedium: "تعداد دیوارهای شکسته‌شده: "
       };
-      var enableRtl = true;
+      
    </script>
    <script type="text/javascript" src="task.js"></script>
    <style type="text/css">
@@ -77,6 +77,7 @@
 <body>
    <div id="task">
       <h1>کم‌ترین تلاش</h1>
+      <div style="direction: rtl">
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1">
@@ -84,19 +85,25 @@
                <p>
                   اتاق‌های گرد با راهروهایی به هم متصل می‌شوند که گاهی با دیوار مسدود شده‌اند.
                </p>
+               <p>
+                ببراس در ابتدا فقط به اتاق‌های روشن دسترسی دارد و می‌داند که یک گنج در یکی از اتاق‌های تاریک پنهان شده.
+               </p>
+               <p>برای شکستن <span class="easy medium">دیوارهای راهرو</span><span class="hard">یک دیوار</span>،
+                برروی راهرو بزنید.</p>
+                <p>
+                    با شکستن دیوارهای یک راهرو، ببراس به اتاق تاریک سمت مقابل آن دسترسی پیدا می‌کند.
+                </p>
                <div class="easy medium">
                   <p>
                      برای مثال، در اینجا یک راهرو وجود دارد که توسط سه دیوار مسدود شده‌است:</p>
                   <p style="text-align: center;"><img class="exampleImage" src="example.png"></p>
                </div>
                <div class="hard">
-                  <p>در اینجا نمونه‌ای از راهرو مسدود شده توسط دیواری به ضخامت 12 واحد آورده شده‌است:</p>
+                  <p>در اینجا نمونه‌ای از راهرو مسدود شده توسط دیواری به ضخامت ۱۲ واحد آورده شده‌است:</p>
                   <p style="text-align: center;"><img class="exampleImage" src="example_hard.png"></p>
                </div>
-               <p>کمترین تعداد ممکن را بشکنید. <span class="easy medium">تعداد دیوارها </span><span class="hard">مجموع
-                     ضخامت دیوارها </span>تا اتاق‌ها را تشخیص دهید و گنج را پیدا کنید .</p>
-               <p>برای شکستن <span class="easy medium">دیوارهای راهرو</span><span class="hard">یک دیوار</span>،
-                  برروی راهرو کلیک کنید.</p>
+               <p>با شکستن کمترین مقدار دیوار، کاری کنید که ببراس به همه اتاق‌ها دسترسی داشته باشد و بتواند گنج را پیدا کند.</p>
+               
             </div>
          </div>
          <div id="zone_2">
@@ -107,7 +114,7 @@
          <img id="treasure" src="treasure.png" style="display:none">
       </div>
    </div>
-   
+   </div>
 </body>
 
 </html>
