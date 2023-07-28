@@ -46,7 +46,7 @@
             almost: "نتیجه شما تاحدودی با هدف تفاوت دارد، اما مقداری از امتیاز فعالیت را دریافت می‌کنید.",
             error: "نتیجه با هدف هم‌خوانی ندارد."
         };
-        var enableRtl = true;
+        //var enableRtl = true;
     </script>
 
     <script type="text/javascript" src="task.js"></script>
@@ -333,6 +333,7 @@
 
 <body>
     <div id="task">
+        <div style="direction: rtl">
         <h1>قواعد رنگ‌آمیزی</h1>
 
         <div id="tabsContainer"></div>
@@ -346,19 +347,19 @@
                      ببراس می‌خواهد تا با کمک ما مربعی را رنگ‌آمیزی کند. ابتدا با رنگ‌آمیزی مربع سفید شروع می‌کنیم، این رنگ‌آمیزی از قواعدی پیروی خواهد کرد که می‌تواند توسط شما تغییر کند.
                   </p>
                   <p class="easy medium">
-                     با رنگ‌آمیزی این مربع و تبدیل آن به 4 مربع کوچکتر آبی یا سبز شروع می‌کنیم.
+                     با رنگ‌آمیزی این مربع و تبدیل آن به ۴ مربع کوچکتر آبی یا سبز شروع می‌کنیم.
                   </p>
                   <p class="easy medium">
-                     سپس هر کدام از این مربع‌ها را تبدیل به 4 مربع کوچکتر <span class="easy">سفیدرنگ،  </span>آبی یا سبز می‌کنیم.
+                     سپس هر کدام از این مربع‌ها را تبدیل به ۴ مربع کوچکتر <span class="easy">سفیدرنگ،  </span>آبی یا سبز می‌کنیم.
                   </p>
                   <p class="hard">
-                     با یک مربع سفید شروع می‌کنیم و آن را تبدیل به 4 مربع کوچکتر سفید، آبی و یا سبز می‌کنیم.
+                     با یک مربع سفید شروع می‌کنیم و آن را تبدیل به ۴ مربع کوچکتر سفید، آبی و یا سبز می‌کنیم.
                   </p>
                   <p class="hard">
-                     سپس هر کدام از این مربع‌ها را تبدیل به 4 مربع کوچکتر سفید، آبی و یا سبز می‌کنیم.
+                     سپس هر کدام از این مربع‌ها را تبدیل به ۴ مربع کوچکتر سفید، آبی و یا سبز می‌کنیم.
                   </p>
                  <p class="hard">
-                     دوباره هر کدام از این مربع‌های کوچکتر را تبدیل به 4 مربع کوچکتر سفید، آبی و یا سبز می‌کنیم.
+                     دوباره هر کدام از این مربع‌های کوچکتر را تبدیل به ۴ مربع کوچکتر سفید، آبی و یا سبز می‌کنیم.
                   </p>
                   <p>
                      <br>
@@ -394,8 +395,8 @@
                             </div>
                             <div class="easy transformation-bracket"></div>
                             <div class="medium transformation-bracket"></div>
-                            <div class="easy transformation-text"><span>برای تغییر رنگ، روی مربع‌ها کلیک کنید</span></div>
-                            <div class="medium transformation-text"><span>برای تغییر رنگ، روی مربع‌ها کلیک کنید</span></div>
+                            <div class="easy transformation-text"><span>برای تغییر رنگ، روی مربع‌ها بزنید</span></div>
+                            <div class="medium transformation-text"><span>برای تغییر رنگ، روی مربع‌ها بزنید</span></div>
                         </div>
 
                         <div class="hard transformation">
@@ -419,7 +420,7 @@
                                 </div>
                             </div>
                             <div class="hard transformation-bracket"></div>
-                            <div class="hard transformation-text"><span>اینجا کلیک کنید</span></div>
+                            <div class="hard transformation-text"><span>اینجا بزنید</span></div>
                         </div>
                     </div>
 
@@ -451,13 +452,12 @@
                             <div class="situation">
                                 <div class="situation-hidden">
                                     <span class="sub-title">
-                                        بعد از رنگ‌آمیزی مخفی 1
-                                    </span>
+                                        پس از رنگ‌آمیزی مخفی ۱
                                 </div>
 
                                 <div class="situation-hidden">
                                     <span class="sub-title">
-                                        بعد از رنگ‌آمیزی مخفی 2
+                                        پس از رنگ‌آمیزی مخفی ۲
                                     </span>
                                 </div>
                             </div>
@@ -492,15 +492,9 @@
         </div>
         <img src="icon.png" style="display:none">
     </div>
-
+</div>
     <!-- task -->
 
-    <div id="solution">
-        <h2>راه حل</h2>
-
-        <h2>ببراس!</h2>
-
-    </div>
 
     <!-- task-solution -->
 </body>
