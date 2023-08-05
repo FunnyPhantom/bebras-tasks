@@ -5,6 +5,7 @@
     <title>2017-EN-04</title>
     <script>
         window.stringsLanguage = 'fa';
+        var enableRtl = true;
     </script>
     <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1.js" id="import-modules"></script>
     <script class="remove" type="text/javascript">
@@ -108,25 +109,27 @@
    </head>
    <body>
       <div id="task">
-         <h1>عید شلوغ</h1>
-         <div id="tabsContainer"></div>
-         <div id="taskContent">
-            <p id="enemyWarning"></p>
-            <div style="float:right; padding: 5px; margin-left: 25px; margin-bottom: 10px; border: 1px solid black"><img src="seeds.png" style="height:55px"></div>
-            <p>
-                ببراس می‌خواهد برای عید نوروز تعدادی تخم‌مرغ رنگ کند ولی روباه مکار تخم‌مرغ‌هایش را در یکی از قسمت‌های لوله‌ها قایم کرده.
-            </p>
-            <p >با زدن روی دوتا از درپوش‌های مشکی می‌توانید قسمت‌های بینشان را جست‌وجو کنید. ببراس تمام قسمت‌های لوله بین این دو قسمت جست‌وجو می‌کند و اعلام می‌کند که تخم‌مرغ‌ها در این قسمت‌ها هستند یا خیر.</p>
-            <p style="font-weight: bold">تخم‌مرغ‌ها را با انجام کمترین جست‌وجوی ممکن پیدا کنید.</p>
-            <div id="anim_container">
-               <div id="anim"></div>
+         <div style="direction: rtl;">
+            <h1>عید شلوغ</h1>
+            <div id="tabsContainer"></div>
+            <div id="taskContent">
+               <p id="enemyWarning"></p>
+               <div style="float:right; padding: 5px; margin-left: 25px; margin-bottom: 10px; border: 1px solid black"><img src="seeds.png" style="height:55px"></div>
+               <p>
+                  ببراس می‌خواهد برای عید نوروز تعدادی تخم‌مرغ رنگ کند ولی روباه مکار تخم‌مرغ‌هایش را در یکی از قسمت‌های لوله‌ها قایم کرده.
+               </p>
+               <p >با زدن روی دوتا از درپوش‌های مشکی می‌توانید قسمت‌های بینشان را جست‌وجو کنید. ببراس تمام قسمت‌های لوله بین این دو قسمت جست‌وجو می‌کند و اعلام می‌کند که تخم‌مرغ‌ها در این قسمت‌ها هستند یا خیر.</p>
+               <p style="font-weight: bold">تخم‌مرغ‌ها را با انجام کمترین جست‌وجوی ممکن پیدا کنید.</p>
+               <div id="anim_container">
+                  <div id="anim"></div>
+               </div>
+               <div id="feedback"></div>
+               <div id="buttons">
+                  <span class="stepsMessage">تعداد جست‌وجوها: <span id="stepCounter"></span>.</span>
+               </div>
+               <img src="icon.png" style="display:none">
+               <img src="castor.png" style="display:none">
             </div>
-            <div id="feedback"></div>
-            <div id="buttons">
-               <span class="stepsMessage">تعداد جست‌وجوها: <span id="stepCounter"></span>.</span>
-            </div>
-            <img src="icon.png" style="display:none">
-            <img src="castor.png" style="display:none">
          </div>
       </div><!-- task -->
 

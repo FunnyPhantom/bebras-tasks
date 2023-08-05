@@ -5,6 +5,7 @@
     <title>2017-EN-10</title>
     <script>
         window.stringsLanguage = 'fa';
+        var enableRtl = true;
     </script>
     <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1.js" id="import-modules"></script>
     <script class="remove" type="text/javascript">
@@ -86,34 +87,36 @@
    </head>
    <body>
       <div id="task">
-         <h1>چراغ‌های ساختمان</h1>
-         <div id="tabsContainer"></div>
-         <div id="taskContent">
-             <p>چراغ‌های ساختمان را مانند شکل هدف روشن کنید. برای این کار، کارت‌های خاکستری را درون کارت‌های سفید بکشید تا یک دنباله از دستورات را تشکیل دهند. سپس دکمه‌ی بررسی پاسخ را فشار دهید.</p>
-             <p>هر کارت، <span class="medium hard">به‌جز کارت آخر</span> چراغ‌های یک سطر یا ستون مرتبط با حرف یا عدد خود را روشن می‌کند.</p>
-             <p class="medium hard"><b>کارت آخر به شما این اجازه را می‌دهد که تمام چراغ‌های روشن را خاموش و تمام چراغ‌های خاموش را روشن کنید.</b></p>
-            
-            <div id="anim_container">
-               <div class="wrapper">
-                  <div class="animTitle">ساختمان شما</div>
-                  <div class="anim animBuilding" id="animUser"></div>
+         <div style="direction: rtl">
+            <h1>چراغ‌های ساختمان</h1>
+            <div id="tabsContainer"></div>
+            <div id="taskContent">
+               <p>چراغ‌های ساختمان را مانند شکل هدف روشن کنید. برای این کار، کارت‌های خاکستری را درون کارت‌های سفید بکشید تا یک دنباله از دستورات را تشکیل دهند. سپس دکمه‌ی بررسی پاسخ را فشار دهید.</p>
+               <p>هر کارت، <span class="medium hard">به‌جز کارت آخر</span> چراغ‌های یک سطر یا ستون مرتبط با حرف یا عدد خود را روشن می‌کند.</p>
+               <p class="medium hard"><b>کارت آخر به شما این اجازه را می‌دهد که تمام چراغ‌های روشن را خاموش و تمام چراغ‌های خاموش را روشن کنید.</b></p>
+               
+               <div id="anim_container">
+                  <div class="wrapper">
+                     <div class="animTitle">ساختمان شما</div>
+                     <div class="anim animBuilding" id="animUser"></div>
+                  </div>
+                  <div class="wrapper">
+                     <div class="animTitle">شکل هدف</div>
+                     <div class="anim animBuilding" id="animTarget"></div>
+                  </div>
+                  <br>
+                  <div id="animDrag"></div>
+                  <div id="feedback"></div>
+                  <div id="control">
+                     <input type="button" id="execute" value="بررسی پاسخ"/>
+                     <input type="button" id="stop" value="توقف"/>
+                  </div>
                </div>
-               <div class="wrapper">
-                  <div class="animTitle">شکل هدف</div>
-                  <div class="anim animBuilding" id="animTarget"></div>
-               </div>
-               <br>
-               <div id="animDrag"></div>
-               <div id="feedback"></div>
-               <div id="control">
-                  <input type="button" id="execute" value="بررسی پاسخ"/>
-                  <input type="button" id="stop" value="توقف"/>
-               </div>
+               <img src="icon.png" style="display:none">
             </div>
-            <img src="icon.png" style="display:none">
+            <br>
+            <center><span id="error"></span></center>
          </div>
-         <br>
-         <center><span id="error"></span></center>
       </div><!-- task -->
       
    </body>
