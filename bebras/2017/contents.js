@@ -13,7 +13,7 @@ standaloneAddContents({
      { code: "2017-FR-03-three-towers",
        title: "سه برج" },
      { code: "2017-FR-04-faulty-wire",
-       title: "تخم‌های پنهان" },
+       title: "عید شلوغ" },
      { code: "2017-FR-05-draw-shapes",
        title: "هیروگلیف" },
      { code: "2017-FR-06-pacman",

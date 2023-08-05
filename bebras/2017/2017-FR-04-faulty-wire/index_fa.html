@@ -37,21 +37,21 @@
       var taskStrings = {
             success: "آفرین! موفق شدی.",
             found: "", // empty when using automatic validation
-            notFound: "لوله‌ای را پیدا کنید که تخم‌های ببراس در آن باشد و او را به آن لوله هدایت کنید.",
-            noSeeds: "ببراس در این مسیر تخمی پیدا نکرد. لطفا در جای دیگری جست و جو کنید.",
+            notFound: "لوله‌ای را پیدا کنید که تخم‌مرغ‌ها در آن باشد و او را به آن لوله هدایت کنید.",
+            noSeeds: "ببراس در این مسیر تخم‌مرغی پیدا نکرد. لطفا در جای دیگری جست و جو کنید.",
             noPath: "روی دو درپوش از یک لوله کلیک کنید.",
             /*
             testLimit: function (limit) { return "Vous avez déjà fait " + limit + " tests, mais vous n'avez pas encore trouvé les graines. Essayez autrement, en cliquant sur &quot;Recommencer&quot;."; },
             */
-            seedsInPath: function(pathLength) { return "<p>ببراس تخم‌هایش را در یکی از " + pathLength + " قسمت لوله‌ها پیدا کرد.</p><p>برای پیدا کردن موقعیت دقیق آن‌ها به جست و جو ادامه دهید.</p>"; },
+            seedsInPath: function(pathLength) { return "<p>ببراس تخم‌مرغ‌هایش را در یکی از " + pathLength + " قسمت لوله‌ها پیدا کرد.</p><p>برای پیدا کردن موقعیت دقیق آن‌ها به جست و جو ادامه دهید.</p>"; },
             partial: function(userSteps, optimalSteps, hasPoints) {
                var pointsMessage;
                if (!hasPoints) {
-                  pointsMessage = "تعداد جست و جوی شما برای گرفتن امتیاز خیلی زیاد می‌باشد.";
+                  pointsMessage = "شما امتیازی دریافت نکردید چون تعداد جست‌وجوهایتان خیلی زیاد است.";
                } else {
-                  pointsMessage = "تعداد جست و جوی شما مقداری از امتیاز را می‌دهد.";
+                  pointsMessage = " با این تعداد جست‌وجو شما مقداری از امتیاز را می‌گیرید.";
                }
-               return "<p>تخم‌ها را در " + userSteps + " مرحله پیدا کرده‌اید.</p><p>" + pointsMessage + "</p><p>برای کم کردن تعداد جست و جوها دوباره تلاش کنید.</p><p>مراقب باشید. مکان تخم‌ها تغییر می‌کند.</p>";
+               return "<p>تخم‌مرغ‌ها را در " + userSteps + " مرحله پیدا کرده‌اید.</p><p>" + pointsMessage + "</p><p>برای کم کردن تعداد جست‌و‌جوها دوباره تلاش کنید.</p><p>توجه کنید. مکان تخم‌مرغ‌ها تغییر می‌کند.</p>";
             },
             obstructedPathText: ""
          };
@@ -108,20 +108,22 @@
    </head>
    <body>
       <div id="task">
-         <h1>تخم‌های پنهان</h1>
+         <h1>عید شلوغ</h1>
          <div id="tabsContainer"></div>
          <div id="taskContent">
             <p id="enemyWarning"></p>
             <div style="float:right; padding: 5px; margin-left: 25px; margin-bottom: 10px; border: 1px solid black"><img src="seeds.png" style="height:55px"></div>
-            <p>یک ببراس تخم‌های را در یک تکه از قسمت‌های لوله گم کرده‌ است.</p>
-            <p style="font-weight: bold">تخم‌ها را با انجام کمترین جست و جوی ممکن پیدا کنید.</p>
-            <p >با کلیک کردن روی دوتا از درپوش‌های مشکی می‌توانید قسمت‌های بینشان را جست و جو کنید. ببراس تمام لوله را بین این دو قسمت جست و جو کرده و اعلام می‌کند که تخم‌ها در این قسمت‌ها می‌باشند یا خیر.</p>
+            <p>
+                ببراس می‌خواهد برای عید نوروز تعداد تخم‌مرغ رنگ کند ولی روباه مکار تخم‌مرغ‌هایش را در یکی از قسمت‌های لوله‌ها قایم کرده.
+            </p>
+            <p style="font-weight: bold">تخم‌مرغ‌ها را با انجام کمترین جست‌وجوی ممکن پیدا کنید.</p>
+            <p >با زدن روی دوتا از درپوش‌های مشکی می‌توانید قسمت‌های بینشان را جست‌وجو کنید. ببراس تمام لوله را بین این دو قسمت جست‌وجو می‌کند و اعلام می‌کند که تخم‌مرغ‌ها در این قسمت‌ها هستند یا خیر.</p>
             <div id="anim_container">
                <div id="anim"></div>
             </div>
             <div id="feedback"></div>
             <div id="buttons">
-               <span class="stepsMessage">تعداد جست و جو ها: <span id="stepCounter"></span>.</span>
+               <span class="stepsMessage">تعداد جست‌وجوها: <span id="stepCounter"></span>.</span>
             </div>
             <img src="icon.png" style="display:none">
             <img src="castor.png" style="display:none">
