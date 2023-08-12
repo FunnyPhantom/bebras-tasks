@@ -81,37 +81,39 @@
    </head>
    <body>
       <div id="task">
-         <h1>همسایه های خوب</h1>
-         <div id="tabsContainer"></div>
-         <div id="taskContent">
-            <p class="easy">
-               اجسام را طوری بچینید که هیج دو جسم هم شکلی کنار هم نباشند.
-            </p>
-            <div class="medium">
-               <p>
-               اجسام را طوری بچینید که:
+         <div style="direction: rtl;">
+            <h1>همسایه های خوب</h1>
+            <div id="tabsContainer"></div>
+            <div id="taskContent">
+               <p class="easy">
+                  اجسام را طوری بچینید که هیج دو جسم هم شکلی کنار هم نباشند.
                </p>
-               <ul class="constraints">
-                  <li>هیچ دو دایره یا دو مربعی کنار هم نباشند.</li>
-                  <li>هیچ دو جسم کوچک یا دو جسم بزرگی کنار هم نباشند.</li>
-               </ul>
-            </div>
-            <div class="hard">
-               <p>
+               <div class="medium">
+                  <p>
                   اجسام را طوری بچینید که:
+                  </p>
                   <ul class="constraints">
-                     <li>هیچ دو دایره یا دو مربعی <strong>توسط ضلع</strong> به هم وصل نباشند;</li>
-                     <li>هیج دو جسم کوچک یا دو جسم بزرگی <strong>توسط گوشه</strong> به هم وصل نباشند.</li>
+                     <li>هیچ دو دایره یا دو مربعی کنار هم نباشند.</li>
+                     <li>هیچ دو جسم کوچک یا دو جسم بزرگی کنار هم نباشند.</li>
                   </ul>
-               </p>
+               </div>
+               <div class="hard">
+                  <p>
+                     اجسام را طوری بچینید که:
+                     <ul class="constraints">
+                        <li>هیچ دو دایره یا دو مربعی <strong>توسط ضلع</strong> به هم وصل نباشند;</li>
+                        <li>هیج دو جسم کوچک یا دو جسم بزرگی <strong>توسط گوشه</strong> به هم وصل نباشند.</li>
+                     </ul>
+                  </p>
+               </div>
+               <div id="anim_container">
+                  <div id="anim"></div>
+               </div>
+               <div id="control">
+                  <input type="button" id="execute" value="بررسی پاسخ"/>
+               </div>
+               <img src="icon.png" style="display:none">
             </div>
-            <div id="anim_container">
-               <div id="anim"></div>
-            </div>
-            <div id="control">
-                <input type="button" id="execute" value="بررسی پاسخ"/>
-            </div>
-            <img src="icon.png" style="display:none">
          </div>
       </div><!-- task -->
       
