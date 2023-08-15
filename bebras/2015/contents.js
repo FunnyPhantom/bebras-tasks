@@ -17,7 +17,7 @@ standaloneAddContents({
      { code: "2015-FR-04-next-distance",
        title: "دوری" },
      { code: "2015-CA-02-fireworks",
-       title: "سیگنال‌های رنگی" },
+       title: "زبان ببراسی" },
      { code: "2015-FR-03-mark-and-shuffle",
        title: "کفتر کاکل به پا" },
      { code: "2015-FR-13-open-lock",
