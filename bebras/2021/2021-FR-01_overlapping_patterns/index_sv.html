@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>20210-FR-01-overlapping-patterns</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', /*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "sv",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, du klarade det!",
+         drag: "För att rita ett mönster, dra och håll ner över ett område i rutnätet.", // drag your mouse or finger 
+         patterns: "Välj mönster",
+         nbSteps: function(nb,max) {
+            return nb+" / "+max+" omgångar"
+         },
+         undo: "Ångra",
+         tryAgain: function(max) {
+            return "Försök på ett annat sätt att göra färdigt på "+max+" omgångar. Tryck på Ångra eller Börja om."
+         },
+         errorCell: "Den rödmarkerade rutan stämmer inte med modellen.",
+         errorSteps: function(max) {
+            return "Du har använt fler än "+max+" omgångar."
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Triangelmålning</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Måla på rutnätet i
+            <strong><span class="basic">två omgångar</span>
+            <span class="easy">tre omgångar</span>
+            <span class="medium">fyra omgångar</span>
+            <span class="hard">fem omgångar, med valfritt mönster</span>
+            </strong>
+            <span class="basic easy"> för att reproducera modellens mönster</span>.
+            <center><div style="border: solid black 1px;padding:10px;width:200px" class="basic easy">
+               <p><strong>Modell</strong></p>
+               <div id="target"></div>
+            </div></center>
+            <br/>
+            De prickade områdena, och bara dessa, ska täckas med blått.</p>
+            <div class="easy medium hard">
+               <p>Varje ny målning över ett område täcker det som fanns där tidigare.</p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

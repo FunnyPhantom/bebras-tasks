@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-AT-03_NewYork</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', /*'grid-1.1',*/
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1','drag_lib-2.0', 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Inspiration: Beaver-AT-03; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Legrand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Congratulations, you succeeded!",
+         cancel: "Stop",
+         labels: "Stickers to drag:",  
+         turn: function(dir) {
+            var msg = "Turn \n";
+            msg += (dir == 0) ? "right" : "left";
+            return msg
+         },
+         limitReached: function(maxSigns) {
+            var str = "You can't place more than " + maxSigns + " stickers";
+            if (maxSigns > 1) {
+               str += "s";
+            }
+            str += ".";
+            return str;
+         },
+         startTaxis: function(nbTaxis) {
+            if (nbTaxis > 1) {
+               return "Start the taxis";
+            }
+            else {
+               return "Start the taxi";
+            }
+         },
+         errorCrash: "Accident: two taxis collided!",
+         errorOut: "A taxi has exited the city without reaching a beaver.",
+         errorNbSigns: "Now try to use fewer stickers."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>New York</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p class="basic">Drag a sticker on <strong>one of the crossroads</strong> to make the taxi turn.</p>
+            <p class="easy">Drag <strong>two stickers</strong> on crossroads to get the taxi to turn.</p>
+            <p class="medium hard">Drag <strong><span class="medium">two</span><span class="hard">three</span> stickers</strong> on crossroads to get the taxis to turn.</p>
+            
+            <p><span class="basic easy"><b>Send the taxi to the beaver.</b></span>
+            <span class="medium hard"><b>Send a taxi to each beaver.</b></span>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="assets/Immeuble-1.png" style="display:none" id="block1">
+         <img src="assets/route.png" style="display:none" id="street">
+         <img src="assets/taxi.png" style="display:none" id="taxi">
+         <img src="assets/head.png" style="display:none" id="head">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

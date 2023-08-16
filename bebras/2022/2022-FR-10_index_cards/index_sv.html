@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-10_index_cards</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'drag_lib-2.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Din uppgift:",
+         success: "Bravo, du klarade det!",
+         undo: "Ångra",
+         try: "Kör",
+         clickRetry: "Klicka på Börja om för att försöka igen.",
+         swapTeleporters: "Byt teleportörer",
+         nbSwap: function(val,max) {
+            return "Antal byten : "+val+" / "+max
+         },
+         nbStep: function(val,max) {
+            return "Antal steg : "+val+" / "+max
+         },
+         dragLabel: "Som hjälp i planeringen kan du ordna om planeterna i området här nedanför:",
+         errorMaxSwap: function(max) {
+            var pl = (max > 1) ? "n" : "";
+            return "Du får inte göra fler än "+max+" byten"+pl
+         },
+         errorDst: "Bävern har inte nått sin destination.",
+         errorLoop: "Teleportörerna har skickat bävern till den planet han startade från!",
+         errorTooManySwaps: "Bävern har nått sin destination, men det går att göra med färre byten.",
+         errorTeleporter: "Teleportören flyttar bävern till den planet där den redan befinner sig. Placera en teleportör som skickar den till en annan planet."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         margin-top: 1em;
+         min-height: 2em;
+         line-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Teleportering</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Bävern vill komma till planeten med ringar.</p>
+            <p>När du klickar på "Kör" teleporteras bävern till den planet vars nummer står på teleportören under den.</p>
+            <p class="easy medium hard">Den flyttas på detta sätt exakt <strong><span class="easy">4</span><span class="medium">7</span><span class="hard">11</span> gånger</strong>.</p></p>
+            <p>Byt plats på <span class="basic easy medium">två teleportörer</span><span class="hard"><strong>två par av teleportörer</strong></span>, så att bävern<span class="easy medium hard"> till sist </span > kommer till planeten med ringar. <span class="easy medium hard">Den får aldrig passera den planet där den startade.</p>
+         </div>
+         <div id="zone_2">
+            <div id="error"></div>
+            <div id="paper"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none" class="convert-base64">
+         <img src="../../../_common/modules/img/icons/check_white.png" id="check" style="display:none" class="convert-base64">
+         <img src="../../../_common/modules/img/castor_transparent.png" style="display:none" id="beaver" class="convert-base64">
+         <img src="assets/planets_small.png" style="display:none" id="planets" class="convert-base64">
+         <img src="assets/portal_2.png" style="display:none" id="portal" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

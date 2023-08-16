@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-06_memory</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Congratulations, you succeeded!",
+         avatar: "Find an image of ",
+         habitation: "Find a text : the name of Beaver's house",
+         dimensions: "Find two numbers: the number of columns and rows of the image",
+         image: "image of width",
+         fixedImage: "image",
+         height: "columns and ",
+         width: "rows",
+         textEasy: "Dam of the great lake",
+         textMedium: "Lodge of the quiet river",
+         textHard: "Great red apple tree",
+         
+         imageDimensions: function(w,h) {
+            return "Find an image of "+w+" columns and "+h+" rows, surrounded with a black frame.";
+         },
+         text: "text",
+         twoInt: "two numbers (width, height)",
+         errorMemSize: function(field) {
+            var fieldStr = [ "Beaver's house", "Photo", "Image dimensions" ];
+            return "The area \""+fieldStr[field]+"\" doesn't have the right length."
+         },
+         errorMemLocation: function(field) {
+            var fieldStr = [ "Beaver's house", "Image", "Size of the image" ];
+            return "The area \""+fieldStr[field]+"\" is placed incorrectly."
+         }
+      };
+      var threeVersions = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>In the memory</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>The grid composed of black and white cells represents the memory of Beaver's computer.</p>
+            <p>One area contains the name of his house.</p>
+            <p class="hard">Another area contains two numbers : the width and the height of a picture.</p>
+            <p class="medium hard"><span class="hard">Finally, an</span><span class="medium">Another</span> area contains a picture, within a black frame<span class="basic easy medium"> :</span><span class="hard">.</span></p>
+            <center class="medium"><img src="example_easy.png"></center>
+            <p class="easy">Drag the handle to find this name.</p>
+            <p class="medium hard">Drag the handles to find these areas within the memory.</p>
+            <p class="hard">Click on the + and - buttons to change the size of the image.</p>
+         </div>
+         <div id="zone_2">
+            <p><div style="position:relative;top:15px;left:20px;font-size:18px"><b>Content of the memory</b></div></p>
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

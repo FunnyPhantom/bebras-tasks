@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-06_memory</title>
+   <script>
+      window.stringsLanguage = 'fi';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "fi",
+       "version": "fi.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": "Heikki Hyyrö",
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Onnittelut, ratkaisit tämän version!",
+         avatar: "Etsi kuva, jossa on ",
+         habitation: "Etsi teksti, joka kertoo majavan asuinpaikan nimen",
+         dimensions: "Etsi kaksi lukua: kuvan leveys ja korkeus",
+         image: "",
+         fixedImage: "kuva",
+         height: "saraketta ja ",
+         width: "riviä",
+         textEasy: "Pohjoinen majavapato",
+         textMedium: "Suuri läntinen majavapato",
+         textHard: "Majavapadon palatsi",
+         
+         imageDimensions: function(w,h) {
+            return "Etsi kuva, jossa on "+w+" saraketta ja "+h+" riviä.";
+         },
+         text: "teksti",
+         twoInt: "kaksi kokonaislukua (leveys, korkeus)",
+         errorMemSize: function(field) {
+            var fieldStr = [ "Asuinpaikkaa", "Kuvaa", "Kuvan kokoa" ];
+            return fieldStr[field]+" tutkiva alue on väärän kokoinen."
+         },
+         errorMemLocation: function(field) {
+            var fieldStr = [ "Asuinpaikkaa", "Kuvaa", "Kuvan kokoa" ];
+            return fieldStr[field]+" tutkiva alue on kohdistettu väärin."
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Tiedot muistissa</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Oheinen ruudukko esittää majavan tietokoneen muistin sisältöä.</p>
+            <p>Yhteen kohtaan muistia on talletettu majavan asuinpaikan nimi.</p>
+            <p class="hard">Muistin toiseen kohtaan on tallennettu kaksi lukua: kuvan leveys ja korkeus.</p>
+            <p class="easy">Lisäksi yhteen kohtaan on tallennettu seuraava kuva:</p>
+            <center class="easy"><img src="example_easy.png"></center>
+            <p class="medium hard">Lisäksi yhteen kohtaan on tallennettu kuva, joka on samantapainen kuin kahden tähden versiossa (valkea keskus, jota ympäröi harmaat ruudut ja musta reuna).</p>
+            <p class="basic">Etsi asuinpaikan nimi raahaamalla muistia tutkiva alue sopivaan kohtaan (raahaa pyöreästä kahvasta).</p>
+            <p class="easy">Etsi nämä tiedot raahaamalla muistia tutkivat alueet sopiviin kohtiin (raahaa pyöreistä kahvoista).</p>
+            <p class="medium hard">Etsi nämä tiedot raahaamalla muistia tutkivat alueet sopiviin kohtiin ja sopivan kokoisiksi (raahaa pyöreistä kahvoista).</p>
+            <p class="hard">Säädä kuvan kokoa klikkaamalla + ja - nappeja.</p>
+         </div>
+         <div id="zone_2">
+            <p><div style="position:relative;top:15px;left:20px;font-size:18px"><b>Muistin sisältö</b></div></p>
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Ratkaisu</h2>
+      <h2>Tämä on tietojenkäsittelyä!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-05-shape-building</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-05-shape-building/",
+       "language": "fr",
+       "version": "fr.01",
+       "authors": "Marielle Léonard, France-ioi, dev by Nir Lavee",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         introTitle: "Uppgift",
+         missingError: "Formen i rött saknas.",
+         extraError: "Den rödmarkerade formen stämmer inte med modellen.",
+         suboptimal: function(level) {
+			var str = "<p>Du klarade det, men det går att göra i färre steg.</p>";
+			if (level == "basic") {
+			   str += "<p>Tips: Tillverka den här formen och lägg den i förrådet : </p><center><img src='basic_shape.png'/></center>";
+			}
+			str += "<p>Klicka på Börja om för att försöka igen.</p>";
+			return str;
+		 },
+         success: "Bravo, du klarade det!",
+         moveLimit: "Du har placerat maximalt antal former. Ångra några steg eller börja om.",
+         undo: "Ångra",
+         clearGrid: "Töm rutnätet",
+         addToLibrary: "Lägg i förrådet",
+         placedShapes: "steg",
+         targetSteps: function(numSteps) {
+            return "Mål :\n" + numSteps + " steg";
+         },
+         badOrderShape: "Formen i rött borde ligga under en annan form.",
+         libraryTitle: "Förråd :",
+         targetTitle: "Målbild :",
+         dragOnGridError: "Placera formen i rutnätet nedan",
+         addToLibHint: "Tips: Tillverka den här formen och lägg den i förrådet : </p><center><img src='basic_shape.png'/></center>"
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+
+      #solutionImages img {
+         height: 200px;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Kopiera bild</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div style="margin-right:10px">
+                <p><strong>Reproducera målbilden till höger </strong> genom att dra former från förrådet till det vänstra rutnätet.</p>
+				<p><strong>För att göra det i färre steg kan du lägga ett mellansteg i förrådet för att sen återanvända.</strong></p>
+				<p class="medium hard"><strong>För att vrida formerna</strong> : klicka på de blå knapparna nära förrådet.</strong></p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="rotateIcon" style="display:none" class="convert-base64">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>It's infromatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

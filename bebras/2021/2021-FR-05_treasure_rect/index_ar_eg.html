@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-05_treasure_rect</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand", 
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "تهانينا، لقد نجحت!",
+         click: "اضغط على الخلية لتقوم بحفر حفرة .",
+         nbClicks: function(nb,max) {
+            return "عدد الحفر التي تم حفرها: "+nb+" / "+max
+         },
+         empty: "لا يوجد جحور في هذه الحفرة.",
+         notEmpty: "جزء من الجحر في هذه الخلية. أكمل الضغط في هذا المكان للوصول للمدخل.",
+         errorNotFound: "لم تجد الجحر.",
+         errorEntranceNotFound: "لم تجد مدخل الجحر.",
+         errorTooManySteps: "لقد قمت بحفر عدد أكبر مما نحتاجه من الحفر. حاول مرة أخرى بطريقة مختلفة.",
+         errorSteps: function(level) {
+            return "لقد وجدت الجحر، لكن من الممكن عمل ذلك بحفر عدد أقل من الحفر. حاول مرة أخرى.";
+         }
+      };
+      var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      td img {
+         display: block;
+      }
+      td {
+         padding: 0;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>الكنز</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>جحر القندس مخفي تحت الأرض.
+            <span class="basic easy">هو <b>مستطيل مكون من 3 خلايا</b>.</span>
+            <span class="medium">هو <b>مربع مكون من 9 خلايا</b>.</span>
+            <span class="hard">هو <b>مربع مكون من 25 خلية</b>.</span>
+            </p>
+            <center><span class="basic easy medium"> الجحر الذي تبحث عنه:</span>
+               <span class="basic easy" style="position:relative;top:20px">
+                  <img src="inside.jpg"><img src="inside.jpg"><img src="inside.jpg">
+               </span>
+               
+               <table class="medium" cellspacing="0" style="border-spacing:0">
+                  <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+               </table>
+               <table class="hard" cellspacing="0" style="border-spacing:0">
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td>المدخل الذي تبحث عنه =>&nbsp;&nbsp;</td><td><img src="door.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+               </table>
+            </center>
+            <br/>
+            <p class="basic easy medium">حاول أن تجده بحفر أقل عدد ممكن من الحفر .</p>
+            <p class="hard" style="padding-top:10px">ابحث عن <strong>مدخل الجحر</strong> عن طريق حفر أقل عدد ممكن من الحفر . المدخل موجود <strong>في أسفل الزاوية اليسرى من الجحر</strong>.</p>
+            <p>لتتمكن من حفر الحفرة، اضغط على الخلية الموجودة على الأرض.</p>
+     
+         </div>
+         <div id="zone_2">
+            <center style="position:relative;top:20px"><strong>المساحة الأرضية</strong></center>
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="hidden.jpg" style="display:none" id="hidden">
+         <img src="empty.jpg" style="display:none" id="empty">
+         <img src="inside.jpg" style="display:none" id="inside">
+         <img src="door.jpg" style="display:none" id="door">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-03_treasure_lidar</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Ditt uppdrag",
+         success: "Bravo, du klarade det !",
+         target: "Mål",
+         currentDistance: "Avstånd",
+         up: "Upp",
+         down: "Ner",
+         nbMeasures: function(val,max) {
+            return "Antal testade rutor : "+val+" / "+max
+         },
+         tooManyMeas: function(max) {
+            return "Du får inte testa fler än "+max+" rutor."
+         },
+         clickRetry: "Klicka för att börja om och försöka igen.",
+         errorCannotMeas: "Du kan inte testa den här rutan.",
+		 errorTreasureFound: "Du har hittat skatten, nu kan du kontrollera svaret.",
+         errorDistance: function(dir) {
+            var str = "Avståndet till ";
+			switch (dir) {
+				case 0:
+					str += "skogen";
+					break;
+				case 1:
+					str += "havet";
+					break;
+				case 2:
+					str += "klipporna";
+			}
+            str += " är fel."
+            return str
+         },
+         errorWrongSpot: "Skatten är inte här.",
+		 distance: function(sign, direction) {
+            var strSign = "Rätt avstånd till ";
+            if (sign > 0) {
+               strSign = "Skatten är\n längre ifrån ";
+            } else if (sign < 0) {
+               strSign = "Skatten är\n närmare ";
+            }
+            var strDirections = ["skogen", "havet", "klipporna"];
+            return strSign + "\n" + strDirections[direction];
+            }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #error {
+         min-height: 2em;
+         /*text-align: center;*/
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Den gömda skatten</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+		 <p>En bäver har gömt sin skatt i sanden.</p>
+		 
+		 <p>Hens dator har sparat avståndet mellan skatten <span class="easy medium hard">och havet, </span><span class="basic">och klipporna,</span> och avståndet mellan skatten och skogen</p>
+
+		 
+		 		 
+			<p><strong>För att hitta skatten</strong>, klicka i rutorna. Bäverns dator kommer att säga om skatten är närmare eller längre ifrån <span class="basic">klipporna och </span>skogen <span class="easy medium hard"> och havet</span>.</p>
+			<p class="medium hard"><strong>I den här versionen ser man inte havet<span class="hard"> och inte heller skogen</span>.</strong></p>
+			<center><p id="enemyWarning"></p></center>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="assets/tide.png" style="display:none" id="tide" class="convert-base64">
+         <img src="assets/tree.png" style="display:none" id="tree" class="convert-base64">
+         <img src="assets/rocks.png" style="display:none" id="rocks" class="convert-base64">
+         <img src="assets/hole.png" style="display:none" id="hole" class="convert-base64">
+         <img src="assets/chest.png" style="display:none" id="chest" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

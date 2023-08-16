@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2021-FR-09-graph</title>
+   <script>
+      window.stringsLanguage = 'fi';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1',/*'drag_lib-2.0',*/ 
+         'graph-1.0','visual-graph-1.1','graph-mouse-1.2'
+      ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
+         "language": "fi",
+         "version": "fi.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
+         "translators": "Heikki Hyyrö",
+         "license": "",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Onnittelut, ratkaisit tämän version!",
+         errorNbShapes: function(id) {
+            var shape = (id == 0) ? "majavia" : "kettuja";
+            return "Olet asettanut väärän määrän "+shape;
+         },
+         errorEdge: function(shape1,shape2) {
+            var shapeStr = ["majavan","ketun"];
+            return "Punaisella merkitty polku johtaa "+shapeStr[shape1]+" "+shapeStr[shape2]+" luo.";
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+         touch-action: none;
+      }
+      #displayHelper_graderMessage, #error {
+         color: red;
+         font-weight: bold;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Majavat ja ketut</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>
+                  Aseta oheiseen kaavioon sen ympyröitä klikkaamalla
+                  <strong>
+                     <span class="basic">1 kettu ja 1 majava</span>
+                     <span class="easy">2 kettua ja 3 majavaa</span>
+                     <span class="medium">3 kettua ja 4 majavaa</span>
+                     <span class="hard">7 kettua ja 8 majavaa</span>
+                  </strong> siten, että seuraavat säännöt pätevät:
+               </p>
+               <ul class="basic">
+                  <li>Kettu ei saa päästä majavan luo seuraamalla nuolia.</li>
+                  <li>Majava ei saa päästä ketun luo seuraamalla nuolia.</li>
+               </ul>
+               <ul class="easy medium hard">
+                  <li>Mikään kettu ei saa päästä minkään majavan luo seuraamalla nuolia.</li>
+                  <li>Mikään majava ei saa päästä minkään ketun luo seuraamalla nuolia.</li>
+               </ul>
+               <p class="medium hard">
+                  <strong>Voit halutessasi siirrellä ympyröitä</strong> (siirtely ei muuta nuoliyhteyksiä).
+               </p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+      </div>
+      <img src="icon.png" style="display:none">
+      <img src="fox.png" style="display:none" id="square">
+      <!-- Author of original fox image: Twitter
+      Creative Commons Attribution 4.0 International Public License
+      https://creativecommons.org/licenses/by/4.0/
+      -->
+      <img src="../../../_common/modules/img/beaver_head.png" style="display:none" id="triangle">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      <h2>Ratkaisu</h2>
+      <h2>Tämä on tietojenkäsittelyä!</h2>
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>

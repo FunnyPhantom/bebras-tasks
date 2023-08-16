@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2021-FR-02_flip_and_split</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0', 'shape-paths-1.1',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'drag_lib-2.0', 'graph-1.0'
+      ]);
+   </script>
+   <script class="module" type="text/javascript" src="../../../_common/modules/pemFioi/visual-graph-1.1.js"></script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2020/FR-2019-10-lighting/",
+         "language": "en",
+         "version": "en.01",
+         "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+         "translators": [],
+         "license": "",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         errorNbFlips: function(nb) {
+            return "Vous devez reproduire le modèle en effectuant moins de "+nb+" retournements."
+         },
+         errorMissingBall: function(nb) {
+            return "Vous devez placer "+nb+" boules dans le tube du bas."
+         },
+         errorWrongSequence: "La séquence de boules obtenue ne correspond pas au modèle.",
+         errorFlipped: "Cliquez sur tourner avant de pouvoir valider.",
+         undo: "Annuler",
+         flip: "Tourner",
+         flips: "retournements",
+         yourTarget: "Modèle :",
+         sortBalls: "Rangez les billes dans cet ordre",
+         tooManyFlips: function(max) {
+            return "Vous ne pouvez pas faire plus de "+max+" retournements. Cliquez sur annuler ou recommencer."
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-bottom: 0em;
+         /*touch-action: none;*/
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Billes renversantes</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>Rangez les boules comme dans le modèle.</p>
+               <p>Pour cela, cliquez sur le bouton tourner, puis cliquez sur les flèches pour faire descendre les boules dans l'ordre que vous voulez.</p>
+               <p>Vous pouvez effectuer au <b>maximum <span id="maxFlip"></span> retournements.</b></p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+         </div>
+      </div>
+      <img src="../../../_common/modules/img/icons/undo_white.png" style="display:none" id="undo">
+      <img src="flip.png" style="display:none" id="flip">
+      <img src="assets/tube.png" style="display:none" id="tube">
+      <img src="assets/targetTube.png" style="display:none" id="target">
+      <img src="assets/Porte.png" style="display:none" id="door1">
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      <h2>Solution</h2>
+         <div style="font-family: monospace">
+        <div class="basic">Tourner, &nbsp; Gauche, Droite,
+         <br/> Tourner, &nbsp; Droite, Gauche.</div>
+        <div class="easy">Tourner, &nbsp; Gauche, Droite, &nbsp; Gauche, Droite,   
+         <br/>Tourner, &nbsp; Droite, Gauche, &nbsp; Droite, Gauche.</div>
+        <div class="medium">Tourner, &nbsp; Gauche, Gauche, Gauche, &nbsp;  Droite, Droite, Droite,
+         <br/>Tourner, &nbsp; Droite, Droite, Droite, &nbsp; Gauche, Gauche, Gauche,
+         <br/>Tourner, &nbsp; Gauche, Gauche, Droite, &nbsp; Droite, Gauche, Gauche,
+         <br/>Tourner, &nbsp; Gauche, Droite, Droite, &nbsp; Droite, Droite, Gauche.</div>
+        <div class="hard">Tourner, &nbsp; Gauche, Gauche, Gauche, Gauche, &nbsp;  Droite, Droite, Droite, Droite,
+         <br/>Tourner, &nbsp; Droite, Droite, Droite, Droite, &nbsp; Gauche, Gauche, Gauche, Gauche,
+         <br/>Tourner, &nbsp; Gauche, Gauche, Droite, Droite, &nbsp; Gauche, Gauche, Droite, Droite,
+         <br/>Tourner, &nbsp; Droite, Droite, Gauche, Gauche, &nbsp; Droite, Droite, Gauche, Gauche,
+         <br/>Tourner, &nbsp; Gauche, Droite, Gauche, Droite, &nbsp; Gauche, Droite, Gauche, Droite,
+         <br/>Tourner, &nbsp; Droite, Gauche, Droite, Gauche, &nbsp; Droite, Gauche, Droite, Gauche.</div>
+         </div>
+
+      <!-- <h2>C'est de l'informatique !</h2>-->
+
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>20210-FR-03_rise_and_fall</title>
+   <script>
+      window.stringsLanguage = 'fi';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*,'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "fi",
+       "version": "fi.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": "Heikki Hyyrö",
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Onnittelut, ratkaisit tämän version!",
+         steps: function(maxSteps) {
+            return "askelta";
+         },
+         undo: "Peru",
+         moveHandle: "Siirrä oransseja kahvoja.",
+         tooManySteps: function(max) {
+            var str = "Et saa tehdä enempää kuin "+max;
+            str += (max != 1) ? " askelta." : " askeleen.";
+            return str;
+         },
+         errorLimitLow: "Punaisella merkityt ruudut eivät ole korotettuja, joten aluetta ei voi alentaa.",
+         errorLimitHi: function(maxHeight) {
+            return "Ruutuja ei voi korottaa enempää kuin " + maxHeight + " askelta.";
+         },
+         errorColumn: "Punaisella merkitty kohta ei vastaa tavoitekuvaa.",
+         errorSteps: "Saavutit tavoitteen, mutta tehtävä on mahdollista ratkaista pienemmällä askelmäärällä. Yritä löytää parempi ratkaisu saadaksesi täydet pisteet."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Korkokuva</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Voit valita oikean puolen ruudukosta alueen siirtämällä oransseja kahvoja ruudukon reunoilla.
+            <p>Voit korottaa<span class="easy medium hard"> tai alentaa</span> valitun alueen ruudut klikkaamalla nuolinappia.</p>
+            <p class="medium hard">Alueen ruudut voi alentaa vain, jos kaikki alueen ruudut ovat korotettuja.</p>
+            <p>Tuota alla annetun tavoitekuvan mukainen lopputulos suorittaen korkeintaan <b><span id="minSteps"></span> korotus- tai alennusaskel<span class="easy medium hard">ta</span></b><span class="hard"> saadaksesi täydet pisteet</span>.</p>
+            <center><div id="paperTarget"></div></center>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Ratkaisu</h2>
+      <h2>Tämä on tietojenkäsittelyä!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

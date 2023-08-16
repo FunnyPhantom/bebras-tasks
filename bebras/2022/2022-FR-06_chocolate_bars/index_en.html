@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-06-chocolate-bars</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Your mission",
+         success: "Congratulations, you succeeded!",
+         tooManyMeasures: "You found the hazelnut, but used too many questions.",
+         partialSuccess: "You found the hazelnut, but it's possible to find it using fewer questions.",
+         doMeasuresFirst: function(level) {
+		     str = "Before placing the flag, select ";
+			 if (level == "easy") {
+				str += "one area";
+			 } else {
+			    str += "some areas";
+			 }
+			 str += " to find out where the extra hazelnut is.";
+			 return str;
+	     },
+		 
+         clickRetry: "Click on restart to try again.",
+         undo: "Undo",
+         count: "How many \nhazelnuts?",
+         newMeasure: "Select new \nareas", // NOT used?
+         select: "View past answers",
+         dragMarker: "Drag this flag on the \nsquare of the extra nut.",
+
+         nuts: function(nbNuts) { 
+			var str = "nut";
+			if (nbNuts > 1) {
+				str += "s";
+			}
+			return str;
+		 },
+         measCounter: function(val,target) {
+            return val+" questions asked";
+         },
+         countResult: function(val,rect) {
+            var col = (rect == 0) ? "blue" : "orange";
+			var plural = "";
+			if (val > 1) {
+				plural = "s";
+			}
+            return val+" nut" + plural + " in the " + col + " area";
+         },
+         missingRect: function(nbRect) {
+            var plural = (nbRect > 1) ? "s" : "";
+            return "You must select "+nbRect+" area"+plural+" in each chocolate bar."
+         },
+         tooManyMeas: function(max) {
+            return "You may not ask more than "+max+" questions."
+         },
+         errorNoResult: "<p>You have not asked any question.</p>",
+         errorWrongPos: "<p>The two chocolate bars were identical except for the cell with a yellow border. This is not the one you put the flag on.</p><br/>"
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Hazelnuts</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p class="basic medium hard">Find the difference between the two chocolate bars.</p>
+			<p class="easy">The wrapped chocolate bar is the same as the uwrapped one, except that it has one extra hazelnut.</p>
+			<p class="easy">To find it, ask questions: select an area, then click on "How many hazelnuts?"</p>
+            <p class="medium hard">For each question, select <span class="basic easy medium">an area</span><span class="hard"><b>two areas</b></span> on each chocolate bar, then click on the blue button.</p>
+               <span class="hard">It is possible to overlap the two areas. </span>
+			<center class="easy medium hard"><img src="assets/select_area.png" style="width:150px" class="convert-base64"/></center>
+			<p>When you know for sure which chocolate square has the extra hazelnut, place the flag on it then validate.</p>
+            <p class="easy medium hard">To get all the points, <strong>find it in <span id="target"></span> questions.</strong></p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none" class="convert-base64">
+         <img src="assets/count.png" id="count" style="display:none" class="convert-base64">
+         <img src="assets/arrow.png" id="arrow" style="display:none" class="convert-base64">
+         <img src="assets/packaging.png" id="packaging" style="display:none" class="convert-base64">
+         <img src="assets/chocolate.png" id="chocolate" style="display:none" class="convert-base64">
+         <img src="assets/nut.png" id="nut" style="display:none" class="convert-base64">
+         <img src="../../../_common/modules/img/algorea/flag.png" id="marker" style="display:none" class="convert-base64">
+         <img src="assets/nut_icon_brown.png" id="nut_icon_brown" style="display:none" class="convert-base64">
+         <img src="assets/nut_icon_blue.png" id="nut_icon_blue" style="display:none" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      
+      <!-- <h2>C'est de l'informatique !</h2>-->
+
+  </div> <!-- task-solution -->
+</body>
+</html>

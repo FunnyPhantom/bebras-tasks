@@ -1,0 +1,65 @@
+Text:
+
+--------
+La prairie de Castor a été innondée et est entièrement recouverte de boue.
+Castor doit retrouver le plus vite possible sa réserve de betteraves.
+Les betteraves sont enterrée dans le coin tout en haut à gauche de son champs
+de patate.
+<span class="easy">Ce champs est un rectangle de 3 cases de large.</span>
+<span class="medium">Ce champs est un carré de 3 cases de côté.</span>
+<span class="hard">Ce champs est un carré de 5 cases de côté.</span>
+
+Cliquez sur une case pour faire un trou. Vous trouverez soit des
+betteraves (gagné !), soit des patates, soit rien du tout.
+--------
+
+
+Interaction:
+--------
+initially, a grid of muddy cells
+on click of a cell, reveal its contents:
+- betteraves: game completed, auto validation
+- potatoes: game continues
+- nothing: white cell
+
+after a click, display the message (with a fade-in, to distinguish it from the previous message)
+    "Dans ce trou, il n'y a rien"
+    "Dans ce trou, il y a des patates"
+// no message for betteraves, since autovalidation is triggered.
+--------
+
+
+taskStrings = {
+   reachedMaxSteps: "Vous avez creusé bien plus de trous que nécessaire. Essayez autrement.",
+   partial: "Vous avez trouvé les betteraves. Recommencez pour essayer de réussir en creusant moins de trous. Les betteraves ne seront pas forcément au même endroit.",
+
+   }
+
+data= {
+   easy: {
+     areaSize: [14, 1],
+     rectSize: [3, 1],
+     minSteps: 6,
+     maxSteps: 14 },
+   medium: {
+     areaSize: [11, 8],
+     rectSize: [3, 3],
+     minSteps: 14, // in fact, 10 suffices
+     maxSteps: 20 },
+   hared: {
+     areaSize: [19, 14],
+     rectSize: [5, 5],
+     minSteps: 12, // tricky!
+     maxSteps: 20 }
+     // score: 50% if partial success, 100% if optimal,
+     // we probably don't want to do interpolation in case our adversary code is able to
+     // only rule out suboptimal solution, without being able to "make it always as hard as possible"
+     ] },
+   }
+
+
+implementation:
+   we need a nontrivial algorithm to figure out which answer gives the largest
+   decision tree for dealing with the remaining cells.
+   the full tree is probably too expensive to build, so I think we'll need to cut off
+   branches that are "obviously not" leading the optimal solution.

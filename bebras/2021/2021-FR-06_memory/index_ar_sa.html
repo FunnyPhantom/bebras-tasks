@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-06_memory</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "تهانينا، لقد نجحت!",
+         avatar: " أوجد صورة ذات ",
+         habitation: "أوجد: اسم بيت القندس",
+         dimensions: "أوجد رقمين: عدد الصفوف والأعمدة في الصورة",
+         image: "image of width",
+         fixedImage: "صورة",
+         height: "عدد صفوف  ",
+         width: "وأعمدة",
+         textEasy: "Dam of the great lake",
+         textMedium: "Lodge of the quiet river",
+         textHard: "Great red apple tree",
+         
+         imageDimensions: function(w,h) {
+            return "أوجد صورة تحتوي على "+w+" أعمدة و "+h+" صفوف، محاطة بإطار أسود.";
+         },
+         text: "text",
+         twoInt: "two numbers (width, height)",
+         errorMemSize: function(field) {
+            var fieldStr = [ "بيت القندس", "الصورة", "أبعاد الصورة" ];
+            return "المنطقة التي تشير إلى \""+fieldStr[field]+"\" ليس لها الطول الصحيح."
+         },
+         errorMemLocation: function(field) {
+            var fieldStr = [ "بيت القندس", "الصورة", "حجم الصورة" ];
+            return "المنطقة التي تشير إلى \""+fieldStr[field]+"\" تم تحديدها بشكل غير صحيح."
+         }
+      };
+      var enableRtl = true;
+      var threeVersions = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>In the memory</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>المخطط الشبكي مكون من خلايا بيضاء وسوداء تمثل الذاكرة لحاسوب القندس.</p>
+            <p>واحدة من مناطق الذاكرة تحتوي على اسم منزله .</p>
+            <p class="hard">منطقة أخرى تحتوي على رقمين : العرض والارتفاع لإحدى الصور.</p>
+            <p class="medium hard"><span class="hard">وأخيراً واحدة</span><span class="medium">وأخرى</span> لمنطقة تحتوي على صورة محاطة بإطار أسود<span class="basic easy medium"> :</span><span class="hard">.</span></p>
+            <center class="medium"><img src="example_easy.png"></center>
+            <p class="easy">قم بسحب وتحريك المقبض لمعرفة هذا الاسم.</p>
+            <p class="medium hard">قم بسحب وتحريك المقابض لمعرفة هذه المناطق في الذاكرة .</p>
+            <p class="hard">اضغط على زري + و - لتغيير حجم الصورة.</p>
+         </div>
+         <div id="zone_2">
+            <p><div style="position:relative;top:15px;left:20px;font-size:18px"><b>محتويات الذاكرة</b></div></p>
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-02_bee_hive</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'drag_lib-2.1', 
+         'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Marielle Léonard, inspired by Logix; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Your mission",
+         success: "Congratulations, you succeeded!",
+         pattern: "2 possibilities \nfor this pattern",
+         possiblePos: function(id) {
+            var str = (id == 0) ? "allowed" : "forbidden";
+            return "2 cells "+str+"\nfor this bee"
+         },
+         errorEmptyCell: "The red cell doesn't contain any bee.",
+         errorRule: "The red rule is not satisfied"
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Bee Hive</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Place all the bees in the hive.</p>
+            <p class="basic easy medium">The rule under each bee must be satisfied. Each rule shows a biece of the hive.</p>
+            <div class="hard"><p><b>The placement rules need to be satisfied for each bee.</b></p>
+				<p>These rules depend on two criteria:</p>
+				<ul>
+					<li>The round, oval or pointy shape of the body of the bee.</li>
+					<li>The <b>exact</b> number of stripes on its abdomen, from 1 to 3.</li>
+				</ul>
+			</div>
+
+			<div style="border: solid black 1px;max-width: 400px;padding:10px;float:right">
+				<div id="intro1"></div>
+				<b>Example<span class="medium hard"> 1</span>:</b>
+				<br/><br/><br/>
+				<p class="basic">The rule shows in which cell of the hive this bee must be placed.</p>
+				<p class="easy medium">This rule means the bee should have two hive cells above it.</p>
+				<p class="hard">This rule means that a bee with exactly two stripes can't have two hive cells above it.</p>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="medium hard"  style="border: solid black 1px;max-width: 400px;padding:10px;margin-top:20px">
+				<div id="intro2"></div>
+				<b>Example 2:</b>
+				<br/><br/><br/>
+				<p class="medium">In this rule, the red cross means that a cell with two hive cells above it is forbidden for this bee.</p>
+				<p class="hard">In this rule, the red cross means a cell with two hive cells above it is forbidden for a bee that has exactly three stripes.</p>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="clear:both"></div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/cross_red.png" style="display:none" id="cross" class="convert-base64">
+         <img src="assets/bees.png" style="display:none" id="bees" class="convert-base64">
+         <img src="assets/rule_icon_01.png" style="display:none" id="rule_icon_1" class="convert-base64">
+         <img src="assets/rule_icon_02.png" style="display:none" id="rule_icon_2" class="convert-base64">
+         <img src="assets/rule_icon_03.png" style="display:none" id="rule_icon_3" class="convert-base64">
+         <img src="assets/rule_icon_04.png" style="display:none" id="rule_icon_4" class="convert-base64">
+         <img src="assets/rule_icon_05.png" style="display:none" id="rule_icon_5" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

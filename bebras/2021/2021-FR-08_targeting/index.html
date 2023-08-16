@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2021-FR-08-targeting</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1',/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.2'
+      ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
+         "language": "en",
+         "version": "en.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
+         "translators": [],
+         "license": "",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         restaurant: "Registre du restaurant de Castor",
+         geolocation: "Données de géolocalisation", 
+         castorbook: "CastorBook",
+         date: "Date",
+         name: "Nom",
+         phone: "Téléphone",
+         splitPhone: "Télé phone",
+         distance: "Distance depuis le restaurant",
+         friend: "Ami",
+         animals: [ 
+            "Belette", "Biche", "Blaireau", "Chat", "Chien",
+            "Chouette", "Hérisson", "Hibou", "Lapin", "Lion", 
+            "Ours", "Rat", "Renard", "Souris" 
+         ],
+         months: [
+            "janvier", "février", "mars", "avril", "mai", "juin", 
+            "juillet", "août", "septembre", "octobre", "novembre", "décembre"
+         ],
+         errorMissingApril: "Vous avez oublié un ou plusieurs animaux qui sont venus en avril.",
+         errorNotInApril: "Vous avez sélectionné un animal qui n'est pas venu en avril.",
+         errorAprilNotJune: "Vous avez oublié un ou plusieurs animaux qui sont venus en avril mais pas en juin.",
+         errorAprilAndJune: "Vous avez sélectionné un animal qui est venu en juin.",
+         errorMissingNumber: "Il vous manque des numéros de téléphone.",
+         errorWrongDistance: "Vous avez selectionné un numéro de téléphone qui n'est pas situé à la bonne distance.",
+         errorCameInJuneOrJuly: "Vous avez sélectionné le numéro d'un animal qui est venu en juin ou en juillet.",
+         errorFriend: "Vous avez sélectionné le numéro d'un animal qui a un ami qui est venu en juin ou en juillet."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+         touch-action: none;
+      }
+      #displayHelper_graderMessage, #error {
+         color: red;
+         font-weight: bold;
+         text-align: center;
+      }
+
+      #tables {
+         margin: 1em auto;
+         width: 100%;
+         text-align: center;
+      }
+      #tables > * {
+         display: inline-table;
+         border-collapse: collapse;
+         box-sizing: border-box;
+      }
+      #tables table.easy,#tables table.basic {
+         width: 60%;
+      }
+      #tables table.medium {
+         width: 42%;
+         margin-left: 5%;
+         vertical-align: top;
+      }
+      #tables table.hard {
+         width: 30%;
+         margin-left: 2%;
+         vertical-align: top;
+      }
+      #tables table.hard#table_0 th[col="2"] {
+         /*width: 40px;*/
+      }
+      #tables th {
+         background: lightgrey;
+         padding: 0.5em 1em;
+         text-align: center;
+      }
+      #tables .title {
+         background: #4a90e2;
+         color: white;
+         font-size: 20px;
+         font-weight: normal;
+      }
+      #tables td {
+         border:  1px solid #4a4a4a;
+         padding: 0.2em 0.5em;
+      }
+      #tables #table_0 td.selected {
+         background: #ffd600;
+      }
+      #tables #table_1 td.selected {
+         background: lightblue;
+      }
+      #tables #table_2 td.selected {
+         background: lightgreen;
+      }
+
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Publicité ciblée</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>Castor veut trouver à qui envoyer des publicités pour son restaurant.</p>
+
+               <p class="basic">Cliquez sur les noms des animaux qui sont venus au restaurant au mois d'avril.</p>
+               <p class="easy">Cliquez sur les noms des animaux qui ont été au restaurant <strong>au mois d'avril mais pas au mois de juin</strong>.</p>
+               <p class="medium hard">Cliquez pour mettre en jaune les numéros de téléphone des animaux :</p>
+               <ul class="medium hard">
+                  <li class="medium hard" style="margin-bottom:15px">qui ne sont pas venus au restaurant de Castor en juin ou juillet, et</li>
+                  <li class="medium hard" style="margin-bottom:15px">qui se trouvent à une distance entre 13 km et 20 km du restaurant<span class="medium">.</span><span class="hard">, et</span></li>
+                  <li class="hard">qui ne sont pas amis avec des animaux ayant déjà été au restaurant de Castor en juin ou juillet.</li>
+               </ul>
+               <p class="hard">Utilisez la table CastorBook pour savoir qui est ami de qui. Par exemple, les amis de <span id="friend1"></span> sont <span id="friend2"></span> et <span id="friend3"></span>.</p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="tables"></div>
+            <div id="error"></div>
+         </div>
+      </div>
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+        <h2>Solution</h2>
+
+        <p class="basic easy">On sélectionne en cliquant les noms des animaux en face des dates du mois d'avril, de sorte à ce que tous ces animaux soit sélectionnés.</p>
+        <p class="easy">Ensuite, on déselectionne en cliquant les noms des animaux en face des dates du mois de juin.</p>
+
+        <img class="basic" src="sol_basic.png">
+        <img class="easy" src="sol_easy1.png">
+        <img class="easy" src="sol_easy2.png" style="margin-left:4em">
+
+        <div class="medium hard">
+        <p>On commence par sélectionner les numéros de téléphone correspondant à des distances comprises entre 13km et 20km.</p>
+        <img class="medium" src="sol_medium1.png">
+        <img class="hard" src="sol_hard1.png">
+        <p>Ensuite, on déselectionne les animaux en face des dates de juin ou de juillet</p>
+        <img class="medium" src="sol_medium2.png">
+        <img class="hard" src="sol_hard2.png">
+        </div>
+
+        <div class="hard">
+        <p>Parmi les animaux qui restent sélectionnés, on regarde qui sont leurs amis. Hérisson et Biche n'est n'ont pas. Hibou n'a que Blaireau comme ami, mais Blaireau n'a pas été au restaurant en juin ni en juillet. Il reste Lion, qui est ami de Ours, Chien et Renard; les deux premiers ont été au restaurant en juin ou juillet, donc il faut éliminer Lion.</p>
+        <img class="hard" src="sol_hard3.png">
+        <img class="hard" src="sol_hard4.png">
+        </div>
+
+      <!--<h2>C'est de l'informatique !</h2>-->
+
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-02_bee_hive</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'drag_lib-2.1', 
+         'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Idea: Marielle Léonard, inspired by Logix; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Votre mission",
+         success: "Bravo, vous avez réussi !",
+         pattern: "2 possibilités \npour ce motif",
+         possiblePos: function(id) {
+            var str = (id == 0) ? "autorisées" : "interdites";
+            return "2 cases "+str+"\npour cette abeille"
+         },
+         errorEmptyCell: "La case en rouge n'a pas d'abeille.",
+         errorRule: "La règle en rouge n'est pas respectée."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Bee Hive</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Placez toutes les abeilles dans la ruche.</p>
+            <p class="basic easy medium">Il faut respecter la règle dessinée sous chaque abeille. Chaque règle montre un morceau de ruche.</p>
+            <div class="hard"><p><b>Il faut respecter les règles de placement pour chaque abeille.</b></p>
+			<p>Ces règles dépendent de deux critères :</p>
+			<ul>
+				<li>La forme ronde, ovale ou pointue du ventre de l'abeille.</li>
+				<li>Le nombre <b>exact</b> de rayures sur son ventre, de 1 à 3.</li>
+			</ul>
+			</div>
+			<div  class="basic easy medium" style="border: solid black 1px;max-width: 400px;padding:10px;float:right">
+            <div id="intro1"></div>
+				<b>Exemple <span class="medium hard">1</span> :</b>
+				<br/><br/><br/>
+				<p class="basic">La règle montre dans quelle case de la ruche il faut placer cette abeille.</p>
+				<p class="easy medium">Cette règle signifie que cette abeille doit avoir deux cases de ruche au-dessus d'elle.</p>
+				<p class="hard">La règle suivante signifie qu'une abeille à exactement deux rayures doit avoir deux cases de ruche au-dessus d'elle.</p>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="medium hard"  style="border: solid black 1px;max-width: 400px;padding:10px;margin-top:20px">
+				<div id="intro2"></div>
+				<b>Exemple 2 :</b>
+				<br/><br/><br/>
+				<p class="medium">Dans cette règle, la croix rouge indique qu'une case avec deux cases de ruche au-dessus est interdite pour cette abeille.</p>
+				<p class="hard">Dans cette règle, la croix rouge indique qu'une case avec deux cases de ruche au-dessus est interdite pour une abeille qui a exactement trois rayures.</p>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="clear:both"></div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/cross_red.png" style="display:none" id="cross" class="convert-base64">
+         <img src="assets/bees.png" style="display:none" id="bees" class="convert-base64">
+         <img src="assets/rule_icon_01.png" style="display:none" id="rule_icon_1" class="convert-base64">
+         <img src="assets/rule_icon_02.png" style="display:none" id="rule_icon_2" class="convert-base64">
+         <img src="assets/rule_icon_03.png" style="display:none" id="rule_icon_3" class="convert-base64">
+         <img src="assets/rule_icon_04.png" style="display:none" id="rule_icon_4" class="convert-base64">
+         <img src="assets/rule_icon_05.png" style="display:none" id="rule_icon_5" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

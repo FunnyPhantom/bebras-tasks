@@ -1,0 +1,1 @@
+Inspiré de 2021-IE-02 : on montre plusieurs extraits d'un objet, et il faut reconstruire l'objet minimal qui peut avoir ces extraits. Là c'est un sac de bonbons, mais ça pourrait être un polygone, un graphe, etc.

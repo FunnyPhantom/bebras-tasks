@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-07_genealogy</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         display: "Afficher",
+         mark: "Marquer",
+         wanted: "Castor recherché",
+         choose: "Choisir",
+         clickRetry: "Cliquez sur recommencer pour réessayer.",
+         culpritWas: "Le coupable était le castor entouré en noir.",
+         errorNoChoose: "Vous devez choisir un castor.",
+         errorRequirements: function(level) {
+            if (level == "basic") {
+               return "Le castor choisi n'a pas les bons parents.";
+            }
+            if (level == "easy") {
+               return "Le castor choisi n'a pas les bons grands parents.";
+            }
+            return "Le castor choisi n'a pas d'ancêtre commun avec les deux castors bleus.";
+         },
+         errorHeight: "Le castor choisi n'a pas la bonne taille."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #zone_2 {
+         position: relative;
+      }
+
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Enquête</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>Un Castor a volé des fruits !</p>
+            <p class="basic">Un détective a trouvé <b>ses parents</b>. Ils sont en bleu sur l'arbre généalogique.</p>
+            <p class="easy">L'enquête a permis de trouver <b>ses grands parents</b>. Ils sont en bleu sur l'arbre généalogique.</p>
+            <p>Les flèches montrent les enfants des couples de Castors.</p>
+            <p class="medium hard">L'enquête a montré que les personnes en bleu sur l'arbre généalogique <b>ont un ancêtre en commun, qui est aussi un ancêtre de ce Castor</b>.</p>
+            <p>On connaît aussi la taille du Castor.</p>
+            <p>Cliquez sur des Castors et retrouvez-le !</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="canvas"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/beaver_head.png" style="display:none" id="beaver">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+        <div class="basic">
+        <p>Le castor recherché est un des enfants des Castors en bleu. C'est donc d'un des Castor en vert.</p>
+        <img src="sol_basic.png"><br/>
+        </div>
+
+        <div class="easy">
+        <p>Le castor recherché est un des petits-enfants des Castors en bleu. <br/>
+        Les parents du castor recherché peut donc être soit les deux castor jaunes de gauche, soit les deux castor jaunes de droite. <br/>
+        Le Castor recherché est donc l'un des Castor en vert.</p>
+        <img src="sol_easy.png"><br/>
+        </div>
+
+        <div class="medium hard">
+        <p>Les ancêtres communs des Castors en bleu sont marqués avec les losanges jaune.<br/>
+        Les descendants de ceux-ci sont marqués avec une étoile.<br/>
+        Ces descendants correspondent donc à tous les castors qui ont un ancêtre commun avec les castors bleus.</p>
+        <img class="medium" src="sol_medium.png">
+        <img class="hard" src="sol_hard.png"><br/>
+        </div>
+
+        <p>Il faut donc afficher la taille de chacun des castors <span class="basic easy">en vert</span><span class="medium hard">marqués d'une étoile</span>, et retenir le premier qui fait 25 cm.</p>
+
+
+      <!--<h2>C'est de l'informatique !</h2>-->
+  </div> <!-- task-solution -->
+</body>
+</html>

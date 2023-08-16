@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-tunnels</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "تهانينا، لقد نجحت!",
+         click: "اضغط على الباب لتتحقق من وجود القندس تحته .",
+         nbClicks: function(nb,max) {
+            return "عدد محاولات الفتح: "+nb+" / "+max;
+         },
+         replay: "أعد المحاولة ...",
+         noBeaver: "لا يوجد أي قندس هنا",
+         clickRetry: "اضغط على ابدأ من جديد للمحاولة مرة أخرى .",
+         notFound: "لم تجد أي قندس. انظر جيداً كيف يتحرك، ثم ابدأ من جديد.",
+         watchBeaver: "انظر جيداً كيف تحرك القندس ",
+         errorNotFound: "لم تجد القندس.",
+         errorSteps: "لقد وجدت القندس، لكن من الممكن أن تجده بعدد أقل من محاولات فتح الأبواب ."
+      };
+      var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>الأنفاق</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>في البداية، يختبئ القندس خلف أحد الأبواب الداكنة .</p>
+            <p>حاول أن تجده عن طريق فتح الأبواب . </p>
+            <p><strong>تنبيه</strong>, بعد غلق الباب، يستطيع القندس أن يتحرك بمقدار خلية واحدة إما لليمين أو لليسار .</p>
+            <p>للحصول على جميع النقاط، حاول أن تجد القندس في عدد  <b><span id="minSteps"></span> من محاولات الفتح</b>.</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <!-- <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none"> -->
+         <img src="../../../_common/modules/img/castor_transparent.png" id="beaver" style="display:none">
+         <img src="assets/wall.png" id="wall" style="display:none">
+         <img src="assets/wall_start.png" id="wall_start" style="display:none">
+         <img src="assets/inside.png" id="inside" style="display:none">
+         <img src="assets/inside_end.png" id="inside_end" style="display:none">
+         <img src="assets/lid_open.png" id="lid_open" style="display:none">
+         <img src="assets/lid_closed.png" id="lid_closed" style="display:none">
+         <img src="assets/dark_lid_open.png" id="dark_lid_open" style="display:none">
+         <img src="assets/dark_lid_closed.png" id="dark_lid_closed" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

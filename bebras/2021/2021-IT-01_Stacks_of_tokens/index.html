@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-IT-01_stacks_of_token</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*,'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Inspiration: Bebras task 2021-IT-01; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         undo: "Annuler",
+         buildStacks: function(nb) {
+            return "Construisez "+nb+" tours pareilles.\nUtilisez tous les blocs sauf un."
+         },
+         errorNbStacks: function(curr,target,less) {
+            var msg = "Il y a actuellement "+curr+" tour"+(curr > 1 ? "s" : "")+" dans l'espace de travail, ";
+            if(less){
+               msg += " il devrait y en avoir "+target+".";
+            }else{
+               msg += " il ne doit y en avoir que "+target+".";
+            }
+            return msg
+         },
+         errorStackHeight: function(target) {
+            return "Les "+target+" tours n'ont pas la même hauteur."
+         },
+         errorStacks: function(target) {
+            return "Les "+target+" tours ne sont pas pareilles."
+         },
+         errorNbBlocks: "Vous devez utiliser tous les blocs.",
+         errorMaxHeight: function(target) {
+            return "Il est possible de faire "+target+" tours pareilles et plus hautes."
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Tours identiques</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Construisez <strong><span class="basic easy medium">deux</span><span class="hard">trois</span> tours</strong> pareilles : la même hauteur et les mêmes jetons.</p> 
+            <p>Glissez les blocs de jetons collés vers la zone grise pour y créer des tours.</p>
+            <p class="easy medium">Utilisez tous les blocs.</p>
+            <p class="hard"><strong>Vous utiliserez tous les blocs sauf un.</strong></p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+<!--             <div id="overlay_1"></div>
+            <div id="overlay_2"></div>
+            <div id="overlay_3"></div>
+            <div id="overlay_4"></div>
+            <div id="overlay_5"></div> -->
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none">
+         <img src="jeton-1.png" style="display:none" id="token1">
+         <img src="jeton-2.png" style="display:none" id="token2">
+         <img src="jeton-3.png" style="display:none" id="token3">
+         <img src="limite.png" style="display:none" id="limit">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+        <div class="basic">
+        <img src="sol_basic1.png"><br/>
+        </div>
+        <div class="easy">
+        Comme on a une pièce avec 2 jetons bleus, il faut arriver à coller 2 autres jetons bleus ensembles.
+        Il y a deux manière de faire, comme montré sur la partie droite.<br/>
+        <img src="sol_easy1.png"><br/>
+        Seul le premier assemblage permet de terminer.<br/>
+        <img src="sol_easy2.png"><br/>
+        </div>
+        <div class="medium">
+        Comme on a une pièce avec 2 jetons bleus, il faut arriver à coller 2 autres jetons bleus ensembles.
+        Il n'y a qu'une seule possibilité.<br/>
+        <img src="sol_medium1.png"><br/>
+        Il n'y a ensuite qu'une seule possibilité pour agrandir la pile de droite comme la pile de gauche.<br/>
+        <img src="sol_medium2.png"><br/>
+        On termine en plaçant les 4 pièces restantes.<br/>
+        <img src="sol_medium3.png"><br/>
+        </div>
+        <div class="hard">
+        On peut commencer par compter les jetons de chaque couleur. Notamment, on a 8 verts. Pour faire 3 piles identiques, il faut en avoir un multiple de 3. Il n'y a qu'une seule tour qui contient 2 verts de côté. C'est donc celle là qu'on va mettre de côté :<br/>
+        <img src="sol_hard1.png"><br/>
+        Ensuite on peut se concentrer sur les jetons jaunes collés par 2. Il y a deux manières d'obtenir un 3ème assemblage de 2 jetons jaunes, comme montré sur la droite.<br/>
+        <img src="sol_hard2.png"><br/>
+        Parmi ces deux manières, seule la première fonctione. En effet, pour avoir des piles identiques sur le bas, on peut remarquer que la seule possibilité est d'empiler un jeton bleu avec un jaune dessus.<br/>
+        <img src="sol_hard3.png"><br/>
+        Pour assembler les deux parties, il faut faire en sorte de placer 3 jetons bleus de suite dans chaque pile.<br/>
+        <img src="sol_hard4.png"><br/>
+        On termine ensuite en plaçant les pièces du haut.<br/>
+        <img src="sol_hard5.png"><br/>
+        </div>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

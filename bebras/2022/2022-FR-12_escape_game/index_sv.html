@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-12-escape-game</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-12-escape-game/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Din uppgift:",
+         success: "Bravo, du klarade det!",
+         validate: "Kör",
+         cancel: "Gå tillbaka till ingången",
+         lobby: "Ingång",
+         exit: "Utgång",
+         roomName: function (index) {
+            return "Rum nr " + index;
+         },
+         thisRoom: "Börja om med detta rum",
+         incorrectNumberOfCharacters: function (needed) {
+            return "Du måste välja " + needed + " spelare för att spela detta rymningsspel.";
+         },
+         retry: "Klicka på Börja om för att försöka igen.",
+         errorImpossible: function (key, value, equality) {
+            var translations = {
+               fox: 'räv',
+               bear: 'björn',
+               elephant: 'elefant',
+               scarf: 'en halsduk',
+               necklace: 'et halsband',
+               bowtie: 'en fluga',
+            };
+
+            if ('shape' === key) {
+               if (equality) {
+                  return "Den rödmarkerade spelaren är inte en " + translations[value] + " och kan inte passera denna korridor.";
+               } else {
+                  return "Den rödmarkerade spelaren är en " + translations[value] + " och kan inte passera denna korridor.";
+               }
+            }
+            if ('hat' === key) {
+               return "Den rödmarkerade spelaren har inte rätt mössa och kan inte passera denna korridor.";
+            }
+            if ('accessory' === key) {
+               if (equality) {
+                  return "Den rödmarkerade spelaren har ing" + translations[value] + " och kan inte passera denna korridor.";
+               } else {
+                  return "Den rödmarkerade spelaren har " + translations[value] + " och kan inte passera denna korridor.";
+               }
+            }
+         },
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+      }
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Rymningsspel</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+			
+			<p>Dra <strong><span class="basic">en</span><span class="easy">två</span><span class="medium">tre</span><span class="hard">fyra</span> spelare</strong> till ingången<span class="basic">. Spelaren måste kunna passera alla rummen.</span><span class="easy medium hard"> för att bilda ett lag som kan passera alla rummen.</span> </p>
+
+			<p>Du måste lyda skyltarna. En spelare måste t.ex. ha en halsduk för att kunna passera en skylt med en halsduk på.</p>
+
+			<p class="easy medium hard"><strong>För att ett lag ska kunna passera ett rum måste varje spelare passera genom en egen korridor.</strong></p>
+			
+			<p class="hard">En spelare kan utnyttja en korridor med två ingångar om hen kan passera någon av dem.</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img src="assets/fox.png" style="display:none" id="fox" class="convert-base64">
+         <img src="assets/bear.png" style="display:none" id="bear" class="convert-base64">
+         <img src="assets/elephant.png" style="display:none" id="elephant" class="convert-base64">
+
+         <img src="assets/green_hat.png" style="display:none" id="green_hat" class="convert-base64">
+         <img src="assets/yellow_hat.png" style="display:none" id="yellow_hat" class="convert-base64">
+         <img src="assets/blue_hat.png" style="display:none" id="blue_hat" class="convert-base64">
+
+         <img src="assets/scarf.png" style="display:none" id="scarf" class="convert-base64">
+         <img src="assets/necklace.png" style="display:none" id="necklace" class="convert-base64">
+         <img src="assets/bowtie.png" style="display:none" id="bowtie" class="convert-base64">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>Lorem ipsum</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

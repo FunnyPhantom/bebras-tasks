@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-05_treasure_rect</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "sv",
+       "version": "sv.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand", 
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, du klarade det!",
+         click: "Klicka i en ruta för att göra ett hål.", // drag your mouse or finger 
+         nbClicks: function(nb,max) {
+            return "Antal grävda hål : "+nb+" / "+max
+         },
+         empty: "Inget bo i denna ruta.",
+         notEmpty: "En del av boet finns i denna ruta. Fortsätt klicka för att hitta ingången.",
+         errorNotFound: "Du har inte hittat bohålan.",
+         errorEntranceNotFound: "Du har inte hittat ingången till bohålan.",
+         errorTooManySteps: "Du har grävt fler hål än nödvändigt. Börja om på ett annat sätt.",
+         errorSteps: function(level) {
+            /*if(level != "hard"){
+               var target = "le temple";
+            }else{
+               var target = "l'entrée du temple";
+            }
+            return "Vous avez trouvé "+target+", mais il est possible d'y arriver en faisant moins de trous. Recommencez en essayant autrement."*/
+            return "Du har hittat den, men det är möjligt att göra det med färre grävda hål. Börja om för att försöka igen.";
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /* touch-action: none; */
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      td img {
+         display: block;
+      }
+      td {
+         padding: 0;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Castors bo</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>Castors bohåla är dold under marken.
+            <span class="basic easy">Den utgör en <b>rektangel med 3 rutor</b>.</span>
+            <span class="medium">Den består av en <b>kvadrat med 9 rutor</b>.</span>
+            <span class="hard">Den består av en <b>kvadrat med 25 rutor</b>.</span>
+            </p>
+            <center><span class="basic easy medium">Bohåla att hitta :</span>
+               <span class="basic easy" style="position:relative;top:20px">
+                  <img src="inside.jpg"><img src="inside.jpg"><img src="inside.jpg">
+               </span>
+               
+               <table class="medium" cellspacing="0" style="border-spacing:0">
+                  <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+               </table>
+               <table class="hard" cellspacing="0" style="border-spacing:0">
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+                  <tr><td>Ingång att hitta =>&nbsp;&nbsp;</td><td><img src="door.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+               </table>
+            </center>
+            <br/>
+            <p class="basic easy medium">Finn boet genom att gräva så få hål som möjligt.</p>
+            <p class="hard" style="padding-top:10px">Finn <strong>ingången till bohålan</strong> genom att gräva högst nio hål. Ingången finns i <strong>nedre vänstra hörnet av bohålan</strong>.</p>
+            <p>För att gräva ett hål i jorden, klicka på en ruta.</p>
+     
+         </div>
+         <div id="zone_2">
+            <center style="position:relative;top:20px"><strong>Markområde</strong></center>
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="hidden.jpg" style="display:none" id="hidden">
+         <img src="empty.jpg" style="display:none" id="empty">
+         <img src="inside.jpg" style="display:none" id="inside">
+         <img src="door.jpg" style="display:none" id="door">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

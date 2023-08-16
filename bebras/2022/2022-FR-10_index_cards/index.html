@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-10_index_cards</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'drag_lib-2.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Votre mission",
+         success: "Bravo, vous avez réussi !",
+         undo: "Annuler",
+         try: "Essayer",
+         clickRetry: "Cliquez sur recommencer pour réessayer.",
+         swapTeleporters: "Échangez des \ntéléporteurs",
+         nbSwap: function(val,max) {
+            return "Nombre d'échanges : "+val+" / "+max
+         },
+         nbStep: function(val,max) {
+            return "Nombre d'étapes : "+val+" / "+max
+         },
+         dragLabel: "Pour vous aider à réfléchir, vous pouvez déplacer les planètes dans la zone ci-dessous :",
+         errorMaxSwap: function(max) {
+            var pl = (max > 1) ? "s" : "";
+            return "Vous ne pouvez pas faire plus de "+max+" échange"+pl
+         },
+         errorDst: "Vous n'avez pas atteint la destination.",
+         errorLoop: "Les téléporteurs renvoient Castor sur la planète sur laquelle il était au départ !",
+         errorTooManySwaps: "Vous avez atteint la destination, mais il est possible d'y arriver en faisant moins d'échanges.",
+         errorTeleporter: "Le téléporteur envoie Castor sur la planète sur laquelle il se trouve déjà, il faut placer un téléporteur qui envoie sur une autre planète."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         margin-top: 1em;
+         min-height: 2em;
+         line-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Téléportation</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Castor doit rejoindre la planète qui a un anneau.</p>
+            <p>Lorsque vous cliquez sur "Essayer", il est téléporté vers la planète dont le numéro est sur le téléporteur en-dessous de lui.</p>
+            <p class="easy medium hard">Il fait cela <strong><span class="easy">4</span><span class="medium">7</span><span class="hard">11</span> fois</strong> exactement.</p></p>
+            <p>Échangez la position de <span class="basic easy medium">deux téléporteurs</span><span class="hard"><strong>deux paires de téléporteurs</strong></span>, pour que Castor s'arrête sur la planète avec un anneau.<span class="easy medium hard"> Il ne doit jamais repasser par sa planète de départ.</span></p>
+         </div>
+         <div id="zone_2">
+            <div id="error"></div>
+            <div id="paper"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none" class="convert-base64">
+         <img src="../../../_common/modules/img/icons/check_white.png" id="check" style="display:none" class="convert-base64">
+         <img src="../../../_common/modules/img/castor_transparent.png" style="display:none" id="beaver" class="convert-base64">
+         <img src="assets/planets_small.png" style="display:none" id="planets" class="convert-base64">
+         <img src="assets/portal_2.png" style="display:none" id="portal" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

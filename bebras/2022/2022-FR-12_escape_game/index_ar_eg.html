@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html dir="rtl" align="right"></html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-12-escape-game</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages' 
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-12-escape-game/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "المهمة المطلوبة",
+         success: "تهانينا، لقد نجحت!",
+         validate: "تحقق",
+         cancel: "عد إلى المدخل",
+         lobby: "المدخل",
+         exit: "خروج",
+         roomName: function (index) {
+            return "الغرفة #" + index;
+         },
+         thisRoom: "جرب ه1ه الغرفة مرة أخرى",
+         incorrectNumberOfCharacters: function (needed) {
+            return "تحتاج لاختيار عدد " + needed + " من اللاعبين كي تتمكن من اللعب بلعبة الهروب.";
+         },
+         retry: "اضغط على ابدأ من جديد للمحاولة مرة أخرى.",
+         errorImpossible: function (key, value, equality) {
+            var translations = {
+               fox: 'ثعلب',
+               bear: 'دب',
+               elephant: 'فيل',
+               scarf: 'وشاح',
+               necklace: 'عقد',
+               bowtie: 'ربطة فراشة',
+            };
+
+			var str = "اللاعب المحاط بالدائرة الحمراء  ";
+            if ('shape' === key) {
+               if (equality) {
+                  str += "ليس ";
+               } else {
+				  str += "is";
+               }
+			   str += translations[value];
+            }
+            else if ('hat' === key) {
+               return "لا يرتدي القبعة الصحيحة";
+            }
+            if ('accessory' === key) {
+               if (equality) {
+                  str += "لا يوجد لديه ";
+               } else {
+                  str += "لديه ";
+               }
+			   str += translations[value];
+            }
+			return str + " ولا يمكنه الدخول لهذا الممر."
+         },
+      };
+	  var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+      }
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>لعبة الهروب</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+			<p>
+			قم بجر <strong><span class="basic">واحد</span><span class="easy">اثنين</span><span class="medium">ثلاثة</span><span class="hard">أربعة</span> من اللاعبين<span class="easy medium hard"> </span></strong> للمدخل<span class="basic"> ، </span><span class="easy medium hard"> كي تقوم بتشكيل فريق </span>للتمكن من الدخول لجميع الغرف ثم الخروج.</p>
+
+			<p>تحتاج لأن تَتْبَع الإشارات، على سبيل المثال، يحتاج اللاعب لارتداء وشاح كي يتمكن من المرور في الممر الذي يحمل إشارة الوشاح.</p>
+
+			<p class="easy medium hard"><strong>كي يتمكن الفريق بأكمله من دخول الغرفة، كل لاعب يجب أن يدخل من ممر مختلف.</strong></p>
+			<p class="hard">يجوز للاعب استخدام ممر به مدخلين إذا كان بإمكانه المرور من أي منهما</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img src="assets/fox.png" style="display:none" id="fox" class="convert-base64">
+         <img src="assets/bear.png" style="display:none" id="bear" class="convert-base64">
+         <img src="assets/elephant.png" style="display:none" id="elephant" class="convert-base64">
+
+         <img src="assets/green_hat.png" style="display:none" id="green_hat" class="convert-base64">
+         <img src="assets/yellow_hat.png" style="display:none" id="yellow_hat" class="convert-base64">
+         <img src="assets/blue_hat.png" style="display:none" id="blue_hat" class="convert-base64">
+
+         <img src="assets/scarf.png" style="display:none" id="scarf" class="convert-base64">
+         <img src="assets/necklace.png" style="display:none" id="necklace" class="convert-base64">
+         <img src="assets/bowtie.png" style="display:none" id="bowtie" class="convert-base64">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

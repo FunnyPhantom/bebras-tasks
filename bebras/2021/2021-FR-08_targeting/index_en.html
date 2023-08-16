@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2021-FR-08-targeting</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1',/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.2'
+      ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
+         "language": "en",
+         "version": "en.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
+         "translators": [],
+         "license": "",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Congratulations, you succeded!",
+         restaurant: "Register of Beaver's restaurant",
+         geolocation: "Geolocalisation data", 
+         castorbook: "CastorBook",
+         date: "Date",
+         name: "Name",
+         phone: "Phone",
+         splitPhone: "Phone",
+         distance: "Distance from restaurant",
+         friend: "Friend",
+         animals: [ 
+            "Chicken", "Rabbit", "Cat", "Dog", "Owl",
+            "Deer", "Pig", "Lion", "Bear", "Rat", 
+            "Fox", "Mouse", "Tiger", "Gorilla" 
+         ],
+         months: [
+            "january", "february", "march", "april", "may", "june", 
+            "july", "august", "september", "october", "november", "december"
+         ],
+         errorMissingApril: "You missed one or more animals that came in April.",
+         errorNotInApril: "You selected an animal that didn't come in April.",
+         errorAprilNotJune: "You missed one or more animals that came in April but not in June.",
+         errorAprilAndJune: "You selected an animal that came in June.",
+         errorMissingNumber: "You are missing some phone numbers.",
+         errorWrongDistance: "You selected a phone number that is not at the right distance.",
+         errorCameInJuneOrJuly: "You selected the number of an animal that came in june or july.",
+         errorFriend: "You selected the number of an animal that has a friend who came in june or july."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+         touch-action: none;
+      }
+      #displayHelper_graderMessage, #error {
+         color: red;
+         font-weight: bold;
+         text-align: center;
+      }
+
+      #tables {
+         margin: 1em auto;
+         width: 100%;
+         text-align: center;
+      }
+      #tables > * {
+         display: inline-table;
+         border-collapse: collapse;
+         box-sizing: border-box;
+      }
+      #tables table.easy,#tables table.basic {
+         width: 60%;
+      }
+      #tables table.medium {
+         width: 42%;
+         margin-left: 5%;
+         vertical-align: top;
+      }
+      #tables table.hard {
+         width: 30%;
+         margin-left: 2%;
+         vertical-align: top;
+      }
+      #tables table.hard#table_0 th[col="2"] {
+         /*width: 40px;*/
+      }
+      #tables th {
+         background: lightgrey;
+         padding: 0.5em 1em;
+         text-align: center;
+      }
+      #tables .title {
+         background: #4a90e2;
+         color: white;
+         font-size: 20px;
+         font-weight: normal;
+      }
+      #tables td {
+         border:  1px solid #4a4a4a;
+         padding: 0.2em 0.5em;
+      }
+      #tables #table_0 td.selected {
+         background: #ffd600;
+      }
+      #tables #table_1 td.selected {
+         background: lightblue;
+      }
+      #tables #table_2 td.selected {
+         background: lightgreen;
+      }
+
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Targeted advertisment</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>Beaver wants to select animals to send advertisement to, for his restaurant.</p>
+
+               <p class="basic">Click on the names of animals that came to the restaurant in April.</p>
+               <p class="easy">Click on the name of animals that came to the restaurant <strong> in April but not in June</strong>.</p>
+               <p class="medium hard">Click to highlight in yellow, the phone numbers of animals:</p>
+               <ul class="medium hard">
+                  <li class="medium hard" style="margin-bottom:15px">that didn't come to the restaurant in June or July, and</li>
+                  <li class="medium hard" style="margin-bottom:15px">that live at between 13 km and 20 km from the restaurant<span class="medium">.</span><span class="hard">, and</span></li>
+                  <li class="hard">that are not friends with animals that came to the restaurant in June or July.</li>
+               </ul>
+               <p class="hard">Use the CastorBook table to find out who is a friend of whom. For example, the friends of <span id="friend1"></span> are <span id="friend2"></span> and <span id="friend3"></span>.</p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="tables"></div>
+            <div id="error"></div>
+         </div>
+      </div>
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>

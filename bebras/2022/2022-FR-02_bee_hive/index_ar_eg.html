@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html dir="rtl" align="right"></html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-02_bee_hive</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'drag_lib-2.1', 
+         'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "ar",
+       "version": "en.01",
+       "authors": "Idea: Marielle Léonard, inspired by Logix; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "المهمة المطلوية",
+         success: "تهانينا، لقد نجحت",
+         pattern: "هناك احتمالين  \nلهذا النمط",
+         possiblePos: function(id) {
+            var str = (id == 0) ? "مسموح" : "ممنوع";
+            return "خليتين "+str+"\nلهذه النحلة"
+         },
+         errorEmptyCell: " الخلية الحمراء لا تحتوي على نحلة.",
+         errorRule: "الخلية ذات اللون الأحمر لم يتم تحقيق شرطها"
+      };
+	var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>خلية النحل</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>ضع جميع النحلات في خلية النحل.</p>
+            <p class="basic easy medium">الشرط الموجود تحت كل نحلة يجب مراعاته وتحقيقه، كل نحلة يظهر تحتها جزء من خلية النحل يوضح الشرط الذي يجب أن يتحقق.</p>
+            <p class="hard"><b>يجب تحقيق شروط موضع النحلة في الخلية، هذه الشروط تعتمد على شكل النحلة و عدد الخطوط الموجودة على جسمها بدقة .</b></p>
+
+         <div  class="basic easy medium" style="border: solid black 1px;max-width: 400px;padding:10px;float:right">
+               <div id="intro1"></div>
+               <b>مثال<span class="medium"> 1</span>:</b>
+               <br/><br/><br/>
+               <p class="basic">يظهر هذا الشرط في أي موضع في خلية النحل يجب أن نضع هذه النحلة.</p>
+               <p class="easy medium">هذا الشرط يعني أن هذه النحلة يجب وضعها في مكان حيث يتواجد فوقها خليتين.</p>
+               <div style="clear:both;"></div>
+         </div>
+
+			<div style="clear:both"></div>
+			<div class="medium"  style="border: solid black 1px;max-width: 400px;padding:10px;margin-top:20px">
+				<div id="intro2"></div>
+				<b>مثال<span class="medium"> 2</span>:</b>
+				<br/><br/><br/>
+				<p>في هذا الشرط هنا،فإن إشارة الـX الحمراء تعني أن وجود خليتين فوق موضع النخلة أمر ممنوع وغير مسموح لهذه النحلة .</p>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="clear:both"></div>
+         
+			<div class="hard"  style="border: solid black 1px;max-width: 400px;padding:10px;margin-top:20px;float:right">
+            <div id="intro3"></div>
+				<b>مثال:</b>
+				<br/><br/>
+				<p>هذا الشرط يعني أن النحلة ذات الخطين على جسمها لا يمكن أن يكون فوقها خليتين.</p>
+				<div style="clear:both;"></div>
+			</div>
+			
+         <div style="clear:both"></div>
+			<div class="hard"  style="border: solid black 1px;max-width: 400px;padding:10px;margin-top:20px;float:left">
+            <div id="intro4"></div>
+				<b>مثال 2:</b>
+				<br/><br/>
+            <p>في هذا الشرط، إشارة X الحمراء تعني بأن هذا الموضع في خلية النحل والذي تعلوه خليتين ممنوع أن تتواجد فيه النحلة ذات الثلاث خطوط على جسمها</p>
+				<div style="clear:both;"></div>
+			</div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/cross_red.png" style="display:none" id="cross" class="convert-base64">
+         <img src="assets/bees.png" style="display:none" id="bees" class="convert-base64">
+         <img src="assets/rule_icon_01.png" style="display:none" id="rule_icon_1" class="convert-base64">
+         <img src="assets/rule_icon_02.png" style="display:none" id="rule_icon_2" class="convert-base64">
+         <img src="assets/rule_icon_03.png" style="display:none" id="rule_icon_3" class="convert-base64">
+         <img src="assets/rule_icon_04.png" style="display:none" id="rule_icon_4" class="convert-base64">
+         <img src="assets/rule_icon_05.png" style="display:none" id="rule_icon_5" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

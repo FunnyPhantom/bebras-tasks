@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2021-FR-09-graph</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1',/*'drag_lib-2.0',*/ 
+         'graph-1.0','visual-graph-1.1','graph-mouse-1.2'
+      ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
+         "language": "sv",
+         "version": "en.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
+         "translators": [],
+         "license": "",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, du klarade det !",
+         errorNbShapes: function(id) {
+            var shape = (id == 0) ? "bävrar" : "rävar";
+            return "Antalet "+shape+" är fel."
+         },
+         errorEdge: function(shape1,shape2) {
+            var shapeStr = ["bäver","räv"];
+            return "Den rödmarkerade vägen leder en "+shapeStr[shape1]+" mot en "+shapeStr[shape2]+".";
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+         touch-action: none;
+      }
+      #displayHelper_graderMessage, #error {
+         color: red;
+         font-weight: bold;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Förbjudna möten</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>
+                  Placera
+                  <strong>
+                     <span class="basic">en räv och en bäver</span>
+                     <span class="easy">2 rävar och 3 bävrar</span>
+                     <span class="medium">3 rävar och 4 bävrar</span>
+                     <span class="hard">7 rävar och 8 bävrar</span>
+                  </strong>
+                  i cirklarna genom att klicka på dem en eller två gånger.
+               </p>
+               <p class="basic">
+                  Räven får inte kunna komma till bävern genom att följa pilarna.
+               </p>
+               <p class="basic">
+                  Bävern får inte kunna komma till räven genom att följa pilarna.
+               </p>
+               <p class="easy medium hard">
+                  En räv får inte kunna komma till en bäver genom att följa pilarna.
+               </p>
+               <p class="easy medium hard">
+                  En bäver får inte kunna komma till en räv genom att följa pilarna.
+               </p>
+               <p class="medium hard">
+                  <strong>Du får flytta cirklarna för att göra mönstret tydligare om du vill.</strong>
+               </p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+      </div>
+      <img src="icon.png" style="display:none">
+      <img src="fox.png" style="display:none" id="square">
+      <!-- Author of original fox image: Twitter
+      Creative Commons Attribution 4.0 International Public License
+      https://creativecommons.org/licenses/by/4.0/
+      -->
+      <img src="../../../_common/modules/img/beaver_head.png" style="display:none" id="triangle">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2021-FR-08-targeting</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1',/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.2'
+      ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
+         "language": "en",
+         "version": "en.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
+         "translators": [],
+         "license": "",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         restaurant: "Registre du restaurant de Castor",
+         geolocation: "Données de géolocalisation", 
+         castorbook: "CastorBook",
+         date: "Date",
+         name: "Nom",
+         phone: "Téléphone",
+         splitPhone: "Télé phone",
+         distance: "Distance depuis le restaurant",
+         friend: "Ami",
+         animals: [ 
+            " ابن عرس", "ظبية", "الغرير", "القط", "الكلب",
+            "بومة", "القنفذ", "بومة", "الأرنب", "الاسد", 
+            "الدب", "الجرذ", "الثعلب", "الفأر" 
+         ],
+         months: [
+            "جانفي", "فيفري ", "مارس", "افريل", "ماي ", "جوان", 
+            "جويلية", "اوت", "سپتمبر", "اكتوبر", "نوفمبر", "ديسمبر"
+            
+
+ 
+                ],
+         errorMissingApril: "Vous avez oublié un ou plusieurs animaux qui sont venus en avril.",
+         errorNotInApril: "Vous avez sélectionné un animal qui n'est pas venu en avril.",
+         errorAprilNotJune: "Vous avez oublié un ou plusieurs animaux qui sont venus en avril mais pas en juin.",
+         errorAprilAndJune: "Vous avez sélectionné un animal qui est venu en juin.",
+         errorMissingNumber: "Il vous manque des numéros de téléphone.",
+         errorWrongDistance: "Vous avez selectionné un numéro de téléphone qui n'est pas situé à la bonne distance.",
+         errorCameInJuneOrJuly: "Vous avez sélectionné le numéro d'un animal qui est venu en juin ou en juillet.",
+         errorFriend: "Vous avez sélectionné le numéro d'un animal qui a un ami qui est venu en juin ou en juillet."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+         touch-action: none;
+      }
+      #displayHelper_graderMessage, #error {
+         color: red;
+         font-weight: bold;
+         text-align: center;
+      }
+
+      #tables {
+         margin: 1em auto;
+         width: 100%;
+         text-align: center;
+      }
+      #tables > * {
+         display: inline-table;
+         border-collapse: collapse;
+         box-sizing: border-box;
+      }
+      #tables table.easy,#tables table.basic {
+         width: 60%;
+      }
+      #tables table.medium {
+         width: 42%;
+         margin-left: 5%;
+         vertical-align: top;
+      }
+      #tables table.hard {
+         width: 30%;
+         margin-left: 2%;
+         vertical-align: top;
+      }
+      #tables table.hard#table_0 th[col="2"] {
+         /*width: 40px;*/
+      }
+      #tables th {
+         background: lightgrey;
+         padding: 0.5em 1em;
+         text-align: center;
+      }
+      #tables .title {
+         background: #4a90e2;
+         color: white;
+         font-size: 20px;
+         font-weight: normal;
+      }
+      #tables td {
+         border:  1px solid #4a4a4a;
+         padding: 0.2em 0.5em;
+      }
+      #tables #table_0 td.selected {
+         background: #ffd600;
+      }
+      #tables #table_1 td.selected {
+         background: lightblue;
+      }
+      #tables #table_2 td.selected {
+         background: lightgreen;
+      }
+
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Publicité ciblée</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>يريد القندس العثور على من يرسل إليه إعلانات مطعمه.</p>
+
+               <p class="basic">انقر على أسماء الحيوانات التي أتت للمطعم في شهر أفريل.</p>
+               <p class="easy">انقر على أسماء الحيوانات التي أتت للمطعم . <strong>في شهر أفريل و ليس في شهر جوان.</strong>.</p>
+               <p class="medium hard">انقر لتلوين أرقام هواتف الحيوانات بالأصفر:</p>
+               <ul class="medium hard">
+                  <li class="medium hard" style="margin-bottom:15px">الذين لم يأتوا إلى مطعم القندس في جوان أو جويلية ، و</li>
+                  <li class="medium hard" style="margin-bottom:15px">الذين تقع مساكنهم على مسافة 13 و 20 كم من المطعم<span class="medium">.</span><span class="hard">, و</span></li>
+                  <li class="hard"> ليسوا أصدقاء لحيوانات أتت إلى مطعم القندس في جوان أو جويلية</li>
+               </ul>
+               <p class="hard">  لمعرفة صديق من ، على سبيل المثال ، أصدقاء CastorBook استخدم طاولة    <span id="friend1"></span> هم <span id="friend2"></span> و <span id="friend3"></span>.</p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="tables"></div>
+            <div id="error"></div>
+         </div>
+      </div>
+      <img src="icon.png" style="display:none">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>

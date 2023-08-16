@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-04_closest_height</title>
+   <script>
+      window.stringsLanguage = 'fi';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'drag_lib-2.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "fi",
+       "version": "fi.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Le Grand",
+       "translators": "Heikki Hyyrö",
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "Tehtävänanto",
+         success: "Onnittelut, ratkaisit tämän version!",
+         halfSuccess: "Löysit ratkaisun, mutta saat enemmän pisteitä, jos löydät ratkaisun pienemmällä mittausten määrällä.",
+         clickRetry: "<p>Klikkaa aloita alusta ja yritä uudelleen.</p>",
+         cannotGiveScarf: "Voit pukea huivin korkeintaan kahdelle kirahville.",
+         giraffeNames: ["Ada", "Tom", "Pam", "Bob", "Max", "Isa", "Léa", "Eve"],
+         mark: "Merkitse",
+         give: "Pue",
+         addMarker: "Lisää merkki\ntälle korkeudelle",
+         markerAbove: "Suurennuslasi on alimman\nmerkin alapuolella", 
+         markerBelow: "Suurennuslasin alapuolella\non merkki",
+         markerSame: "Suurennuslasi on alimman\nmerkin kohdalla",
+         giveScarf: "Pue huivit \nnäille kahdelle kirahville",
+         newMark: function(names) {
+            var str = names.length > 1 ? "Kirahvien " : "Kirahvin ";
+            for(var iName = 0; iName < names.length; iName++){
+               if(iName > 0){
+                  str += " ja ";
+               }
+               str += names[iName];
+            }
+            return str+"\nmerkki lisättiin"
+         },
+         alreadyMarked: function(names) {
+            var str = names.length > 1 ? "Kirahvien " : "Kirahvin ";
+            for(var iName = 0; iName < names.length; iName++){
+               if(iName > 0){
+                  str += " ja ";
+               }
+               str += names[iName];
+            }
+            return str+"\nmerkki oli jo aiemmin"
+         },
+         count: function(curr,max) {
+            return curr+" / "+max+" mittausta"
+         },
+         validate: "Tarkista vastaus",
+         errorTooManyMeas: function(max) {
+            return "Saat tehdä korkeintaan "+max+" mittausta."
+         },
+         errorNoScarf: "Pue matalimman kirahvin kaulaan huivi klikkaamalla sen alla olevaa laatikkoa.",
+         errorNoScarves: "Pue kahden kirahvin kauloihin huivit klikkaamalla niiden alla olevia laatikoita.",
+         errorWrongPair: "<p>Puit huivit väärille kirahveille.</p><p>Etsi kaksi keskenään lähimmän korkeuden omaavaa kirahvia.</p>",
+         errorWrongGiraffe: "<p>Huivi ei ole matalimman kirahvin kaulassa.</p>"
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         /*text-align: center;*/
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Kirahvien korkeudet</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+			<p class="basic easy">Pue matalimman kirahvin kaulaan huivi.</p>
+            <p class="medium hard"><strong>Pue kahden keskenään lähimmät korkeudet omaavan kirahvin kauloihin huivit.</strong></p>
+			<p>Huivi puetaan/riisutaan klikkaamalla kirahvin alla olevaa laatikkoa.</p>
+			<p class="easy"><strong>Jotkut kirahvit ovat lähes samankorkuisia.</strong> Mittaa kirahvin korkeus tarkemmin klikkaamalla sen yläpuolella olevaa nuolta.</p>
+            <p class="medium hard">Mittaa vierekkäisten kirahvien korkeusero klikkaamalla niiden välissä olevaa nuolta.</p>
+            <p>Voit raahata kirahveja eri järjestykseen.</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="assets/background.png" style="display:none" id="background" class="convert-base64">
+         <img src="assets/head.png" style="display:none" id="head" class="convert-base64">
+         <img src="assets/neck_2.png" style="display:none" id="neck" class="convert-base64">
+         <img src="assets/gauge_body.png" style="display:none" id="gauge_body" class="convert-base64">
+         <img src="assets/gauge_head.png" style="display:none" id="gauge_head" class="convert-base64">
+         <img src="assets/body.png" style="display:none" id="body" class="convert-base64">
+         <img src="assets/scarf.png" style="display:none" id="scarf" class="convert-base64">
+         <img src="assets/gauge_icon.png" style="display:none" id="gauge_icon" class="convert-base64">
+         <img src="assets/gauge_icon_black.png" style="display:none" id="gauge_icon_black" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Ratkaisu</h2>
+      <h2>Tämä on tietojenkäsittelyä!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

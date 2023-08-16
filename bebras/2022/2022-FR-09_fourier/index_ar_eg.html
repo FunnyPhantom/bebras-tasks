@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html dir="rtl" align="right"></html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-09-fourier</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages' 
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-09-fourier/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "المهمة المطلوبة",
+         success: "تهانينا، لقد نجحت!",
+         every: "الفراغات",
+         start: "ابدأ",
+         retry: "اضغط على ابدأ من جديد للمحاولة مرة أخرى.",
+         ground: "الأرض",
+         errorIncorrectLevel: "واحد من الأعمدة ليس بمستوى الأرض.",
+      };
+      var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         /*text-align: center;*/
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>الرمل الملون</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>
+			   املأ جميع الأعمدة بالرمل حتى تصل لمستوى الأرض.
+            </p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="assets/grass.png" style="display:none" id="grass" class="convert-base64">
+         <img src="assets/ground.png" style="display:none" id="ground" class="convert-base64">
+         <img src="assets/sand1.png" style="display:none" id="sand1" class="convert-base64">
+         <img src="assets/sand2.png" style="display:none" id="sand2" class="convert-base64">
+         <img src="assets/sand3.png" style="display:none" id="sand3" class="convert-base64">
+         <img src="assets/sand4.png" style="display:none" id="sand4" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-tunnels</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         click: "Cliquez sur une porte pour voir si Castor est dessous.",
+         nbClicks: function(nb,max) {
+            return "Nombre d'ouvertures : "+nb+" / "+max;
+         },
+         replay: "Relecture...",
+         noBeaver: "Pas de Castor ici",
+         clickRetry: "Cliquez sur recommencer pour réessayer.",
+         notFound: "Vous n'avez pas trouvé castor. Regardez comment il s'était déplacé, puis recommencez.",
+         watchBeaver: "Voir comment Castor s'est déplacé",
+         errorNotFound: "Vous n'avez pas trouvé Castor.",
+         errorSteps: "Vous avez trouvé Castor, mais il est possible d'y arriver avec moins d'ouvertures."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Tunnels</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>Au début, Castor se trouve derrière une des portes foncées.</p>
+            <p>Essayez de le trouver en ouvrant des portes. </p>
+            <p><strong>Attention</strong>, après la fermeture de la porte, Castor se déplace soit d'une case vers la droite, soit d'une case vers la gauche. </p>
+            <p>Pour avoir tous les points, trouvez Castor en <b><span id="minSteps"></span> ouvertures</b>.</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <!-- <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none"> -->
+         <img src="../../../_common/modules/img/castor_transparent.png" id="beaver" style="display:none">
+         <img src="assets/wall.png" id="wall" style="display:none">
+         <img src="assets/wall_start.png" id="wall_start" style="display:none">
+         <img src="assets/inside.png" id="inside" style="display:none">
+         <img src="assets/inside_end.png" id="inside_end" style="display:none">
+         <img src="assets/lid_open.png" id="lid_open" style="display:none">
+         <img src="assets/lid_closed.png" id="lid_closed" style="display:none">
+         <img src="assets/dark_lid_open.png" id="dark_lid_open" style="display:none">
+         <img src="assets/dark_lid_closed.png" id="dark_lid_closed" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+        <ol>
+        <li class="basic easy medium  hard"><b>Sur le tunnel 1, on ouvre la porte 1.</b> En effet, commençons par une porte foncée.</li>
+        <li class="basic easy medium  hard"><b>Sur le tunnel 2, on ouvre la porte 2.</b>  En effet, si Castor était à la première étape, sur la porte  foncée du second tunnel, et qu'il s'est déplacé d'une case, il se trouve sous la seconde porte.</li>
+        <li class="easy""><b>Sur le tunnel 3, on ouvre la porte 1.</b>  En effet, si Castor était au départ sur la porte foncée du 3ème tunnel, et qu'il s'est déplacé d'une case à la première étape, alors il est revenu sur la porte foncé.</li>
+        <li class="medium">Castor est donc dans le tunnel 3. Vu qu'on est à la 3ème étape, il peut être sous la 3ème porte, ou bien être revenu sous la 1ère porte. On essaye en premier la porte 3, pour être sûr qu'il ne soit pas plus loin ensuite : <br/>
+        <b>Sur le tunnel 3, on ouvre la porte 3.</li>
+        <li class="medium ">Sur le tunnel 3, on ouvre la porte 2.</b>  En effet, si Castor était à la 3ème étape sur la porte 1, alors à la 4ème étape, il est forcément sous la porte 2.</li>
+        <li class="hard">
+        <p>Castor est donc dans le tunnel 3, mais on ne sait pas du tout où. Comme castor se déplace tout le temps, on ne sait pas où l'attraper. Mais on peut faire des hypothèses, et pour chaque hypothèse possible, essayer de capturer Castor. Étudions ces hypothèses </p>
+        <p>Première hypothèse, supposons d'abord que Castor était sur la porte 1 au départ, à la 3ème étape, il est sur la porte 1 ou 3. Pour l'attraper, on peut tester la porte 3, puis la porte 2. Bon, on n'attrape pas Castor. </p>
+        <p>Deuxième hypothèse, supposons qu'il était sous la porte 2 au départ. À la 5ème étape, Castor peut être sur les cases 1 ou 3 ou 5. Si on généralise la technique précédente, on commence par la porte la plus loin, c'est-à-dire la 5ème. Si on n'attrape pas Castor, alors il ne peut être que sous la porte 2 ou 4. On ouvre la 4, et on apprend que Castor ne peut être que sous la porte 1 ou 3. On ouvre la 3, et on apprend que Castor ne peut être que sous la porte 2. On ouvre la 2, et si Castor n'est pas là, on apprend que notre second hypothèse était fausse.</p>
+        <p>Troisième hypothèse, supposons que Castor était sous la porte 3 au départ. À la 9ème étape, Castor peut être sous la porte 2, 4 ou 6. On peut ouvrir la porte 6, et ensuite Castor est en 1, 3 ou 5, et on applique la même méthode que précédemment (ouvrir puis 5, puis 4, puis 3, puis 2). Ou bien, plus court, on commence par l'autre bout et on ouvre d'abord 2, puis 3, puis 4, puis 5.</p>
+        <p>Regardons les autres hypothèses, et voyons qu'elle se ramènent à des hypothèses qu'on a déjà testées. Si Castor était sous la porte 4 ou 6 au départ, alors à la 5ème étape, Castor était en 1, 3, ou 5; or, on a déjà éliminé cette possibilité. De même, si Castor était sous la porte 5 au départ, alors à la 9ème étape, Castor était en 2, 4, ou 6, mais on a déjà éliminé cette possibilité.</p>
+        <p>En résumé, il faut ouvrir deux séquences de 4 portes sur le 3ème tunnel, dans un certain ordre.</p>
+        <p><b>Sur le tunnel 3, on ouvre les portes 5, 4, 3, 2, 2, 3, 4, 5.</b>  On trouve ainsi Castor à tous les coups en 10 étapes.</b>
+        </li>
+        </ol>
+
+      <!-- <h2>C'est de l'informatique !</h2>-->
+  </div> <!-- task-solution -->
+</body>
+</html>

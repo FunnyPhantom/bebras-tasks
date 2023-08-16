@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-05-shape-building</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-05-shape-building/",
+       "language": "fr",
+       "version": "fr.01",
+       "authors": "Marielle Léonard, France-ioi, dev by Nir Lavee",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         introTitle: "Votre mission",
+         missingError: "Il manque la forme entourée en rouge.",
+         extraError: "La forme entourée en rouge ne correspond pas au modèle.",
+         suboptimal: function(level) {
+			var str = "<p>Vous avez réussi, mais vous pouvez utiliser moins d'étapes.</p>";
+			if (level == "basic") {
+			   str += "<p>Pour cela, créez cette forme et ajoutez-la à la réserve : </p><center><img src='basic_shape.png'/></center>";
+			}
+			str += "<p>Cliquez sur recommencer pour réessayer.</p>";
+			return str;
+		 },
+         success: "Bravo, vous avez réussi !",
+         moveLimit: "Vous avez placé le maximum de formes autorisé. Vous pouvez annuler des formes déjà placées ou recommenccer.",
+         undo: "Annuler",
+         clearGrid: "Vider la grille",
+         addToLibrary: "Ajouter à la réserve",
+         placedShapes: "étapes",
+         targetSteps: function(numSteps) {
+            return "Objectif :\n" + numSteps + " étapes";
+         },
+         badOrderShape: "La forme entouréee en rouge devrait être sous une autre forme.",
+         libraryTitle: "Réserve :",
+         targetTitle: "Objectif :",
+         dragOnGridError: "Placez la forme sur la grille ci-dessous",
+         addToLibHint: "Créez cette forme et ajoutez-la à la réserve : </p><center><img src='basic_shape.png'/></center>"
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+
+      #solutionImages img {
+         height: 200px;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Constructions de formes</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div style="margin-right:10px">
+                <p><strong>Reproduisez le modèle</strong> en glissant des formes de la réserve dans la grille de gauche.</p>
+				<p><strong>Pour utiliser moins d'étapes</strong>, créez des formes et ajoutez-les à la réserve pour pouvoir les réutiliser.</span></p>
+				<p class="medium hard"><strong>Faites tourner les formes</strong> : cliquez sur les boutons bleus près de la réserve.</strong></p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="rotateIcon" style="display:none" class="convert-base64">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+      <h2>It's infromatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

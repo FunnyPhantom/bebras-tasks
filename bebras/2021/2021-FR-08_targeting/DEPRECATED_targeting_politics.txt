@@ -1,0 +1,93 @@
+
+Renard sent qu'il va lui manquer quelques voix pour se faire ré-élire président,
+et que la Chouette qui va gagner, mais il a un plan.
+
+Il va utiliser la loi "ceux qui trichent avec les impôts n'ont pas le droit de voter",
+et chercher des tricheurs uniquement parmi ceux qui semblent préférer la Chouette.
+
+Trouvez les animaux qui ont :
+- visité davantage de fois le site internet de la Chouette que celui de Renard.
+- payé moins de 100 grains de blé d'impôts
+- voyagé au moins une fois sur une île (paradisiaque!)
+
+
+[3 tables côte à côte; ci-dessous exemple de données ne correspondant pas à une instance particulière]
+
+
+Fichier de paiement des impôts
+------------------
+Nom       Montant
+------------------
+Castor     235
+Blaireau    19
+Belette     89
+Chouette   245
+Lion        10
+
+(Fichier de sécurité des aéroports)
+Liste des voyages effectués depuis l'aéroport
+-----------------------------------------
+Date   Nom       Téléphone  Destination
+-----------------------------------------
+15/12  Chouette   5435      Ile de Yesrej
+07/08  Lion       3636      Pays grand
+05/10  Belette    6874      Ile de Etlam
+07/10  Lion       3636      Pays haut
+16/10  Belette    6874      Ile Mancaï
+18/03  Blaireau   6674      Ile de Etlam
+24/10  Belette    6874      Pays grand
+
+Fichier de surveillance Internet
+--------------------------------------------
+Téléphone     Site      Nombre de visites
+--------------------------------------------
+5435     Chouette.org     2
+5435     Renard.org       4
+3636     Chouette.org     8
+6874     Renard.org       4
+3636     Renard.org       4
+6874     Renard.org       1
+6674     Chouette.org     8
+
+
+===================================================
+[idées floues sur les instances]
+===================================================
+Version facile:
+
+Cocher les checkboxes correspondant aux sous-ensemble des animaux à cibler.
+Feedback en cas d'erreur, du type (dans cet ordre là de priorité):
+- vous avez oublié au moins un animal
+- vous avez coché un animal qui a payé plus de 100 grains d'impôts
+- vous avez coché un animal qui n'a pas consulté davantage de fois le site de la Chouette que celui de Renard
+- vous avez coché un animal qui n'a jamais été sur une île.
+
+Version moyenne:
+(comme facile avec plus d'animaux ?)
+
+Version difficile:
+(exprimer une requête sql en utilisant des flèches ?)
+
+On pourrait le faire si on avait le schéma
+----------------------------------------------------------------------
+Téléphone   NbVisites sur Chouette.org   NbVisites sur Renard.org
+----------------------------------------------------------------------
+On pourrait exprimer avec des flèches les contraintes souhaitées, en reliant les boites :
+- des opérateurs arithmétiques <, <=, et =, >, >=
+- l'opérateur de chaîne "commence par île"
+- les constantes 0 et 1 et 2 et 100
+- une étiquette pour chaque champ de chaque table.
+
+Avec les flèches
+  impots.montant < 100
+  impots.noms = trajets.nom
+  trajets.destination <--> commence par île
+  NbVisites sur Chouette.org > NbVisites sur Renard.org
+
+Mais sur la table de surveillance internet proposé plus haut,
+il faut faire des SELECT WHERE, et ça ne se fait pas avec des flèches.. une idée?
+
+
+
+
+

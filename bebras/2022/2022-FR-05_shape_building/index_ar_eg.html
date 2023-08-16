@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html dir="rtl" align="right"></html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-05-shape-building</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-05-shape-building/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "TODO",
+       "translators": ["TODO"],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         introTitle: "المهمة المطلوبة",
+         missingError: "الشكل المحاط باللون الأحمر غير موجود في النموذج المستهدف.",
+         extraError: "الشكل المحاط باللون الأحمر لا يطابق النموذج المستهدف.",
+         suboptimal: function(level) {
+			var str = "<p>لقد نجحت، ولكن كان من الممكن أن تستخدم عدد أقل من الخطوات.</p>";
+			if (level == "basic") {
+			   str += "<p>في هذا المستوى، قم بإنشاء شكل وأضفه للمكتبة: </p><center><img src='basic_shape.png'/></center>";
+			}
+			str += "<p>اضغط على ابدأ من جديد كي تحاول مرة اخرى.</p>";
+			return str;
+		 },
+         success: "تهانينا، لقد نجحت!",
+         moveLimit: "لقد وضعت الحد الأقصى من الأشكال المسموح وضعها، يمكنك التراجع عن بعض الأشكال التي وضعتها أو الضغط على ابدأ من جديد.",
+         undo: "تراجع",
+         clearGrid: "أفرغ الشبكة",
+         addToLibrary: "أضف للمكتبة",
+         placedShapes: "خطوات",
+         targetSteps: function(numSteps) {
+            return "المستهدف:\n" + numSteps + " خطوات";
+         },
+         badOrderShape: "الشكل المحاط باللون الأحمر يجب أن يكون تحت شكل آخر.",
+         libraryTitle: "المكتبة:",
+         targetTitle: "النموذج المستهدف:",
+         dragOnGridError: "ضع الشكل في الشبكة أدناه",
+         addToLibHint: "أنشئ هذا الشكل و أضفه للمكتبة: </p><center><img src='basic_shape.png'/></center>"
+      };
+	  var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+      }
+
+      #solutionImages img {
+         height: 200px;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>بناء الأشكال</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div style="margin-right:10px">
+                <p><strong>أعد إنشاء النموذج المستهدف</strong> عن طريق سحب الأشكال من المكتبة ليسار الشبكة.</p>
+				<p><strong>كي تستخدم عدد أقل من الخطوات</strong>، أنشئ بعض الأشكال و أضفها للمكتبة كي تتمكن من إعادة استخدامها.</span></p>
+				<p class="medium hard"><strong>قم بتدوير الأشكال</strong>: اضغط على الأزرار الزرقاء بالقرب من المكتبة.</strong></p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="rotateIcon" style="display:none" class="convert-base64">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>الحل</h2>
+
+      <h2>إنه علم الحاسوب!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

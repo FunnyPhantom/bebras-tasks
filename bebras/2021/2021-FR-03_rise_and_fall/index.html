@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>20210-FR-03_rise_and_fall</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*,'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         steps: function(maxSteps) {
+            if (maxSteps > 1) {
+               return "étapes";
+            } else {
+               return "étape";
+            }
+         },
+         // DEPRECATED target: "Objectif :",
+         undo: "Annuler",
+         moveHandle: "Déplacez les deux poignées oranges avant d'appuyer sur une des flèches.",
+         tooManySteps: function(max) {
+            var str = "Vous ne pouvez pas faire plus de "+max+" étape";
+            if (max > 1) {
+               str += "s";
+            }
+            str += ".";
+            return str;
+         },
+         errorLimitLow: "Les cases en rouge ne contiennent pas de cube et ne peuvent pas être descendues.",
+         errorLimitHi: function(maxHeight) {
+            return "Il n'est pas possible de monter plus haut que " + maxHeight + " cubes de hauteur.";
+         },
+         errorColumn: "La partie rouge ne correspond pas au modèle.",
+         errorSteps: "Vous avez reproduit le modèle mais il est possible de réussir avec moins d'étapes."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Des hauts et des bas</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Faites glisser les poignées orange pour sélectionner une zone.
+            <p>Cliquez sur 
+            <span class="basic">le</span><span class="easy medium hard">un</span> bouton avec une flèche pour faire monter <span class="easy medium hard">ou descendre</span> la zone sélectionnée.</p>
+            <p class="medium hard">Pour pouvoir descendre, il faut qu'il y ait des cubes dans toute la zone sélectionnée.</p>
+            <p>Reproduisez le modèle ci-dessous en <b><span id="minSteps"></span> étape<span class="easy medium hard">s</span></b><span class="hard"> pour avoir tous les points</span>&nbsp;:</p>
+            <center><div id="paperTarget"></div></center>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      
+        <div class="basic">
+        <img src="sol_basic1.png"><br/>
+        Puis flèche du haut.<br/>
+        </div>
+        <div class="easy">
+        <img src="sol_easy1.png"><br/>
+        Puis flèche du haut.<br/>
+        <img src="sol_easy2.png"><br/>
+        Puis flèche du bas.<br/>
+        </div>
+        <div class="medium">
+        <img src="sol_medium1.png"><br/>
+        Puis flèche du haut.<br/>
+        <img src="sol_medium2.png"><br/>
+        Puis flèche du bas.<br/>
+        <img src="sol_medium3.png"><br/>
+        Puis flèche du haut.<br/>
+        <img src="sol_medium4.png"><br/>
+        Puis flèche du bas.<br/>
+        </div>
+        <div class="hard">
+        <img src="sol_hard1.png"><br/>
+        Puis flèche du haut.<br/>
+        <img src="sol_hard2.png"><br/>
+        Puis flèche du bas.<br/>
+        <img src="sol_hard3.png"><br/>
+        Puis flèche du haut.<br/>
+        <img src="sol_hard4.png"><br/>
+        Puis flèche du bas.<br/>
+        <img src="sol_hard5.png"><br/>
+        Puis flèche du haut.<br/>
+        <img src="sol_hard6.png"><br/>
+        Puis flèche du bas.<br/>
+        <img src="sol_hard7.png"><br/>
+        Puis flèche du haut.<br/>
+        <img src="sol_hard8.png"><br/>
+        Puis flèche du bas.<br/>
+        </div>
+
+      <!-- <h2>C'est de l'informatique !</h2>-->
+
+  </div> <!-- task-solution -->
+</body>
+</html>

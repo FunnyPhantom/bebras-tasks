@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+   <meta charset="utf-8">
+   <title>2021-AT-03_NewYork</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', /*'grid-1.1',*/
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1','drag_lib-2.0', 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "ar",
+       "version": "en.01",
+       "authors": "Inspiration: Beaver-AT-03; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Legrand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "تهانينا، لقد نجحت!",
+         cancel: "توقف",
+         labels: "الصور اللاصقة:",  
+         turn: function(dir) {
+            var msg = "انعطف \n";
+            msg += (dir == 0) ? "لليمين" : "لليسار";
+            return msg
+         },
+         limitReached: function(maxSigns) {
+            var str = "لا يمكنك استخدام أكثر من " + maxSigns + " صورة لاصقة";
+            if (maxSigns > 1) {
+               str += "s";
+            }
+            str += ".";
+            return str;
+         },
+         startTaxis: function(nbTaxis) {
+            if (nbTaxis > 1) {
+               return "ابدأ رحلة التاكسي";
+            }
+            else {
+               return "ابدأ رحلة التاكسي";
+            }
+         },
+         errorCrash: "حادث: لقد اصطدمت سيارتي تاكسي!",
+         errorOut: "خرجت سيارة التاكسي من حدود المدينة دون أن تصل للقندس!",
+         errorNbSigns: "حاول الآن أن تستخدم عدد أقل من الصور اللاصقة"
+      };
+      var enableRtl = true;
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>نيويورك</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p class="basic">قم بتحريك واحدة من الصور اللاصقة ووضعها <strong>في إحدى تقاطعات الطرق في الصورة </strong> لجعل سيارة التاكسي تنعطف</p>
+            <p class="easy">قم بتحريك <strong>إثنتين من الصور اللاصقة</strong> ووضعها في تقاطعات الطرق في الصورة لجعل سيارة التاكسي تنعطف</p>
+            <p class="medium hard">قم بتحريك <strong><span class="medium">اثنتين من</span><span class="hard">ثلاث من</span> الصور اللاصقة</strong> ووضعها في تقاطعات الطرق في الصورة لجعل سيارة التاكسي تنعطف</p>
+            
+            <p><span class="basic easy"><b>قم بإيصال سيارة التاكسي للقندس </b></span>
+            <span class="medium hard"><b>قم بإرسال سيارة تاكسي لكل قندس</b></span>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="assets/Immeuble-1.png" style="display:none" id="block1">
+         <img src="assets/route.png" style="display:none" id="street">
+         <img src="assets/taxi.png" style="display:none" id="taxi">
+         <img src="assets/head.png" style="display:none" id="head">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

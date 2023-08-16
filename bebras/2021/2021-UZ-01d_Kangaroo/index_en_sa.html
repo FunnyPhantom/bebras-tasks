@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-UZ-01d_kangaroo</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Congratulations, you succeded!",
+         move: "Move",
+         draw: "Draw",
+         useJoker: "Use your joker\nto move to this cell?",
+         yes: "Yes",
+         no: "No",
+         undo: "Undo",
+         joker: "Joker",
+         jokerAvailable: function(used) {
+            if(used){
+               return "zero joker remaining"
+            }
+            return "one joker remaining"
+         },
+         cannotMove: function(type) {
+            if(type == 0){
+               return "You have already used your joker. You can't move to an identical cell. Undo or restart if you are stuck.";
+            }else if(type == 1){
+               return "Beaver can't move diagonally.";
+            }else{
+               return "Beaver can only move to cells around him."
+            }
+         },
+         errorLastPos: "Beaver didn't reach the flag."
+      };
+      var threeVersions = true;
+   </script>
+    <script type="text/javascript" src="raphael.sketchpad.js"></script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #zone_2 {
+         position: relative;
+      }
+      #canvas {
+         touch-action: none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Kangaroo</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Click on the cells to bring Beaver to the flag.</p>
+
+            <p>He can move to a neighbor cell, only if its content is different from its own cell.</p>
+            
+            <p><strong>He may use a joker, to move one time to an identical cell</strong>.<p>
+            
+            <p class="hard"><strong>To help you, you can draw on the grid.</strong></p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="canvas"></div>
+            <div id="error"></div>
+            <div id="popup"></div>
+         </div>
+         <img src="../../../_common/modules/img/beaver_head_circle.png" style="display:none" id="beaver">
+         <img src="assets/stone.png" style="display:none" id="stone">
+         <img src="assets/lilypad.png" style="display:none" id="lilypad">
+         <img src="assets/raft.png" style="display:none" id="raft">
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

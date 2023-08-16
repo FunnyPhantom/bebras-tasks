@@ -1,0 +1,5 @@
+
+
+Chaque abeille doit respecter une/des règles de placement.
+Ces règles sont expliquées dans l'/les illustrations.
+Placez toutes les abeilles dans la ruche.

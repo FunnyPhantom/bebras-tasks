@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-tunnels</title>
+   <script>
+      window.stringsLanguage = 'fi';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "fi",
+       "version": "fi.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": "Heikki Hyyrö",
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Onnittelut, ratkaisit tämän version!",
+         click: "Klikkaa ensin ainakin yhtä ovea tarkistaaksesi, onko sen takana majava.",
+         nbClicks: function(nb,max) {
+            return "Avauksia: "+nb+" / "+max;
+         },
+         replay: "Toista uudelleen...",
+         noBeaver: "Ei ollut majavaa",
+         clickRetry: "Katsoit, miten majava liikkui, joten sinun täytyy aloittaa uudelleen alusta.",
+         notFound: "Et löytänyt majavaa. Katso, miten se liikkui, ja yritä uudelleen.",
+         watchBeaver: "Näytä, miten majava liikkui.",
+         errorNotFound: "Et löytänyt majavaa.",
+         errorSteps: "Löysit majavan, mutta avasit ovia turhan monta kertaa. Etsi parempi ratkaisu saadaksesi täydet pisteet."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Löydä majava</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>Alkutilanteessa majava on jonkin tumman oven takana.</p>
+            <p>Yritä löytää majava klikkailemalla ovia.</p>
+            <p><strong>Sääntö:</strong> klikkaamasi ovi aukeaa hetkeksi. Ellet löytänyt majavaa, majava liikkuu tämän jälkeen yhden askeleen vasemmalle tai oikealle.</p>
+            <p>Saat täydet pisteet, jos löydät majavan <b>korkeintaan <span id="minSteps"></span> oven klikkauksella</b>.</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <!-- <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none"> -->
+         <img src="../../../_common/modules/img/castor_transparent.png" id="beaver" style="display:none">
+         <img src="assets/wall.png" id="wall" style="display:none">
+         <img src="assets/wall_start.png" id="wall_start" style="display:none">
+         <img src="assets/inside.png" id="inside" style="display:none">
+         <img src="assets/inside_end.png" id="inside_end" style="display:none">
+         <img src="assets/lid_open.png" id="lid_open" style="display:none">
+         <img src="assets/lid_closed.png" id="lid_closed" style="display:none">
+         <img src="assets/dark_lid_open.png" id="dark_lid_open" style="display:none">
+         <img src="assets/dark_lid_closed.png" id="dark_lid_closed" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Ratkaisu</h2>
+      <h2>Tämä on tietojenkäsittelyä!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-tunnels</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Congratulations, you succeded!",
+         click: "Click on a door to check if Beaver is hiding underneath it.",
+         nbClicks: function(nb,max) {
+            return "Number of openings: "+nb+" / "+max;
+         },
+         replay: "Replay...",
+         noBeaver: "No Beaver here",
+         clickRetry: "Click on restart to try again.",
+         notFound: "You have not found Beaver. Look at how it moved, then restart.",
+         watchBeaver: "Look at how Beaver moved",
+         errorNotFound: "You have not found Beaver.",
+         errorSteps: "You have found Beaver, but it is possible to find it by opening fewer doors."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Tunnels</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>At the beginning, Beaver is hiding behind one of the dark doors.</p>
+            <p>Try to find it by opening doors.. </p>
+            <p><strong>Warning</strong>, after a door closes, Beaver moves either one cell to the right, or one cell to the left.</p>
+            <p>To obtain all the points, find Beaver in <b><span id="minSteps"></span> openings</b>.</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <!-- <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none"> -->
+         <img src="../../../_common/modules/img/castor_transparent.png" id="beaver" style="display:none">
+         <img src="assets/wall.png" id="wall" style="display:none">
+         <img src="assets/wall_start.png" id="wall_start" style="display:none">
+         <img src="assets/inside.png" id="inside" style="display:none">
+         <img src="assets/inside_end.png" id="inside_end" style="display:none">
+         <img src="assets/lid_open.png" id="lid_open" style="display:none">
+         <img src="assets/lid_closed.png" id="lid_closed" style="display:none">
+         <img src="assets/dark_lid_open.png" id="dark_lid_open" style="display:none">
+         <img src="assets/dark_lid_closed.png" id="dark_lid_closed" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>It's informatics!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

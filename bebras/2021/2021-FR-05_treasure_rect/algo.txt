@@ -1,0 +1,39 @@
+
+
+À chaque clic de l'utilisateur sur une case de la grille, il faut choisir parmi :
+- [N]: pas de temple sur cette case
+- [Y]: une partie de temple sur cette case
+- [G] c'est gagné (entrée du temple en bas à gauche).
+
+On va maintenir une grille des positions possibles pour l'entrée du temple.
+À chaque clic, on va simuler la grille des positions possibles qu'on obtiendrait
+si on donnait la réponse [N] ou [Y].
+L'adversaire que l'on veut coder est celui qui maximise toujours le nombre
+de positions possibles restantes pour l'entrée du temple.
+
+On pourrait chercher à ruser en maintenant en plus d'une grille le compteur
+de case libre, et éviter des copies de grilles, mais vu la taille de la grille
+il n'y a pas besoin de s'embêter.
+
+
+- grille = tableau booléen des positions possibles pour le coin du temple.
+- nbTrue(grille) : fonction qui compte le nombre de "true" dans une grille
+- grille initiale = que des "true"
+- answerNo(grille, x, y): retourne une nouvelle grille, copie de l'originale
+   mais avec des "false" écrits sur une zone de la dimension du temple, avec
+   le coin en haut à droite à la position (x,y).
+- answerYes(grille, x, y): retourne une nouvelle grille, copie de l'originale
+   mais avec des "false" écrits partout en dehors de la zone de la dimension du
+   temple, avec le coin en haut à droite à la position (x,y), et aussi un
+   "false" sur la case (x,y).
+
+- chooseAnswer(grille, x, y) : retourne [N] ou [Y] ou [G] avec la règle suivante
+     nbNo = nbTrue(answerNo(grille, x, y))
+     nbYes = nbTrue(answerYes(grille, x, y))
+     if (nbNo == 0 && nbYes == 0)
+       return [G]
+     else if (nbNo > nbYes)
+       return [N]
+     else
+       return [Y]
+

@@ -1,0 +1,244 @@
+
+s'il y a des tables où il apparaît plusieurs fois, oui effectivement il faut que je spécifie mieux
+
+à part ça, ça me semble bien, je pense qu'il faudra clarifier la signification de la table des amitiés
+
+=================================================
+TRIVIAL
+
+Castor veut trouver à qui envoyer des publicités pour son restaurant.
+
+Cliquez sur les noms des animaux qui sont venus au restaurant au mois de mai.
+
+------------------------------------------------
+Registre du restaurant de Castor
+------------------------------------------------
+Date       Nom
+------------------------------------------------
+20 février Souris
+ 4 mars   Renard
+ 5 mars   Souris
+ 5 mars   Renard
+12 mars   Blaireau
+ 6 mai    Belette
+ 8 mai    Chouette
+12 mai    Lion
+18 mai    Chouette
+24 mai    Renard
+18 juin   Chouette
+23 juin   Lion
+30 juin   Hiboux
+
+
+==> on peut cliquer sur les lignes qu'on veut, ça les highlight en jaune.
+==> on peut sélectionner plusieurs fois un même animal, mais ce n'est pas obligé
+==> si solution incorrecte (erreurs à tester dans cet ordre là)
+      - "Vous avez oublié un ou plusieurs animaux qui sont venus en mai".
+      - "Vous avez sélectionné un animal qui n'est pas venu en mai".
+
+
+
+=================================================
+EASY
+
+Castor veut trouver à qui envoyer des publicités pour son restaurant.
+
+Cliquez sur les noms des animaux qui ont été au restaurant au mois de mai mais pas au mois de juin.
+
+------------------------------------------------
+Registre du restaurant de Castor
+------------------------------------------------
+Date       Nom
+------------------------------------------------
+20 février Souris
+ 4 mars   Renard
+ 5 mars   Souris
+ 5 mars   Renard
+12 mars   Blaireau
+ 6 mai    Belette
+ 8 mai    Chouette
+12 mai    Lion
+18 mai    Chouette
+24 mai    Renard
+28 mai    Hérisson
+18 juin   Chouette
+23 juin   Lion
+30 juin   Hiboux
+ 1 juillet Hérisson
+ 3 juillet Lion
+ 5 juillet Souris
+ 7 juillet Belette
+
+==> solution : cliquer sur tous les animaux qui ont été en 2020,
+    puis déselectionner ceux que l'on retrouve pendant l'énumération 2021.
+==> si solution incorrecte (erreurs à tester dans cet ordre là)
+      - "Vous avez oublié un ou plusieurs animaux qui sont venus en mai".
+      - "Vous avez sélectionné un animal qui n'est pas venu en mai".
+      - "Vous avez sélectionné un animal qui est venu en juin".
+
+
+=================================================
+MEDIUM
+
+Castor veut trouver à qui envoyer des publicités pour son restaurant.
+
+Cliquez pour mettre en jaune les numéros de téléphones des animaux :
+- qui n'ont pas venus au restaurant de Castor en juin ou juillet
+- et qui se trouvent à côté du restaurant, c'est-à-dire à une distance du
+  barrage comprise entre 13 km et 20 km.
+
+------------------------------------------------
+Registre du restaurant de Castor
+------------------------------------------------
+Date       Nom        Téléphone
+------------------------------------------------
+20 février Souris    06 56
+ 4 mars   Renard     06 23
+ 5 mars   Souris     06 56
+ 5 mars   Renard     06 23
+12 mars   Blaireau   06 19
+ 6 mai    Belette    06 54
+ 8 mai    Chouette   06 78
+12 mai    Lion       06 32
+18 mai    Chouette   06 78
+24 mai    Renard     06 23
+28 mai    Hérisson    06 11
+18 juin   Chouette    06 78
+23 juin   Lion        06 32
+ 1 juillet Hérisson   06 11
+ 3 juillet Lion      06 32
+ 5 juillet Souris    06 56
+ 7 juillet Belette   06 54
+
+
+------------------------------------------------
+Données de géolocalisation
+------------------------------------------------
+Téléphone     Distance depuis le barrage
+------------------------------------------------
+06 03       3
+06 11      14
+06 19      18
+06 23      16
+06 28      17
+06 32      22
+06 44      15
+06 54      19
+06 56       8
+06 78      23
+06 82      17
+
+==> on peut cliquer sur les lignes qu'on veut, dans les deux tables
+    sur la première table, ça fait du highlight bleu clair
+    sur la seconde table, ça fait du highlight jaune clair
+
+==> solution :
+    cliquer sur tous les numéros à la bonne distance dans la seconde table,
+    puis retirer les numéros que l'on trouve dans la de la première table en juin ou juillet
+
+==> si solution incorrecte (erreurs à tester dans cet ordre là)
+      - "Il vous manque des numéros de téléphone".
+      - "Vous avez selectionné un numéro de téléphone qui n'est pas situé à la bonne distance".
+      - "Vous avez sélectionné le numéro d'un animal qui est déjà venu au restaurant".
+
+
+=================================================
+HARD
+
+Castor veut trouver à qui envoyer des publicités pour son restaurant.
+
+Cliquez pour mettre en jaune les numéros de téléphones des animaux :
+- qui n'ont pas venus au restaurant de Castor en juin ou juillet
+- qui ne sont pas amis avec des animaux ayant déjà été au restaurant de Castor en juin ou juillet
+- qui se trouve à côté du restaurant, c'est-à-dire à une distance du barrage comprise entre 13 km et 20 km
+
+
+------------------------------------------------
+Registre du restaurant de Castor
+------------------------------------------------
+Date       Nom        Téléphone
+------------------------------------------------
+
+5 février  Chat   06 03
+9 février  Ours  06 44
+18 février  Biche  06 82
+20 février Souris    06 56
+ 4 mars   Renard     06 23
+ 5 mars   Souris     06 56
+ 5 mars   Renard     06 23
+7 mars     Chien  06 19
+12 mars   Blaireau   06 19
+ 6 mai    Belette    06 54
+ 8 mai    Chouette   06 78
+12 mai    Lion       06 32
+18 mai    Chouette   06 78
+24 mai    Renard     06 23
+28 mai    Hérisson    06 11
+17 juin    Rat    06 28
+18 juin   Chouette    06 78
+23 juin   Lion        06 32
+ 1 juillet Hérisson   06 11
+ 3 juillet Lion      06 32
+ 5 juillet Souris    06 56
+ 7 juillet Belette   06 54
+
+
+------------------------------------------------
+Données de géolocalisation
+------------------------------------------------
+Téléphone     Distance depuis le barrage
+------------------------------------------------
+06 03       3
+06 11      14
+06 19      18
+06 23      16
+06 28      17
+06 32      22
+06 44      15
+06 54      19
+06 56       8
+06 78      23
+06 82      17
+
+------------------------------------------------
+Données du réseau social CastorBook
+------------------------------------------------
+Nom d'un animal     Nom d'un ami de cet animal
+------------------------------------------------
+Belette    Castor
+Blaireau   Chien
+Blaireau   Blaireau
+Castor     Renard
+Castor     Lion
+Castor     Belette
+Chat       Chien
+Chien      Chat
+Chouette   Renard
+Hérisson   Souris
+Lion       Castor
+Lion       Chouette
+Renard     Lion
+Renard     Chouette
+Renard     Castor
+Souris     Rat
+Rat        Souris
+Souris     Hérisson
+
+
+==> highlight en vert clair dans la 3ème table
+
+==> mettre des <br> dans les titres pour que les 3 tables tiennent bien en largeur
+
+==> solution :
+    idem que moyen pour récupérer les téléphones
+    puis trouver les noms associés à ces téléphones,
+    et pour chaque noms sélectionnés, highlighter les amis,
+    puis pour chaque ami sélectionné, aller retrouver leur
+    téléphone dans la table 1 pour le retirer de la table 2.
+
+==> il faudra vérifier en jouant le nombre de réponse restantes,
+      on peut facilement ajuster la table des amis si besoin.
+
+
+
+

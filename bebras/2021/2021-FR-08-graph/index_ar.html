@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8"></meta>
+   <title>2021-FR-09-graph</title>
+   <script>
+      window.stringsLanguage = 'ar';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', //'grid-1.0',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1',/*'drag_lib-2.0',*/ 
+         'graph-1.0','visual-graph-1.1','graph-mouse-1.2'
+      ]);
+   </script>
+   <script class="remove" type="text/javascript">
+      var json = {
+         "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
+         "language": "en",
+         "version": "en.01",
+         "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
+         "translators": [],
+         "license": "",
+         "taskPathPrefix": "",
+         "modulesPathPrefix": "",
+         "browserSupport": [],
+         "fullFeedback": true,
+         "acceptedAnswers": [],
+         "usesRandomSeed": false
+       };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         errorNbShapes: function(id) {
+            var shape = (id == 0) ? "castors" : "renards";
+            return "Le nombre de "+shape+" n'est pas le bon."
+         },
+         errorEdge: function(shape1,shape2) {
+            var shapeStr = ["castor","renard"];
+            return "Le chemin en rouge amène un "+shapeStr[shape1]+" vers un "+shapeStr[shape2]+".";
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+         touch-action: none;
+      }
+      #displayHelper_graderMessage, #error {
+         color: red;
+         font-weight: bold;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="task">
+      <h1>Graph</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div class="consigne">
+               <p>
+                ضع
+                  <strong>
+                     <span class="basic">ثعلبًا و قندسا</span>
+                     <span class="easy">ثعلبين و 3 قنادس </span>
+                     <span class="medium">3 ثعالب و 4 قنادس </span>
+                     <span class="hard"> 7 ثعالب و 8 قنادس</span>
+                  </strong>
+                  في دوائر من خلال النقر عليهما لتغيير محتواهما               </p>
+               <p class="basic">
+                يجب ألا يتمكن القندس من الوصول إلى الثعلب باتباع الأسهم.               </p>
+               <p class="basic">
+                يجب ألا يتمكن الثعلب من الوصول إلى القندس باتباع الأسهم.               </p>
+               <p class="easy medium hard">
+                يجب ألا يتمكن الثعلب من الوصول إلى القندس باتباع الأسهم.               </p>
+               <p class="easy medium hard">
+                يجب ألا يتمكن الثعلب من الوصول إلى القندس باتباع الأسهم.               </p>
+               <p class="medium hard">
+                  <strong>يمكنك تحريك الدوائر.</strong>
+               </p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+      </div>
+      <img src="icon.png" style="display:none">
+      <img src="fox.png" style="display:none" id="square">
+      <!-- Author of original fox image: Twitter
+      Creative Commons Attribution 4.0 International Public License
+      https://creativecommons.org/licenses/by/4.0/
+      -->
+      <img src="../../../_common/modules/img/beaver_head.png" style="display:none" id="triangle">
+   </div>
+
+   <!-- task -->
+
+   <div id="solution">
+      
+   </div>
+   <!-- task-solution -->
+</body>
+
+</html>

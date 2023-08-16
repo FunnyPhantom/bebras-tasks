@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-05-shape-building</title>
+   <script>
+      window.stringsLanguage = 'fi';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-05-shape-building/",
+       "language": "fi",
+       "version": "fi.01",
+       "authors": "Marielle Léonard, France-ioi, dev by Nir Lavee",
+       "translators": "Heikki Hyyrö",
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+      var taskStrings = {
+         introTitle: "Tehtävänanto",
+         missingError: "Punaisella merkitty kuvio puuttuu.",
+         extraError: "Punaisella merkitty kuvio on väärin.",
+         suboptimal: function(level) {
+			var str = "<p>Löysit ratkaisun, mutta suoritit turhan monta raahausta.</p>";
+			if (level == "basic") {
+			   str += "<p>Luo ensin tämä yhdistelmä ja lisää se varastoon: </p><center><img src='basic_shape.png'/></center>";
+			}
+			str += "<p>Klikkaa Aloita alusta ja yritä uudelleen.</p>";
+			return str;
+		 },
+         success: "Onnittelut, ratkaisit tämän version!",
+         moveLimit: "Olet jo suorittanut maksimimäärän kuvioiden raahauksia. Voit joko perua tekemisiä askeleita tai aloittaa uudelleen alusta.",
+         undo: "Peru",
+         clearGrid: "Tyhjennä ruudukko",
+         addToLibrary: "Kopioi sisältö varastoon",
+         placedShapes: "raahausta",
+         targetSteps: function(numSteps) {
+            return "Yritä selvitä\n" + numSteps + " raahauksella.";
+         },
+         badOrderShape: "Punaisella merkitty kuvio on väärin.",
+         libraryTitle: "Varasto:",
+         targetTitle: "Tavoite:",
+         dragOnGridError: "Raahaa kuvio vasemmanpuoleiseen ruudukkoon.",
+         addToLibHint: "Luo ensin tämä yhdistelmä ja lisää se varastoon: </p><center><img src='basic_shape.png'/></center>"
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+
+      #solutionImages img {
+         height: 200px;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Kuvioiden kopiointi</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <div style="margin-right:10px">
+                <p>Raahaa vasempaan ruudukkoon kuvioita varastosta niin, että <strong>vasen ruudukko tulee samanlaiseksi kuin tavoiteruudukko</strong>.</p>
+				<p><strong>Voit selvitä pienemmällä raahausmäärällä</strong>, jos kopioit vasemman ruudukon sisällön välillä varastoon.</span></p>
+				<p class="medium hard"><strong>Voit kiertää varaston kuvioita vasta- tai myötäpäivään</strong> klikkaamalla nuolinappeja.</strong></p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="rotateIcon" style="display:none" class="convert-base64">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Ratkaisu</h2>
+      <h2>Tämä on tietojenkäsittelyä!</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

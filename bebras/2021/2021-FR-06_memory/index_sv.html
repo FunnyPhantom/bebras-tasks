@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-06_memory</title>
+   <script>
+      window.stringsLanguage = 'sv';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "sv",
+       "version": "fr.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, du klarade det!",
+         avatar: "Hitta en bild med ",
+         habitation: "Hitta en text: namnet på Minnas boplats",
+         dimensions: "Hitta två tal: antalet kolumner och rader för bilden",
+         image: "Bild med storlek",
+         fixedImage: "bild",
+         height: "kolumner och ",
+         width: "rader",
+         textEasy: "Dammen vid StoraSjön",
+         textMedium: "Hålan bredvid LugnaBäcken",
+         textHard: "Under RödÄppelträdet",
+         
+         imageDimensions: function(w,h) {
+            return "Hitta en bild med "+w+" kolumner och "+h+" rader, omgiven av en svart ram.";
+         },
+         text: "text",
+         twoInt: "två heltal (bredd, höjd)",
+         errorMemSize: function(field) {
+            var fieldStr = [ "Boplats", "Foto", "Bildens storlek" ];
+            return "Minnesområdet för \""+fieldStr[field]+"\" har fel storlek."
+         },
+         errorMemLocation: function(field) {
+            var fieldStr = [ "Boplats", "Foto", "Bildens storlek" ];
+            return "Minnesområdet för \""+fieldStr[field]+"\" är felplacerat."
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>I datorminnet</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>Rutnätet i svart och vitt föreställer minnet i Minnas dator.</p>
+            <p>En del innehåller namnet på hennes boplats.</p>
+            <p class="hard">En annan del innehåller två tal: bredden och höjden på en bild.</p>
+            <p class="easy medium hard"><span class="hard">En tredje</span><span class="easy medium">En annan</span> del innehåller ett foto, i svart ram<span class="basic easy"> :</span><span class="medium hard">.</span></p>
+            <center class="easy"><img src="example_easy.png"></center>
+            <p class="basic">Flytta handtaget för att hitta namnet.</p>
+            <p class="easy medium hard">Flytta handtagen för att hitta dessa områden i minnet.</p>
+            <p class="hard">Klicka på knapparna + och - för att ändra bildens storlek.</p>
+         </div>
+         <div id="zone_2">
+            <p><div style="position:relative;top:15px;left:20px;font-size:18px"><b>Innehåll i datorminnet</b></div></p>
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>

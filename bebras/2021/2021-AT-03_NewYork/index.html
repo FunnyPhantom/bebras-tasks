@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-AT-03_NewYork</title>
+   <script>
+      window.stringsLanguage = 'fr';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', /*'grid-1.1',*/
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1','drag_lib-2.0', 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "fr.01",
+       "authors": "Inspiration: Beaver-AT-03; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Legrand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "Bravo, vous avez réussi !",
+         cancel: "Arrêter",
+         labels: "Étiquettes à glisser :",  
+         turn: function(dir) {
+            var msg = "Tourner à \n";
+            msg += (dir == 0) ? "droite" : "gauche";
+            return msg
+         },
+         limitReached: function(maxSigns) {
+            var str = "Vous ne pouvez pas placer plus de " + maxSigns + " étiquette";
+            if (maxSigns > 1) {
+               str += "s";
+            }
+            str += ".";
+            return str;
+         },
+         startTaxis: function(nbTaxis) {
+            if (nbTaxis > 1) {
+               return "Démarrer les taxis";
+            }
+            else {
+               return "Démarrer le taxi";
+            }
+         },
+         errorCrash: "Accident : deux taxis se sont rentrés dedans !",
+         errorOut: "Un taxi est sorti de la ville sans atteindre un castor.",
+         errorNbSigns: "Essayez maintenant d'utiliser moins d'étiquettes."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>New York</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p class="basic">Glissez une étiquette sur <strong>un des croisements</strong> pour faire tourner le taxi.</p>
+            <p class="easy">Glissez <strong>deux étiquettes</strong> sur des croisements pour faire tourner le taxi.</p>
+            <p class="medium hard">Glissez <strong><span class="medium">deux</span><span class="hard">trois</span> étiquettes</strong> sur des croisements pour faire tourner les taxis.</p>
+            
+            <p><span class="basic easy"><b>Envoyez le taxi vers le castor.</b></span>
+            <span class="medium hard"><b>Envoyez un taxi vers chaque castor.</b></span>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="assets/Immeuble-1.png" style="display:none" id="block1">
+         <img src="assets/route.png" style="display:none" id="street">
+         <img src="assets/taxi.png" style="display:none" id="taxi">
+         <img src="assets/head.png" style="display:none" id="head">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+        <img class="basic" src="sol_basic.png">
+        <img class="easy" src="sol_easy.png">
+        <img class="medium" src="sol_medium.png">
+        <img class="hard" src="sol_hard.png">
+
+      <!--<h2>C'est de l'informatique !</h2>-->
+
+  </div> <!-- task-solution -->
+</body>
+</html>
