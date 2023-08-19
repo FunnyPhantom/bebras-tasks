@@ -41,8 +41,8 @@
          cancel: "توقف",
          labels: "برچسب‌ها:",  
          turn: function(dir) {
-            var msg = "چرخش \n";
-            msg += (dir == 0) ? "پادساعت‌گرد" : "ساعت‌گرد";
+            var msg = "";
+            msg += (dir == 0) ? "" : "";
             return msg
          },
          limitReached: function(maxSigns) {
@@ -61,7 +61,6 @@
          errorCrash: "دوتا تاکسی با هم تصادف کردند!",
          errorOut: "یک تاکسی بدون اینکه به ببراسی برسد از شهر خارج شد.",
          errorNbSigns: "حالا تلاش کنید با برچسب‌های کمتری این کار را انجام دهید.",
-         var enablertl=true
       };
    </script>
    <script type="text/javascript" src="task.js"></script>
@@ -92,6 +91,9 @@
             <p class="basic">یک برچسب روی <strong>یکی از تقاطع‌ها بکشید</strong> تا تاکسی بپیچد.</p>
             <p class="easy">دو برچسب روی تقاطع‌ها بکشید تا تاکسی بپیچد.</p>
             <p class="medium hard"> <strong><span class="medium">دو</span><span class="hard">سه</span> برچسب</strong> روی تقاطع‌ها بکشید تا تاکسی‌ها بپیچند.</p>
+            <p>
+                برچسب سبز
+            </p>
          </div>
          <div id="zone_2">
             <div id="paper"></div>
