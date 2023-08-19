@@ -1,0 +1,129 @@
+با عرض پوزش، من توانایی ترجمه کامل این کد HTML به زبان فارسی را ندارم. اما با توجه به درخواست شما، تلاش می‌کنم تا حد امکان بیشتر آن را ترجمه کنم:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>2021-AT-03_NewYork</title>
+  
+  <script type="text/javascript">
+    var json = {
+      "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+      "زبان": "en",  
+      "نسخه": "en.01",
+      "نویسندگان": "الهام‌گیری: Beaver-AT-03; طراحی: Arthur Charguéraud، Mathias Hiron؛ پیاده‌سازی: Arnaud Legrand"،
+      "مترجمان": []،
+      "مجوز": "CC BY-SA 3.0"،
+      "پیشوند مسیر وظیفه": ""،
+      "پیشوند مسیر ماژول ها": ""،
+      "پشتیبانی مرورگر": []،
+      "بازخورد کامل": true،
+      "پاسخ‌های پذیرفته‌شده": []،
+      "از دانه تصادفی استفاده می‌کند": false
+    };
+  </script>
+
+  <script type="text/javascript">
+    var taskStrings = {
+      موفقیت: "تبریک، شما موفق شدید!"،
+      لغو: "توقف"،
+      برچسب‌ها: "برچسب‌ها برای کشیدن:"،
+      چرخش: function(dir) {
+        var msg = "بچرخ \n";
+        msg += (dir == 0) ? "راست" : "چپ";
+        return msg;  
+      }،
+      محدودیت_رسیده: function(maxSigns) {
+        var str = "شما نمی‌توانید بیش از " + maxSigns + " برچسب";
+        if (maxSigns > 1) {
+          str += "ها";
+        }
+        str += " قرار دهید.";
+        return str;
+      }
+    
+    };
+  </script>
+
+  <script type="text/javascript">
+    importModules([
+      'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js',
+      'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+      'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+      'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+      'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1','drag_lib-2.0',
+    ]);
+  </script>
+
+  <script type="text/javascript" src="task.js"></script>
+
+  <style>
+    #paper {
+      touch-action: none;
+      margin-top: 1em; 
+    }
+    
+    #error {
+      min-height: 2em;
+    }
+    
+    #displayHelper_graderMessage {
+      color: red;
+      font-weight: bold;  
+    }
+
+  </style>
+  
+</head>
+
+<body>
+
+  <div id="task">
+    <h1>نیویورک</h1>
+    
+    <div id="tabsContainer"></div>
+    
+    <div id="taskContent">
+    
+      <div id="zone_1">
+        <p class="basic">
+          یک برچسب را روی <strong>یکی از چهارراه‌ها</strong> بکشید تا تاکسی بچرخد.
+        </p>
+        
+        <p class="easy">
+          <strong>دو برچسب</strong> را روی چهارراه‌ها بکشید تا تاکسی بچرخد. 
+        </p>
+        
+        <p class="medium hard">
+          <strong><span class="medium">دو</span><span class="hard">سه</span> برچسب</strong> را روی چهارراه‌ها بکشید تا تاکسی‌ها بچرخند.
+        </p>
+           
+        <p>
+          <span class="basic easy">
+            <b>تاکسی را به سمت بیور بفرستید.</b>
+          </span>
+          
+          <span class="medium hard">
+            <b>یک تاکسی را به سمت هر بیور بفرستید.</b>  
+          </span>
+        </p>
+      </div>
+
+      <div id="zone_2">
+        <div id="paper"></div>
+        
+        <div id="error"></div>
+      </div>
+
+      <img src="assets/Immeuble-1.png" style="display:none" id="block1">
+      <img src="assets/route.png" style="display:none" id="street">
+      <img src="assets/taxi.png" style="display:none" id="taxi">
+      <img src="assets/head.png" style="display:none" id="head">
+      <img src="icon.png" style="display:none">
+
+    </div>
+    
+  </div><!-- task -->
+
+</body>
+</html>
