@@ -41,8 +41,8 @@
          cancel: "توقف",
          labels: "برچسب‌ها:",  
          turn: function(dir) {
-            var msg = "بپیچ به \n";
-            msg += (dir == 0) ? "راست" : "چپ";
+            var msg = "چرخش \n";
+            msg += (dir == 0) ? "پادساعت‌گرد" : "ساعت‌گرد";
             return msg
          },
          limitReached: function(maxSigns) {
@@ -60,7 +60,8 @@
          },
          errorCrash: "دوتا تاکسی با هم تصادف کردند!",
          errorOut: "یک تاکسی بدون اینکه به ببراسی برسد از شهر خارج شد.",
-         errorNbSigns: "حالا تلاش کنید با برچسب‌های کمتری این کار را انجام دهید."
+         errorNbSigns: "حالا تلاش کنید با برچسب‌های کمتری این کار را انجام دهید.",
+         var enablertl=true
       };
    </script>
    <script type="text/javascript" src="task.js"></script>
@@ -90,7 +91,7 @@
             <span class="medium hard"><b>جوری تاکسی‌ها را هدایت کنید که به هر ببراس یک تاکسی برسد.</b></span>
             <p class="basic">یک برچسب روی <strong>یکی از تقاطع‌ها بکشید</strong> تا تاکسی بپیچد.</p>
             <p class="easy">دو برچسب روی تقاطع‌ها بکشید تا تاکسی بپیچد.</p>
-            <p class="medium hard"> <strong><span class="medium">دو</span><span class="hard">سه</span> برچسب</strong> روی تقاطع‌ها بکشید تا تاکسی بپیچد.</p>
+            <p class="medium hard"> <strong><span class="medium">دو</span><span class="hard">سه</span> برچسب</strong> روی تقاطع‌ها بکشید تا تاکسی‌ها بپیچند.</p>
          </div>
          <div id="zone_2">
             <div id="paper"></div>

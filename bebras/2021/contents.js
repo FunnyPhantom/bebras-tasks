@@ -7,7 +7,7 @@ standaloneAddContents({
   difficulties: ["basic", "easy", "medium", "hard"],
   tasks: [
      { code: "2021-AT-03_NewYork",
-       title: "New York" },
+       title: "تاکسی‌های سردرگم" },
      { code: "2021-FR-01_overlapping_patterns",
        title: "Peinture triangle" },
      { code: "2021-FR-02_flip_and_split",
