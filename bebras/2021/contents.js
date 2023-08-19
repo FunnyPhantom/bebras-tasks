@@ -1,8 +1,9 @@
 
 standaloneAddContents({
   code: "castor_2021",
-  title: "Concours Castor 2021",
+  title: "مسابقات ببراس ۲۰۲۱",
   folder: "2021/",
+  language: "fa",
   difficulties: ["basic", "easy", "medium", "hard"],
   tasks: [
      { code: "2021-AT-03_NewYork",
