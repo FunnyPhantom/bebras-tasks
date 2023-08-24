@@ -1,0 +1,125 @@
+با سلام. متن زیر ترجمه فارسی کد HTML ارسالی شماست. لطفا بررسی کنید که آیا ترجمه با کیفیت و روان است یا نه. در صورت نیاز به اصلاح، لطفا به من اطلاع دهید.
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2021-IT-01_رشته های علامت</title>
+  <script>
+    window.stringsLanguage = 'fa'; 
+  </script>
+  <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+  <script class="remove" type="text/javascript">
+    var modulesPath = '../../../_common/modules';
+    importModules([
+      'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+      'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+      'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+      'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+      'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*,'drag_lib-2.0',*/
+      // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1' 
+    ]);
+  </script>
+  
+  <script class="remove" type="text/javascript">
+  var json = {
+    "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+    "language": "fa", 
+    "version": "fa.01",
+    "authors": "الهام‌گیری: وظیفه ببرها 2021-IT-01؛ طراحی: Arthur Charguéraud، Mathias Hiron، Marielle Léonard؛ پیاده‌سازی: Arnaud Le Grand",
+    "translators": [],
+    "license": "CC BY-SA 3.0",
+    "taskPathPrefix": "",
+    "modulesPathPrefix": "",
+    "browserSupport": [],
+    "fullFeedback": true,
+    "acceptedAnswers": [],   
+    "usesRandomSeed": false
+  };
+  </script>
+
+  <script type="text/javascript">
+  var taskStrings = {
+    success: "تبریک میگم، شما موفق شدید!",
+    undo: "واگرد",  
+    buildStacks: function(nb) {
+      return " "+nb+" برج یکسان درست کنید.\nاز همه بلوک‌ها به جز یکی استفاده کنید."
+    },
+    errorNbStacks: function(curr,target,less) {
+      var msg = "در حال حاضر "+curr+" برج"+(curr > 1 ? "ها" : "")+" در فضای کار وجود دارد، "; 
+      if(less){
+        msg += "باید "+target+" برج باشد.";
+      }else{
+        msg += "فقط باید "+target+" برج باشد."; 
+      }
+      return msg
+    },
+    errorStackHeight: function(target) {
+      return target+" برج ارتفاع یکسانی ندارند."  
+    },
+    errorStacks: function(target) {
+      return target+" برج یکسان نیستند."
+    },
+    errorNbBlocks: "شما باید از همه بلوک‌ها استفاده کنید.",
+    errorMaxHeight: function(target) {
+      return "می‌توان "+target+" برج یکسان ساخت که ارتفاع بیشتری داشته باشند."
+    }
+  };
+  </script>
+
+  <script type="text/javascript" src="task.js"></script>
+
+  <style>
+    #paper {
+      touch-action: none;
+      margin-top: 1em; 
+    }
+    #error {
+      min-height: 2em;
+    }
+    #displayHelper_graderMessage {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="task">
+    <h1>برج‌های یکسان</h1>
+    <div id="tabsContainer"></div>
+    <div id="taskContent">
+      <div id="zone_1">
+        <p>
+          <strong>
+            <span class="basic easy medium">دو</span>
+            <span class="hard">سه</span>  
+          </strong> 
+           برج یکسان بسازید: هم‌ارتفاع و با علامت‌های یکسان.
+        </p>
+        <p>بلوک‌های علامت‌های چسبیده را به منطقه خاکستری بکشید تا برج درست کنید.</p>
+        <p class="easy medium">از همه بلوک‌ها استفاده کنید.</p>
+        <p class="hard"><strong>از همه بلوک‌ها به جز یکی استفاده کنید.</strong></p>
+      </div>
+      
+      <div id="zone_2">
+        <div id="paper"></div>
+        <div id="error"></div>
+
+        <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none">
+        <img src="jeton-1.png" style="display:none" id="token1">
+        <img src="jeton-2.png" style="display:none" id="token2">
+        <img src="jeton-3.png" style="display:none" id="token3">
+        <img src="limite.png" style="display:none" id="limit">
+        <img src="icon.png" style="display:none">
+      </div>
+    </div><!-- task -->
+
+    
+  </div> 
+
+</body>
+
+</html>
