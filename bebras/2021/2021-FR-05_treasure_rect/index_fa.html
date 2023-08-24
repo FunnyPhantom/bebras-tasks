@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2021-FR-05_treasure_rect</title>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand", 
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+    var taskStrings = {
+        success: "تبریک می گوییم، شما موفق شدید!",
+        click: "روی یکی از خانه ها کلیک کنید تا سوراخی حفر شود.",
+        nbClicks: function(nb,max) {
+        return "تعداد سوراخ های حفر شده: " + nb + " / " + max
+        },
+        empty: "هیچ لانه ای در این خانه نیست.",
+        notEmpty: "بخشی از لانه زیر این خانه است. ادامه دهید تا ورودی لانه را پیدا کنید.",
+        errorNotFound: "شما لانه را پیدا نکرده اید.",
+        errorEntranceNotFound: "شما ورودی لانه را پیدا نکرده اید.",
+        errorTooManySteps: "شما سوراخ بیشتر از حد لازم حفر کرده اید. دوباره و به شکلی متفاوت امتحان کنید.",
+        errorSteps: function(level) {
+        return "شما لانه را پیدا کرده اید، اما امکان دارد با حفر سوراخ های کمتری این کار انجام شود. دوباره امتحان کنید.";
+        }
+    };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      td img {
+         display: block;
+      }
+      td {
+         padding: 0;
+      }
+   </style>
+</head>
+<body>
+    <div id="task">
+        <div style="direction: rtl">
+        <h1>گنج</h1>
+        <div id="tabsContainer"></div> 
+        <div id="taskContent">
+        
+        <center><p id="enemyWarning" style="width:700px"></p></center>
+        
+        <div id="zone_1">
+        
+        <p> لانه سمور آبی زیر زمین پنهان شده است.  
+        <span class="basic easy">این یک <b>مستطیل مرکب از 3 خانه</b> است.</span>
+        <span class="medium">این یک <b>مربع مرکب از 9 خانه</b> است.</span>  
+        <span class="hard">این یک <b>مربع مرکب از 25 خانه</b> است.</span>
+        </p>
+        
+        <center><span class="basic easy medium">لانه ای که باید پیدا شود:</span>
+        
+        <span class="basic easy" style="position:relative;top:20px">
+        <img src="inside.jpg"><img src="inside.jpg"><img src="inside.jpg">
+        </span>
+        
+        <table class="medium" cellspacing="0" style="border-spacing:0">
+        <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+        <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr> 
+        <tr><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+        </table>
+        
+        <table class="hard" cellspacing="0" style="border-spacing:0">
+        <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+        <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+        <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>  
+        <tr><td></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+        <tr><td>ورودی که باید پیدا شود =>&nbsp;&nbsp;</td><td><img src="door.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td><td><img src="inside.jpg"></td></tr>
+        </table>
+        
+        </center>
+        
+        <br/>
+        
+        <p class="basic easy medium">آن را با حفر کمترین تعداد سوراخ ممکن پیدا کنید.</p>  
+        <p class="hard" style="padding-top:10px">
+        <strong>ورودی لانه</strong> را با حفر کمترین تعداد سوراخ ممکن پیدا کنید. ورودی در <strong>گوشه پایین سمت چپ لانه</strong> است.
+        </p>
+        <p>برای حفر یک سوراخ، روی یکی از خانه‌های زمین کلیک کنید.</p>
+        
+        </div> 
+        
+        <div id="zone_2">
+        
+        <center style="position:relative;top:20px"><strong>ناحیه زمین</strong></center>
+        
+        <div id="paper"></div>
+        <div id="error"></div>
+        
+        </div>
+        
+        <img src="hidden.jpg" style="display:none" id="hidden">
+        <img src="empty.jpg" style="display:none" id="empty"> 
+        <img src="inside.jpg" style="display:none" id="inside">
+        <img src="door.jpg" style="display:none" id="door">
+        <img src="icon.png" style="display:none">
+        
+        </div>
+        </div>
+        </div><!-- task -->
+    <!-- task-solution -->
+</body>
+</html>
