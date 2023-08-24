@@ -1,129 +1,153 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="utf-8">
-   <title>2021-FR-06_memory</title>
-   <script>
-      window.stringsLanguage = 'fa';
-   </script>
-   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
-   <script class="remove" type="text/javascript">
-      var modulesPath = '../../../_common/modules';
-      importModules([
-         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
-         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
-         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
-         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
-         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
-         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
-      ]);
-   </script>
+  <meta charset="utf-8">
+  <title>۲۰۲۱-FR-۰۶_حافظه</title>
+
+  <script>
+    window.stringsLanguage = 'fa';
+  </script>
+
+  <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+
+  <script class="remove" type="text/javascript">
+    var modulesPath = '../../../_common/modules';
+    importModules([
+      'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+      'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+      'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0', 
+      'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+      'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'
+    ]);
+  </script>
+
+  <script class="remove" type="text/javascript">
+  var json = {
+    "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+    "language": "fa",
+    "version": "fa.01",
+    "authors": "ایده: Mathias Hiron; طراحی: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; پیاده‌سازی: Arnaud Le Grand",
+    "translators": [],
+    "license": "CC BY-SA 3.0",  
+    "taskPathPrefix": "",
+    "modulesPathPrefix": "",
+    "browserSupport": [],
+    "fullFeedback": true,
+    "acceptedAnswers": [],  
+    "usesRandomSeed": false
+  };
+  </script>
+
+  <script type="text/javascript">
+  var taskStrings = {
+    success: "تبریک، شما موفق شدید!",
+    avatar: "یک تصویر از ",
+    habitation: "یک متن پیدا کنید: نام خانه بابر",
+    dimensions: "دو عدد پیدا کنید: تعداد ستون‌ها و ردیف‌های تصویر",  
+    image: "تصویری با عرض ",
+    height: "ستون و ",
+    width: "ردیف",
+    textEasy: "سد دریاچه بزرگ",
+    textMedium: "کلبه رودخانه آرام",
+    textHard: "درخت سیب قرمز بزرگ",
     
-   <script class="remove" type="text/javascript">
-    var json = {
-       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
-       "language": "en",
-       "version": "en.01",
-       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
-       "translators": [],
-       "license": "CC BY-SA 3.0",
-       "taskPathPrefix": "",
-       "modulesPathPrefix": "",
-       "browserSupport": [],
-       "fullFeedback": true,
-       "acceptedAnswers": [],
-       "usesRandomSeed": false
-   };
-   </script>
-   <script type="text/javascript">
-    var taskStrings = {
-        success: "تبریک می گویم، شما موفق شدید!",
-        avatar: "یک تصویر از  پیدا کنید",
-        habitation: "یک متن پیدا کنید: نام خانه باب بیور",
-        dimensions: "دو عدد پیدا کنید: تعداد ستون ها و ردیف های تصویر",
-        image: "تصویری به پهنای ",
-        fixedImage: "تصویر ثابت",
-        height: "ستون و ",
-        width: "ردیف",
-        textEasy: "سد دریاچه بزرگ",
-        textMedium: "کلبه رودخانه آرام",
-        
-        textHard: "درخت سیب قرمز بزرگ",
-        imageDimensions: function(w,h) {
-            return "یک تصویر " + w + " ستون و " + h + " ردیف پیدا کنید که با یک قاب مشکی احاطه شده باشد.";
-        },
-        
-        text: "متن",
-        
-        twoInt: "دو عدد (پهنا، ارتفاع)",
-        
-        errorMemSize: function(field) {
-            var fieldStr = ["خانه باب بیور", "عکس", "ابعاد تصویر"];
-            return "منطقه " + "\"" + fieldStr[field] + "\"" + " طول درستی ندارد.";
-        },
-        
-        errorMemLocation: function(field) {
-            var fieldStr = ["خانه باب بیور", "تصویر", "اندازه تصویر"];
-            return "منطقه " + "\"" + fieldStr[field] + "\"" + " به طور نادرستی قرار گرفته است.";
-        }
-    };
-   </script>
-   <script type="text/javascript" src="task.js"></script>
-   <style>
-      #paper {
-         touch-action: none;
-         margin-top: 1em;
-      }
-      #error {
-         min-height: 2em;
-         text-align: center;
-      }
-      #displayHelper_graderMessage {
-         color: red;
-         font-weight: bold;
-      }
-   </style>
+    imageDimensions: function(w,h) {
+      return "یک تصویر "+w+" ستون و "+h+" ردیف پیدا کنید، اطراف آن با یک قاب سیاه احاطه شده باشد.";
+    },
+    text: "متن",
+    twoInt: "دو عدد (عرض، ارتفاع)",
+    errorMemSize: function(field) {
+      var fieldStr = [ "خانه بابر", "عکس", "ابعاد تصویر" ];
+      return "ناحیه \""+fieldStr[field]+"\" طول مناسبی ندارد."
+    },
+    errorMemLocation: function(field) {
+      var fieldStr = [ "خانه بابر", "تصویر", "اندازه تصویر" ];
+      return "ناحیه \""+fieldStr[field]+"\" به درستی قرار نگرفته است."  
+    }
+  };
+  </script>
+
+  <script type="text/javascript" src="task.js"></script>
+
+  <style>
+  #paper {
+    touch-action: none;
+    margin-top: 1em; 
+  }
+  #error {
+    min-height: 2em;
+    text-align: center;
+  }
+  #displayHelper_graderMessage {
+    color: red;
+    font-weight: bold;
+  }
+  </style>
+
 </head>
+
 <body>
-    <div id="task"> <h1>در حافظه</h1> <div id="taskContent">
-        <div id="task">
-            <h1>در حافظه</h1>
-            
-            <div id="taskContent">
-            
-              <div id="zone_1">
-                <p>شبکه تشکیل شده از خانه‌های سیاه و سفید نمایانگر حافظه رایانه باب بیور است.</p>
-               
-                <p>یک منطقه حاوی نام خانه اوست.</p>
-               
-                <p>یک منطقه دیگر حاوی دو عدد است: پهنا و ارتفاع یک تصویر.</p>
-               
-                <p>در نهایت، یک منطقه حاوی یک تصویر، درون یک قاب مشکی است.</p>
-          
-                <p>دستگیره را بکشید تا این مناطق را در حافظه پیدا کنید.</p>
-                
-              </div>
-          
-              <div id="zone_2">
-                
-                <p>
-                  <div style="position:relative;top:15px;left:20px;font-size:18px">
-                    <b>محتویات حافظه</b>
-                  </div>
-                </p>
-                
-                <div id="paper"></div>
-          
-                <div id="error"></div>
-                
-              </div>
-              
-              <img src="icon.png" style="display:none">
-              
-            </div>
-            
-          </div>
-        </div> </div>
-   
+
+<div id="task">
+  
+  <h1>در حافظه</h1>
+
+  <div id="tabsContainer"></div>
+
+  <div id="taskContent">
+
+    <div id="zone_1">
+      
+      <p>شبکه تشکیل شده از سلول‌های سیاه و سفید نمایشگر حافظه رایانه بابر است.</p>  
+      
+      <p>یک ناحیه حاوی نام خانه اوست.</p>
+      
+      <p class="hard">یک ناحیه دیگر حاوی دو عدد است: عرض و ارتفاع یک تصویر.</p>
+
+      <p class="easy medium hard">
+        <span class="hard">و در نهایت</span>
+        <span class="easy medium">یک</span> 
+        ناحیه حاوی یک تصویر، درون یک قاب سیاه  
+        <span class="basic easy">است:</span>
+        <span class="medium hard">.</span>
+      </p>
+
+      <center class="easy"><img src="example_easy.png"></center>
+      
+      <p class="basic">دستگیره را بکشید تا این نام را پیدا کنید.</p>
+
+      <p class="easy medium hard"> 
+        دستگیره‌ها را بکشید تا این نواحی را در حافظه پیدا کنید.
+      </p>
+
+      <p class="hard">
+        روی دکمه‌های + و - کلیک کنید تا اندازه تصویر را تغییر دهید.
+      </p>
+
+    </div>
+
+    <div id="zone_2">
+      
+      <p>
+        <div style="position:relative;top:15px;left:20px;font-size:18px">
+          <b>محتویات حافظه</b>
+        </div>  
+      </p>
+
+      <div id="paper"></div>
+
+      <div id="error"></div>
+
+    </div>
+
+    <img src="icon.png" style="display:none">
+
+  </div>
+
+</div><!-- task -->
+
+
+
 </body>
 </html>
