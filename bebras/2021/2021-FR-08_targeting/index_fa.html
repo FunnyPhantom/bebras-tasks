@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +7,7 @@
    <meta charset="utf-8"></meta>
    <title>2021-FR-08-targeting</title>
    <script>
-      window.stringsLanguage = 'en';
+      window.stringsLanguage = 'fa'; 
    </script>
    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
    <script class="remove" type="text/javascript">
@@ -22,8 +24,8 @@
    <script class="remove" type="text/javascript">
       var json = {
          "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
-         "language": "en",
-         "version": "en.01",
+         "language": "fa",
+         "version": "fa.01",
          "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
          "translators": [],
          "license": "",
@@ -37,33 +39,33 @@
    </script>
    <script type="text/javascript">
       var taskStrings = {
-         success: "Congratulations, you succeded!",
-         restaurant: "Register of Beaver's restaurant",
-         geolocation: "Geolocalisation data", 
-         castorbook: "CastorBook",
-         date: "Date",
-         name: "Name",
-         phone: "Phone",
-         splitPhone: "Phone",
-         distance: "Distance from restaurant",
-         friend: "Friend",
+         success: "تبریک، شما موفق شدید!",
+         restaurant: "ثبت نام رستوران سنگسر",  
+         geolocation: "داده های جغرافیایی",
+         castorbook: "کتابخانه سنگسر",
+         date: "تاریخ",
+         name: "نام",
+         phone: "تلفن",
+         splitPhone: "تلفن",
+         distance: "فاصله از رستوران",  
+         friend: "دوست",
          animals: [ 
-            "Chicken", "Rabbit", "Cat", "Dog", "Owl",
-            "Deer", "Pig", "Lion", "Bear", "Rat", 
-            "Fox", "Mouse", "Tiger", "Gorilla" 
+            "مرغ", "خرگوش", "گربه", "سگ", "جغد",
+            "گوزن", "خوک", "شیر", "خرس", "موش", 
+            "روباه", "موش", "ببر", "گوریل"  
          ],
          months: [
-            "january", "february", "march", "april", "may", "june", 
-            "july", "august", "september", "october", "november", "december"
+            "ژانویه", "فوریه", "مارس", "آوریل", "مه", "ژوئن", 
+            "جولای", "اوت", "سپتامبر", "اکتبر", "نوامبر", "دسامبر" 
          ],
-         errorMissingApril: "You missed one or more animals that came in April.",
-         errorNotInApril: "You selected an animal that didn't come in April.",
-         errorAprilNotJune: "You missed one or more animals that came in April but not in June.",
-         errorAprilAndJune: "You selected an animal that came in June.",
-         errorMissingNumber: "You are missing some phone numbers.",
-         errorWrongDistance: "You selected a phone number that is not at the right distance.",
-         errorCameInJuneOrJuly: "You selected the number of an animal that came in june or july.",
-         errorFriend: "You selected the number of an animal that has a friend who came in june or july."
+         errorMissingApril: "شما یک یا چند حیوانی که در آوریل آمده بودند را از قلم انداختید.",
+         errorNotInApril: "شما حیوانی را انتخاب کردید که در آوریل نیامده بود.",
+         errorAprilNotJune: "شما یک یا چند حیوانی که در آوریل ولی نه در ژوئن آمده بودند را از قلم انداختید.",
+         errorAprilAndJune: "شما حیوانی را انتخاب کردید که در ژوئن آمده بود.", 
+         errorMissingNumber: "شما برخی از شماره تلفن‌ها را از قلم انداخته‌اید.",
+         errorWrongDistance: "شما شماره تلفنی را انتخاب کردید که فاصله آن درست نیست.",
+         errorCameInJuneOrJuly: "شما شماره حیوانی را انتخاب کردید که در ژوئن یا جولای آمده بود.",
+         errorFriend: "شما شماره حیوانی را انتخاب کردید که دوستی دارد که در ژوئن یا جولای آمده بود."
       };
    </script>
    <script type="text/javascript" src="task.js"></script>
@@ -134,22 +136,23 @@
 
 <body>
    <div id="task">
-      <h1>Targeted advertisment</h1>
+    <div style="direction: rtl">
+      <h1>تبلیغات هدفمند</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1">
             <div class="consigne">
-               <p>Beaver wants to select animals to send advertisement to, for his restaurant.</p>
+               <p>سنگسر می خواهد حیواناتی را برای ارسال تبلیغات رستورانش انتخاب کند.</p>
 
-               <p class="basic">Click on the names of animals that came to the restaurant in April.</p>
-               <p class="easy">Click on the name of animals that came to the restaurant <strong> in April but not in June</strong>.</p>
-               <p class="medium hard">Click to highlight in yellow, the phone numbers of animals:</p>
+               <p class="basic">روی نام حیواناتی که در آوریل به رستوران آمده بودند کلیک کنید.</p>
+               <p class="easy">روی نام حیواناتی که <strong>در آوریل ولی نه در ژوئن</strong> به رستوران آمده بودند کلیک کنید.</p>
+               <p class="medium hard">اعداد تلفن حیواناتی را که:</p>
                <ul class="medium hard">
-                  <li class="medium hard" style="margin-bottom:15px">that didn't come to the restaurant in June or July, and</li>
-                  <li class="medium hard" style="margin-bottom:15px">that live at between 13 km and 20 km from the restaurant<span class="medium">.</span><span class="hard">, and</span></li>
-                  <li class="hard">that are not friends with animals that came to the restaurant in June or July.</li>
+                  <li class="medium hard" style="margin-bottom:15px">در ژوئن یا جولای نیامده‌اند، و</li>
+                  <li class="medium hard" style="margin-bottom:15px">فاصله‌شان از رستوران بین 13 تا 20 کیلومتر است<span class="medium">.</span><span class="hard">، و</span></li>  
+                  <li class="hard">دوست نیستند با حیواناتی که در ژوئن یا جولای آمده‌اند.</li>
                </ul>
-               <p class="hard">Use the CastorBook table to find out who is a friend of whom. For example, the friends of <span id="friend1"></span> are <span id="friend2"></span> and <span id="friend3"></span>.</p>
+               <p class="hard">از جدول کتابخانه سنگسر برای پیدا کردن اینکه چه کسی دوست چه کسی است استفاده کنید. برای مثال، دوستان <span id="friend1"></span> عبارتند از <span id="friend2"></span> و <span id="friend3"></span>.</p>
             </div>
          </div>
          <div id="zone_2">
@@ -159,10 +162,9 @@
       </div>
       <img src="icon.png" style="display:none">
    </div>
-
+</div>
    <!-- task -->
 
-   
    <!-- task-solution -->
 </body>
 
