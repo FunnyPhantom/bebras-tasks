@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
    <meta charset="utf-8"></meta>
-   <title>نمودار 2021-FR-09</title>
+   <title>2021-FR-09-graph</title>
    <script>
-      window.stringsLanguage = 'fa';
+      window.stringsLanguage = 'en';
    </script>
    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
    <script class="remove" type="text/javascript">
@@ -23,8 +22,8 @@
    <script class="remove" type="text/javascript">
       var json = {
          "id": "http://castor-informatique.fr/tasks/2019/FR-2019-10-lighting/",
-         "language": "fa",
-         "version": "fa.01",
+         "language": "en",
+         "version": "en.01",
          "authors": "Arthur Charguéraud, Mathias Hiron, Marielle Léonard",
          "translators": [],
          "license": "",
@@ -38,17 +37,18 @@
    </script>
    <script type="text/javascript">
       var taskStrings = {
-         موفقیت: "تبریک، شما موفق شدید!",
+         success: "Congratulations, you succeeded!",
          errorNbShapes: function(id) {
-            var shape = (id == 0) ? "سمورها" : "روباه‌ها";
-            return "تعداد " + shape + " نادرست است."
+            var shape = (id == 0) ? "beavers" : "foxes";
+            return "The number of "+shape+" is incorrect."
          },
          errorEdge: function(shape1,shape2) {
-            var shapeStr = ["سمور","روباه"];
-            return "مسیر قرمز یک " + shapeStr[shape1] + " را به یک " + shapeStr[shape2] + " متصل می‌کند.";
+            var shapeStr = ["beaver","fox"];
+            return "The red path takes a "+shapeStr[shape1]+" to a "+shapeStr[shape2]+".";
          }
       };
    </script>
+   <script type="text/javascript" src="task.js"></script>
    <style>
       #paper {
          margin-top: 1em;
@@ -63,43 +63,43 @@
 </head>
 
 <body>
-   <div id="task">
-      <h1>نمودار</h1>
-      <div style="direction: rtl">
-      <div id="tabsContainer"></div>
-      <div id="taskContent">
-         <div id="zone_1">
-            <div class="دستورالعمل">
-               <p>
-                  <strong>
-                     <span class="پایه">1 روباه و 1 سمور</span>
-                     <span class="آسان">2 روباه و 3 سمور</span>
-                     <span class="متوسط">3 روباه و 4 سمور</span>
-                     <span class="سخت">7 روباه و 8 سمور</span>
-                  </strong>
-                  را در نمودار قرار دهید. هر دایره را کلیک کنید تا محتوای آن تغییر کند.
-               </p>
-               <p class="پایه">
-                  روباه نباید بتواند با دنبال کردن فلش‌ها به سمور برسد.
-               </p>
-               <p class="پایه">
-                  سمور نباید بتواند با دنبال کردن فلش‌ها به روباه برسد.
-               </p>
-               <p class="آسان متوسط سخت">
-                  یک روباه نباید بتواند با دنبال کردن فلش‌ها به یک سمور برسد.
-               </p>
-               <p class="آسان متوسط سخت">
-                  یک سمور نباید بتواند با دنبال کردن فلش‌ها به یک روباه برسد. 
-               </p>
-               <p class="متوسط سخت">
-                  <strong>شما می‌توانید دایره‌ها را جابجا کنید.</strong>
-               </p>
-            </div>
-         </div>
-         <div id="zone_2">
-            <div id="paper"></div>
-            <div id="error"></div>
-         </div>
+    <div id="task">
+        <h1>نمودار</h1>
+        <div id="tabsContainer"></div>
+        <div id="taskContent">
+           <div id="zone_1">
+              <div class="دستورالعمل">
+                 <p>
+                    <strong>
+                       <span class="پایه">1 روباه و 1 سمور</span>
+                       <span class="آسان">2 روباه و 3 سمور</span>   
+                       <span class="متوسط">3 روباه و 4 سمور</span>
+                       <span class="سخت">7 روباه و 8 سمور</span>
+                    </strong>
+                    را در نمودار قرار دهید. هر دایره را برای تغییر محتوای آن کلیک کنید.
+                 </p>
+                 <p class="پایه">
+                   روباه نباید بتواند با دنبال کردن فلش‌ها به سمور برسد.
+                 </p>
+                 <p class="پایه">
+                   سمور نباید بتواند با دنبال کردن فلش‌ها به روباه برسد.
+                 </p>
+                 <p class="آسان متوسط سخت">
+                   یک روباه نباید بتواند با دنبال کردن فلش‌ها به یک سمور برسد.
+                 </p>
+                 <p class="آسان متوسط سخت">
+                   یک سمور نباید بتواند با دنبال کردن فلش‌ها به یک روباه برسد.
+                 </p>
+                 <p class="متوسط سخت">
+                   <strong>شما می‌توانید دایره‌ها را جابه‌جا کنید.</strong>
+                 </p>
+              </div>
+           </div>
+           <div id="zone_2">
+              <div id="paper"></div>
+              <div id="error"></div>
+           </div>
+        </div>
       </div>
       <img src="icon.png" style="display:none">
       <img src="fox.png" style="display:none" id="square">
@@ -109,10 +109,10 @@
       -->
       <img src="../../../_common/modules/img/beaver_head.png" style="display:none" id="triangle">
    </div>
-</div>
+
    <!-- task -->
 
+   
 </body>
 
 </html>
-
