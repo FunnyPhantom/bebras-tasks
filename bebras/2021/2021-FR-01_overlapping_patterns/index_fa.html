@@ -1,0 +1,109 @@
+Here is the HTML code translated to Persian:
+
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>20210-FR-01-overlapping-patterns</title>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', /*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "fa",
+       "version": "fa.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "تبریک!",
+         drag: "برای کشیدن، از یک سلول شبکه به سلول دیگر بکشید.",
+         patterns: "یک الگو انتخاب کنید",
+         nbSteps: function(nb,max) {
+            return nb+" / "+max+" گام"
+         },
+         undo: "واچیدن",
+         tryAgain: function(max) {
+            return "راه دیگری برای پایان در "+max+" گام امتحان کنید. واچیدن یا شروع مجدد فشار دهید."
+         },
+         errorCell: "سلولی که به رنگ قرمز مشخص شده است با مدل مطابقت ندارد.",
+         errorSteps: function(max) {
+            return "شما از "+max+" گام بیشتر استفاده کرده‌اید."
+         }
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         touch-action: none;
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      </style>
+</head>
+<body>
+   <div id="task">
+    <div style="direction: rtl">
+      <h1>نقاشی مثلثی</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>روی شبکه بکشید تا 
+            <strong><span class="basic">دو منطقه</span>
+            <span class="easy">سه منطقه</span>
+            <span class="medium">چهار منطقه</span>
+            <span class="hard">پنج منطقه</span>
+            </strong>
+            حاوی مثلث‌های آبی <span class="basic easy">و مدل را بازسازی کنید</span>.
+            <center><div style="border: solid black 1px;padding:10px;width:200px" class="basic easy">
+               <p><strong>مدل</strong></p>
+               <div id="target"></div>
+            </div></center>
+            <br/>
+            تمام مناطق نقطه‌چین را با آبی پوشانده و فقط این مناطق را.</p>
+            <div class="easy medium hard">
+               <p>پوشاندن یک منطقه، هر چیزی که زیر آن است را می‌پوشاند.</p>
+            </div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   </div>
+</body>
+</html>
