@@ -1,0 +1,106 @@
+
+
+<file-attachment-contents filename="index_fa.html">
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>۲۰۲۱-تونل ها</title>
+   <script>
+      window.stringsLanguage = 'fa';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
+         'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+      ]);
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "fa",
+       "version": "fa.01",
+       "authors": "ایده: Mathias Hiron; طراحی: Arthur Charguéraud، Mathias Hiron، Marielle Léonard؛ پیاده سازی:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         success: "تبریک می گویم، شما موفق شدید!",
+         click: "روی یک در برای بررسی اینکه آیا بابر زیر آن پنهان شده است کلیک کنید.",
+         nbClicks: function(nb,max) {
+            return "تعداد بازکردن ها: "+nb+" / "+max;
+         },
+         replay: "پخش مجدد...",
+         noBeaver: "هیچ بابری اینجا نیست",
+         clickRetry: "روی راه اندازی مجدد برای تلاش مجدد کلیک کنید.",
+         notFound: "شما بابر را پیدا نکردید. نگاه کنید که چگونه حرکت کرده است، سپس دوباره راه اندازی کنید.",
+         watchBeaver: "نگاه کنید که بابر چگونه حرکت کرده است",
+         errorNotFound: "شما بابر را پیدا نکردید.",
+         errorSteps: "شما بابر را پیدا کردید، اما ممکن است بتوانید آن را با باز کردن تعداد در کمتر پیدا کنید."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         /*touch-action: none;*/
+         margin-top: 1em;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+    <div style="direction: rtl">
+      <h1>تونل ها</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <center><p id="enemyWarning" style="width:700px"></p></center>
+         <div id="zone_1">
+            <p>در ابتدا، بابر پشت یکی از درهای تیره پنهان شده است.</p>
+            <p>سعی کنید آن را با باز کردن درها پیدا کنید.. </p>
+            <p><strong>هشدار</strong>، بعد از بسته شدن یک در، بابر یا یک خانه به راست یا یک خانه به چپ حرکت می کند.</p>
+            <p>برای کسب تمام امتیازات، بابر را در <b><span id="minSteps"></span> باز کردن</b> پیدا کنید.</p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <!-- <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none"> -->
+         <img src="../../../_common/modules/img/castor_transparent.png" id="beaver" style="display:none">
+         <img src="assets/wall.png" id="wall" style="display:none">
+         <img src="assets/wall_start.png" id="wall_start" style="display:none">
+         <img src="assets/inside.png" id="inside" style="display:none">
+         <img src="assets/inside_end.png" id="inside_end" style="display:none">
+         <img src="assets/lid_open.png" id="lid_open" style="display:none">
+         <img src="assets/lid_closed.png" id="lid_closed" style="display:none">
+         <img src="assets/dark_lid_open.png" id="dark_lid_open" style="display:none">
+         <img src="assets/dark_lid_closed.png" id="dark_lid_closed" style="display:none">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   </div>
+</body>
+</html>
+</file-attachment-contents>
