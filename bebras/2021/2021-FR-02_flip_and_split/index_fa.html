@@ -22,7 +22,7 @@
    <script class="remove" type="text/javascript">
       var json = {
          "id": "http://castor-informatique.fr/tasks/2020/FR-2019-10-lighting/",
-         "language": "en",
+         "language": "fa",
          "version": "en.01",
          "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
          "translators": [],
@@ -36,26 +36,26 @@
        };
    </script>
    <script type="text/javascript">
-      var taskStrings = {
-         success: "Congratulations, you succeeded!",
-         errorNbFlips: function(nb) {
-            return "You must recreate the model, by performing less than "+nb+" flips."
-         },
-         errorMissingBall: function(nb) {
-            return "You must place "+nb+" balls in the bottom tube."
-         },
-         errorWrongSequence: "The sequence of balls you obtained is different from the model.",
-         errorFlipped: "Click to flip the tubes, before trying to validate.",
-         undo: "Cancel",
-         flip: "Flip",
-         flips: "flips",
-         yourTarget: "Model:",
-         sortBalls: "Arrange the balls in this order",
-         tooManyFlips: function(max) {
-            return "You may not do more than "+max+" flips. Click on cancel or restart."
-         }
-      };
-   </script>
+    var taskStrings = {
+      success: "تبریک می گوییم، شما موفق شدید!",
+      errorNbFlips: function(nb) {
+        return "شما باید مدل را با کمتر از " + nb + " وارونه کردن بازسازی کنید."; 
+      },
+      errorMissingBall: function(nb) {
+        return "شما باید " + nb + " توپ را در لوله پایینی قرار دهید.";
+      },
+      errorWrongSequence: "توالی توپ هایی که شما به دست آورده اید با مدل متفاوت است.",
+      errorFlipped: "قبل از تلاش برای تایید، روی آن برای وارونه کردن لوله ها کلیک کنید.", 
+      undo: "لغو",
+      flip: "وارونه کردن",
+      flips: "وارونه کردن ها",
+      yourTarget: "مدل:",
+      sortBalls: "توپ ها را به این ترتیب مرتب کنید",
+      tooManyFlips: function(max) {
+        return "شما نمی توانید بیشتر از " + max + " بار وارونه کنید. روی لغو یا شروع مجدد کلیک کنید.";
+      }
+    };
+    </script>
    <script type="text/javascript" src="task.js"></script>
    <style>
       #paper {
@@ -70,21 +70,21 @@
 </head>
 
 <body>
-   <div id="task">
-      <h1>Billes renversantes</h1>
-      <div id="tabsContainer"></div>
-      <div id="taskContent">
-         <div id="zone_1">
+    <div id="task">
+        <h1>توپ‌های وارونه‌کننده</h1>
+        <div id="tabsContainer"></div>
+        <div id="taskContent">
+          <div id="zone_1">
             <div class="consigne">
-               <p>Reorganize the balls as in the model.</p>
-               <p>To do so, click on the flip button, then on the arrows, to get the balls to fall in the desired order.</p>
-               <p>You may do <b>at most <span id="maxFlip"></span> flips.</b></p>
+              <p>توپ‌ها را مطابق مدل مرتب کنید.</p> 
+              <p>برای این کار، روی دکمه وارونه‌کردن و سپس روی فلش‌ها کلیک کنید تا توپ‌ها به ترتیب مورد نظر بیفتند.</p>
+              <p>شما <b>حداکثر می‌توانید <span id="maxFlip"></span> بار وارونه کنید.</b></p>
             </div>
          </div>
          <div id="zone_2">
-            <div id="paper"></div>
+           <div id="paper"></div>
          </div>
-      </div>
+        </div>
       <img src="../../../_common/modules/img/icons/undo_white.png" style="display:none" id="undo">
       <img src="flip.png" style="display:none" id="flip">
       <img src="assets/tube.png" style="display:none" id="tube">
