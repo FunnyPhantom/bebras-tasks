@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+Here is the HTML code translated to Persian:
+
 <html>
 <head>
    <meta charset="utf-8">
    <title>2021-FR-07_genealogy</title>
    <script>
-      window.stringsLanguage = 'en';
+      window.stringsLanguage = 'fa'; 
    </script>
    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
    <script class="remove" type="text/javascript">
@@ -15,15 +16,15 @@
          'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
          'platform-pr', 'buttonsAndMessages', 'installationAPI.01', 'miniPlatform',
          'taskStyles-0.1', 'randomGenerator-1.0', 'shape-paths-1.1'/*'drag_lib-2.0',*/ 
-         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1'
+         // 'graph-1.0','visual-graph-1.1','graph-mouse-1.1' 
       ]);
    </script>
     
    <script class="remove" type="text/javascript">
     var json = {
        "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
-       "language": "en",
-       "version": "en.01",
+       "language": "fa",
+       "version": "fa.01",
        "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron; Implementation: Arnaud Le Grand",
        "translators": [],
        "license": "CC BY-SA 3.0",
@@ -37,24 +38,24 @@
    </script>
    <script type="text/javascript">
    var taskStrings = {
-         success: "Congratulations, you succeeded!",
-         display: "View",
-         mark: "Mark",
-         wanted: "Beaver to find",
-         choose: "Select",
-         clickRetry: "Click on restart to try again.",
-         culpritWas: "The guilty beaver was the in the black circle.",
-         errorNoChoose: "You must select a beaver.",
+         success: "تبریک می گم، شما موفق شدید!",
+         display: "نمایش",
+         mark: "علامت گذاری",  
+         wanted: "قورباغه مورد نظر",
+         choose: "انتخاب",
+         clickRetry: ".برای تلاش دوباره روی شروع دوباره کلیک کنید",
+         culpritWas: "قورباغه مقصر در دایره سیاه بود.",
+         errorNoChoose: "شما باید یک قورباغه را انتخاب کنید.",
          errorRequirements: function(level) {
             if (level == "basic") {
-               return "The selected beaver doesn't have the right parents.";
+               return "قورباغه انتخاب شده والدین درستی ندارد.";  
             }
             if (level == "easy") {
-               return "The selected beaver doesn't have the right grand parents.";
+               return "قورباغه انتخاب شده پدربزرگ و مادربزرگ درستی ندارد.";
             }
-            return "The selected beaver doesn't have a common ancestor with the two blue beavers.";
+            return "قورباغه انتخاب شده نیای مشترکی با دو قورباغه آبی ندارد.";
          },
-         errorHeight: "The selected beaver doesn't have the right size."
+         errorHeight: "قورباغه انتخاب شده اندازه درستی ندارد."
       };
    </script>
    <script type="text/javascript" src="task.js"></script>
@@ -80,18 +81,18 @@
 </head>
 <body>
    <div id="task">
-      <h1>Enquiry</h1>
+      <h1>تحقیق</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <center><p id="enemyWarning" style="width:700px"></p></center>
          <div id="zone_1">
-            <p>A Beaver stole some fruits!</p>
-            <p class="basic">A private detective found <b>his parents</b>. They are in blue on the family tree.</p>
-            <p class="easy">The enquiry helped find <b>his grand parents</b>. They are in blue on the family tree.</p>
-            <p>The arrows point to the children of each Beaver couple..</p>
-            <p class="medium hard">The enquiry showed that the beaver in blue on the family tree, <b>have a common ancestor, that is also an ancestor of this Beaver</b>.</p>
-            <p>We also know the size of the Beaver.</p>
-            <p>Click on some Beavers and find the guilty one!</p>
+            <p>یک قورباغه میوه ها را دزدید!</p>
+            <p class="basic">یک کارآگاه خصوصی <b>والدین</b> او را پیدا کرد. آنها به رنگ آبی در درخت خانوادگی هستند.</p>  
+            <p class="easy">تحقیقات به پیدا کردن <b>پدربزرگ و مادربزرگ</b> او کمک کرد. آنها به رنگ آبی در درخت خانوادگی هستند.</p>
+            <p>فلش ها به بچه های هر زوج قورباغه اشاره می کنند.</p>
+            <p class="medium hard">تحقیقات نشان داد که قورباغه آبی در درخت خانوادگی، <b>نیای مشترکی با این قورباغه دارد که نیای او نیز هست</b>.</p>  
+            <p>ما همچنین اندازه قورباغه را می دانیم.</p>
+            <p>روی بعضی از قورباغه ها کلیک کنید و قورباغه مقصر را پیدا کنید!</p>
          </div>
          <div id="zone_2">
             <div id="paper"></div>
