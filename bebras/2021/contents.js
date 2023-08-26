@@ -13,7 +13,7 @@ standaloneAddContents({
      { code: "2021-FR-02_flip_and_split",
        title: "گردون" },
      { code: "2021-FR-03_rise_and_fall",
-       title: "Des hauts et des bas" },
+       title: "فراز و فرود" },
      { code: "2021-IT-01_Stacks_of_tokens",
        title: "Piles identiques" },
      { code: "2021-FR-04_tunnels",
