@@ -38,19 +38,19 @@
    </script>
    <script type="text/javascript">
    var taskStrings = {
-         success: "تبریک!",
-         drag: "برای کشیدن، از یک سلول شبکه به سلول دیگر بکشید.",
+         success: "تبریک! شما برنده شدید!",
+         drag: "برای کشیدن شکل، از یک خانه جدول به خانه دیگر بکشید.",
          patterns: "یک الگو انتخاب کنید",
          nbSteps: function(nb,max) {
-            return nb+" / "+max+" گام"
+            return max+" / "+nb+" گام"
          },
-         undo: "واچیدن",
+         undo: "برگشت",
          tryAgain: function(max) {
-            return "راه دیگری برای پایان در "+max+" گام امتحان کنید. واچیدن یا شروع مجدد فشار دهید."
+            return "راه دیگری برای پایان در "+max+" گام امتحان کنید. برگشت یا شروع دوباره را بزنید."
          },
-         errorCell: "سلولی که به رنگ قرمز مشخص شده است با مدل مطابقت ندارد.",
+         errorCell: "خانه‌ای که با رنگ قرمز مشخص شده است با هدف مطابقت ندارد.",
          errorSteps: function(max) {
-            return "شما از "+max+" گام بیشتر استفاده کرده‌اید."
+            return "شما بیشتر از "+max+" گام استفاده کرده‌اید."
          }
       };
    </script>
@@ -75,25 +75,30 @@
 <body>
    <div id="task">
     <div style="direction: rtl">
-      <h1>نقاشی مثلثی</h1>
+      <h1>طراحی ببراسی</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1">
-            <p>روی شبکه بکشید تا 
-            <strong><span class="basic">دو منطقه</span>
-            <span class="easy">سه منطقه</span>
-            <span class="medium">چهار منطقه</span>
-            <span class="hard">پنج منطقه</span>
+            <p>
+                در هر گام با انتخاب کردن دو گوشه مقابل یک مستطیل فرضی در جدول، یک شکل ببراسی بکشید.
+                شکل ببراسی مستطیلی است که دو قطرش رسم شده اند و مثلث‌های حاصل از رسم این قطرها یکی در میان رنگی و سفید اند. 
+            </p>
+            <p> با 
+            <strong><span class="basic">دو گام</span>
+            <span class="easy">سه گام</span>
+            <span class="medium">چهار گام</span>
+            <span class="hard">پنج گام</span>
             </strong>
-            حاوی مثلث‌های آبی <span class="basic easy">و مدل را بازسازی کنید</span>.
-            <center><div style="border: solid black 1px;padding:10px;width:200px" class="basic easy">
-               <p><strong>مدل</strong></p>
+            تلاش کنید تا طرح روی جدول را دوباره خلق کنید.
+            </p>
+            <div style="border: solid black 1px;padding:10px;width:200px" class="basic easy">
+               <p><strong>طرح هدف</strong></p>
                <div id="target"></div>
-            </div></center>
+            </div>
             <br/>
-            تمام مناطق نقطه‌چین را با آبی پوشانده و فقط این مناطق را.</p>
+            تمام خانه‌های نقطه‌چین دار باید با رنگ آبی پوشانده شوند. خانه‌هایی که نقطه‌چین ندارند نباید با رنگ آبی پوشانده شوند. </p>
             <div class="easy medium hard">
-               <p>پوشاندن یک منطقه، هر چیزی که زیر آن است را می‌پوشاند.</p>
+               <p>در صورتی که یک مستطیل جدید روی یک مستطیل قدیمی بکشید رنگ مستطیل جدید دیده خواهد شد.</p>
             </div>
          </div>
          <div id="zone_2">
