@@ -27,7 +27,7 @@ standaloneAddContents({
      { code: "2021-FR-07_genealogy",
        title: "Généalogie" },
      { code: "2021-FR-08-graph",
-       title: "Graph" },
+       title: "زوتوپیا" },
      { code: "2021-FR-08_targeting",
        title: "Ciblage" }
     ]
