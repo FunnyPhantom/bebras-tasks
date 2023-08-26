@@ -15,7 +15,7 @@ standaloneAddContents({
      { code: "2021-FR-03_rise_and_fall",
        title: "فراز و فرود" },
      { code: "2021-IT-01_Stacks_of_tokens",
-       title: "Piles identiques" },
+       title: "برج‌های دوقلو" },
      { code: "2021-FR-04_tunnels",
        title: "قایم‌باشک" },
      { code: "2021-FR-05_treasure_rect",
