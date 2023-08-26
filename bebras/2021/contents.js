@@ -17,7 +17,7 @@ standaloneAddContents({
      { code: "2021-IT-01_Stacks_of_tokens",
        title: "Piles identiques" },
      { code: "2021-FR-04_tunnels",
-       title: "Caché dans le tunnel" },
+       title: "قایم‌باشک" },
      { code: "2021-FR-05_treasure_rect",
        title: "Chasse au trésor" },
      { code: "2021-FR-06_memory",
