@@ -29,7 +29,7 @@ standaloneAddContents({
      { code: "2021-FR-08-graph",
        title: "زوتوپیا" },
      { code: "2021-FR-08_targeting",
-       title: "Ciblage" }
+       title: "تبلیغات هدفمند" }
     ]
   });
 
