@@ -23,7 +23,7 @@ standaloneAddContents({
      //{ code: "2021-FR-06_memory",
      // title: "حذفه بمولا" },
      { code: "2021-UZ-01d_Kangaroo",
-       title: "Sauts de grenouille" },
+       title: "پرش بزرگ" },
      //{ code: "2021-FR-07_genealogy",
      //  title: "Généalogie" },
      { code: "2021-FR-08-graph",
