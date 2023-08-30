@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-02_bee_hive</title>
+   <script>
+      window.stringsLanguage = 'fa-IR';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'drag_lib-2.1', 
+         'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Marielle Léonard, inspired by Logix; Implementation: Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "ماموریت شما",
+         success: "آفرین! موفق شدی!",
+         pattern: "برای این الگو \n۲ حالت",
+         possiblePos: function(id) {
+            var str = (id == 0) ? "مجاز" : "غیرمجاز";
+            return "دو خانه "+str+"\nبرای این زنبور"
+         },
+         errorEmptyCell: "در خانه‌ی قرمز هیچ زنبور نیست",
+         errorRule: "قانون قرمز اعمال نشده‌است"
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Bee Hive</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>تمامی زنبورها را در کندو قرار دهید.</p>
+            <p class="basic easy medium">قانون زیر هر زنبور باید اعمال شود. هر قانون نشان‌دهنده‌ی یک خانه در کندو است.</p>
+            <div class="hard"><p><b>قانون جایگذاری برای هر زنبور باید اعمال شود.</b></p>
+				<p>این قانون‌ها به دو چیز بستگی دارند:</p>
+				<ul>
+					<li>شکل بدن زنبور که به صورت دایره‌، بیضی یا نوک تیز است.</li>
+					<li>تعداد <b>دقیق</b>خطوط شکم زنبور که بین ۱ تا ۳ می‌باشد.</li>
+				</ul>
+			</div>
+
+			<div style="border: solid black 1px;max-width: 400px;padding:10px;float:right">
+				<div id="intro1"></div>
+				<b>مثال<span class="medium hard"> 1</span>:</b>
+				<br/><br/><br/>
+				<p class="basic">این قانون نشان می‌دهد که این زنبور در کدام خانه‌ی کندو باید قرار بگیرد.</p>
+				<p class="easy medium">این قانون نشان می‌دهد که اطراف زنبور باید چه خانه‌هایی وجود داشته باشد..</p>
+				<p class="hard">این قانون نشان می‌دهد که زنبوری که در شکمش دو خط وجود دارد، خانه‌های اطرافش نباید مانند این خانه‌ها باشد.</p>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="medium hard"  style="border: solid black 1px;max-width: 400px;padding:10px;margin-top:20px">
+				<div id="intro2"></div>
+				<b>مثال ۲:</b>
+				<br/><br/><br/>
+				<p class="medium">این قانون نشان می‌دهد که خانه‌ای که اطرافش مانند خانه با ضربدر قرمز است برای این زنبور ممنوع می‌باشد.</p>
+				<p class="hard">این قانون نشان می‌دهد که خانه‌ای که اطرافش مانند خانه با ضربدر قرمز است، برای زنبورهایی که در شکم خود سه خط دارند ممنوع می‌باشد.</p>
+				<div style="clear:both;"></div>
+			</div>
+			<div style="clear:both"></div>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/cross_red.png" style="display:none" id="cross" class="convert-base64">
+         <img src="assets/bees.png" style="display:none" id="bees" class="convert-base64">
+         <img src="assets/rule_icon_01.png" style="display:none" id="rule_icon_1" class="convert-base64">
+         <img src="assets/rule_icon_02.png" style="display:none" id="rule_icon_2" class="convert-base64">
+         <img src="assets/rule_icon_03.png" style="display:none" id="rule_icon_3" class="convert-base64">
+         <img src="assets/rule_icon_04.png" style="display:none" id="rule_icon_4" class="convert-base64">
+         <img src="assets/rule_icon_05.png" style="display:none" id="rule_icon_5" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+
+</body>
+</html>
