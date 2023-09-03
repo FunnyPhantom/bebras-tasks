@@ -10,7 +10,7 @@ standaloneAddContents({
      { code: "2022-FR-03_treasure_lidar",
        title: "Carte au trésor" },
      { code: "2022-FR-04_closest_height",
-       title: "Taille des girafes" },
+       title: "زرافه‌ها" },
      { code: "2022-FR-05_shape_building",
        title: "Formes assemblées" },
      { code: "2022-FR-06_chocolate_bars",

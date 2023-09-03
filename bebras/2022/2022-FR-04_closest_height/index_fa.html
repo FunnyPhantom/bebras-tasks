@@ -49,7 +49,7 @@
    var taskStrings = {
          introTitle: "ماموریت شما",
          success: "تبریک می گویم، شما موفق شدید!",
-         halfSuccess: "<p>شما موفق شدید، اما امکان دارد با اندازه گیری کمتری انجام شود.</p>",
+         halfSuccess: "<p>شما موفق شدید، اما امکان دارد با اندازه گیری کمتری نیز انجام شود.</p>",
          clickRetry: "<p>برای تلاش مجدد روی راه اندازی مجدد کلیک کنید.</p>",
          cannotGiveScarf: "شما فقط می توانید به 2 زرافه روسری بدهید.",
          giraffeNames: ["Ada", "Tom", "Pam", "Bob", "Max", "Isa", "Léa", "Eve"],
@@ -81,11 +81,11 @@
             return "The marker for \n"+str+" is already there"
          },
          count: function(curr,max) {
-            return curr+" / "+max+" اندازهگیریها"
+            return curr+" / "+max+" اندازه‌گیری‌ها"
          },
          validate: "بررسی پاسخ",
          errorTooManyMeas: function(max) {
-            return "شما نمی‌توانید بیشتر از  "+max+" اندازهگیریها."
+            return "شما نمی‌توانید بیشتر از  "+max+" اندازه‌گیری‌ها."
          },
          errorNoScarf: "با علامت زدن جعبه زیر نامش، به کوتاه‌ترین زرافه یک روسری بده."
 		 errorNoScarves: "با علامت زدن جعبه‌ها زیر نام‌هایشان، به دو زرافه روسری بده."
@@ -110,7 +110,7 @@
 </head>
 <body>
    <div id="task">
-      <h1>زرافهها</h1>
+      <h1>زرافه‌ها</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1"> <p class="basic easy">به کوتاه‌ترین زرافه یک روسری بده.</p> 
