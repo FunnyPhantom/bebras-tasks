@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-08-xor_shifted</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages' 
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": true
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "ماموریت شما",
+		 success: "تبریک می‌گویم، شما موفق شدید!",
+		 startingGrid: "شطرنجی شروع",
+         copies: function(level) {
+			if (level == "basic") {
+				return "Copy";
+			}
+			return "Copies";
+		 },
+         click: "روی خانه‌ها کلیک کنید",
+         drag: function(level) {
+			if (level == "basic") {
+				return "کپی شطرنجی را بکشید";
+			}
+			return "کپی‌های شطرنجی را بکشید";
+	     },
+         tooManyDrags: "روی خانه‌های شطرنجی شروع کلیک کنید تا محتوای آن و دو کپی تغییر کند.",
+		 clickLeftGrid: "روی شطرنجی شروع کلیک کنید تا محتوای خانه‌های آن تغییر کند.",
+		 errorWrongCell: "خانه‌ای که با قرمز مشخص شده است با هدف مطابقت ندارد."
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+      }
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      </style>
+</head>
+<body>
+   <div id="task">
+      <h1>XOR shifted</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+            <p>هدف شما قرار دادن مربع‌های آبی دقیقاً روی هر نقطه سیاه است.</p> <div class="easy medium hard"> 
+			<ol> <li>روی خانه‌های شطرنجی شروع کلیک کنید تا رنگ آن‌ها تغییر کند.<br/><br/>
+			</li> <li>دو کپی این شطرنجی را جابه‌جا کنید.</li> </ol> </div> <p><strong>اگر دو مربع آبی روی هم قرار بگیرند، سفید می‌شوند.</strong></p>
+         </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      
+      <!-- <h2>C'est de l'informatique !</h2>-->
+
+  </div> <!-- task-solution -->
+</body>
+</html>
