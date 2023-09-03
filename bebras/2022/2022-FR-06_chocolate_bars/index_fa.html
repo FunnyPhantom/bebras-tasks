@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-06-chocolate-bars</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'raphaelButton-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages'
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2016/2016-FR-01-not-rectangles/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "Idea: Mathias Hiron; Design: Arthur Charguéraud, Mathias Hiron, Marielle Léonard; Implementation:    Arnaud Le Grand",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "ماموریت شما",
+		 success: "تبریک می‌گویم، شما موفق شدید!",
+		 tooManyMeasures: "شما فندق را پیدا کردید، اما از سوال‌های زیادی استفاده کردید.",
+		 partialSuccess: "شما فندق را پیدا کردید، اما می‌توان با سوال‌های کمتری پیدایش کرد.",
+         doMeasuresFirst: function(level) {
+		     str = "قبل از قرار دادن پرچم، ";
+			 if (level == "easy") {
+				str += "یک منطقه را";
+			 } else {
+			    str += "برخی مناطق را";
+			 }
+			 str += " انتخاب کنید تا محل فندق اضافی مشخص شود.";
+			 return str;
+	     },
+		 
+         clickRetry: "برای تلاش مجدد روی راه‌اندازی مجدد کلیک کنید.",
+		 undo: "واگرد",
+		 count: "چند عدد \nفندق؟",
+		 newMeasure: "مناطق جدید \nانتخاب کنید",
+		 select: "پاسخ‌های گذشته را مشاهده کنید",
+		 dragMarker: "این پرچم را روی مربع\nفندق اضافی بکشید.",
+
+         nuts: function(nbNuts) { 
+			var str = "فندق";
+			if (nbNuts > 1) {
+				str += "ها";
+			}
+			return str;
+		 },
+         measCounter: function(val,target) {
+            return val+" سوال‌های پرسیده شده";
+         },
+         countResult: function(val,rect) {
+            var col = (rect == 0) ? "آبی" : "نارنجی";
+			var plural = "";
+			if (val > 1) {
+				plural = "ها";
+			}
+            return val+" فندق" + plural + " را " + col + " در اینجا قرار دهید";
+         },
+         missingRect: function(nbRect) {
+            var plural = (nbRect > 1) ? "ها" : "";
+            return "شما باید " + nbRect + " منطقه" + plural + " را در هر شکلات انتخاب کنید."
+         },
+         tooManyMeas: function(max) {
+            return "شما نمی‌توانید بیش از " + max + " سوال بپرسید."
+         },
+        errorNoResult: "<p>شما هیچ سوالی نپرسیده‌اید.</p>",
+		errorWrongPos: "<p>دو شکلات یکسان بودند به جز خانه‌ای که مرز زرد داشت. این خانه‌ای نیست که شما پرچم را روی آن گذاشتید.</p><br/>"
+		};
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+      img {
+         -webkit-user-drag: none;
+      }
+      </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Hazelnuts</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1"> <p class="basic medium hard">تفاوت بین دو شکلات را پیدا کنید.</p> <p class="easy">شکلات پیچیده شده مثل شکلات باز شده است، به جز اینکه یک فندق اضافه دارد.</p>
+		 <p class="easy">برای پیدا کردن آن، سوال بپرسید: یک منطقه را انتخاب کنید، سپس روی "چند فندق؟" کلیک کنید.</p>
+		 <p class="medium hard">برای هر سوال، <span class="basic easy medium">یک منطقه</span><span class="hard"><b>دو منطقه</b></span> را در هر شکلات انتخاب کنید، سپس روی دکمه آبی کلیک کنید.</p><span class="hard">می‌توانید دو منطقه را روی هم قرار دهید.</span>
+		<center class="easy medium hard"><img src="assets/select_area.png" style="width:150px" class="convert-base64"/>
+		</center> <p>وقتی مطمئن شدید کدام مربع شکلات فندق اضافه دارد، پرچم را روی آن بگذارید و تأیید کنید.</p> 
+		<p class="easy medium hard">برای گرفتن همه امتیازها، <strong>آن را در <span id="target"></span> سوال پیدا کنید.</strong></p> </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="../../../_common/modules/img/icons/undo_white.png" id="undo" style="display:none" class="convert-base64">
+         <img src="assets/count.png" id="count" style="display:none" class="convert-base64">
+         <img src="assets/arrow.png" id="arrow" style="display:none" class="convert-base64">
+         <img src="assets/packaging.png" id="packaging" style="display:none" class="convert-base64">
+         <img src="assets/chocolate.png" id="chocolate" style="display:none" class="convert-base64">
+         <img src="assets/nut.png" id="nut" style="display:none" class="convert-base64">
+         <img src="../../../_common/modules/img/algorea/flag.png" id="marker" style="display:none" class="convert-base64">
+         <img src="assets/nut_icon_brown.png" id="nut_icon_brown" style="display:none" class="convert-base64">
+         <img src="assets/nut_icon_blue.png" id="nut_icon_blue" style="display:none" class="convert-base64">
+         <img src="icon.png" style="display:none">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+      
+      <!-- <h2>C'est de l'informatique !</h2>-->
+
+  </div> <!-- task-solution -->
+</body>
+</html>
