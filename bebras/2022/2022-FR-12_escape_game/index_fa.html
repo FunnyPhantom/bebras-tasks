@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>2022-FR-12-escape-game</title>
+   <script>
+      window.stringsLanguage = 'en';
+   </script>
+   <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
+   <script class="remove" type="text/javascript">
+      var modulesPath = '../../../_common/modules';
+      importModules([
+         'jquery-1.7.1', 'jquery-ui.touch-punch', 'raphael-2.2.1', 'JSON-js', 'grid-1.1',
+         'beav-1.0', 'beaver-task-2.0', 'simulation-2.0', 'raphaelFactory-1.0',
+         'delayFactory-1.0', 'simulationFactory-1.0', 'button-1.0',
+         'platform-pr', 'installationAPI.01', 'miniPlatform',
+         'randomGenerator-1.0', 'shape-paths-1.1', 'responsiveDOMConverter','fonts-loader-1.0', 'loader-buttonsAndMessages' 
+      ]);
+   </script>
+   <script type="text/javascript">
+      var respEnabled = Beav.Navigator.supportsResponsive();
+      // var respEnabled = false;
+      if(respEnabled){
+         importModules(['buttonsAndMessages_resp','taskStyles-0.3_M']);
+         window.FontsLoader.loadFonts(['fontawesome']);
+         task.getMetaData = function(cb) { cb({nbHints: 0, autoHeight: true}); }
+      }else{
+         importModules(['buttonsAndMessages','taskStyles-0.1']);
+      }
+   </script>
+    
+   <script class="remove" type="text/javascript">
+    var json = {
+       "id": "http://castor-informatique.fr/tasks/2022/2022-FR-12-escape-game/",
+       "language": "en",
+       "version": "en.01",
+       "authors": "",
+       "translators": [],
+       "license": "CC BY-SA 3.0",
+       "taskPathPrefix": "",
+       "modulesPathPrefix": "",
+       "browserSupport": [],
+       "fullFeedback": true,
+       "acceptedAnswers": [],
+       "usesRandomSeed": false
+   };
+   </script>
+   <script type="text/javascript">
+   var taskStrings = {
+         introTitle: "ماموریت شما",
+		 success: "تبریک می‌گویم، شما موفق شدید!",
+		 validate: "تأیید",
+		 cancel: "برگشت به ورودی",
+		 lobby: "ورودی",
+		 exit: "خروج",
+         roomName: function (index) {
+            return "اتاق #" + index;
+         },
+         thisRoom: "این اتاق را دوباره امتحان کنید",
+         incorrectNumberOfCharacters: function (needed) {
+            return "شما باید " + needed + " بازیکن را برای بازی این فرار از اتاق انتخاب کنید.";
+         },
+         retry: "برای تلاش مجدد روی راه‌اندازی مجدد کلیک کنید.",
+         errorImpossible: function (key, value, equality) {
+            var translations = {
+               fox: 'یک روباه',
+			   bear: 'یک خرس',
+			   elephant: 'یک فیل',
+			   scarf: 'یک شال گردن',
+			   necklace: 'یک گردنبند',
+			   bowtie: 'یک پاپیون',
+            };
+			var str = "بازیکنی که در دایره قرمز است";
+
+            if ('shape' === key) {
+               if (equality) {
+                  str += " نیست  ";
+               } else {
+				  str += " هست";
+               }
+			   str += translations[value];
+            }
+            else if ('hat' === key) {
+               return "کلاه درستی ندارد";
+            }
+            if ('accessory' === key) {
+               if (equality) {
+                  str += "ندارد  ";
+               } else {
+                  str += "دارد ";
+               }
+			   str += translations[value];
+            }
+			return str + " و نمی‌تواند از این راهرو عبور کند."
+         },
+      };
+   </script>
+   <script type="text/javascript" src="task.js"></script>
+   <style>
+      #paper {
+         margin-top: 1em;
+      }
+      #paper *:not(.overlay) {
+         touch-action:  none;
+      }
+      #error {
+         min-height: 2em;
+         text-align: center;
+      }
+      #displayHelper_graderMessage {
+         color: red;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<body>
+   <div id="task">
+      <h1>Escape Game</h1>
+      <div id="tabsContainer"></div>
+      <div id="taskContent">
+         <div id="zone_1">
+			<p>
+			<strong><span class="basic">یک </span><span class="easy"> دو </span><span class="medium">سه </span><span class="hard">چهار </span> بازیکن</strong> را به ورودی بکشید<span class="basic">،</span><span class="easy medium hard"> تا یک تیم درست کنید</span> که بتواند از همه اتاق‌ها عبور کند و خارج شود.</p>
+
+			<p>شما باید علائم راهنما را دنبال کنید. به عنوان مثال، یک بازیکن باید شال گردن داشته باشد تا از راهرویی که علامت شال گردن دارد، عبور کند.</p> <p class="easy medium hard"><strong>برای اینکه یک تیم از یک اتاق عبور کند، هر بازیکن باید از راهروی متفاوتی عبور کند.</strong></p> 
+			<p class="hard">یک بازیکن می‌تواند از راهرویی که دو ورودی دارد استفاده کند اگر بتواند از یکی از آن‌ها عبور کند.</p>
+	     </div>
+         <div id="zone_2">
+            <div id="paper"></div>
+            <div id="error"></div>
+         </div>
+         <img src="icon.png" style="display:none">
+         <img src="assets/fox.png" style="display:none" id="fox" class="convert-base64">
+         <img src="assets/bear.png" style="display:none" id="bear" class="convert-base64">
+         <img src="assets/elephant.png" style="display:none" id="elephant" class="convert-base64">
+
+         <img src="assets/green_hat.png" style="display:none" id="green_hat" class="convert-base64">
+         <img src="assets/yellow_hat.png" style="display:none" id="yellow_hat" class="convert-base64">
+         <img src="assets/blue_hat.png" style="display:none" id="blue_hat" class="convert-base64">
+
+         <img src="assets/scarf.png" style="display:none" id="scarf" class="convert-base64">
+         <img src="assets/necklace.png" style="display:none" id="necklace" class="convert-base64">
+         <img src="assets/bowtie.png" style="display:none" id="bowtie" class="convert-base64">
+      </div>
+   </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
+
+  </div> <!-- task-solution -->
+</body>
+</html>
