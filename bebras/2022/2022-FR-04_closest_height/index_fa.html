@@ -48,18 +48,18 @@
    <script type="text/javascript">
    var taskStrings = {
          introTitle: "ماموریت شما",
-         success: "تبریک می گویم، شما موفق شدید!",
-         halfSuccess: "<p>شما موفق شدید، اما امکان دارد با اندازه گیری کمتری نیز انجام شود.</p>",
-         clickRetry: "<p>برای تلاش مجدد روی راه اندازی مجدد کلیک کنید.</p>",
-         cannotGiveScarf: "شما فقط می توانید به 2 زرافه روسری بدهید.",
+		 success: "تبریک می‌گویم، شما موفق شدید!",
+		 halfSuccess: "<p>شما موفق شدید، اما امکان دارد با اندازه‌گیری کمتری انجام شود.</p>",
+		 clickRetry: "<p>برای تلاش مجدد روی راه‌اندازی مجدد کلیک کنید.</p>",
+		 cannotGiveScarf: "شما فقط می‌توانید به 2 زرافه روسری بدهید.",
          giraffeNames: ["Ada", "Tom", "Pam", "Bob", "Max", "Isa", "Léa", "Eve"],
          mark: "علامت بزن",
-         give: "بده",
-         addMarker: "یک علامت بگذار\n تا این ارتفاع ثبت شود",
-         markerAbove: "مربع زیر\nکمترین علامت است", 
-         markerBelow: "یک علامت زیر\n مربع است",
-         markerSame: "مربع دقیقا\nجایی است که کمترین علامت است",
-         giveScarf: "یک روسری بده\nبه این دو زرافه",
+		 give: "بده",
+		 addMarker: "یک علامت بگذار\n تا این ارتفاع ثبت شود",
+		 markerAbove: "مربع زیر\nکمترین علامت است",
+		 markerBelow: "یک علامت زیر\n مربع است",
+		 markerSame: "مربع دقیقا\nجایی است که کمترین علامت است",
+		 giveScarf: "یک روسری بده\nبه این دو زرافه",
          newMark: function(names) {
             var str = "";
             for(var iName = 0; iName < names.length; iName++){
@@ -74,22 +74,22 @@
             var str = "";
             for(var iName = 0; iName < names.length; iName++){
                if(iName > 0){
-                  str += " . ";
+                  str += " و ";
                }
                str += names[iName];
             }
-            return "The marker for \n"+str+" is already there"
+            return "علامت برای \n"+str+" از قبل وجود دارد"
          },
          count: function(curr,max) {
-            return curr+" / "+max+" اندازه‌گیری‌ها"
+            return curr+" / "+max+" اندازه‌گیری"
          },
-         validate: "بررسی پاسخ",
+         validate: "تأیید",
          errorTooManyMeas: function(max) {
-            return "شما نمی‌توانید بیشتر از  "+max+" اندازه‌گیری‌ها."
+            return "You may not do more than "+max+" measurements."
          },
-         errorNoScarf: "با علامت زدن جعبه زیر نامش، به کوتاه‌ترین زرافه یک روسری بده."
-		 errorNoScarves: "با علامت زدن جعبه‌ها زیر نام‌هایشان، به دو زرافه روسری بده."
-		 errorWrongPair: "<p>این دو زرافه درست نیستند.</p><p>شما باید دو زرافه‌ای را پیدا کنید که ارتفاعشان نزدیک‌ترین به هم باشد.</p>"
+         errorNoScarf: "با علامت زدن جعبه زیر نامش، به کوتاه‌ترین زرافه یک روسری بده.",
+		 errorNoScarves: "با علامت زدن جعبه‌ها زیر نام‌هایشان، به دو زرافه روسری بده.",
+		 errorWrongPair: "<p>این دو زرافه درست نیستند.</p><p>شما باید دو زرافه‌ای را پیدا کنید که ارتفاعشان نزدیک‌ترین به هم باشد.</p>",
 		 errorWrongGiraffe: "<p>این کوتاه‌ترین زرافه نیست.</p>"
       };
    </script>
@@ -110,17 +110,21 @@
 </head>
 <body>
    <div id="task">
-      <h1>زرافه‌ها</h1>
+      <h1>Giraffes</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
-         <div id="zone_1"> <p class="basic easy">به کوتاه‌ترین زرافه یک روسری بده.</p> 
-		 <p class="medium hard"><strong>به دو زرافه‌ای که ارتفاعشان نزدیک‌ترین به هم است، روسری بده.</strong></p> <p>برای دادن روسری به یک زرافه، جعبه زیر نامش را علامت بزن.</p> 
-		 <p class="easy"><strong>بعضی زرافه‌ها تقریباً هم‌ارتفاع هستند.</strong> روی دکمه بالای آن‌ها کلیک کن تا ارتفاعشان را دقیق اندازه بگیری.</p>
-		 <p class="medium hard"> روی دکمه بین دو زرافه کلیک کن تا اختلاف ارتفاعشان را اندازه بگیری.</p> <p>می‌توانی زرافه‌ها را جابه‌جا کنی.</p> <center class="easy medium hard"><p id="enemyWarning"></p></center> </div>
+         <div id="zone_1">
+			<p class="basic easy">به کوتاه‌ترین زرافه یک روسری بده.</p>
+			<p class="medium hard"><strong>به دو زرافه‌ای که ارتفاعشان نزدیک‌ترین به هم است، روسری بده.</strong></p>
+			<p>برای دادن روسری به یک زرافه، جعبه زیر نامش را علامت بزن.</p> <p class="easy"><strong>بعضی زرافه‌ها تقریباً هم‌ارتفاع هستند.</strong> روی دکمه بالای آن‌ها کلیک کن تا ارتفاعشان را دقیق اندازه بگیری.</p>
+			<p class="medium hard"> روی دکمه بین دو زرافه کلیک کن تا اختلاف ارتفاعشان را اندازه بگیری.</p>
+			<p>می‌توانی زرافه‌ها را جابه‌جا کنی.</p>
+			<center class="easy medium hard"><p id="enemyWarning"></p></center>
+         </div>
          <div id="zone_2">
             <div id="paper"></div>
             <div id="error"></div>
-         </div>
+			       </div>
          <img src="assets/background.png" style="display:none" id="background" class="convert-base64">
          <img src="assets/head.png" style="display:none" id="head" class="convert-base64">
          <img src="assets/neck_2.png" style="display:none" id="neck" class="convert-base64">
@@ -135,9 +139,7 @@
    </div><!-- task -->
    <div id="solution">
       <h2>Solution</h2>
-
       <h2>It's informatics!</h2>
-
   </div> <!-- task-solution -->
 </body>
 </html>

@@ -4,7 +4,7 @@
    <meta charset="utf-8">
    <title>2022-FR-02_bee_hive</title>
    <script>
-      window.stringsLanguage = 'fa-IR';
+      window.stringsLanguage = 'en';
    </script>
    <script class="remove" type="text/javascript" src="../../../_common/modules/pemFioi/importModules-1.1_M.js" id="import-modules"></script>
    <script class="remove" type="text/javascript">
@@ -49,14 +49,14 @@
    <script type="text/javascript">
    var taskStrings = {
          introTitle: "ماموریت شما",
-         success: "آفرین! موفق شدی!",
-         pattern: "برای این الگو \n۲ حالت",
+		 success: "تبریک می‌گویم، شما موفق شدید!",
+		 pattern: "2 امکان \nبرای این الگو",
          possiblePos: function(id) {
-            var str = (id == 0) ? "مجاز" : "غیرمجاز";
-            return "دو خانه "+str+"\nبرای این زنبور"
+            var str = (id == 0) ? "مجاز" : "ممنوع";
+            return "2 خانه "+str+"\nبرای این زنبور"
          },
-         errorEmptyCell: "در خانه‌ی قرمز هیچ زنبور نیست",
-         errorRule: "قانون قرمز اعمال نشده‌است"
+         errorEmptyCell: "خانه قرمز حاوی هیچ زنبوری نیست.",
+		 errorRule: "قانون قرمز رعایت نشده است"
       };
    </script>
    <script type="text/javascript" src="task.js"></script>
@@ -80,13 +80,13 @@
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1">
-            <p>تمامی زنبورها را در کندو قرار دهید.</p>
-            <p class="basic easy medium">قانون زیر هر زنبور باید اعمال شود. هر قانون نشان‌دهنده‌ی یک خانه در کندو است.</p>
-            <div class="hard"><p><b>قانون جایگذاری برای هر زنبور باید اعمال شود.</b></p>
-				<p>این قانون‌ها به دو چیز بستگی دارند:</p>
+            <p>تمام زنبورها را در کندو قرار دهید.</p> 
+			<p class="basic easy medium">قانون زیر هر زنبور باید رعایت شود. هر قانون قطعه‌ای از کندو را نشان می‌دهد.</p>			
+           <div class="hard"><p><b>قوانین قرارگیری باید برای هر زنبور رعایت شود.</b></p>
+				<p>این قوانین بر اساس دو معیار هستند:</p>
 				<ul>
-					<li>شکل بدن زنبور که به صورت دایره‌، بیضی یا نوک تیز است.</li>
-					<li>تعداد <b>دقیق</b>خطوط شکم زنبور که بین ۱ تا ۳ می‌باشد.</li>
+					<li>شکل گرد، بیضوی یا نوک تیز بدن زنبور.</li> 
+					<li>تعداد <b>دقیق</b> نوارهای روی شکمش، از 1 تا 3.</li>
 				</ul>
 			</div>
 
@@ -94,18 +94,18 @@
 				<div id="intro1"></div>
 				<b>مثال<span class="medium hard"> 1</span>:</b>
 				<br/><br/><br/>
-				<p class="basic">این قانون نشان می‌دهد که این زنبور در کدام خانه‌ی کندو باید قرار بگیرد.</p>
-				<p class="easy medium">این قانون نشان می‌دهد که اطراف زنبور باید چه خانه‌هایی وجود داشته باشد..</p>
-				<p class="hard">این قانون نشان می‌دهد که زنبوری که در شکمش دو خط وجود دارد، خانه‌های اطرافش نباید مانند این خانه‌ها باشد.</p>
+				<p class="basic">قانون نشان می‌دهد این زنبور باید در کدام خانه کندو قرار بگیرد.</p>
+				<p class="easy medium">این قانون به معنای این است که زنبور باید دو خانه کندو بالای آن باشد.</p>
+				<p class="hard">این قانون به معنای این است که یک زنبور با دقیقاً دو نوار نمی‌تواند دو خانه کندو بالای آن باشد.</p>
 				<div style="clear:both;"></div>
 			</div>
 			<div style="clear:both"></div>
 			<div class="medium hard"  style="border: solid black 1px;max-width: 400px;padding:10px;margin-top:20px">
 				<div id="intro2"></div>
-				<b>مثال ۲:</b>
+				<b>مثال 2:</b>
 				<br/><br/><br/>
-				<p class="medium">این قانون نشان می‌دهد که خانه‌ای که اطرافش مانند خانه با ضربدر قرمز است برای این زنبور ممنوع می‌باشد.</p>
-				<p class="hard">این قانون نشان می‌دهد که خانه‌ای که اطرافش مانند خانه با ضربدر قرمز است، برای زنبورهایی که در شکم خود سه خط دارند ممنوع می‌باشد.</p>
+				<p class="medium">در این قانون، علامت ضربدر قرمز به معنای ممنوع بودن خانه‌ای با دو خانه کندو بالای آن برای این زنبور است.</p> 
+				<p class="hard">در این قانون، علامت ضربدر قرمز به معنای ممنوع بودن خانه‌ای با دو خانه کندو بالای آن برای یک زنبور با دقیقاً سه نوار است.</p> 
 				<div style="clear:both;"></div>
 			</div>
 			<div style="clear:both"></div>
@@ -124,6 +124,11 @@
          <img src="icon.png" style="display:none">
       </div>
    </div><!-- task -->
+   <div id="solution">
+      <h2>Solution</h2>
 
+      <h2>C'est de l'informatique !</h2>
+
+  </div> <!-- task-solution -->
 </body>
 </html>
