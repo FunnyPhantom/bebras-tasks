@@ -21,11 +21,11 @@ standaloneAddContents({
      { code: "2022-FR-09_fourier",
        title: "شن بازی" },
      { code: "2022-FR-10_index_cards",
-       title: "Téléportation" },
+       title: "تله پورت" },
      { code: "2022-FR-12_escape_game",
-       title: "L'échappée" },
+       title: "اسکیپ روم" },
      { code: "2022-FR-14_gerrymandering",
-       title: "Élections" }
+       title: "منطقه بندی" }
     ]
   });
 
