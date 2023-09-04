@@ -3,6 +3,7 @@ standaloneAddContents({
   code: "castor_2022",
   title: "Concours Castor 2022",
   folder: "2022/",
+  language: "fa",
   difficulties: ["basic", "easy", "medium", "hard"],
   tasks: [
      { code: "2022-FR-02_bee_hive",
