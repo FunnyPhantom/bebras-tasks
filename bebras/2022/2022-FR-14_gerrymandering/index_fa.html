@@ -51,9 +51,9 @@
          introTitle: "ماموریت شما",
 		 success: "تبریک می‌گویم، شما موفق شدید!",
 		 undo: "برگشت",
-		 clickAnimals: "روی حیوانات کنار حصار کلیک کنید",
+		 clickAnimals: "روی حیوانات کنار حصار بزنید",
          errorWins: function(target) {
-            return "بیورها در "+target+" منطقه برنده نشدند."
+            return "ببراس‌ها در "+target+" منطقه برنده نشدند."
          },
          errorNbInhabitants: "استفاده نشده؟",
          animals: function(num) {
@@ -65,7 +65,7 @@
          },
          beavers: function(num) {
             if (num > 1) {
-               return "ببراسها";
+               return "ببراس‌ها";
             } else {
                return "ببراس";
             }
@@ -98,11 +98,11 @@
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1">
-            <p>روی حیوانات کنار <span class="basic">آن</span><span class="easy medium hard">یک</span> حصار کلیک کنید، تا آن را جابجا کنید.</p> 
+            <p>برای تغییر منطقه <span class="basic"></span><span class="easy medium hard"></span> حیوانی که مجاور یک حصار است روی آن بزنید.</p> 
 			<p>هدف شما این است که: 
 				<ul> 
 					<li><p>هر منطقه دقیقاً شامل <span id="population"></span> حیوان باشد.</p></li> 
-					<li><p><span class="basic">آن</span> <b><span id="nb_target"></span> منطقه</b> حداقل شامل <b><span id="majority"></span> ببراس یا ببراس‌ها</b> باشد</p></li> 
+					<li><p><span class="basic">آن</span> <b><span id="nb_target"></span> منطقه</b> حداقل شامل <b><span id="majority"></span> ببراس </b> باشند</p></li> 
 				</ul> 
 			</p>
             <!--<p>Les castors gagneront ainsi les élections.</p>-->
