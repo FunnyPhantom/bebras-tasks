@@ -83,11 +83,11 @@
      distance: function(sign, direction) {
        var strSign = "فاصله درست است";
        if (sign > 0) {
-         strSign = "گنج\nدورتر است";
+         strSign = "گنج از\nدورتر است";
        } else if (sign < 0) {
-         strSign = "گنج\nنزدیک‌تر است"; 
+         strSign = "گنج به\nنزدیک‌تر است"; 
        }
-       var strDirections = ["از جنگل", "از دریا", "از صخره‌ها"];
+       var strDirections = ["جنگل", "دریا", "صخره‌ها"];
        return strSign + "\n" + strDirections[direction];
      }  
    };
@@ -112,7 +112,7 @@
       <div id="taskContent">
          <div id="zone_1">
 		 <p>ببراس گنجش را زیر شن‌ها پنهان کرده است.</p>
-		 <p>رایانه او فاصله بین گنج <span class="easy medium hard">و دریا،</span> <span class="basic">و صخره‌ها،</span> و فاصله بین گنج و جنگل را، که با لیزر اندازه‌گیری شده، ثبت کرده است.</p>
+		 <p>رایانه ببراس بر اساس خانه‌ی انتخاب شده فاصله‌ی گنج را از <span class="easy medium hard">و دریا،</span> <span class="basic">و صخره‌ها،</span> نشان می‌دهد.</p>
 		 <p><strong>برای پیدا کردن گنج</strong>، روی بعضی خانه‌ها بزنید. رایانه ببراس می‌گوید گنج نسبت به <span class="basic">صخره‌ها و</span> جنگل <span class="easy medium hard">و دریا</span> دورتر است یا نزدیک‌تر.</p>
 		 <p class="medium hard"><strong>در این نسخه، نمی‌توانیم <span class="hard">جنگل و</span> دریا را ببینیم.</strong></p>
          </div>
