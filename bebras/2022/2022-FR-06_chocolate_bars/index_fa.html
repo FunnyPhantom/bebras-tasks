@@ -51,8 +51,8 @@
    var taskStrings = {
          introTitle: "ماموریت شما",
 		 success: "تبریک می‌گویم، شما موفق شدید!",
-		 tooManyMeasures: "شما فندق را پیدا کردید، اما از سوال‌های زیادی استفاده کردید.",
-		 partialSuccess: "شما فندق را پیدا کردید، اما می‌توان با سوال‌های کمتری پیدایش کرد.",
+		 tooManyMeasures: "شما فندق را پیدا کردید، اما از گام‌های زیادی استفاده کردید.",
+		 partialSuccess: "شما فندق را پیدا کردید، اما می‌توان باگام‌های کمتری پیدایش کرد.",
          doMeasuresFirst: function(level) {
 		     str = "قبل از قرار دادن پرچم، ";
 			 if (level == "easy") {
@@ -66,35 +66,35 @@
 		 
          clickRetry: "برای تلاش مجدد روی راه‌اندازی مجدد کلیک کنید.",
 		 undo: "برگشت",
-		 count: "چند عدد \nفندق؟",
+		 count: "شمردن \nفندق(ها)",
 		 newMeasure: "مناطق جدید \nانتخاب کنید",
 		 select: "پاسخ‌های گذشته را مشاهده کنید",
-		 dragMarker: "این پرچم را روی مربع\nفندق اضافی بکشید.",
+		 dragMarker: "/این پرچم را روی مربع\nخانه با فندق اضافی بکشید.",
 
          nuts: function(nbNuts) { 
 			var str = "فندق";
 			if (nbNuts > 1) {
-				str += "ها";
+				str += "";
 			}
 			return str;
 		 },
          measCounter: function(val,target) {
-            return val+" سوال‌های پرسیده شده";
+            return val+" گام‌های پرسیده شده";
          },
          countResult: function(val,rect) {
             var col = (rect == 0) ? "آبی" : "نارنجی";
 			var plural = "";
 			if (val > 1) {
-				plural = "ها";
+				plural = "";
 			}
-            return val+" فندق" + plural + " را " + col + " در اینجا قرار دهید";
+            return val+" فندق" + plural + "" + col + " اینجا وجود دارد";
          },
          missingRect: function(nbRect) {
             var plural = (nbRect > 1) ? "ها" : "";
             return "شما باید " + nbRect + " منطقه" + plural + " را در هر شکلات انتخاب کنید."
          },
          tooManyMeas: function(max) {
-            return "شما نمی‌توانید بیش از " + max + " سوال بپرسید."
+            return "شما نمی‌توانید بیش از " + max + " گام استفاده نمایید."
          },
         errorNoResult: "<p>شما هیچ سوالی نپرسیده‌اید.</p>",
 		errorWrongPos: "<p>دو شکلات یکسان بودند به جز خانه‌ای که مرز زرد داشت. این خانه‌ای نیست که شما پرچم را روی آن گذاشتید.</p><br/>"
@@ -125,13 +125,13 @@
       <div id="tabsContainer"></div>
       <div id="taskContent">
          <div id="zone_1"> <p class="basic medium hard">تفاوت بین دو شکلات را پیدا کنید.</p> 
-		 <p class="easy">شکلات پیچیده شده مثل شکلات باز شده است، به جز اینکه یک فندق اضافه دارد.</p>
-		 <p class="easy">برای پیدا کردن آن، سوال بپرسید: یک منطقه را انتخاب کنید، سپس روی "چند فندق؟" کلیک کنید.</p>
+		 <p class="easy">شکلات بسته‌بندی شده مثل شکلات باز شده است، به جز اینکه یک فندق اضافه دارد.</p>
+		 <p class="easy">برای پیدا کردن آن، در هر گام یک زیرمستطیل انتخاب کنید و روی دکمه شمردن فندق‌ها بزنید.</p>
 		 <p class="medium hard">برای هر سوال، <span class="basic easy medium">یک منطقه</span><span class="hard"><b>دو منطقه</b></span> را در هر شکلات انتخاب کنید، سپس روی دکمه آبی کلیک کنید.</p>
 			<span class="hard">.می‌توانید با موس چند منطقه را کشیده و انتخاب کنید</span>
 		<center class="easy medium hard"><img src="assets/select_area.png" style="width:150px" class="convert-base64"/></center>
-		<p>وقتی مطمئن شدید کدام مربع شکلات فندق اضافه دارد، پرچم را روی آن بگذارید و تأیید کنید.</p> 
-		<p class="easy medium hard">برای گرفتن همه امتیازها، <strong>آن را در <span id="target"></span> سوال پیدا کنید.</strong></p> </div>
+		<p>وقتی مطمئن شدید کدام مربع شکلات اضافی دارد، پرچم را روی آن بگذارید و پاسختان را بررسی کنید.</p> 
+		<p class="easy medium hard">برای گرفتن امتیاز کامل، <strong>آن را در <span id="target"></span> گام پیدا کنید.</strong></p> </div>
          <div id="zone_2">
             <div id="paper"></div>
             <div id="error"></div>
