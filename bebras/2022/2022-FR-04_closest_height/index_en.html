@@ -47,50 +47,50 @@
    </script>
    <script type="text/javascript">
    var taskStrings = {
-         introTitle: "ماموریت شما",
-         success: "تبریک می گویم، شما موفق شدید!",
-         halfSuccess: "<p>شما موفق شدید، اما امکان دارد با اندازه گیری کمتری انجام شود.</p>",
-         clickRetry: "<p>برای تلاش مجدد روی راه اندازی مجدد کلیک کنید.</p>",
-         cannotGiveScarf: "شما فقط می توانید به 2 زرافه روسری بدهید.",
+         introTitle: "Your mission",
+         success: "Congratulations, you succeeded!",
+         halfSuccess: "<p>You succeeded, but it's possible to do so using fewer measurements.</p>",
+         clickRetry: "<p>Click on restart to try again.</p>",
+         cannotGiveScarf: "You can only give scarves to 2 giraffes.",
          giraffeNames: ["Ada", "Tom", "Pam", "Bob", "Max", "Isa", "Léa", "Eve"],
-         mark: "علامت بزن",
-         give: "بده",
-         addMarker: "یک علامت بگذار\n تا این ارتفاع ثبت شود",
-         markerAbove: "مربع زیر\nکمترین علامت است", 
-         markerBelow: "یک علامت زیر\n مربع است",
-         markerSame: "مربع دقیقا\nجایی است که کمترین علامت است",
-         giveScarf: "یک روسری بده\nبه این دو زرافه",
+         mark: "Mark",
+         give: "Give",
+         addMarker: "Put a marker\nto record this height",
+         markerAbove: "The square is under\nthe lowest marker", 
+         markerBelow: "There is a marker below\nthe square",
+         markerSame: "The square is precisely\nwhere the lowest marker is",
+         giveScarf: "Give a scarf\nto these two giraffes",
          newMark: function(names) {
             var str = "";
             for(var iName = 0; iName < names.length; iName++){
                if(iName > 0){
-                  str += " و ";
+                  str += " and ";
                }
                str += names[iName];
             }
-            return "یک علامت برای \n"+str+" گذاشته شده است."
+            return "A marker for \n"+str+" has been placed."
          },
          alreadyMarked: function(names) {
             var str = "";
             for(var iName = 0; iName < names.length; iName++){
                if(iName > 0){
-                  str += " . ";
+                  str += " and ";
                }
                str += names[iName];
             }
             return "The marker for \n"+str+" is already there"
          },
          count: function(curr,max) {
-            return curr+" / "+max+" اندازهگیریها"
+            return curr+" / "+max+" measurements"
          },
-         validate: "بررسی پاسخ",
+         validate: "Validate",
          errorTooManyMeas: function(max) {
-            return "شما نمی‌توانید بیشتر از  "+max+" اندازهگیریها."
+            return "You may not do more than "+max+" measurements."
          },
-         errorNoScarf: "با علامت زدن جعبه زیر نامش، به کوتاه‌ترین زرافه یک روسری بده."
-		 errorNoScarves: "با علامت زدن جعبه‌ها زیر نام‌هایشان، به دو زرافه روسری بده."
-		 errorWrongPair: "<p>این دو زرافه درست نیستند.</p><p>شما باید دو زرافه‌ای را پیدا کنید که ارتفاعشان نزدیک‌ترین به هم باشد.</p>"
-		 errorWrongGiraffe: "<p>این کوتاه‌ترین زرافه نیست.</p>"
+         errorNoScarf: "Give a scarf to the smallest giraffe, by checkin the checkbox under its name.",
+         errorNoScarves: "Give scarves to a pair of giraffes by checking the checkboxes under their names.",
+         errorWrongPair: "<p>This is not the right couple of giraffes.</p><p>You need to find the two giraffes whose height is the closest to eachother.</p>",
+         errorWrongGiraffe: "<p>This is not the smallest giraffe.</p>"
       };
    </script>
    <script type="text/javascript" src="task.js"></script>
@@ -110,34 +110,18 @@
 </head>
 <body>
    <div id="task">
-      <h1>زرافهها</h1>
+      <h1>Giraffes</h1>
       <div id="tabsContainer"></div>
       <div id="taskContent">
-         <div id="zone_1"> <p class="basic easy">به کوتاه‌ترین زرافه یک روسری بده.</p> 
-		 <p class="medium hard"><strong>به دو زرافه‌ای که ارتفاعشان نزدیک‌ترین به هم است، روسری بده.</strong></p> <p>برای دادن روسری به یک زرافه، جعبه زیر نامش را علامت بزن.</p> 
-		 <p class="easy"><strong>بعضی زرافه‌ها تقریباً هم‌ارتفاع هستند.</strong> روی دکمه بالای آن‌ها کلیک کن تا ارتفاعشان را دقیق اندازه بگیری.</p>
-		 <p class="medium hard"> روی دکمه بین دو زرافه کلیک کن تا اختلاف ارتفاعشان را اندازه بگیری.</p> <p>می‌توانی زرافه‌ها را جابه‌جا کنی.</p> <center class="easy medium hard"><p id="enemyWarning"></p></center> </div>
+         <div id="zone_1">
+			<p class="basic easy">Give a scarf to the smallest giraffe.</p>
+            <p class="medium hard"><strong>Give a scarf to the two giraffes whose height is the closest to eachother.</strong></p>
+			<p>To give a scarf to a giraffe, check the checkbox under its name.</p>
+			<p class="easy"><strong>Some giraffes have almost the same height.</strong> Click on the button above them to measure them precisely.</p>
+            <p class="medium hard">Click on the button between two giraffes to measure their height differece.</p>
+            <p>You may move the giraffes.</p>
+			<center class="easy medium hard"><p id="enemyWarning"></p></center>
+         </div>
          <div id="zone_2">
             <div id="paper"></div>
             <div id="error"></div>
-         </div>
-         <img src="assets/background.png" style="display:none" id="background" class="convert-base64">
-         <img src="assets/head.png" style="display:none" id="head" class="convert-base64">
-         <img src="assets/neck_2.png" style="display:none" id="neck" class="convert-base64">
-         <img src="assets/gauge_body.png" style="display:none" id="gauge_body" class="convert-base64">
-         <img src="assets/gauge_head.png" style="display:none" id="gauge_head" class="convert-base64">
-         <img src="assets/body.png" style="display:none" id="body" class="convert-base64">
-         <img src="assets/scarf.png" style="display:none" id="scarf" class="convert-base64">
-         <img src="assets/gauge_icon.png" style="display:none" id="gauge_icon" class="convert-base64">
-         <img src="assets/gauge_icon_black.png" style="display:none" id="gauge_icon_black" class="convert-base64">
-         <img src="icon.png" style="display:none">
-      </div>
-   </div><!-- task -->
-   <div id="solution">
-      <h2>Solution</h2>
-
-      <h2>It's informatics!</h2>
-
-  </div> <!-- task-solution -->
-</body>
-</html>
