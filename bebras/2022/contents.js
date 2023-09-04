@@ -23,7 +23,7 @@ standaloneAddContents({
      { code: "2022-FR-10_index_cards",
        title: "تله پورت" },
      { code: "2022-FR-12_escape_game",
-       title: "اسکیپ روم" },
+       title: "اتاق فرار" },
      { code: "2022-FR-14_gerrymandering",
        title: "منطقه بندی" }
     ]
