@@ -83,11 +83,11 @@
      distance: function(sign, direction) {
        var strSign = "فاصله درست است";
        if (sign > 0) {
-         strSign = "گنج از\nدورتر است";
+         strSign = "گنج دورتر از";
        } else if (sign < 0) {
-         strSign = "گنج به\nنزدیک‌تر است"; 
+         strSign = "گنج نزدیک‌تر به"; 
        }
-       var strDirections = ["جنگل", "دریا", "صخره‌ها"];
+       var strDirections = ["جنگل است", "دریا است", "صخره‌ها است"];
        return strSign + "\n" + strDirections[direction];
      }  
    };
