@@ -7,7 +7,7 @@ standaloneAddContents({
   difficulties: ["basic", "easy", "medium", "hard"],
   tasks: [
      { code: "2022-FR-02_bee_hive",
-       title: "Dans la ruche" },
+       title: "کندوی عسل" },
      { code: "2022-FR-03_treasure_lidar",
        title: "Carte au trésor" },
      { code: "2022-FR-04_closest_height",
