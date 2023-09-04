@@ -19,7 +19,7 @@ standaloneAddContents({
      { code: "2022-FR-08_xor_shifted",
        title: "پراش" },
      { code: "2022-FR-09_fourier",
-       title: "Tas de sable" },
+       title: "شن بازی" },
      { code: "2022-FR-10_index_cards",
        title: "Téléportation" },
      { code: "2022-FR-12_escape_game",
