@@ -48,48 +48,48 @@
    </script>
    <script type="text/javascript">
    var taskStrings = {
-         introTitle: "Your mission",
-         success: "Congratulations, you succeeded!",
-         target: "Target",
-         currentDistance: "Distance",
-         up: "Up",
-         down: "Down",
-         nbMeasures: function(val,max) {
-            return "Number of cells testesd: "+val+" / "+max
-         },
-         tooManyMeas: function(max) {
-            return "You can't do more than "+max+" tests."
-         },
-         clickRetry: "Click on restart to try again.",
-         errorCannotMeas: "You can't test this cell.",
-		 errorTreasureFound: "You have found the treasure, you can now validate.",
-         errorDistance: function(dir) {
-            var str = "The distance to ";
-			switch (dir) {
-				case 0:
-					str += "the forest";
-					break;
-				case 1:
-					str += "the sea";
-					break;
-				case 2:
-					str += "the rocks";
-			}
-            str += " is wrong."
-            return str
-         },
-         errorWrongSpot: "The treasure is not here.",
-		 distance: function(sign, direction) {
-            var strSign = "Correct distance";
-            if (sign > 0) {
-               strSign = "The treasure is\nfurther";
-            } else if (sign < 0) {
-               strSign = "The treasure is\ncloser";
-            }
-            var strDirections = ["from the forest", "from the sea", "from the rocks"];
-            return strSign + "\n" + strDirections[direction];
-            }
-      };
+     introTitle: "مأموریت شما",
+     success: "تبریک، شما موفق شدید!",
+     target: "هدف",
+     currentDistance: "فاصله",
+     up: "بالا",
+     down: "پایین",
+     nbMeasures: function(val, max) {
+       return "تعداد سلول‌های آزمایش شده: " + val + " / " + max
+     },
+     tooManyMeas: function(max) {
+       return "شما نمی‌توانید بیش از " + max + " آزمایش انجام دهید."
+     },
+     clickRetry: "برای تلاش مجدد روی شروع مجدد کلیک کنید.",
+     errorCannotMeas: "شما نمی‌توانید این سلول را آزمایش کنید.",
+     errorTreasureFound: "شما گنج را پیدا کرده‌اید، حالا می‌توانید تأیید کنید.",
+     errorDistance: function(dir) {
+       var str = "فاصله تا ";
+       switch (dir) {
+         case 0:
+           str += "جنگل";
+           break;
+         case 1:
+           str += "دریا";
+           break;
+         case 2:
+           str += "صخره‌ها";
+       }
+       str += " اشتباه است.";
+       return str;
+     },
+     errorWrongSpot: "گنج اینجا نیست.",
+     distance: function(sign, direction) {
+       var strSign = "فاصله درست است";
+       if (sign > 0) {
+         strSign = "گنج\nدورتر است";
+       } else if (sign < 0) {
+         strSign = "گنج\nنزدیک‌تر است"; 
+       }
+       var strDirections = ["از جنگل", "از دریا", "از صخره‌ها"];
+       return strSign + "\n" + strDirections[direction];
+     }  
+   };
    </script>
    <script type="text/javascript" src="task.js"></script>
    <style>
